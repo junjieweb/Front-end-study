@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>6-ajax处理ie-get请求缓存问题</title>
+    <title>7-ajax请求异常与超时处理</title>
     <style>
         #content {
             width: 300px;
@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<h3>该页面是测试：6-ajax处理ie-get请求缓存问题</h3>
+<h3>该页面是测试：7-ajax请求异常与超时处理</h3>
 <button id="btn">点我发送请求（原生js-Ajax-get）</button>
 <div id="content"></div>
 <script>
@@ -28,24 +28,36 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
-                    console.log(xhr.response);
-                    // const {name, age, sex} = xhr.response;
-                    // content.innerHTML = (`
-                    //     <ul>
-                    //         <li>姓名：${name}</li>
-                    //         <li>年龄：${age}</li>
-                    //         <li>性别：${sex}</li>
-                    //     </ul>
-                    // `);
+                    const {name, age, sex} = xhr.response;
+                    content.innerHTML = (`
+                        <ul>
+                            <li>姓名：${name}</li>
+                            <li>年龄：${age}</li>
+                            <li>性别：${sex}</li>
+                        </ul>
+                    `);
                 }
             }
         }
 
         //配置请求
-        xhr.open('GET', 'http://127.0.0.1:8080/get_person?t=' + Date.now())
+        xhr.open('GET', 'http://127.0.0.1:8080/get_person_delay')
 
         //responseType 用于指定返回数据的格式
         xhr.responseType = 'json';
+
+        //配置出错的回调
+        xhr.onerror = () => {
+            alert('当前网络不稳定，请稍后重试');
+        }
+
+        //超时时间
+        xhr.timeout = 2000;
+
+        //超时的回调
+        xhr.ontimeout = () => {
+            alert('网速不给力，请切换网络重试');
+        }
 
         //发送请求
         xhr.send();
