@@ -15,17 +15,20 @@
 <body>
 <h3>该页面是测试：8-ajax取消请求</h3>
 <button id="btn">点我发送请求（原生js-Ajax-get）</button>
+<button id="btn2">取消请求</button>
 <div id="content"></div>
 <script>
     const btn = document.getElementById('btn');
+    const btn2 = document.getElementById('btn2');
     const content = document.getElementById('content');
+    let xhr;
 
-    btn.onclick = function () {
+    btn.onclick = () => {
         //实例xhr
-        const xhr = new XMLHttpRequest();
+        xhr = new XMLHttpRequest();
 
         //绑定监听
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     const {name, age, sex} = xhr.response;
@@ -61,6 +64,11 @@
 
         //发送请求
         xhr.send();
+        xhr.abort();
+    };
+
+    btn2.onclick = () => {
+            xhr.abort();
     };
 
 </script>
