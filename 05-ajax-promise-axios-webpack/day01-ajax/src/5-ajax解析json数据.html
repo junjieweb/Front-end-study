@@ -28,15 +28,14 @@
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
-                    console.log(xhr.response);
-                    // const {name, age, sex} = JSON.parse(xhr.response);
-                    // content.innerHTML = (`
-                    //     <ul>
-                    //         <li>姓名：${name}</li>
-                    //         <li>年龄：${age}</li>
-                    //         <li>性别：${sex}</li>
-                    //     </ul>
-                    // `);
+                    const {name, age, sex} = xhr.response;
+                    content.innerHTML = (`
+                        <ul>
+                            <li>姓名：${name}</li>
+                            <li>年龄：${age}</li>
+                            <li>性别：${sex}</li>
+                        </ul>
+                    `);
                 }
             }
         }
