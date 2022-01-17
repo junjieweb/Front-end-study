@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>8-ajax取消请求</title>
+    <title>9-避免多次重复请求</title>
     <style>
         #content {
             width: 300px;
@@ -13,17 +13,19 @@
     </style>
 </head>
 <body>
-<h3>该页面是测试：8-ajax取消请求</h3>
+<h3>该页面是测试：9-避免多次重复请求</h3>
 <button id="btn">点我发送请求（原生js-Ajax-get）</button>
-<button id="btn2">取消请求</button>
 <div id="content"></div>
 <script>
     const btn = document.getElementById('btn');
-    const btn2 = document.getElementById('btn2');
     const content = document.getElementById('content');
     let xhr;
+    let isLoading;
 
     btn.onclick = () => {
+        if (isLoading) {
+            xhr.abort();
+        }
         //实例xhr
         xhr = new XMLHttpRequest();
 
@@ -31,6 +33,7 @@
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status >= 200 && xhr.status < 300) {
+                    isLoading = false;
                     const {name, age, sex} = xhr.response;
                     content.innerHTML = (`
                         <ul>
@@ -49,26 +52,9 @@
         //responseType 用于指定返回数据的格式
         xhr.responseType = 'json';
 
-        //配置出错的回调
-        xhr.onerror = () => {
-            alert('当前网络不稳定，请稍后重试');
-        }
-
-        //超时时间
-        xhr.timeout = 2000;
-
-        //超时的回调
-        xhr.ontimeout = () => {
-            alert('网速不给力，请切换网络重试');
-        }
-
         //发送请求
         xhr.send();
-        xhr.abort();
-    };
-
-    btn2.onclick = () => {
-        xhr.abort();
+        isLoading = true;
     };
 
 </script>
