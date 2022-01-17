@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    可以直接在元素中设置事件的响应
+-->
+
+<!--<button ondblclick="alert('haha');" id="btn">我是一个按钮</button>-->
+<button id="btn">我是一个按钮</button>
+
+
+<script>
+    /*let btn = document.getElementById('btn');
+    btn.innerHTML = '😄';*/
+
+    /*
+        事件（event）
+            事件就是用户和网页交互瞬间
+                例如：点击鼠标，点击按钮，鼠标移动，键盘按下
+            我们通过相应用户的事件来完成和用户的交互
+    */
+
+    //在script标签中，通过js代码来设置事件的响应
+    let btn = document.getElementById('btn');
+    //可以通过为指定对象的事件属性设置响应函数的形式来处理事件
+    //在事件发生时触发的函数称为事件的响应函数
+    btn.onclick = function () {
+        alert('hello');
+    };
+
+</script>
+</body>
+</html>

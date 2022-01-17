@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            使用Number()函数来将一个其他类型转换为数字
+                转换情况：
+                    字符串：
+                        如果字符串是一个合法数字，则直接转换为对于数字
+                        如果字符串不是一个合法数字，则转换为NaN
+                    布尔值
+                        true --> 1
+                        false --> 0
+                    null --> 0
+                    undefined --> NaN
+
+             除了Number()以外，还有两个函数是专门用来将一个字符串转换为数字的
+                parseInt()
+                    将一个字符串解析为一个整数
+                    该函数会自左向右依次读取一个字符串中的字符，直到找到字符串中所有的合法的整数为止
+                    可以用来对一个数字取整
+                parseFloat()
+                    将一个字符串解析为一个浮点数
+
+        */
+
+        let a = '123';// 123
+        a = '3.14';// 3.14
+        a = 'abc';// NaN
+        a = '0xff';// 255
+        a = 'Infinity'; // Infinity
+        a = '123px';// NaN
+        a = true;// 1
+        a = false;// 0
+        a = null;// 0
+        a = undefined;// NaN
+
+        // console.log(a, typeof a);
+
+        a = Number(a);
+        // console.log(a, typeof a);
+
+        let b = '123';
+        b = '123.45';
+        b = 33.983;
+        // b = true;
+
+        console.log(b, typeof b);
+
+        b = parseInt(b);
+        // b = parseFloat(b);
+
+        console.log(b, typeof b);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

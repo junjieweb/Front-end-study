@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            作用域链：
+                当我们访问一个变量时，js会先在当前作用域中寻找
+                    如果有则直接使用
+                    如果没有则去当前作用域的上一层作用域中寻找
+                    找到了则直接使用，没找到继续去上一层寻找，以此类推
+                    直到找到全局作用域，如果没找到则报错 xxx is not defined
+
+                js中的作用域叫做 词法作用域，简单说，函数作用域的位置由它定义的位置决定的，
+                    和调用位置无关
+                函数定义在哪，它的上一层作用域就是哪
+        */
+
+        // let a = 10;
+
+        function fn() {
+            // let a = 20;
+
+            function test() {
+                console.log('a =', a);
+            }
+
+            test();
+        }
+
+        // fn();
+
+        let b = 22;
+
+        function fn2() {
+            console.log('b =', b);
+        }
+
+        function fn3() {
+            let b = 33;
+            fn2();
+        }
+
+        // fn3();
+
+        function fn4() {
+            let b = 44;
+            return function () {
+                console.log('b =', b);
+            };
+        }
+
+        let fn5 = fn4();
+        fn5();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

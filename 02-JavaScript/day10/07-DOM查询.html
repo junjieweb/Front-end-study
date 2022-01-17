@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            /*
+                在document中提供了一些直接获取元素的方法
+                    document.body
+                        获取页面的body元素
+                    document.documentElement
+                        获取页面中html根元素
+            */
+
+
+            // let body = document.getElementsByTagName('body')[0];
+            // alert(document.documentElement);
+
+            /*
+                document.querySelector()
+                    根据CSS选择器来获取一个元素节点
+                    需要一个选择器的字符串作为参数，会根据选择器去页面中获取元素
+                        该方法只会返回符合条件的第一个元素
+                document.querySelectorAll()
+                    根据CSS选择器返回所有符合条件的元素节点
+            */
+            // let div = document.querySelector('div[title]');
+            // // alert(div);
+            // div.innerHTML = '这是被我找到的div';
+
+            let item = document.querySelector('.item');
+            // alert(items);
+            // item.innerHTML = '我变了';
+
+            let items = document.querySelectorAll('.item');
+            alert(items.length);
+
+        };
+    </script>
+</head>
+<body>
+<div title="我是一个div">
+    我是一个div
+</div>
+<div>
+    我是一个div
+</div>
+
+<ul>
+    <li class="item">选项1</li>
+    <li class="item">选项2</li>
+    <li class="item">选项3</li>
+    <li class="item">选项4</li>
+</ul>
+</body>
+</html>

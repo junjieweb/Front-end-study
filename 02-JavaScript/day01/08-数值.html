@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>数值</title>
+    <script>
+        /*
+            在js中，所有的数值包含整数和浮点数（小数）都属于number类型
+                在js中可以确保大部分的整数运算可以得到一个精确的结果
+                在js中，小数运算有可能得到一个不精确的结果
+                    所以，在js中不要直接做对精度要求比较高的运算
+                当数值超过一定范围后，会使用Infinity来表示
+                    Infinity 表示正无穷
+                NaN 也是一个特殊数字，表示 Not a Number 非法数字
+
+             在ES2020最新标准中，提供了一个新数字类型bigint 表示大整数
+
+            typeof 运算符
+                用来检查一个值的类型
+                使用typeof检查一个字符串时，会返回string
+                检查一个数值时，会返回number
+
+            其他进制的数字
+                二进制 0b 开头
+                八进制 0o 开头
+                十六进制 0x 开头
+
+        */
+        let num10 = 100n;
+        console.log(num10);
+
+        let num9 = 0b10; //二进制
+        num9 = 0o10; //八进制
+        num9 = 0xff; //十六进制
+        console.log(num9);
+
+        let num1 = 10;
+        let num2 = 3.5;
+        let str = '10';
+        let num3 = 100 + 20;
+        let num4 = 0.1 + 0.2;
+        let num5 = Infinity;
+        let num7 = 10 - 'hello';
+        let num8 = NaN;
+
+
+        // console.log(typeof num8);
+        // alert(num4);
+
+        // alert(str);
+        // alert(num2);
+
+        // console.log(typeof str);
+        // console.log(typeof num2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

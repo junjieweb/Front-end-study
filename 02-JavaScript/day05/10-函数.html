@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            函数声明：
+                function 函数名([形参1,形参2,……形参n]){
+                    语句……
+                }
+        */
+
+        function fn() {
+            console.log('hello!');
+        }
+
+        //调用函数 函数对象(); 调用函数就是执行函数中存储的代码
+        // fn();
+        /*
+            函数表达式
+                let fn = function([形参1,形参2,……形参n]){
+                    语句
+                };
+        */
+        let fn2 = function () {
+            console.log('我是fn2');
+        };
+
+        // console.log(fn2);
+        // fn2();
+
+        //定义一个函数可以用来求任意两个数的和
+        /*
+            形参（形式参数）
+                在定义函数时，可以在函数的()中指定数量不等的形参
+                定义形参就相当于在函数中声明了两个变量，但是没有赋值
+            实参（实际参数）
+                在调用函数时，可以在函数的()中传递数量不等的实参
+                    实参将会赋值给对应的形参
+                js中不会检查实参的类型和数量，
+                    可以传递任意类型的实参
+                    也可以传递任意数量的实参
+                        如果实参和形参的数量相同，则对应的实参赋值给对象的形参
+                        如果实参少于形参的数量，则没有的实参的形参默认为undefined
+                        如果实参多于形参，则多余的实参不会使用
+        */
+        function sum(a, b) {
+            if (typeof a === 'number' && typeof b === 'number') {
+                console.log(a + b);
+            } else {
+                console.log('类型错误');
+            }
+        }
+
+        sum(2, 3);// 5
+        sum(true, false);// 1
+        sum(null, undefined);// NaN
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

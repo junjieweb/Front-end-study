@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            数组
+                使用[]来创建一个数组，和new Array()效果一样
+                可以在创建数组时，同时向数组中添加元素
+        */
+        let arr = [];//arr = new Array();
+        arr = [10, 20, 30, 40];
+        // arr = new Array(10);
+
+        /*
+            数组中可以存储任意的数据类型
+                如果一个数组中的元素还是数组，则这个数组被称为二维数组
+                虽然数组里可以存储任意的数据类型，并且长度没有限制
+                    但是我们使用数组，要尽量确保数组中的数据类型是相同的
+        */
+
+        arr = ['hello', true, null, {name: 'Tom'}, function () {
+            alert('hello');
+        }];
+
+        arr = [[1, 2, 3], [4, 5, 6]];
+
+        console.log([1][1]);
+        // console.log(arr[3].name);
+        // arr[4]();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

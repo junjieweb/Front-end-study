@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .outer {
+            width: 830px;
+            height: 482px;
+            /* background-color: #bfa; */
+            margin: 50px auto;
+            /* 开启div的定位，以使li相对于div来进行定位 */
+            position: relative;
+        }
+
+        /* 设置li的位置 */
+        .img-list li {
+            position: absolute;
+
+        }
+
+        /* .img-list li:nth-child(1) {
+            z-index: 1;
+        } */
+
+        .pointer {
+            width: 208px;
+            /* 开启绝对定位 */
+            position: absolute;
+            margin: 0 auto;
+            top: 322px;
+            left: 0;
+            right: 0;
+        }
+
+        /* 设置导航点的大小 */
+        .pointer a {
+            /* display: inline-table; */
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+        }
+
+        .pointer a:hover {
+            background-color: rgb(241, 128, 46);
+        }
+    </style>
+</head>
+
+<body>
+<!-- 轮播图的容器 -->
+<div class="outer">
+    <ul class="img-list">
+        <li><a href="#"><img src="img/1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/4.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/5.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/6.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img/7.png" alt=""></a></li>
+        <li><a href="#"><img src="img/8.jpg" alt=""></a></li>
+    </ul>
+
+    <!-- 创建导航小点 -->
+    <div class="pointer">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+</div>
+</body>
+
+</html>

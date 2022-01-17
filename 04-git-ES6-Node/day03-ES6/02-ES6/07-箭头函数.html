@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // ES6 允许使用「箭头」（=>）定义函数。
+    //1. 声明格式
+    let add = (a, b, c) => {
+        return a + b + c;
+    };
+    //2. 函数调用
+    console.log(add(1, 2, 3));
+    console.log(add.call({}, 1, 2, 3));
+    console.log(add.apply({}, [1, 2, 3]));
+
+    // 箭头函数特点
+    // 1. this 的值是静态的.
+    // let getName2 = () => {
+    //     console.log(this);
+    // };
+    // getName2.call({});
+
+    // 2. 不能作为构造函数使用
+    // function Person() {}
+    // let me = new Person();
+
+    // 3. 不能使用 arguments
+    // function f() {
+    //     console.log(arguments);
+    // }
+    // f(1,3,4,5,2);
+
+    // 4. 箭头函数简写
+    // 一 不写小括号, 当形参有且只有一个的时候
+    // 二 不写花括号, 当代码体只有一条语句的时候,并且语句的执行结果为函数返回值的 (如果不写花括号的话, return 也不能写)
+    // let pow = num => num * num * num;
+    let num = (m, n) => Math.ceil(Math.random() * (n - m + 1) + m - 1);
+
+    // console.log(pow(9));
+    console.log(num(1, 100));
+
+</script>
+</body>
+</html>

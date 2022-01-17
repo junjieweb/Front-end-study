@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 500px;
+            background-color: #bfa;
+            font-size: 50px;
+            /* 
+                text-align用来设置文本的对齐方式
+                    可选值：
+                        left 默认值，靠左对齐
+                        right 靠右对齐
+                        center 居中对齐
+                        justify 两端对齐
+            */
+            /* text-align: justify; */
+
+            /* 
+                text-decoration 设置文本修饰
+                    可选值
+                        underline 下划线
+                        line-through 删除线
+                        overline 上划线
+                        none 没有线
+            */
+            /* text-decoration: green wavy underline; */
+
+            /* 
+                text-indent 首行缩进
+            */
+            text-indent: 2em;
+        }
+
+        span {
+            font-size: 20px;
+            /* 
+                vertical-align 垂直对齐方式
+                    baseline 基线 沿基线对齐
+                    top 和父元素的顶部对齐
+                    bottom 和父元素的底部对齐
+                    super 上标
+                    sub 下标
+                    middle 居中
+
+            */
+            vertical-align: middle;
+            vertical-align: 10px;
+        }
+
+        div {
+            /* font-size: 0; */
+            border: 1px red solid;
+            background-color: #bfa;
+        }
+
+        img {
+            vertical-align: bottom;
+        }
+
+        /* h1{
+            text-indent: -1000px;
+        } */
+    </style>
+</head>
+
+<body>
+<h1>HELLO</h1>
+<p>Hello Hello</p>
+<div>
+    <img src="an.jpg" alt="">
+</div>
+<p>Hello How <span>are</span> you</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque rerum, vel provident commodi excepturi culpa odit
+    doloribus enim, inventore nobis ipsum atque nulla possimus! Quia accusamus commodi quidem optio amet!</p>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            创建两个数组
+        */
+        let arr1 = [];
+        let arr2 = [];
+
+        //随机向元素中添加元素
+        for (let i = 0; i < 1000000; i++) {
+            //生成一个随机数
+            let num = Math.round(Math.random() * 10000);
+            //将num添加到数组中
+            arr1.push(num);
+            arr2.push(num);
+        }
+
+        console.time('快速排序');
+        console.log(quickSort(arr1));
+        console.timeEnd('快速排序');
+
+        console.time('sort');
+        arr2.sort(function (a, b) {
+            return a - b;
+        });
+        console.timeEnd('sort');
+
+        // console.time('冒泡排序');
+        // console.log(bubbleSort(arr2));
+        // console.timeEnd('冒泡排序');
+
+        let arr3 = [];
+        for (let i = 0; i < 10000; i++) {
+            arr3.push(i);
+        }
+        // console.log(arr3);
+        // console.log(quickSort(arr3));
+
+
+        function quickSort(arr) {
+            if (arr.length < 2) {
+                return arr;
+            }
+            //随机获取一个index
+            let basisIndex = Math.floor(Math.random() * arr.length);
+            let basis = arr[basisIndex];
+            let left = [];//左值
+            let right = [];//右值
+            for (let i = 0; i < arr.length; i++) {
+                //判断是不是基准值自己
+                if (i === basisIndex) {
+                    continue;
+                }
+                if (arr[i] < basis) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            return quickSort(left).concat(basis, quickSort(right));
+        }
+
+        function bubbleSort(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let type = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = type;
+                    }
+                }
+            }
+            return arr;
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

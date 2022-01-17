@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        #box2 {
+            width: 300px;
+            height: 300px;
+            background-color: #bfa;
+        }
+
+        #box3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    <div id="box2">
+        <div id="box3"></div>
+    </div>
+</div>
+
+<script>
+    /*
+        关于事件的传播微软公司和网景公司有着不同的理解
+            微软认为，事件应该是由内向外传播
+                也就是先触发后代元素上的事件，再触发祖先元素上的事件（事件的冒泡）
+            网景认为，事件应该是由外向内传播
+                也就是先触发祖先元素上的事件，再触发后代元素的事件（事件的捕获）
+            W3C将两种理念进行整合，将事件分为了三个阶段：
+                1、事件的捕获
+                    从最外层元素（window）向目标元素进行事件的捕获
+                2、目标元素阶段
+                    事件捕获到目标元素，捕获停止
+                3、事件的冒泡
+                    从目标元素开始，向外层元素进行事件的冒泡
+            默认情况下，事件是在冒泡阶段触发的
+    */
+
+    let box1 = document.getElementById('box1');
+    let box2 = document.getElementById('box2');
+    let box3 = document.getElementById('box3');
+
+    box1.addEventListener('click', function () {
+        alert(1);
+    }, true);
+
+    box2.addEventListener('click', function () {
+        alert(2);
+    }, true);
+
+    box3.addEventListener('click', function () {
+        alert(3);
+    }, true);
+
+</script>
+</body>
+</html>

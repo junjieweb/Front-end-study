@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            /* border: 10px red double; */
+            /* background-color 背景颜色 */
+            background-color: #bfa;
+
+            /* 
+                background-clip 设置背景显示的区域
+                    可选值：
+                        border-box 背景会延伸到边框的下边
+                        padding-box 背景会设置到内边距
+                        content-box 背景只会设置到内容区
+                        
+            */
+            /* background-clip: padding-box; */
+
+            /* 
+                background-image 设置背景图片
+
+                    背景颜色和背景图片可以同时设置
+                    这样颜色将会作为图片的底色显示
+
+                背景图片默认会在网页中水平垂直双方向重复
+            */
+            background-image: url(img/1.png);
+
+            /* 
+                background-repeat   设置背景图片的重复方式
+                    可选值：
+                        repeat 默认值 双方向重复
+                        repeat-x 水平方向重复
+                        repeat-y 垂直方向重复
+                        no-repeat 不重复
+            */
+            background-repeat: no-repeat;
+
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="./CSS/style.css"> -->
+</head>
+
+<body>
+<div class="box1"></div>
+</body>
+
+</html>

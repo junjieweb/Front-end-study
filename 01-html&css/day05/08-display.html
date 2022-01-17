@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            /* 
+                display
+                    指定元素所生成的框的类型
+                    可选值：
+                        inline 行内元素
+                        block 块元素
+                        inline-block 行内块元素
+                            既有行内元素的特点，不独占一行
+                            又有块元素的特点，可以设置width和height
+                        none 元素不在页面中显示
+
+            */
+            display: none;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+
+        }
+
+        .box1 {
+            background-color: orange;
+        }
+
+        .box1:hover a {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    我是一个div
+    <a href="#">我是一个超链接</a>
+    <a href="#">我是一个超链接</a>
+</div>
+
+
+<span>我是span</span>
+
+<div>我是div</div>
+</body>
+
+</html>

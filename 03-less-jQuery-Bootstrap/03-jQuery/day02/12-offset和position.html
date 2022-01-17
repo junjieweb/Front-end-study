@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: blue;
+            /*display: none;*/
+            /*visibility: hidden;*/
+            /*溢出隐藏*/
+            /*overflow: hidden;*/
+        }
+
+        .div2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+            /*margin-top: 50px;*/
+        }
+
+        .div3 {
+            position: absolute;
+            top: 250px;
+        }
+
+        .div4 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: pink;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body style="height: 2000px;">
+
+<div class="div1">
+    <div class="div2">
+<!--        <div class="div4"></div>-->
+    </div>
+</div>
+
+<div class='div3'>
+    <button id="btn1">读取offset和position</button>
+    <button id="btn2">设置offset</button>
+</div>
+<!--
+  获取/设置标签的位置数据
+  * offset(): 相对页面左上角的坐标
+  * position(): 相对于父元素左上角的坐标
+  只对可见元素有效
+-->
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    // offset方法    返回的是一个对象 包含left和top两个属性    元素相对于页面左上角的位置
+    // position方法  返回的是一个对象 包含left和top两个属性    元素相对于包含块的位置
+    // 上边两个方法  返回的对象中两个属性的值  都是不带单位的数值  但是都是以像素计
+    // 只对可见元素有效     指的是display：none
+
+    // 1. 点击 btn1
+    $('#btn1').click(function () {
+        // 打印 div1 相对于页面左上角的位置
+        console.log($('.div1').offset());
+
+        // 打印 div2 相对于页面左上角的位置
+        console.log($('.div2').offset());
+
+        // 打印 div1 相对于父元素左上角的位置
+        console.log($('.div1').position());
+
+        // 打印 div2 相对于父元素左上角的位置
+        console.log($('.div2').position());
+
+        // console.log($('.div4').position());
+    });
+
+</script>
+</body>
+</html>

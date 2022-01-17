@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset=UTF-8>
+    <title>添加删除记录练习</title>
+    <style>
+
+        #total {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px;
+            margin: 5px;
+            background-color: #99ff99;
+            float: left;
+        }
+
+        .inner {
+            width: 400px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+        }
+
+        #employeeTable {
+            border-spacing: 1px;
+            background-color: black;
+            margin: 80px auto 10px auto;
+        }
+
+        th, td {
+            background-color: white;
+        }
+
+        #formDiv {
+            width: 250px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 50px auto 10px auto;
+            padding: 10px;
+        }
+
+        #formDiv input {
+            width: 100%;
+        }
+
+        .word {
+            width: 40px;
+        }
+
+        .inp {
+            width: 200px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            //点击超链接后删除指定员工
+
+            //获取所以的超链接
+            let links = document.getElementsByTagName('a');
+            //遍历超链接
+            for (let i = 0; i < links.length; i++) {
+                //为超链接绑定单击响应函数
+                links[i].onclick = function () {
+                    /*
+                        点击超链接后页面会发生跳转，这是超链接的默认行为
+                            如果不希望默认行为的发生，可以在响应函数的最后
+                            return false;
+                    */
+
+                    //点击哪个超链接，this就是哪个
+                    //点击链接后删除指定员工
+                    let tr = this.parentNode.parentNode;
+
+                    //获取要删除的员工的名字
+                    let name = tr.firstElementChild.innerHTML;
+
+                    //confirm() 用来弹出一个确认框
+                    // let isDel = confirm('确认删除吗？');
+
+                    if (confirm(`确认删除【${name}】吗？`)) {
+                        //删除tr
+                        tr.parentNode.removeChild(tr);
+                    }
+
+                    //取消默认行为
+                    return false;
+                };
+            }
+        };
+    </script>
+
+</head>
+<body>
+
+<table id="employeeTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+</table>
+
+<div id="formDiv">
+
+    <h4>添加新员工</h4>
+
+    <table>
+        <tr>
+            <td class="word">name:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email:</td>
+            <td class="inp">
+                <input type="text" name="email" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

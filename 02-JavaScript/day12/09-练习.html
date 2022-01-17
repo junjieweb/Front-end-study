@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            /*position: fixed;*/
+            position: absolute;
+        }
+
+        #box2 {
+            width: 400px;
+            height: 400px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1"></div>
+<div id="box2"></div>
+
+<script>
+
+    /*
+        使div 跟着鼠标移动
+    */
+    //获取box1
+    let box1 = document.getElementById('box1');
+    //为document绑定鼠标移动事件
+    document.onmousemove = function (event) {
+
+        //获取垂直滚动条滚动的距离
+        let top = document.documentElement.scrollTop;
+
+        //获取鼠标指针的坐标
+        let x = event.clientX;
+        let y = event.clientY;
+
+        // pageX pageY 用来获取鼠标相对于整个页面的坐标
+        // let x = event.pageX;
+        // let y = event.pageY;
+        //将鼠标的坐标设置为box1的偏移量
+        box1.style.left = x + 'px';
+        box1.style.top = y + top + 'px';
+    };
+
+    let box2 = document.getElementById('box2');
+    box2.onmousemove = function (event) {
+        event.stopPropagation();
+    };
+
+    box1.onmousemove = function (event) {
+        event.stopPropagation();
+    };
+
+
+</script>
+</body>
+</html>

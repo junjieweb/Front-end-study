@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperties</title>
+</head>
+<body>
+
+<script>
+
+    let sanlun = {
+        name: '三轮车',
+    };
+
+    // sanlun.brand = '金蛙';
+    Object.defineProperties(sanlun, {
+        brand:{
+            value:'金蛙'
+        },
+        price:{
+            set :function () {
+
+            },
+            get :function () {
+                return 123;
+            }
+        }
+    });
+
+    console.log(sanlun);
+    console.log(sanlun.price)
+
+</script>
+
+</body>
+</html>

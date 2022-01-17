@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            margin: 10px;
+        }
+    </style>
+    <script>
+
+        /*
+            如何获取到我们想要的对象
+        */
+        window.onload = function () {
+            //当我们点击按钮时，可以获取到box1
+
+            //获取按钮btn01
+            let btn01 = document.getElementById('btn01');
+            //为btn01绑定一个单击响应函数
+            btn01.onclick = function () {
+                /*
+                    document.getElementById()
+                        根据id获取一个元素节点对象
+                */
+                //获取到id为box1的div
+                let box1 = document.getElementById('box1');
+                box1.innerHTML = '我是box1中的文字';
+            };
+
+            //当点击按钮二时，可以获取到所有的class为item的li
+            let btn02 = document.getElementById('btn02');
+
+            btn02.onclick = function () {
+                /*
+                    document.getElementsByClassName()
+                        根据class属性值获取一组元素
+                    document.getElementsByTagName()
+                        根据标签名来获取一组元素
+                */
+                //获取class为item的元素
+                // let items = document.getElementsByClassName('item');
+                let items = document.getElementsByTagName('li');
+                //遍历items
+                for (let i = 0; i < items.length; i++) {
+                    alert(items[i].innerHTML);
+                }
+            };
+
+            //获取按钮三
+            let btn03 = document.getElementById('btn03');
+            btn03.onclick = function () {
+                /*
+                    getElementsXxx
+                        一系列总会返回一个类数组对象
+                */
+                // let divs = document.getElementsByTagName('div');
+                // alert(divs.length);
+
+                //document.getElementsByTagName('*') 用来获取页面中的所有元素
+                // let all = document.getElementsByTagName('*');
+                // for (let i = 0; i < all.length; i++) {
+                //     alert(all[i]);
+                // }
+
+                /*
+                    document.getElementsByName()
+                        根据name属性值来获取一组元组节点
+                            主要用来对付表单项
+                */
+                let um = document.getElementsByName('username')[0];
+                let genders = document.getElementsByName('gender');
+                // alert(um);
+                //innerHTML用来获取或设置标签内部的HTML代码
+                for (let i = 0; i < genders.length; i++) {
+                    //读取一个对象的属性值 value
+                    //读取哪个属性就.哪个
+                    //特殊的就是class属性，需要通过className来获取
+                    //classList 返回的是当前类所有的class的列表，可以通过索引来获取具体的class
+                    alert(genders[i].classList);
+                }
+            };
+
+            //为按钮四绑定单击函数
+            let btn04 = document.getElementById('btn04');
+            btn04.onclick = function () {
+                //获取name为username的input
+                let um = document.getElementsByName('username')[0];
+                //修改对象的属性 对象.属性 = 值
+                // alert(um.value);
+                um.value = '今天天气真不错';
+            };
+        };
+
+
+    </script>
+</head>
+<body>
+
+<button id="btn01">按钮一</button>
+<button id="btn02">按钮二</button>
+<button id="btn03">按钮三</button>
+<button id="btn04">按钮四</button>
+
+<div id="box1"></div>
+
+<ul>
+    <li class="item">列表1</li>
+    <li class="item">列表2</li>
+    <li class="item">列表3</li>
+    <li class="item">列表4</li>
+</ul>
+
+<form action="#">
+    用户名：<input type="text" name="username"><br>
+    性别：<input class="hello hi" type="radio" name="gender" value="male">男
+    <input class="hello hi" type="radio" name="gender" value="female">女
+</form>
+
+</body>
+</html>

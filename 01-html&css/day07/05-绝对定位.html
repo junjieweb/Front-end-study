@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            position: relative;
+        }
+
+        /* 
+            绝对定位元素水平方向布局的等式
+                left + margin-left + border-left + padding-left + width +
+                padding-right + border-right + margin-right + right = 包含块的宽度
+
+                此时就有了5个值可以设置为auto
+                    left
+                    right
+                    margin-left
+                    margin-right
+                    width
+        */
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            /* 
+                auto + auto + 0 + 0 + 200px + 0 + 0 + auto + auto = 500px
+                0 + auto + 0 + 0 + 200px + 0 + 0 + auto + 0 = 500px
+
+            */
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+
+</html>

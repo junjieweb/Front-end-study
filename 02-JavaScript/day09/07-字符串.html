@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let str = 'hello';//['h','e','l','l','o']
+
+        /*
+            字符串
+                字符串本质上就是一个字符数组
+                操作字符串时，完全可以将字符串想象成一个数组
+                属性：
+                    length 获取字符串的长度
+                方法：
+                    concat()
+                        用来将两个或多个字符串连接为一个字符串
+                    charAt()
+                        根据索引获取字符串中的字符
+                    charCodeAt()
+                        根据索引获取指定字符的字符编码
+                    String.fromCharCode()
+                        根据编码返回字符
+                    indexOf()
+                    lastIndexOf()
+                        查找一个字符串中是否含有指定的子串
+                        如果没找到，返回-1
+                    slice()
+                        用来从一个字符串中截取子串
+                    split()
+                        用来将一个字符串拆分为一个数组
+                        参数：
+                            需要一个分隔符作为参数
+                                会根据分隔符去拆分字符串
+                    toLowerCase()
+                        将字符串全部转换为小写
+                    toUpperCase()
+                        将字符串全部转换为大写
+                    trim()
+                        去除字符串的前后空格
+                    trimEnd()
+                        去除字符串后的空格
+                    trimStart()
+                        去除字符串前面的空格
+                    endsWith()
+                        检查一个字符串是否以指定内容结尾
+                    startsWith()
+                        检查一个字符串是否以指定内容开头
+                    repeat()
+
+        */
+        let result = str.concat('world');
+        result = str.charAt(1);
+        result = str.charCodeAt(1);
+        str = 'hello world!';
+        result = str.lastIndexOf('lo');
+        result = str.lastIndexOf('hlo');
+        result = str.slice(6, 8);
+        result = str.slice(1, -1);
+        result = str.split(' ');
+        result = str.split('');
+        str = '    Hello World!   ';
+        result = str.toLowerCase();
+        result = str.toUpperCase();
+        console.log(str);
+        result = str.trim();
+        result = str.trimStart();
+        result = str.trimEnd();
+        str = 'hello hello how are you';
+        result = str.endsWith('you');
+        result = str.startsWith('you');
+        result = str.repeat(2);
+        console.log(result);
+
+        // console.log(str[0]);
+        // console.log(str.length);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

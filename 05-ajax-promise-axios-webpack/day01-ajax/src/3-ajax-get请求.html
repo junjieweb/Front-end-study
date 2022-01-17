@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>3-ajax-get请求</title>
+    <style>
+        #content {
+            width: 300px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h3>该页面是测试：3-ajax-get请求</h3>
+<button id="btn">点我发送请求（原生js-Ajax-get）</button>
+<div id="content"></div>
+<script>
+    //获取按钮
+    const btn = document.getElementById('btn');
+    const content = document.getElementById('content');
+    //给按钮绑定监听
+    btn.onclick = () => {
+        //1.创建xhr实例对象
+        const xhr = new XMLHttpRequest();
+
+        //绑定监听
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                    content.innerHTML = `<h3>${xhr.response}</h3>`;
+                }
+            }
+        };
+
+        //2.指定发送请求的：method、url、参数
+        /*
+            形如：key=value&key=value 就是query参数的urlencoded编码形式
+            形如：/xxx/xx/tom/18 就是params参数
+        */
+        //携带query参数
+        // xhr.open('GET', 'http://127.0.0.1:8080/test_get?name=tom&age=18');
+        //携带params参数
+        xhr.open('GET', 'http://127.0.0.1:8080/test_get2/tom/18');
+
+        //3.发送请求
+        xhr.send();
+    }
+</script>
+</body>
+</html>

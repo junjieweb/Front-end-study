@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* margin-bottom: 100px; */
+            margin-bottom: 100px;
+            /* margin: 0 auto; */
+        }
+
+        /*
+            外边距的折叠，垂直方向的相邻的外边距，会发生外边距的折叠现象，
+                兄弟元素间的相邻外边距，会取两个外边距间的最大值（正值）
+                如果是负外边距，则取绝对值较大的
+                一正一负，取两个值的和
+        */
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+
+</html>

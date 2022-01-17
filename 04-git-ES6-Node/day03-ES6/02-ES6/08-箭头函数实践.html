@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数实践</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #58a;
+        }
+    </style>
+</head>
+<body>
+<div id="ad"></div>
+<script>
+    //需求-1  点击 div 2s 后颜色变成「粉色」
+    const ad = document.getElementById('ad');
+    //绑定事件
+    ad.onclick = function () {
+        // //保存this的值  that self _this
+        // let that = this;
+        // setTimeout(function () {
+        //     that.style.background = 'pink';
+        // }, 2000)
+        //箭头函数中this指向外层作用域
+        setTimeout(() => {
+            this.style.background = 'pink'
+        }, 2000)
+    }
+
+    //需求-2  从数组中返回偶数的元素
+    const arr = [234, 34, 5, 45, 23, 1, 6, 4, 123, 4];
+    //遍历    filter 过滤
+    // const result = arr.filter(function (item) {
+    //     if (item % 2 === 0) {
+    //         return true
+    //     } else {
+    //         return false;
+    //     }
+    // })
+    const result = arr.filter(item => item % 2 === 0);
+    console.log(result);
+
+    //如果回调与this的值是相关的，则不能使用箭头函数
+    //1、事件的回调
+    // ad.onclick = () => {
+    //     console.log(this);
+    // }
+
+    //2、对象的方法
+    // var obj = {
+    //     run:function () {
+    //         console.log(this)
+    //     },
+    //     run2:()=>{
+    //         console.log(this)
+    //     }
+    // }
+    // obj.run();
+    // obj.run2();
+
+    //如果这个回调与this是无关的
+    //1、定时器
+    //2、数组方法回调 filter map forEach
+
+</script>
+</body>
+</html>

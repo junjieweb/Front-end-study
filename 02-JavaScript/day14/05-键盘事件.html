@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div id="box1"></div>-->
+
+<input type="text">
+
+<a href="#">这是一个超链接</a>
+
+<script>
+
+    /*
+        键盘事件
+            keydown
+            keyup
+            keypress
+
+            键盘事件只能绑定给可以获取焦点的元素或document
+            注意：
+                如果按着某个按键不松开，键盘按下事件会连续触发
+                    但是第一次触发和第二次触发之间的间隔会比较长
+                    这么设计是为了防止用户误操作
+    */
+    // let box1 = document.getElementById('box1');
+    // box1.addEventListener('keydown',function () {
+    //    alert(123);
+    // });
+
+    let input = document.getElementsByTagName('input')[0];
+    let link = document.getElementsByTagName('a')[0];
+    document.addEventListener('keydown', function (event) {
+        //event.key 用来获取当前是哪个按键被按下
+        // console.log(event.key);
+
+        // if (event.key.toLowerCase() === 'k'){
+        //     console.log('你按了k键');
+        // }
+        // console.log(event.ctrlKey);
+        // console.log(event.shiftKey);
+        // console.log(event.altKey);
+
+        //event.ctrlKey 用来检查ctrl是否按下，按下返回true，否则返回false
+        //当用户同时按了ctrl 和 k时，打印内容
+        if (event.key === 'k' && event.ctrlKey) {
+            console.log('你同时按了ctrl和k键');
+        }
+    });
+
+    /*input.addEventListener('keyup', function () {
+        console.log(123);
+    });*/
+
+    /*document.addEventListener('keypress', function (event) {
+        console.log(event.key);
+    });*/
+
+
+</script>
+
+</body>
+</html>

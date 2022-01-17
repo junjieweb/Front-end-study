@@ -1,0 +1,28 @@
+.box1 {
+  width: 100px;
+  height: 100px;
+  color: red;
+  background-color: #bfa;
+
+  .box4 {
+    border-radius: 50%;
+  }
+}
+
+.box3 {
+  border: 1px solid red;
+}
+
+//Mixins
+//通过Mixins 可以将不同类的样式进行混合使用
+//.box2 {
+//  //.box1();
+//  //.box3();
+//  .box1 .box4();
+//}
+
+//extent() 可以将其他的选择器上的样式，拓展到当前的选择器上
+//和Mixins不同，Mixins是将全部样式复制
+//extent() 是通过选择器分组的形式来对样式进行拓展
+.box2:extend(.box1 all) {
+}

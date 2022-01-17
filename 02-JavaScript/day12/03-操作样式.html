@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            margin-top: 20px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+
+<div id="box1"></div>
+
+<script>
+    //获取box1
+    let box1 = document.getElementById('box1');
+    //创建一个遍历
+    let width = 100;
+
+    document.getElementById('btn01').onclick = function () {
+        /*
+            修改元素的样式
+                元素.style.样式名 = 样式值
+                    样式名通常可以直接写
+                    但是如果样式名中带有-必须进行修改
+                        将-号去掉，-后的字母大写
+                        background-color ---> backgroundColor
+                通过style所修改的样式都是内联样式，所以修改完成后通常会立即生效
+        */
+        //获取元素当前宽度
+        let currentWidth = getComputedStyle(box1).width;
+        //点击按钮后修改box1的大小
+        box1.style.width = parseInt(currentWidth) + 10 + 'px';
+        box1.style.height = parseInt(currentWidth) + 10 + 'px';
+        box1.style.backgroundColor = 'orange';
+    };
+
+    document.getElementById('btn02').onclick = function () {
+        //读取元素的样式 通过style读取样式时，只能读取内联样式
+        // alert(box1.style.width);
+
+        /*
+            getComputedStyle()
+                用来获取元素的当前样式
+                参数：
+                    1、要获取样式的对象
+                    2、要获取的样式伪元素
+                返回值：
+                    返回一个对象，对象中存储了当前元素的所以样式
+        */
+
+        let box1Style = getComputedStyle(box1);
+        // console.log(box1Style);
+        alert(box1Style.width);
+    };
+
+</script>
+</body>
+</html>

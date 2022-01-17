@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //创建一个函数，专门用来创建人类的对象
+        /*
+            工厂方法
+                使用工厂方法来创建对象
+        */
+        function createPerson(name, age, gender, address) {
+            //创建一个对象
+            let obj = {};
+
+            //向对象中添加属性
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.address = address;
+            obj.sayHello = function () {
+                alert(`大家好,我是${this.name}`);
+            };
+
+            //将对象作为返回值返回
+            return obj;
+        }
+
+        let per = createPerson('孙悟空', 18, '男', '花果山');
+        let per2 = createPerson('猪八戒', 16, '男', '高老庄');
+        let per3 = createPerson('蜘蛛精', 18, '女', '盘丝洞');
+        console.log(per);
+        console.log(per2);
+        console.log(per3);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let obj = {name: 'Tom'};
+        // let obj2 = obj;
+        // obj2.name = 'Jerry';
+        // console.log(obj);
+        // console.log(obj2);
+
+        function fn(a) {
+            a = {};
+            a.name = 'Jerry';
+        }
+
+        fn(obj);
+
+        console.log(obj);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

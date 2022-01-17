@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function createPerson(name, age) {
+            let obj = {
+                name,
+                age,
+                sayHello() {
+                    alert('大家好，我是' + this.name)
+                }
+            };
+            return obj;
+        }
+
+        // let per = createPerson('孙悟空', 18);
+        // per.sayHello();
+        // console.log(per);
+
+        /*
+            可以通过构造函数来创建对象
+                构造函数就是专门用来创建对象的函数
+                构造函数的定义方式和普通函数没有区别
+                    唯一的不同点在于构造函数的名字首字母要大写
+                构造函数和普通函数的区别在于调用方式
+                    一个函数如果直接调用，那么它就是一个普通函数
+                    如果使用new关键字调用，它就是一个构造函数
+                一个构造函数也称为是一个类，通过改构造函数所创建的对象
+                    称为该类实例，通过同一个类创建的对象，称为同一类对象
+
+             构造函数的执行流程
+                1、创建一个新的对象
+                2、将这个新的对象设置为函数中的this
+                3、执行函数中的代码
+                4、将新建的对象返回
+        */
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let per = new Person('孙悟空', 18);
+        let per2 = new Person('猪八戒', 28);
+
+        /*
+            instanceof
+                用来检查一个对象是否是一个类的实例
+                语法：
+                    对象 instanceof 类（构造函数）
+        */
+        console.log(per instanceof Person);
+        // console.log(per2);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

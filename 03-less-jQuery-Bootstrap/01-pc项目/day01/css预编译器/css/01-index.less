@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//less的基本嵌套规则，也就是直接将后代元素的选择器和样式，直接写在父元素或祖先元素的括号内
+//编译后为 后代选择器
+//如果在less中，需要操作子元素，只用在子元素选择器前直接加>即可
+//如果在less中需要使用到伪类、结构类、否定选择器、为元素等带:的选择器时，都会使用到&
+//&代表当前这个括号的选择器
+ul {
+  width: 300px;
+  margin: 100px auto;
+  border: 1px solid black;
+  list-style: none;
+
+  li {
+    height: 30px;
+    line-height: 30px;
+
+    a {
+      color: red;
+    }
+    &:hover{
+      background-color: pink;
+    }
+    &:nth-child(2){
+      background-color: red;
+    }
+  }
+
+  > a {
+    color: yellowgreen;
+  }
+}

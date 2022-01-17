@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../day05/css/reset.css">
+    <style>
+        /* 设置导航条 */
+        .nav-bar {
+            /* 设置总宽度 */
+            width: 1210px;
+            /* 设置高度 */
+            height: 48px;
+            /* 设置背景颜色 */
+            background-color: rgb(232, 231, 227);
+            /* 设置居中 */
+            margin: 50px auto;
+        }
+
+        /* 设置导航条中的链接 */
+        .nav-bar a {
+            /* 设置向左浮动 */
+            float: left;
+            /* 设置高度 */
+            height: 100%;
+            /* 去除下划线 */
+            text-decoration: none;
+            /* 设置行高，使文字垂直居中 */
+            line-height: 48px;
+            /* 设置字体颜色 */
+            color: #333;
+            /* 设置字体大小 */
+            font-size: 20px;
+            /* 设置左右内边距 */
+            padding: 0 35px;
+        }
+
+        /* 设置鼠标移入的效果 */
+        /* :hover 里所设置的样式，应该仅仅是鼠标移入后和移入前不同的样式 */
+        .nav-bar a:hover {
+            color: white;
+            background-color: rgb(63, 63, 63);
+        }
+    </style>
+</head>
+
+<body>
+<!-- 定义页面的结构 -->
+<nav class="nav-bar">
+    <a href="#">HTML/CSS</a>
+    <a href="#">JavaScript</a>
+    <a href="#">Server Side</a>
+    <a href="#">ASP.NET</a>
+    <a href="#">XML</a>
+    <a href="#">Web Services</a>
+    <a href="#">Web Building</a>
+</nav>
+</body>
+
+</html>

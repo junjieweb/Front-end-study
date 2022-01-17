@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>拓展运算符应用</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    //1、数组的合并
+    const kuaizi = ['小样', '王太利'];
+    const chuanqi = ['曾毅', '零花'];
+    const zuhe = [...kuaizi, ...chuanqi];
+    console.log(zuhe);
+
+    //2、新数组克隆
+    const jinhua = ['e', 'g', 'm'];
+    const s = [...jinhua, 'x', 'y', 'z'];
+    console.log(s);
+
+    //3、将伪数组转为真正的数组
+    const divs = document.querySelectorAll('div');
+    console.log(divs);
+    const result = [...divs];
+    console.log(result);
+
+
+</script>
+</body>
+</html>

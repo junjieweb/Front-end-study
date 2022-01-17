@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>时间函数</title>
+    <style>
+        .box1 {
+            height: 200px;
+            background-color: #bfa;
+            position: relative;
+            border-bottom: 4px solid black;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-radius: 50%;
+            /*
+                cubic-bezier(p1,p2,p3,p4)
+                    可以通过贝塞尔曲线来指定元素的运动方式
+             */
+            /*transition: left 3s cubic-bezier(.46, 1.21, .54, -0.33);*/
+            transition: left 3s cubic-bezier(.09,1.69,.45,1.52);
+
+        }
+
+        .box1:hover .box2 {
+            left: 800px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

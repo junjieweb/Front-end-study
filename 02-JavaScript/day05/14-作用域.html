@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            作用域
+                作用域指的就是变量的作用范围
+                作用域分为两大类
+                    全局作用域
+                        全局作用域在页面加载时创建，在页面关闭时销毁
+                        所有的直接写在script标签中的内容，都位于全局作用域
+                        全局作用域中定义的变量是全局变量，定义的函数是全局函数
+                            全局变量和全局函数可以在任意位置被访问
+                        全局作用域中存在有一个全局对象 window，window对象代表浏览器窗口
+                            在全局作用域中，所有的使用var声明的变量，都会作为window对象的属性保存
+                            所有使用function声明的函数，都会作为window对象方法保存
+                            函数实际就是window对象的方法
+                            let声明的变量不会存储在window对象中
+                    局部作用域
+                        块作用域
+                        函数作用域
+        */
+        var a = 10;
+        var b = 20;
+
+        function fn() {
+            console.log(a);
+            console.log(b);
+        }
+
+        window.fn();
+        // window.a = 44;
+        // alert(a);
+        // alert(window.a);
+        //直接为一个没有声明的变量赋值，实际就相当于直接向window对象中添加属性
+        //window.c = 30;
+        c = 30;
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

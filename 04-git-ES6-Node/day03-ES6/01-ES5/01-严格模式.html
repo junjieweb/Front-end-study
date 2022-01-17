@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    //严格模式
+    //1.全局声明
+    'use strict';
+
+    //2.函数内声明
+    function main() {
+        'use strict';
+    }
+
+    //严格模式的特性
+    //1.不允许使用未声明的变量
+    // hello = 'hello';
+
+    //2.函数内部的this不指向window
+    // function fn() {
+    //     console.log(this);
+    // }
+    // fn();
+
+    //3.eval作用域  eval是一个函数，接收字符串参数，会对字符串进行js语法解析并运行
+    // eval('alert(123)');
+    // eval('a=10;b=20');
+    // console.log(a, b);
+
+    //4.对象不能有重复的属性
+    // let obj ={
+    //     a:100,
+    //     a:10
+    // }
+
+    //5.严格模式下，函数不允许有同名的形参
+    // function main(a,a,a) {
+    //
+    // }
+
+    //6.新增一些保留字 private protected implements
+    // var private = '私有的';
+
+</script>
+</body>
+
+</html>

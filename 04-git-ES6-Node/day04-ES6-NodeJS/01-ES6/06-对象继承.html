@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Phone(brand, price) {
+        this.brand = brand;
+        this.price = price
+    }
+
+    Phone.prototype.call = function (someone) {
+        console.log(`我可以给${someone}打电话`);
+    }
+    Phone.prototype.sendMessage = function (someone) {
+        console.log(`我可以给${someone}发送短信`);
+    }
+
+    function SmartPhone(brand, price, storage, pixel) {
+        //调用父类的函数，属性的初始化
+        Phone.call(this, brand, price);
+        //初始化
+        this.storage = storage;
+        this.pixel = pixel;
+    }
+
+    SmartPhone.prototype = new Phone();
+    SmartPhone.prototype.constructor = SmartPhone;
+    //添加
+    SmartPhone.prototype.playGame = function () {
+        console.log('我可以用来玩游戏');
+    }
+    SmartPhone.prototype.tackPhoto = function () {
+        console.log('我可以用来拍照');
+    }
+
+    const mate4 = new SmartPhone('华为', 6999, '256G', '2000W');
+    console.log(mate4);
+
+
+</script>
+</body>
+</html>

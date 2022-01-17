@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>点击 DIV 换色</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 50px;
+            border: solid 1px rgb(42, 156, 156);
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="page-header">点击切换颜色</h2>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+
+<script>
+
+    //获取元素对象
+    let items = document.querySelectorAll('.item');
+
+    //遍历并绑定事件
+    // for (let i = 0; i < items.length; i++) {
+    //     //绑定事件
+    //     items[i].onclick = function () {
+    //         //
+    //         items[i].style.background = 'pink';
+    //     }
+    // }
+
+    //ES5 模拟实现
+    for (var i = 0; i < items.length; i++) {
+        (function (i) {
+            //绑定事件
+            items[i].onclick = function () {
+                //
+                items[i].style.background = 'pink';
+            }
+        })(i)
+    }
+
+
+</script>
+
+</body>
+</html>

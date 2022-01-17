@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class Phone {
+        get price() {
+            // console.log('我被获取了');
+            return 3299;
+        }
+
+        set price(v) {
+            // console.log(v);
+            this.jg = v;
+        }
+
+        static get size() {
+            return '5.5inc';
+        }
+
+        static set size(v) {
+            this.cc = v;
+        }
+    }
+
+    let cz = new Phone();
+    //属性的获取
+    console.log(cz.price);
+
+    //属性的设置
+    cz.price = 1599;
+    console.log(cz.jg);
+
+    console.log(Phone.size);
+
+    Phone.size = '6.7inc';
+    console.log(Phone.cc);
+    console.dir(Phone);
+
+</script>
+</body>
+</html>

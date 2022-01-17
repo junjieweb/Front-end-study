@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.test = '公共属性';
+
+        let p1 = new Person('Tom', 18);
+
+        // console.log(p1.name,p1.age,p1.练习2-添加删除记录);
+
+        //in 运算符在检查一个属性时，如果属性存在与对象的原型中，也会返回true
+        // console.log('练习2-添加删除记录' in p1);
+
+        //hasOwnProperty() 用来检查一个属性是否存在与对象自身之中
+        // console.log(p1.hasOwnProperty('name'));//true
+        // console.log(p1.__proto__.hasOwnProperty('练习2-添加删除记录'));
+
+        // console.log(p1.__proto__.__proto__.__proto__);
+        // console.log(p1.address);
+
+        //instanceof 就是检查对象的原型链上是否有类存在
+        //Object是所有对象的祖先
+        console.log(p1 instanceof Object);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

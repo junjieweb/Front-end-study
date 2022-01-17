@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //设置一个全局变量name
+        var name = '全局的name属性';
+
+        // console.log(name);
+        // console.log(window.name);
+
+        //定义个函数
+        function fn() {
+            console.log(this.name);
+            /*
+                在调用函数时，浏览器每次都会向函数传递一个隐含的参数
+                    这个参数的名字叫做this，this指向的是一个对象
+
+                当我以函数的形式调用一个函数时，this是window
+                当我们以方法的形式调用一个函数时，this是调用方法的对象
+
+            */
+        }
+
+        //定义一个对象
+        var obj = {
+            name: 'Tom',
+            sayHello: fn
+        };
+
+        var obj2 = {
+            name: 'Jerry',
+            sayHello: fn
+        };
+
+        // obj.sayHello();//obj
+        // obj2.sayHello();//obj2
+        // fn();//window
+        /*
+            希望
+                obj.sayHello() --> Tom
+                obj2.sayHello() --> Jerry
+                fn() --> 全局的name属性
+                谁调用方法就调用谁的name属性
+        */
+        name = 'Hb';
+
+        let obj3 = {
+            name: 'Ha',
+            sayHello: function () {
+                alert(name);
+            }
+        };
+
+        obj3.sayHello();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

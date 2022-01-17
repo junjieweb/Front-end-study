@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <br>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
+    </form>
+    <br>
+    <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Sign in</button>
+    </form>
+    <br>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+        </div>
+    </form>
+    <select multiple class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">email@example.com</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+    </form>
+    <label for="inputHelpBlock">Input with help text</label>
+    <input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock">
+    ...
+    <span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+
+    <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess1">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+        <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </div>
+    <div class="form-group has-warning">
+        <label class="control-label" for="inputWarning1">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning1">
+    </div>
+    <div class="form-group has-error">
+        <label class="control-label" for="inputError1">Input with error</label>
+        <input type="text" class="form-control" id="inputError1">
+    </div>
+    <div class="has-success">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxSuccess" value="option1">
+                Checkbox with success
+            </label>
+        </div>
+    </div>
+    <div class="has-warning">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxWarning" value="option1">
+                Checkbox with warning
+            </label>
+        </div>
+    </div>
+    <div class="has-error">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxError" value="option1">
+                Checkbox with error
+            </label>
+        </div>
+    </div>
+    <input class="form-control input-lg" type="text" placeholder=".input-lg">
+    <input class="form-control" type="text" placeholder="Default input">
+    <input class="form-control input-sm" type="text" placeholder=".input-sm">
+
+    <select class="form-control input-lg">...</select>
+    <select class="form-control">...</select>
+    <select class="form-control input-sm">...</select>
+
+</div>
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</body>
+</html>

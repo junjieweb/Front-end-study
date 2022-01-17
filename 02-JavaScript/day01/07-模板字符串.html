@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>模板字符串</title>
+
+    <script>
+
+        /*
+        * 模板字符串（老版本浏览器不支持）
+        *   使用 ` 来创建模板字符串
+        *   特点
+        *       1、可以换行，并保留字符串中的格式
+        *       2、在模板字符串中可以直接嵌入变量
+        *           变量的语法：${变量名}
+        *
+        * */
+        let str = `hello
+        hello`;
+        // alert(str);
+
+        let name = '刘德华';
+        str = `我好喜欢${name}，因为他好帅！`;
+
+        alert(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

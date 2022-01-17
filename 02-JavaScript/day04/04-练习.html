@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+        练习6：
+           求100以内所有的奇数之和
+        练习7：
+            求100以内所有7的倍数之和，以及个数
+        练习8：
+             水仙花数是指一个 n 位数（n≥3 ），它的每个位上的数字的 n 次幂之和等于它本身
+             （例如：1**3 + 5**3 + 3**3 = 153）。
+             求 1000 以内所有的水仙花数！
+        练习9：
+             获取用户输入的任意数，判断其是否是质数。
+             质数也叫素数，一个数如果只能被1和它本身整除，那么这个数就是质数。1不是质数也不是合数。
+         */
+
+        // let sum = 0;
+        // for (let i = 1; i <= 100; i++) {
+        //     if (i % 2 !== 0) {
+        //         sum += i;
+        //         console.log(i);
+        //     }
+        // }
+        // alert(`100以内奇数的和为${sum}`);
+
+        // let sum = 0;
+        // for (let i = 1; i < 100; i += 2) {
+        //     sum += i;
+        // }
+        // alert(`100以内奇数的和为${sum}`);
+
+        let sum = 0;
+        let count = 0;
+        for (let i = 7; i < 100; i += 7) {
+            count++;
+            sum += i;
+        }
+        console.log(count);
+        console.log(sum);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

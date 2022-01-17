@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            文本在网页中显示时，CSS会为每一个文本都设置一个文本框，以容纳这些文字
+
+        */
+        div {
+            border: 1px red solid;
+            font-size: 50px;
+
+            /* 通过line-height来设置行高 */
+            /* line-height: 100px; */
+
+            /* 行高可以直接设置一个整数，则行高等于字体大小的倍数 */
+            /* line-height: 1; */
+
+            /* 默认行高 */
+            line-height: 1.33;
+
+            /* 
+                在文字框中，文字并不是贴着行的底部排列的，它是沿着行框的基线（base-line）排列的
+
+                文字基本上是在行高中居中的
+            */
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<div>hello 你好</div>
+</body>
+
+</html>

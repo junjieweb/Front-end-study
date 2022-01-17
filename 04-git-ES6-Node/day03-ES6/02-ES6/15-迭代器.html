@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const arr = ['刘德华', '黎明', '郭富城', '张学友'];
+
+    //for..of 遍历
+    for (let v of arr) {
+        console.log(v);
+    }
+
+    console.log(arr);
+
+    //得到 iterator
+    const iterator = arr[Symbol.iterator]();
+    console.log(iterator);
+
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+
+    // for (let i in arr) {
+    //     console.log(i);
+    // }
+
+</script>
+</body>
+</html>

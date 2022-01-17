@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            1、内建对象
+                有ES标准所规定的对象
+                Object Function String Boolean Number Array Math Date JSON...
+            2、宿主对象
+                由js运行环境所提供的对象
+                Window Console Document ...
+            3、自定义对象
+                由开发人员自己定义的对象
+
+
+            数组（Array）
+                数组也是一个对象
+                数组用来存储一组有序的数据
+                数组中存储的数据，称为元素（element）
+                    数组中的元素会根据存储的顺序保存在数组之中
+                数组中的每一个元素都有一个唯一的索引（index）
+                    索引就是一组以0开始的整数
+                第一个元素索引为0，第二个元素索引为1，以此类推
+        */
+
+        /*
+            创建一个数组对象
+        */
+        let arr = new Array();
+
+        //向数组中添加元素
+        //数组[索引] = 值
+        arr[0] = 10;
+        arr[1] = 22;
+        arr[2] = 2;
+        arr[3] = 4;
+        arr[4] = 65;
+        arr[5] = 5;
+        arr[6] = 6;
+        arr[arr.length] = 7;
+        arr[arr.length] = 72;
+
+        console.log(arr.length);
+
+        //读取数组中的元素  数组[索引]
+        //若获取数组中没有的元素，不会报错，而是返回undefined
+        //属性：length 用来获取数组中元素的数量
+        //它的值实际上是数组的最大索引+1
+        //向数组的最后的位置添加元素   数组[数组.length] = 值
+        //length属性可以修改，如果将length改小，则后边的元素会被删除
+        //如果改大，后边会多余空的元素
+
+        // console.log(arr[5]);
+
+        console.log(typeof arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

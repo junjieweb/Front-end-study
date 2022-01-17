@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            let allLi = document.getElementsByTagName('li');
+            let allLi2 = document.querySelectorAll('li');
+
+
+            document.getElementById('btn01').onclick = function () {
+                let zzj = document.getElementById('zzj');
+                let list1 = document.getElementById('list1');
+
+                //cloneNode() 创建一个当前节点的副本
+                //cloneNode(true) 深复制
+                let zzj2 = zzj.cloneNode(true);
+                //修改id
+                zzj2.id = 'zzj2';
+                list1.appendChild(zzj2);
+                console.log(zzj2);
+            };
+
+            document.getElementById('btn02').onclick = function () {
+
+
+                console.log(allLi);//HTMLCollection 可以实时的更新其中元素
+                console.log(allLi2);//NodeList 不会实时更新，获取几个就是几个
+            };
+        };
+
+    </script>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+
+<ul id="list1">
+    <li id="swk">孙悟空</li>
+    <li>猪八戒</li>
+</ul>
+
+<ul id="list2">
+    <li>白骨精</li>
+    <li id="zzj">蜘蛛精</li>
+</ul>
+
+</body>
+</html>

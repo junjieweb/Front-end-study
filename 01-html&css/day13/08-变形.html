@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>变形</title>
+    <style>
+        html {
+            /* perspective 视距，设置人的眼睛和网页之间的距离 */
+            perspective: 1200px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 100px auto 0;
+            /*
+                transform 变形
+                    通过变形可以对元素进行
+                        平移、旋转、放大、缩小、拉伸等
+
+                translateX() 沿X轴方向平移
+                translateY() 沿Y轴方向平移
+                    可以使用百分比的值，这个值相对于自己的宽度和高度计算
+                translateZ() 沿Z轴方向平移
+            */
+            /*transform: translateX(100px);*/
+
+            transition: all 1s;
+            /*transform: rotateX(45deg);*/
+        }
+
+        .box1:hover {
+            /*水平平移*/
+            /*transform: translateX(-100px);*/
+            /*transform: translateY(100px);*/
+            /*!*垂直平移*!*/
+            /*transform: translateY(50%);*/
+
+            /*!*Z轴的移动，元素距离用户的距离*!*/
+            /*transform: translateZ(500px);*/
+
+            /*!*沿x轴旋转*!*/
+            /*transform: rotateX(45deg) translateZ(100px);*/
+            /*transform: rotateX(360deg);*/
+
+            /*!*沿y轴旋转*!*/
+            /*transform: rotateY(90deg);*/
+
+            /*transform: rotateZ(90deg);*/
+
+            /*transform: translateX(100px) rotateZ(45deg);*/
+            transform: rotateZ(45deg) translateX(100px) ;
+
+        }
+
+        /*.box2{*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    background-color: yellow;*/
+        /*    position: absolute;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    bottom: 0;*/
+        /*    right: 0;*/
+        /*    margin: auto;*/
+        /*}*/
+
+        /*大小不定的元素，垂直水平双方向居中*/
+        .box2 {
+            position: absolute;
+            background-color: yellow;
+            left: 50%;
+            top: 50%;
+            /*transform: translateX(-50%) translateY(-50%);*/
+            transform: translate(-50%, -50%);
+        }
+
+        .box3 {
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box3"></div>
+<!--<div class="box2">123456789</div>-->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<!--
+    表单（form）
+        表单用来将信息提交给他人
+        网页中的表单用来将信息提交给服务器
+        使用form标签来创建表单
+            action 是表单提交目标的地址
+
+ -->
+<form action="target.html">
+    <!--
+        表单中需要添加一个一个的表单项
+     -->
+
+    <!--
+        文本框 input标签，type的值是text
+        如果希望服务器可以正常接收表单的数据，必须要为表单项设置一个name属性
+
+     -->
+    <input type="text" name="username">
+
+    <br>
+    <!--
+        密码框 input标签，type是password
+     -->
+    <input type="password" name="password">
+    <br>
+    <!--
+        提交按钮，input标签，type的值是submit
+            通过value属性来指定按钮的文字
+    -->
+    <input type="submit" value="注册">
+</form>
+</body>
+
+</html>

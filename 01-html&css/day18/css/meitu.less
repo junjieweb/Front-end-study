@@ -1,0 +1,118 @@
+//统一设置超链接的样式
+a {
+  color: white;
+  text-decoration: none;
+  transition: opacity .4s;
+
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.top-bar-wrapper{
+  background-color: #000000;
+}
+
+//顶部的工具栏
+.top-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  //position: relative;
+  height: 48px;
+  padding: 0 20px;
+  background-color: #000;
+  //设置弹性盒
+  display: flex;
+  //设置距离
+  justify-content: space-between;
+  //设置垂直对齐
+  align-items: center;
+}
+
+//设置左侧导航
+.menu-wrapper {
+  .menu-btn {
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .left-menu {
+    display: none;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    padding-top: 44px;
+
+    li {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      //  设置外边距
+      margin: 0 40px;
+    }
+
+    a {
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
+    }
+
+    span {
+      font-size: 14px;
+      color: white;
+      line-height: 44px;
+      margin-left: 20px;
+    }
+  }
+}
+
+//设置logo
+.logo {
+  a {
+    text-indent: -9999px;
+    display: block;
+    width: 120px;
+    height: 30px;
+    background-image: url("../img/dff63979.sprites-index@2x.png");
+    background-size: 400px 400px;
+  }
+}
+
+//设置媒体查询
+@media only screen and (min-width: 768px) {
+  .menu-wrapper {
+    flex: auto;
+    order: 2;
+    //隐藏菜单按钮
+    .menu-btn {
+      display: none;
+    }
+
+    //显示隐藏的菜单
+    .left-menu {
+      position: static;
+      display: flex;
+      padding: 0;
+      justify-content: space-evenly;
+
+      li {
+        margin: 0;
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .logo-wrapper {
+    order: 1;
+  }
+
+  .user-wrapper {
+    order: 3;
+  }
+}

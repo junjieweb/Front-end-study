@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let a = 10;
+        let b = a;
+        a++;
+        /*
+            当一个变量的值被修改时，只会影响它自己，对其他变量不会产生任何影响
+
+            当我们对对象进行修改时（改对象），如果有其他的变量同时指向该对象，则也会被影响
+
+        */
+
+        // console.log('a =', a);
+        // console.log('b =', b);
+
+        let obj = Object();
+        obj.name = 'Tom';
+        let obj2 = obj;
+        obj.name = 'zbj';
+
+        // console.log(obj);
+        // console.log(obj2);
+
+        // obj = null;
+        // console.log(obj);
+        // console.log(obj2);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

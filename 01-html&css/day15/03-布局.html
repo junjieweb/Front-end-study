@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            width: 100%;
+            height: 500px;
+            background-color: #bfa;
+            margin: 0 auto;
+        }
+
+        .left-side {
+            width: 200px;
+            height: 500px;
+            background-color: silver;
+            float: left;
+
+        /*    使用margin来改变元素的位置*/
+            margin-left: -100%;
+        }
+
+        .main {
+            width: 100%;
+            height: 500px;
+            background-color: yellowgreen;
+            float: left;
+        }
+
+        .inner{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+<!--
+    左侧固定，右侧自适应
+-->
+<div class="outer">
+
+    <!-- 创建主要内容 -->
+    <div class="main">
+        <div class="inner">
+            中间的主要内容
+        </div>
+    </div>
+
+    <!-- 左侧的边栏 -->
+    <div class="left-side">左边栏</div>
+</div>
+</body>
+</html>

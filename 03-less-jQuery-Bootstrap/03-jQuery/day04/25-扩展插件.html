@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<input type="checkbox" name="items" value="足球"/>足球
+<input type="checkbox" name="items" value="篮球"/>篮球
+<input type="checkbox" name="items" value="羽毛球"/>羽毛球
+<input type="checkbox" name="items" value="乒乓球"/>乒乓球
+<br/>
+<input type="button" id="btn1" value="全　选"/>
+<input type="button" id="btn2" value="全不选"/>
+<input type="button" id="btn3" value="反选"/>
+
+<!--
+1. 扩展jQuery的工具方法
+  $.extend(object)
+2. 扩展jQuery对象的方法
+  $.fn.extend(object)
+-->
+<script src="jquery-1.12.4.js"></script>
+<script src="js/my_jQuery_plugin.js"></script>
+<script>
+
+    $(function () {
+        //返回较小的值
+        console.log($.min(9, 21));
+        //返回较大值
+        console.log($.max(34, 31));
+        //去除字符串左边空格
+        let str = '      hello    ';
+        console.log('----' + $.leftTrim(str) + '----');
+        //去除字符串右边空格
+        console.log('----' + $.rightTrim(str) + '----');
+
+        let $checkBoxList = $(':checkbox');
+        $('#btn1').click(function () {
+            $checkBoxList.checkAll();
+        })
+
+        $('#btn2').click(function () {
+            $checkBoxList.unCheckAll();
+        })
+
+        $('#btn3').click(function () {
+            $checkBoxList.reverseCheck();
+        })
+    })
+
+</script>
+</body>
+</html>

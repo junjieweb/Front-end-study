@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let obj = Object();
+
+        obj.name = '孙悟空';
+        obj.age = 18;
+        obj.gender = '男';
+
+        // 检查一个对象中是否含有某个属性
+        // in运算符，用来检查对象中是否含有某个属性
+        // 有返回true，没有返回false
+        // 语法：'属性名' in 对象
+
+        // console.log('name' in obj);
+
+        // for-in 用来对对象中的属性进行枚举，就是将对象中的属性全都取出来
+        // 语法：  for(let 变量 in 对象){
+        //              语句
+        //        }
+        // for-in 会执行多次，对象中有几个属性就会执行几次
+        // 每次执行都会将一个属性名赋值给我们定义的变量
+        for (let n in obj) {
+            // console.log(n);
+            console.log(n, '=', obj[n]);
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

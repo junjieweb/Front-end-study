@@ -1,0 +1,689 @@
+/* 专门在首页中使用的样式表 */
+
+/* 设置顶部导航条的样式 */
+.topbar-wrapper {
+    /* 设置高度 */
+    height: 40px;
+    /* 设置行高 */
+    line-height: 40px;
+    /* 设置背景颜色 */
+    background-color: #333;
+}
+
+/* 设置导航条的内部容器 */
+.topbar-wrapper .topbar {
+    height: 40px;
+    /* background-color: #bfa; */
+}
+
+/* 设置三个菜单 */
+/* 左侧菜单 */
+.topbar .shortcut {
+    /* 向左浮动 */
+    float: left;
+}
+
+/* 设置菜单项向左浮动 */
+.topbar li {
+    /* 向左浮动 */
+    float: left;
+}
+
+/* 设置超链接的样式 */
+.topbar a {
+    /* 转换为块元素 */
+    display: block;
+    /* 设置超链接的高度 */
+    height: 40px;
+    /* 设置字体大小 */
+    font-size: 12px;
+    /* 设置字体颜色 */
+    color: #b0b0b0;
+}
+
+/* 设置超链接hover后的样式 */
+.topbar a:hover {
+    color: #fff;
+}
+
+/* 设置分割线的样式 */
+.topbar .line {
+    /* 设置左右的外边距 */
+    margin: 0 8px;
+    color: #424242;
+}
+
+/* 设置下载app的li */
+.shortcut .download {
+    /* 开启相对定位 */
+    position: relative;
+}
+
+/* 设置鼠标移入后显示二维码 */
+.shortcut .download:hover .hide-wrapper {
+    /* display: block; */
+
+    /* 有问题，一不小心又写了一个bug */
+    visibility: visible;
+    /* 将元素的高度设置为正常值，来显示元素 */
+    height: 148px;
+    /* overflow: visible; */
+    /* width: 124px; */
+
+
+}
+
+/* 设置二维码下拉层的样式 */
+.shortcut .hide-wrapper {
+    /* 隐藏二维码 */
+    /* display: none; */
+    visibility: hidden;
+    /* 开启绝对定位
+        绝对定位会开启元素的BFC，BFC的特点：
+            1.子元素的垂直外边距不会传递给父元素
+            2.元素不会被浮动元素所覆盖
+            3.父元素可以包含浮动的子元素
+    */
+    position: absolute;
+    /* 设置一个层级 */
+    z-index: 9999;
+    width: 124px;
+    /* height: 148px; */
+    /* 也可以通过将元素高度设置为0的方式来隐藏元素 */
+    height: 0;
+    /* width: 0; */
+    /* overflow: hidden; */
+    background-color: #fff;
+    /* 设置文字水平居中 */
+    text-align: center;
+    /* 重置行高 */
+    line-height: 1.5;
+    /* 设置阴影 */
+    box-shadow: rgba(0, 0, 0, .3) 0 0 4px;
+    /* 修改下拉层的左侧偏移量 */
+    left: -38px;
+
+    /*
+        transition 用来设置网页中的过渡效果
+            设置过渡效果以后，元素的属性发生变化时，浏览器会对其应用过渡效果
+     */
+    transition: all .3s;
+
+}
+
+/* 设置内部容器的样式 */
+.hide-wrapper .hide-inner {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 设置span的文字样式 */
+.shortcut .hide-wrapper span {
+    color: #333;
+}
+
+
+/* 设置下拉层上方的小三角 */
+.shortcut .hide-wrapper::before {
+    content: '';
+    /* 开启定位 */
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px red solid;
+    /* 去除上边框 */
+    border-top: none;
+    /* 修改边框的颜色 */
+    border-color: transparent transparent #fff;
+
+    /* 水平居中 */
+    /* left: 54px; */
+    top: -8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+/* 设置二维码的图片的大小 */
+.shortcut .qrcode {
+    width: 90px;
+    height: 90px;
+    /* 设置容器居中 */
+    margin: 18px auto 12px;
+}
+
+
+/* 中间的用户信息 */
+.topbar .userinfo {
+    /* 向右浮动 */
+    float: right;
+}
+
+/* 右侧的购物车菜单 */
+.topbar .shopcart {
+    /* 向右浮动 */
+    float: right;
+    /* 设置宽度 */
+    width: 120px;
+    /* 设置左外边距 */
+    margin-left: 25px;
+    /* 设置文字水平居中 */
+    text-align: center;
+
+    /* 背景颜色 */
+    background-color: #424242;
+}
+
+
+/* 购物车鼠标移入的效果 */
+/* .topbar .shopcart:hover{
+	background-color: #fff;
+}
+
+.topbar .shopcart:hover span{
+	color: #ff6700;
+} */
+
+
+/* .topbar .shopcart a{ */
+/* 设置过渡效果 */
+/* transition: all .6s steps(1); */
+/* } */
+
+.topbar .shopcart:hover a {
+    background-color: #fff;
+    color: #ff6700;
+}
+
+/* 设置头部的容器 */
+.header {
+    /* 设置高度 */
+    height: 100px;
+    /* background-color: #bfa; */
+    /* 开启相对定位(可能会存在一些问题) */
+    /* position: relative; */
+}
+
+/* 设置logo的样式 */
+.header .logo {
+    /* 向左浮动 */
+    float: left;
+    width: 55px;
+    height: 55px;
+    /* 隐藏logo中的文字 */
+    /* text-indent: -9999px; */
+    font-size: 0;
+    /* 设置外边距 */
+    margin: 22px 7px 0 0;
+
+    background-color: #ff6700;
+
+    /* 裁剪溢出的内容 */
+    overflow: hidden;
+}
+
+/* 设置logo中的超链接 */
+.logo a {
+    /* 将超链接设置为块元素 */
+    display: block;
+    /* 设置a的宽度 */
+    width: 110px;
+    /* 设置a向左移动 */
+    margin-left: -55px;
+    /* 设置过渡效果 */
+    transition: margin-left .3s;
+
+}
+
+/* 设置鼠标移入，切换图片 */
+.logo a:hover {
+    margin-left: 0;
+}
+
+/* 设置小房子的样式 */
+.logo a::before {
+    content: '';
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    /* background-color: yellowgreen;
+    background-image: url(../img/mi-home.png);
+    background-repeat: no-repeat;
+    background-position: center; */
+    background: url(../img/mi-home.png) no-repeat center;
+}
+
+/* 设置小米logo的样式 */
+.logo a::after {
+    content: '';
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    background: url(../img/mi-logo.png) no-repeat center;
+}
+
+/* 设置中间的主导航 */
+.header .main-menu {
+    float: left;
+    /* 设置宽度 */
+    width: 800px;
+    /* 设置左外边距 */
+    /* margin-left: 7px; */
+    /* 设置ul的高度 */
+    height: 100px;
+    /* 设置行高 */
+    line-height: 100px;
+    /* 设置左padding */
+    padding-left: 50px;
+}
+
+/* 设置主导航中的菜单项横向排列 */
+.main-menu .item {
+    float: left;
+}
+
+/* 设置主导航超链接的样式 */
+.main-menu .item > a {
+    /* 将超链接设置为块元素 */
+    display: block;
+    /* 设置一个左右的padding */
+    padding: 0 10px;
+    /* 设置字体大小 */
+    font-size: 16px;
+}
+
+.main-menu .item > a:hover {
+    color: #ff6700;
+}
+
+/* 隐藏全部商品分类的超链接 */
+.main-menu a.all-goods {
+    /* display: none; */
+    visibility: hidden;
+}
+
+/* 设置左侧菜单的样式 */
+.main-menu .left-menu {
+    /* 开启绝对定位 */
+    position: absolute;
+    width: 234px;
+    height: 440px;
+    background-color: rgba(0, 0, 0, .6);
+    /* 设置内边距 */
+    padding-top: 20px;
+
+    /* 将左侧菜单的left值，设置为包含块宽度一般 */
+    /*
+        如果所有的祖先元素都没有开启定位，
+            则绝对定位元素的包含块是初始包含块
+            50% 指初始包含块的 宽度
+
+     */
+    left: 50%;
+    /* 使用margin-left，将菜单向左移动613px */
+    margin-left: -613px;
+
+    /* 设置层级 */
+    z-index: 999;
+
+}
+
+/* 设置内部菜单项的样式 */
+.left-menu a {
+    display: block;
+    /* 设置超链接的高度 */
+    height: 42px;
+    /* 设置行高 */
+    line-height: 42px;
+    /* 设置字体颜色 */
+    color: #fff;
+    /* 字体大小 */
+    font-size: 14px;
+    /* 设置padding */
+    padding: 0 24px 0 30px;
+}
+
+/* 设置鼠标移入后的效果 */
+.left-menu a:hover {
+    background-color: #FF6700;
+}
+
+/* 设置右箭头的位置 */
+.left-menu .fa-angle-right {
+    float: right;
+    line-height: 42px;
+}
+
+
+/* 设置中间隐藏的下拉层的样式 */
+.main-menu .goods-list {
+    /* display: none; */
+    /* 设置绝对定位 */
+    position: absolute;
+
+    /*
+        元素的宽度设置百分比时，它的宽度是相对于包含块的宽度进行计算的
+        目前goods-list的包含块是header，所以width:100%
+            会将goods-list的宽度设置为和header的宽度一样
+            header的宽度是1226，不是全屏，所以不能满足需求
+
+        我们希望goods-list的宽度和视口（根元素）的宽度一样，
+            如果goods-list的包含块是根元素那么就太好了
+    */
+    width: 100%;
+    left: 0;
+    top: 140px;
+    /* height: 229px; */
+    height: 0;
+    overflow: hidden;
+    /* 设置一个层级 */
+    z-index: 999;
+
+    background-color: #fff;
+    transition: height .3s;
+}
+
+/* 当鼠标移入li时，显示商品列表 */
+.main-menu .item:not(.no-show):hover ~ .goods-list,
+.main-menu .goods-list:hover {
+    height: 229px;
+    border-top: 1px solid #e0e0e0;
+    /* 添加一个下阴影 */
+    box-shadow: rgba(0, 0, 0, .3) 0 4px 4px;
+}
+
+/* 设置头部右侧的搜索框 */
+.header .search-wrapper {
+    width: 296px;
+    height: 50px;
+    background-color: #bfa;
+    /* 设置一个向右浮动 */
+    float: right;
+    /* 设置一个上外边距 */
+    margin-top: 25px;
+}
+
+/* 设置表单项 */
+.search-wrapper .txt,
+.search-wrapper .btn {
+    float: left;
+}
+
+/* 设置txt */
+.search-wrapper .txt {
+    /* 修改元素盒模型的计算方式 */
+    box-sizing: border-box;
+    width: 244px;
+    height: 50px;
+    /* 设置边框 */
+    border: 1px solid #e0e0e0;
+    /* 去除右边框 */
+    border-right: none;
+    /* 去除轮廓线 */
+    outline: none;
+    /* 设置左padding */
+    padding-left: 10px;
+}
+
+/* 鼠标移入以后，边框的颜色变深 */
+.search-wrapper:hover .txt,
+.search-wrapper:hover .btn {
+    border-color: #a2a2a2;
+}
+
+/* 设置文本框获取焦点后的样式 */
+.search-wrapper .txt:focus,
+.search-wrapper .txt:focus + .btn {
+    border-color: #FF6700;
+}
+
+
+/* 设置按钮 */
+.search-wrapper .btn {
+    width: 52px;
+    height: 50px;
+    /* 设置边框 */
+    border: 1px solid #e0e0e0;
+    /* 设置背景颜色 */
+    background-color: #fff;
+    /* 设置字体颜色 */
+    color: #6A5B5B;
+    font-size: 18px;
+    /* 设置鼠标样式 */
+    cursor: pointer;
+}
+
+/* 设置按钮移入的效果 */
+.search-wrapper .btn:hover {
+    background-color: #FF6700;
+    color: #fff;
+    border-color: #FF6700;
+}
+
+
+/* 设置中间banner的样式 */
+.banner {
+    height: 460px;
+    background-color: #bfa;
+    /* 开启相对定位 */
+    position: relative;
+}
+
+/* 设置轮播图图片的样式 */
+.banner li {
+    /* 开启绝对定位，使li脱离文档流，使图片重叠 */
+    position: absolute;
+    /* 设置li的宽度 */
+    width: 100%;
+
+    /*
+        我们希望图片切换时有一个淡出淡入的效果，
+            上一张图片 渐渐的消失（淡出） opacity  1 --> 0
+            当前图片   渐渐的出现（淡入） opacity  0 --> 1
+    */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/*默认显示第一张图片，为第一个li设置层级*/
+.banner li:first-child {
+    z-index: 1;
+    opacity: 1;
+}
+
+
+/* 设置导航点的样式 */
+.pointer {
+    /* 开启导航点外部容器的定位 */
+    position: absolute;
+    /* 设置层级 */
+    z-index: 999;
+    /* 设置导航点的位置 */
+    right: 35px;
+    bottom: 26px;
+}
+
+.pointer a {
+    /* 向左浮动 */
+    float: left;
+    /* 设置宽度和高度 */
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, .4);
+    /* 设置边框 */
+    border: 2px rgba(255, 255, 255, .3) solid;
+    /* 设置小圆点的位置 */
+    margin-left: 8px;
+    /* 设置圆形 */
+    border-radius: 50%;
+
+    /* 设置背景的裁剪，使背景颜色不会延伸到边框的下边 */
+    background-clip: padding-box;
+}
+
+.pointer a:hover,
+.pointer a.active {
+    background-color: #fff;
+}
+
+/* 设置翻页的图标 */
+.banner .prev-next a {
+    /* 开启绝对定位 */
+    position: absolute;
+    /* 设置宽度和高度 */
+    width: 41px;
+    height: 69px;
+    /* background-color: #f00; */
+    /* 设置背景图片 */
+    background-image: url(../img/icon-slides.png);
+    /* 设置垂直居中 */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    /* 设置层级 */
+    z-index: 99;
+}
+
+/* 设置向前翻页的图标 */
+.banner .prev-next .prev {
+    left: 234px;
+    /* 设置图片的偏移量 */
+    background-position: -83px 0;
+}
+
+.banner .prev-next .next {
+    right: 0;
+    /* 设置图片的偏移量 */
+    background-position: -124px 0;
+}
+
+
+/* 设置向前翻页的图标 */
+.banner .prev-next .prev:hover {
+
+    background-position: 0 0;
+}
+
+.banner .prev-next .next:hover {
+
+    background-position: -42px 0;
+}
+
+/* 设置中间的底部栏 */
+.home-hero {
+    height: 170px;
+    margin-top: 14px;
+    /* 设置字体颜色 */
+    color: #cfccca;
+    font-size: 14px;
+}
+
+/* 设置service中的效果 */
+.service li {
+    position: relative;
+    float: left;
+    width: 78px;
+    height: 85px;
+    /* 设置文本居中 */
+    text-align: center;
+}
+
+
+/* 设置上边框 */
+.service li::before {
+    content: '';
+    /* 开启绝对定位 */
+    position: absolute;
+    height: 1px;
+    width: 64px;
+    background-color: #665e57;
+
+    /* 设置水平居中 */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 2px;
+}
+
+/* 设置左边框 */
+/* 设置上边框 */
+.service li::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70px;
+    background-color: #665e57;
+    left: 2px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.service li a {
+    box-sizing: border-box;
+    display: block;
+    height: 85px;
+    padding-top: 16px;
+}
+
+.service li a:hover {
+    color: #e5e4e2;
+}
+
+/* 设置li中的小图标 */
+.service li i {
+    display: block;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+
+/* 设置三个div浮动 */
+.home-hero > div {
+    /* 向左浮动 */
+    float: left;
+}
+
+/* 设置三个div的大小 */
+.home-hero .service {
+    width: 234px;
+    height: 170px;
+    background-color: #5f5750;
+
+
+}
+
+.home-hero .goods-hero {
+    width: 316px;
+    height: 170px;
+    /* 设置左外边距 */
+    margin-left: 15px;
+}
+
+.home-hero .goods-hero:nth-child(2) {
+    margin-left: 14px;
+}
+
+
+/* 设置固定定位的工具栏 */
+.tools-fixed {
+    width: 26px;
+    height: 206px;
+    background-color: tomato;
+    /* 开启元素的固定定位 */
+    position: fixed;
+
+    top: 350px;
+    /* right: 35px; */
+
+    left: 50%;
+    margin-left: 613px;
+
+    /* right: 50%;
+    margin-right: -639px; */
+}
+
+
+body {
+    height: 2000px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1"></div>
+
+<script>
+
+    /*
+        使box1根据不同的按键，向不同的方向移动，要求兼容IE11
+            ArrowUp
+            ArrowDown
+            ArrowLeft
+            ArrowRight
+    */
+    //获取id为box1的元素
+    var box1 = document.getElementById('box1');
+
+    //绑定按键按下的事件
+    document.addEventListener('keydown', function (event) {
+        // console.log(event.key);
+
+        switch (event.key) {
+            case 'ArrowUp':
+            case 'Up':
+                // console.log('↑');
+                box1.style.top = box1.offsetTop - 10 + 'px';
+                break;
+            case 'ArrowDown':
+            case 'Down':
+                // console.log('↓');
+                box1.style.top = box1.offsetTop + 10 + 'px';
+                break;
+            case 'ArrowLeft':
+            case 'Left':
+                // console.log('←');
+                box1.style.left = box1.offsetLeft - 10 + 'px';
+                break;
+            case 'ArrowRight':
+            case 'Right':
+                // console.log('→');
+                box1.style.left = box1.offsetLeft + 10 + 'px';
+                break;
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

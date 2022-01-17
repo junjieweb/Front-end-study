@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>1111111</li>
+    <li>111111111</li>
+    <li>11111111111</li>
+</ul>
+
+<li>22222</li>
+<br>
+<button id="btn">添加新的li</button>
+<br>
+<!--
+绑定事件监听的问题: 新加的元素没有监听
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    $('ul li').click(function () {
+        this.style.background = 'pink';
+    });
+
+    $('#btn').click(function () {
+        $('ul').append('<li>我是新增的li元素</li>');
+    });
+
+</script>
+</body>
+</html>

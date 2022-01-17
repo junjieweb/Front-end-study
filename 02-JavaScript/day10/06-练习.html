@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>图片浏览器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: greenyellow;
+            padding: 10px;
+        }
+
+    </style>
+
+    <script>
+        /*
+            点击按钮切换图片
+        */
+        window.onload = function () {
+            let prev = document.getElementById('prev');
+            let next = document.getElementById('next');
+
+            //获取img标签
+            let img = document.getElementsByTagName('img')[0];
+
+            //创建一个数组，用来存储图片的路径
+
+            let imgPath = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg'];
+            //创建一个变量表示当前显示的图片
+            let index = 0;
+
+            let info = document.getElementById('info');
+            //设置info中的文字
+            info.innerHTML = '当前第' + (index + 1) + '张，共' + imgPath.length + '张';
+
+            //为上一张按钮绑定响应函数
+            prev.onclick = function () {
+                //使索引自减
+                index--;
+                //判断index是否超出范围
+                if (index < 0) {
+                    index = imgPath.length - 1;
+                }
+                img.src = imgPath[index];
+                //设置info中的文字
+                info.innerHTML = '当前第' + (index + 1) + '张，共' + imgPath.length + '张';
+            };
+
+            //为下一张按钮绑定响应函数
+            next.onclick = function () {
+                //使索引自增
+                index++;
+                //判断index是否超出范围
+                if (index > imgPath.length - 1) {
+                    index = 0;
+                }
+                img.src = imgPath[index];
+                //设置info中的文字
+                info.innerHTML = '当前第' + (index + 1) + '张，共' + imgPath.length + '张';
+            };
+
+        };
+
+    </script>
+</head>
+<body>
+<!--创建一个外部的容器-->
+<div class="outer">
+    <p id="info">当前第1张，共5张</p>
+    <img src="img/1.jpg" alt="图片">
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</div>
+</body>
+</html>

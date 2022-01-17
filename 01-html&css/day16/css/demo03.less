@@ -1,0 +1,35 @@
+//import用来导入，可以将外部的less代码导入到当前的less中
+@import "demo02";
+
+.box1 {
+  width: 100px;
+
+  .box2 {
+    color: red;
+
+    .box3 {
+      background-color: #bfa;
+    }
+  }
+
+  //&表示外层选择器
+  & {
+    height: 345px;
+  }
+}
+
+ul {
+  background-color: #bfa;
+
+  & > li {
+    float: left;
+  }
+}
+
+//.box4:extend(ul){
+//
+//}
+
+.box4 {
+  &:extend(ul);
+}

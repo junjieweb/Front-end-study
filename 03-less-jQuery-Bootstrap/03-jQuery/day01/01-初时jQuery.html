@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>01-初识jQuery</title>
+    <script>
+        window.onload = function () {
+            var btn1 = document.querySelector('#btn1');
+            var username = document.querySelector('#username');
+            btn1.onclick = function () {
+                alert(username.value);
+            }
+        }
+    </script>
+    <!--jQuery引入-->
+    <script src="js/jquery-1.10.1.js"></script>
+    <!--我们的代码要在jQuery的代码之后引入-->
+    <script>
+        //页面加载完成的回调函数，约等于原生js的window.onload
+        $(function () {
+            //获取单击绑定事件
+            $('#btn2').click(function () {
+                //获取输入框，alert输入框的值
+                alert($('#username')[0].value);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<!--需求：点击确定按钮，提示输入的值-->
+用户名：<input type="text" id="username">
+<button id="btn1">确定（原生版）</button>
+<button id="btn2">确定（jQuery版）</button>
+
+</body>
+</html>

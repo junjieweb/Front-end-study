@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function fn() {
+            /*
+                除了this外，函数中还有一个隐含的参数叫做 arguments
+                    arguments 是一个类数组对象（伪数组）
+                        类数组对象和数组操作方式基本一致
+                            只是不能调用数组的方法
+                在函数执行时，所有的实参都会存储在arguments对象中
+                    通过arguments，即使不定义形参也可以使用实参
+            */
+            console.log(arguments[0]);
+        }
+
+        fn('hello', true, 123);
+
+        //创建一个函数，可以求任意个数字的和
+        function sum() {
+            //创建一个变量，存储结果
+            let result = 0;
+            // 遍历arguments
+            for (let i = 0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+
+        console.log(sum(21, 43, 665, 4, 3, 453));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

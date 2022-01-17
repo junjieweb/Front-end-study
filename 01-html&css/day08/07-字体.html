@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px red solid;
+            font-size: 30px;
+            line-height: 40px;
+            /* 
+                行间距 = 行高 - 字体
+            */
+        }
+
+        p {
+            font-size: 30px;
+
+            /* 
+                字重 字体是否加粗 
+                    可以设置100 - 900 之间的值
+                    值越大字体越粗
+                    注意：
+                        200不一定比100粗，也有可能一样
+            
+            */
+            /* font-weight: 900; */
+            font-weight: bold;
+
+            /* 
+                font-style用来设置字体的样式(斜体)
+                    可选值：
+                        normal 正常
+                        italic 斜体
+
+            */
+            font-style: italic;
+
+            font-variant: small-caps;
+            /* 
+                font-variant: small-caps;字体变形
+                小型字母大写
+            */
+        }
+
+        span {
+            /* font-size: 40px;
+            font-family: '微软雅黑';
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps; */
+
+            /* 
+                font 字体简写属性，可以同时设置字体相关的所有样式
+                    后边两个必须是字体大小和字体族，斌且必须写
+                    font:[加粗 斜体 变形] 大小/行高 字体族;
+            */
+            font: bold italic small-caps 40px '微软雅黑';
+        }
+    </style>
+</head>
+
+<body>
+<span>我是一个Span</span>
+<p>Hello</p>
+<div>hello 你好</div>
+</body>
+
+</html>

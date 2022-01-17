@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1. 二进制和八进制    4 (16)  8(256)   16(65536)
+    let n = 0b1111;//15
+    let b = 0o666;//438
+    let c = 1024;//顶 赞
+    let a = 0xffff;//65535
+
+    console.log(n);//15
+    console.log(b);//438
+    console.log(c);//1024
+    console.log(a);//65535
+
+    //2. Number.isFinite  检测一个数值是否为有限数
+    console.log(Number.isFinite(20));
+    console.log(Number.isFinite(Math.PI));
+    console.log(Number.isFinite(1 / 0));
+
+    //3. Number.isNaN 检测一个数值是否为 NaN  isNaN
+    console.log(Number.isNaN(NaN));
+
+    //4. Number.parseInt 字符串转整数
+    console.log(Number.parseInt('1345sd'));
+
+    //5. Math.trunc 将数字的小数部分抹掉
+    console.log(Math.trunc(3.43242));
+
+    //6. Number.isInteger 判断一个数是否为整数 is 是否 integer 整型
+    console.log(Number.isInteger(23.5));
+
+    //7. 幂运算  (ES7)    Math.pow()
+    console.log(Math.pow(2, 8));
+    console.log(2 ** 10);
+
+
+</script>
+</body>
+</html>

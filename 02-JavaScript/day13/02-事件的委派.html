@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn01">点我一下</button>
+
+<ul>
+    <li>
+        <a href="javascript:;">超链接1</a>
+    </li>
+    <li>
+        <a href="javascript:;">超链接2</a>
+    </li>
+    <li>
+        <a href="javascript:;">超链接3</a>
+    </li>
+</ul>
+
+<script>
+    /*
+        目前的问题：
+            1、目前事件绑定的代码编写在了for循环中，for循环执行几次就绑定了几个事件
+                同时产生了几个回调函数，但是回调函数的功能是一样的，这样做比较浪费内存
+            2、当前的事件只会绑定给已有的元素，对于新增的元素来说，必须重新绑定事件
+
+        我们的希望：
+            仅仅只绑定一次事件，就可以让所有的（包括新增的元素）都具有该事件
+
+        事件的委派（事件的委托）
+            当需要为多个元素绑定相同的响应函数时，可以统一将事件绑定给它们共同的祖先元素
+                这样只需要绑定一次，即可让所有元素都具有该事件，即使元素是新增的也会具有该事件
+    */
+    //获取所有的超链接
+    let links = document.getElementsByTagName('a');
+
+    //为每一个超链接都绑定一个单击响应函数
+    // for (let i = 0; i < links.length; i++) {
+    //     links[i].addEventListener('click', function (event) {
+    //         event.preventDefault();
+    //         alert('hello');
+    //     });
+    // }
+
+    //获取ul
+    let ul = document.getElementsByTagName('ul')[0];
+
+    //将事件绑定给ul
+    ul.addEventListener('click', function (event) {
+        //判断触发事件的对象是否是超链接
+        //this在事件的响应函数中，this表示的是事件绑定的对象
+        // alert(this);
+
+        //在事件属性中有一个属性叫做target，它表示的是触发事件的对象
+        // alert(event.target.tagName);
+        //判断事件是否由超链接触发
+        if (event.target.tagName.toUpperCase() === 'A') {
+            event.preventDefault();
+            alert('我是ul上的单击事件');
+        }
+
+    });
+
+    //点击按钮后，添加li
+    let btn01 = document.getElementById('btn01');
+    btn01.addEventListener('click', function () {
+        //向ul中添加li
+        /*
+            <li>
+                <a href="javascript:;">超链接3</a>
+            </li>
+        */
+        ul.insertAdjacentHTML("beforeend", '<li><a href="javascript:;">新超链接</a></li>');
+    });
+
+
+</script>
+
+
+</body>
+</html>

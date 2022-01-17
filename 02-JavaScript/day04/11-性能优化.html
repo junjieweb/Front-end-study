@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            优化前
+                10000  ---> 85ms
+                100000 ---> 8236ms
+
+            第一次优化
+                10000  ---> 11ms
+                100000 ---> 751ms
+                1000000---> 53965ms
+
+            第二次优化
+                10000  ---> 2ms
+                100000 ---> 7ms
+                1000000 ---> 117ms
+        */
+
+
+        //开启计时器
+        console.time();
+        for (let i = 3; i < 1000000; i += 2) {
+            let flag = true;
+            for (let j = 2; j <= i ** 0.5; j++) {
+                if (i % j === 0) {
+                    flag = false;
+                    //进入判断说明i一定不是质数，此时内层循环没必要再继续执行了
+                    break;
+                }
+            }
+            if (flag) {
+                // console.log(i);
+            }
+        }
+        //结束计时器
+        console.timeEnd();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

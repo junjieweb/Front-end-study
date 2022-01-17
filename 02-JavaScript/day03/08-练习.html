@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //编写一个程序，获取一个用户输入的整数，然后通过程序显示这个数是奇数还是偶数
+
+        // prompt() 函数用来获取用户输入的内容
+        // 用户输入的内容会作为函数的返回值返回，需要定义一个变量来接受
+        // 该函数的返回值类型总是一个字符串
+        let num = +prompt('请输入一个整数');
+
+        // console.log(num, typeof num);
+
+        //判断num是奇数还是偶数
+        if (num % 2 === 0) {
+            alert(`${num}是一个偶数`);
+        } else {
+            alert(num + '是一个奇数');
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

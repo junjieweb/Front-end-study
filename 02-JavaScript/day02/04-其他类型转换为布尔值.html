@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            使用Boolean()函数来将其他类型转换为布尔类型
+                所有表示没有或错误的都会转换为false
+                对于数值：
+                    除了0和NaN，都是true
+                对于字符串：
+                    空串是false，其他都是true
+                null和undefined都是false
+                一般情况对象都会转换为true
+
+                false 的情况
+                    0、NaN、''、false、null、undefined
+
+        */
+        let a = 10;// true
+        a = -10;// true
+        a = 0;// false
+        a = NaN;// false
+        a = Infinity;// true
+        a = 'hello';// true
+        a = ' ';// true
+        a = '';// false
+        a = null;//
+        a = undefined;
+
+        console.log(a, typeof a);
+
+        a = Boolean(a);
+        console.log(a, typeof a);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+问题 : 如果有2个库都有$, 就存在冲突
+解决 : jQuery库可以释放$的使用权, 让另一个库可以正常使用, 此时jQuery库只能使用jQuery了
+API : jQuery.noConflict()
+-->
+<script src="js/./myLib.js"></script>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    //noConflict() 当$发生命名冲突时，优先加载jQuery然后调用这个方法，
+    //就可以让jQuery释放掉对于$的使用权，给其他文件使用
+    //但是此后，我们想使用jQuery就只能用全称了
+    jQuery.noConflict();
+    $();
+    jQuery(function () {
+        console.log('jQuery');
+    })
+
+</script>
+</body>
+</html>

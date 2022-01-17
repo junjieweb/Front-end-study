@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+        }
+
+        .drag {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1" class="drag"></div>
+<div id="box2" class="drag"></div>
+<div id="box3" class="drag"></div>
+<img class="drag" src="img/an.jpg" alt="">
+
+<script>
+    (function () {
+        /*
+        希望拥有drag类的元素可以被拖拽
+            mousedown
+            mousemove
+            mouseup
+        */
+
+        //创建一个变量来保存当前被拖拽的变量
+        let dragEle = null;
+        //创建两个变量存储偏移量
+        let left, top;
+
+        //将鼠标按下的事件绑定给document
+        document.addEventListener('mousedown', function (event) {
+            //判断是谁触发的事件
+            //如果触发事件的元素含有drag类，则可以进行拖拽
+            if (event.target.classList.contains('drag')) {
+                event.preventDefault();
+                dragEle = event.target;
+                left = event.clientX - dragEle.offsetLeft;
+                top = event.clientY - dragEle.offsetTop;
+            }
+        });
+
+        //给document绑定鼠标移动的事件
+        document.addEventListener('mousemove', function (event) {
+            if (dragEle) {
+                //鼠标移动事件要改变被拖拽元素的位置
+                dragEle.style.left = event.clientX - left + 'px';
+                dragEle.style.top = event.clientY - top + 'px';
+            }
+        });
+
+        //给document绑定鼠标松开的事件
+        document.addEventListener('mouseup', function (event) {
+            //将dragEle设置为null
+            dragEle = null;
+        });
+    })();
+	
+
+</script>
+</body>
+</html>

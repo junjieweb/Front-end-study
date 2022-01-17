@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+         创建一个正则，检查一个字符串中是否含有.
+         在正则表达式中，使用\作为转义字符
+               .表示任意字符，除了\n
+               \.表示.
+               \w 任意单词字符，相当于[a-zA-Z0-9_]
+               \W 除了单词字符，相当于[^a-zA-Z0-9_]
+               \s 空格
+               \S 除了空格
+               \d 任意数字，相当于[0-9]
+               \D 除了数字，相当于[^0-9]
+
+         */
+
+        let re = /\./;
+        // re = new RegExp('\\.')
+        re = /\w/;
+        re = /\W/;
+        re = /\s/;
+
+        // alert(re.练习2-添加删除记录('ab '));
+
+        /*
+        * 编写一个正则表达式，检查一个字符串是否是合法的电子邮件
+        * hello                 .xxx     @ abc .com
+        * 任意字母数字（1位以上）   .任意字母数字（1位以上）有没有都行
+        * @ 任意字母数字或-（一位以上）   .任意字母 出现1-2次
+        * */
+        let email = /^\w+(\.\w+)*@[a-z0-9-]+(\.[a-z]{2,5}){1,2}$/i;
+
+        // alert(email.练习2-添加删除记录('123456789@qq.com'));
+        // alert(email.练习2-添加删除记录('dalang.wu@qq.com'));
+        // alert(email.练习2-添加删除记录('dalang.wu@qq.c'));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //要求添加 total 属性, 获得班级的总分数
+    var banji = {
+        name: 'HTML',
+        scores: [
+            {
+                name: '张三',
+                score: 90
+            },
+            {
+                name: '李四',
+                score: 85
+            },
+            {
+                name: '王五',
+                score: 95
+            },
+            {
+                name: '赵六',
+                score: 88
+            }
+        ]
+    };
+
+    //Object.defineProperties
+    Object.defineProperties(banji, {
+        total: {
+            get: function () {
+                //累加学员的成绩
+                var t = 0;
+                //遍历数组
+                for (var i = 0; i < this.scores.length; i++) {
+                    t += this.scores[i].score;
+                }
+                return t;
+            }
+        },
+        avg: {
+            get: function () {
+                return this.total / this.scores.length;
+            }
+        }
+    });
+
+    console.log(banji.total);
+    console.log(banji.avg);
+
+</script>
+
+</body>
+</html>

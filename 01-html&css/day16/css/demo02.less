@@ -1,0 +1,50 @@
+div {
+  width: 100px;
+}
+
+.box2 .box3 {
+  height: 100px;
+
+  .box4 {
+    color: red;
+  }
+}
+
+//继承.box2 .box3 .box4对应的样式
+.box1:extend(.box2 .box3 .box4) {
+
+}
+
+//继承.box2相关的所以样式
+.box5:extend(.box2 all) {
+
+}
+
+//定义Mixins时，如果在名字后边添加了()则Mixins中的样式不会被编译到css文件中
+//定义时，可以在())指定参数，这个参数就相当于定义了一个变量，但是并没有赋值
+//形参，形式参数，
+.hello(@a,@b) {
+  width: @a;
+  height: @b;
+  background-color: #f00;
+}
+
+
+//可以在mixins中指定默认参数
+.border(@bw:1px) {
+  border: @bw red solid;
+}
+
+.wrapper {
+  //使用Mixins定义样式
+  //使用mixins时，可以向()中传值，我们所传的值会赋值给对应的变量
+  //实参，实际参数，传递参数时，默认情况下必须按照顺序
+  .hello(30px, 50px);
+  //传递实参时，可以按照顺序，或参数名来传递
+  .hello(@b:30px, @a:50px);
+}
+
+h1 {
+  .hello(300px, 400px);
+  .border();
+}

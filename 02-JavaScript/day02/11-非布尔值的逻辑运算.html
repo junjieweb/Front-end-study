@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            与运算
+                与运算就是找false的
+                如果对非布尔值进行与运算
+                    会首先将其转换为布尔值，然后运算，最终返回原值
+                如果第一个值是true，则返回第二个值
+                如果第一个值是false，则返回第一个值
+
+            或运算
+                或运算就是找true的
+                如果第一个值是true，则直接返回，否则返回第二个值
+
+            与找false或找true
+
+        */
+
+        // true && true
+        let result = 'hello' && 1;//1
+        result = 1 && 'hello';// 'hello'
+
+        //true && false
+        result = 1 && NaN;// NaN
+        //false && true
+        result = NaN && 1;// NaN
+
+        // false && false
+        result = NaN && 0;// NaN
+        result= 0 && NaN;//0
+
+        result = 1 || 'hello';//1
+        result = NaN || 0;//0
+
+        console.log('result =', result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #to_top {
+            width: 30px;
+            height: 40px;
+            font: 14px/20px Arial;
+            text-align: center;
+            background: #06c;
+            position: fixed;
+            cursor: pointer;
+            color: #fff;
+            right: 150px;
+            top: 500px;
+        }
+    </style>
+</head>
+<body style="height: 2000px">
+
+<div id="to_top">返回顶部</div>
+
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    //时间固定：路程越长，速度越快    主流解决方案是时间固定
+    //速度固定：路程越长，时间越长
+
+    //逐帧动画概念
+    //动画总时长  动画帧时长  总帧数  总偏移（路程）
+
+    //动画总时长
+    var time = 2000;
+    //动画帧时长
+    var itemTime = 20;
+    //动画总时长 / 动画帧时长 = 总帧数
+    //总偏移 / 总帧数 = 单次偏移（速度）
+    $('#to_top').click(function () {
+        //总偏移
+        var offset = $('html').scrollTop() + $('body').scrollTop();
+        //计算单次偏移
+        var itemOffset = offset / (time / itemTime);
+
+        var timer = setInterval(function () {
+            offset -= itemOffset;
+            if (offset <= 0) {
+                clearInterval(timer);
+            }
+            $('html,body').scrollTop(offset);
+        }, itemTime);
+
+    });
+
+
+</script>
+
+</body>
+</html>

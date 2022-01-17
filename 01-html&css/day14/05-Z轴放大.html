@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            perspective: 800px;
+        }
+
+        .box1 {
+            /*设置变形时的3d效果*/
+            transform-style: preserve-3d;
+            width: 200px;
+            height: 200px;
+            /*background-color: #bfa;*/
+            margin: 200px auto;
+            position: relative;
+            transition: all 2s;
+
+            transform: rotateY(45deg) scaleZ(2);
+            /*animation: roImg 10s linear infinite;*/
+
+        }
+
+        .box1 > div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 100px;
+            opacity: .5;
+            transition: all 2s;
+        }
+
+        @keyframes roImg {
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to  {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        /*body:hover .box1 {*/
+        /*    !*    设置变形*!*/
+        /*    transform: rotateY(90deg);*/
+        /*}*/
+
+        .box1 > div:nth-child(1) {
+            background-color: yellow;
+            /*    设置变形*/
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .box1 > div:nth-child(2) {
+            background-color: orange;
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .box1 > div:nth-child(3) {
+            background-color: red;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .box1 > div:nth-child(4) {
+            background-color: skyblue;
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .box1 > div:nth-child(5) {
+            background-color: yellowgreen;
+            transform: rotateX(0deg) translateZ(100px);
+        }
+
+        .box1 > div:nth-child(6) {
+            background-color: chocolate;
+            transform: rotateX(180deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div>
+        <img src="cube/1.jpg" alt="">
+    </div>
+    <div>
+        <img src="cube/2.jpg" alt="">
+    </div>
+    <div>
+        <img src="cube/3.jpg" alt="">
+    </div>
+    <div>
+        <img src="cube/4.jpg" alt="">
+    </div>
+    <div>
+        <img src="cube/5.jpg" alt="">
+    </div>
+    <div>
+        <img src="cube/6.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

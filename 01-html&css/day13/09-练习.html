@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*设置表的容器*/
+        .clock-wrapper {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            margin: 50px auto;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+
+            /*background: url("img/bg.jpg") no-repeat center center/100%;*/
+            background: url("img/1024px-Analogue_clock_face.svg.png") no-repeat center center/100%;
+        }
+
+        .clock-wrapper > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /*    设置秒针*/
+        .sec-wrapper {
+            width: 90%;
+            height: 90%;
+            /*background-color: yellow;*/
+            border-radius: 50%;
+            /*    设置动画*/
+            animation: zhuan 10s steps(60) infinite;
+        }
+
+        .sec {
+            height: 50%;
+            width: 4px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+        /*    设置分针*/
+        .min-wrapper {
+            width: 80%;
+            height: 80%;
+            /*background-color: #bfa;*/
+            border-radius: 50%;
+            /*    设置动画*/
+            animation: zhuan 600s linear infinite;
+        }
+
+        .min {
+            height: 50%;
+            width: 6px;
+            background-color: black;
+            margin: 0 auto;
+        }
+
+        /*    设置时针*/
+        .hour-wrapper {
+            width: 60%;
+            height: 60%;
+            /*background-color: orange;*/
+            border-radius: 50%;
+            /*    设置动画*/
+            animation: zhuan 7200s linear infinite;
+        }
+
+        .hour {
+            height: 50%;
+            width: 8px;
+            background-color: black;
+            margin: 0 auto;
+        }
+
+        /*    设置动画的效果*/
+        @keyframes zhuan {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--创建一个表的容器-->
+<div class="clock-wrapper">
+
+    <!--    创建一个时针的容器-->
+    <div class="hour-wrapper">
+        <div class="hour"></div>
+    </div>
+
+    <!--    创建一个分针的容器-->
+    <div class="min-wrapper">
+        <div class="min"></div>
+    </div>
+
+    <!--    创建一个秒针的容器-->
+    <div class="sec-wrapper">
+        <div class="sec"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //let 声明变量
+    //字母数字下划线，首字母不能为数字，严格区分大小写，不能使用关键字  驼峰
+    let a = 10;
+    let b, c, d;
+    let f = 10, g = 20, h = 30;
+
+    //let声明特点
+    //1、不允许重复声明
+    // let star = '罗志祥';
+    // let star = '小猪';
+
+    //2、块级作用域   if(){}  else{}  for(){}     {}      function(){}
+    // if (true){
+    //     let girlFriend = '周扬青';
+    // }
+    // console.log(girlFriend);
+
+    //3、不存在变量提升
+    // console.log(song);
+    // let song = '狐狸精';
+
+    //4、不影响作用域链
+    function f1() {
+        let dance = '精武门';
+
+        function f2() {
+            console.log(dance);
+        }
+
+        f2();
+    }
+
+    f1();
+
+</script>
+
+</body>
+</html>

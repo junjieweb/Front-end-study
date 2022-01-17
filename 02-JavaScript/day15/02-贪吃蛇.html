@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*清除默认样式*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*设置主容器样式*/
+        #game {
+            width: 340px;
+            height: 400px;
+            border: 10px solid black;
+            /*设置圆角*/
+            border-radius: 10%;
+            /*设置居中*/
+            margin: 100px auto;
+            background-color: #b7d4a8;
+            /*设置弹性容器*/
+            display: flex;
+            /*设置主轴方向*/
+            flex-flow: column;
+            /*设置侧轴的对齐方式*/
+            align-items: center;
+            /*设置主轴的对齐方式*/
+            justify-content: space-around;
+        }
+
+        /*设置stage*/
+        #stage {
+            width: 300px;
+            height: 300px;
+            /*设置边框*/
+            border: 2px solid black;
+            margin: 0 auto;
+            /*开启相对定位*/
+            position: relative;
+        }
+
+        /*设置蛇的样式*/
+        #snake > div {
+            /*设置盒子大小的计算方式*/
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            /*开启绝对定位*/
+            position: absolute;
+            /*设置边框*/
+            border: 1px solid #b7d4a8;
+            /*设置圆角*/
+            border-radius: 2px;
+        }
+
+        /*设置食物*/
+        #food {
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            /*开启绝对定位*/
+            position: absolute;
+            /*设置一个位置*/
+            left: 80px;
+            top: 100px;
+            border: 1px solid #b7d4a8;
+        }
+
+        /*设置食物的造型*/
+        #food div {
+            width: 50%;
+            height: 50%;
+            background-color: black;
+            float: left;
+            /*使4个div旋转45度*/
+            transform: rotate(45deg);
+            border-radius: 2px;
+        }
+
+        /*设置分数的容器*/
+        #score-level {
+            width: 304px;
+            /*设置字体*/
+            font: bold 20px "Courier";
+            /*设置弹性盒*/
+            display: flex;
+            /*设置主轴对齐方式*/
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--定义一个游戏的容器-->
+<div id="game">
+    <!--定义游戏的区域-->
+    <div id="stage">
+        <!--创建蛇-->
+        <div id="snake">
+            <!--蛇头-->
+            <div></div>
+        </div>
+        <!--创建食物-->
+        <div id="food">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!--定义积分的区域-->
+    <div id="score-level">
+        <!--创建分数的div-->
+        <div id="score">
+            SCORE: <span>0</span>
+        </div>
+        <!--创建等级的容器-->
+        <div id="level">
+            LEVEL: <span>1</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    /*
+        1、随机生成食物的位置
+            偏移量必须是10的倍数
+            0 - 290 之间
+        2、使蛇头移动
+        3、检查蛇有没有吃到食物
+            吃到食物以后蛇发生变化
+            食物的位置发生变化
+            游戏的积分
+        4、蛇的身体如何移动
+        5、判定游戏失败
+            撞墙  撞自己
+        6、如何避免蛇调头
+    */
+    (function () {
+        //获取食物
+        let food = document.getElementById('food');
+        //获取蛇的容器
+        let snake = document.getElementById('snake');
+        //获取所有蛇的身体
+        let snakeBody = snake.getElementsByTagName('div');
+        //创建一个变量来存储蛇的移动方向
+        let dir = null;
+
+        //随机生成食物的位置
+        //该函数用来随机生成一个食物
+        //实际作用就是改变food的位置
+        function makeFood() {
+            //随机生成食物的坐标（left top）坐标的范围0 - 290
+            let left = Math.round(Math.random() * 29) * 10;
+            let top = Math.round(Math.random() * 29) * 10;
+
+            //改变食物的位置，就是改变food的left和top值
+            food.style.left = left + 'px';
+            food.style.top = top + 'px';
+        }
+
+        makeFood();
+
+
+        //按下按键时，给蛇设置方向
+        document.addEventListener('keydown', function (event) {
+            //将合法的按键值放入到一个数组中
+            let keyArray = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Up', 'Down', 'Left', 'Right'];
+            if (keyArray.indexOf(event.key) !== -1) {
+                //修改蛇的移动方向
+                dir = event.key;
+            }
+        });
+
+        //设置蛇的移动
+        //开启一个定时器来控制蛇的移动
+        setTimeout(function main() {
+            //定义两个变量来记录蛇头的位置
+            let left = snakeBody[0].offsetLeft;
+            let top = snakeBody[0].offsetTop;
+
+            //根据dir的值控制蛇移动
+            switch (dir) {
+                case 'ArrowUp':
+                case 'Up':
+                    // console.log('↑');
+                    top -= 10;
+                    break;
+                case 'ArrowDown':
+                case 'Down':
+                    // console.log('↓');
+                    top += 10;
+                    break;
+                case 'ArrowLeft':
+                case 'Left':
+                    left -= 10;
+                    break;
+                case 'ArrowRight':
+                case 'Right':
+                    left += 10;
+                    break;
+            }
+
+            //检查蛇是否撞墙了
+            if (left < 0 || left > 290 || top < 0 || top >290){
+                //进入判断，说明蛇撞墙了
+                alert('撞墙了');
+                //停止游戏
+                return;
+            }
+
+            //检查蛇是否吃到食物
+            //检查蛇头的坐标和食物的坐标是否一样
+            if (left === food.offsetLeft && top === food.offsetTop) {
+                //进入判断，吃到了食物
+                //修改食物的位置
+                makeFood();
+                //蛇的身体要增加一节，创建一个新的div
+                let newBody = document.createElement('div');
+                //将div添加到snake中
+                snake.appendChild(newBody);
+                // snake.insertAdjacentElement('afterbegin', newBody);
+            }
+
+            /*
+                设置蛇的移动：
+                    当前身子的位置，等于它前边的身子的位置
+                    第三节的位置 = 第二节的位置
+                    第二节的位置 = 头的位置
+                    头的位置 = top left
+            */
+            for (let i = snakeBody.length - 1; i > 0; i--) {
+                // snakeBody[i] 后边的身体
+                // snakeBody[i - 1] 前边的身体
+                snakeBody[i].style.left = snakeBody[i - 1].offsetLeft + 'px';
+                snakeBody[i].style.top = snakeBody[i - 1].offsetTop + 'px';
+
+            }
+
+            //修改蛇头的位置
+            snakeBody[0].style.left = left + 'px';
+            snakeBody[0].style.top = top + 'px';
+
+            setTimeout(main, 300);
+        }, 300);
+
+
+    })();
+
+</script>
+</body>
+</html>

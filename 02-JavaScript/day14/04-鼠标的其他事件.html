@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*
+        contextmenu
+            表示一个鼠标右键菜单的事件
+            点击右键弹出菜单，是contextmenu的默认行为
+                可以通过取消它的默认行为，来禁用菜单
+    */
+    // document.addEventListener('contextmenu', function (event) {
+    //     console.log('你点了右键了');
+    //     event.preventDefault();
+    // });
+
+    /*
+        wheel 表示鼠标滚轮事件
+            获取滚轮滚动的方向
+    */
+    document.addEventListener('wheel', function (event) {
+        
+        //event.deltaY  获取滚轮的垂直滚动方向
+        console.log(event.deltaY);
+        if (event.deltaY > 0) {
+            console.log('向下滚');
+        } else {
+            console.log('向上滚');
+        }
+
+        //event.deltaX 获取鼠标滚轮的水平滚动方向
+        console.log(event.deltaX);
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            基本数据类型（不可变类型）
+                Number
+                String
+                Boolean
+                Null
+                Undefined
+
+            对象（Object）
+                对象是js中的一种数据类型
+                基本数据类型都是一个一个独立的值
+                    值与值之间不存在任何的联系
+                    这样就导致我们无法在程序中来表示一些复杂的数据
+
+                对象相当于是一个容器（复合数据类型），在对象中可以存储不同类型的容器
+                    对象中存储的数据被称为属性，向对象中添加数据称为添加属性
+                    语法：
+                    向对象中添加属性
+                        对象.属性名 = 属性值
+                    读取对象中属性
+                        对象.属性名
+                            当我们访问一个对象中没有的属性时，不会报错而是返回undefined
+                    删除对象中的属性
+                        delete 对象.属性名
+        */
+
+        //创建一个空的对象
+        let obj = new Object();
+
+        obj.name = '孙悟空';
+        obj.age = 18;
+        obj.gender = '男';
+
+        delete obj.gender;
+
+        console.log(obj.gender);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

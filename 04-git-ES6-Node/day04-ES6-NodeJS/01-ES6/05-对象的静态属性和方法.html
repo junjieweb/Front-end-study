@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // function Phone(brand) {
+    //     //为实例对象添加属性
+    //     this.brand = brand;
+    // }
+    //
+    // //为函数对象添加属性
+    // Phone.name = '手机';//又称之为静态成员
+    // Phone.change = function () {
+    //     console.log('改变了世界');
+    // }
+    //
+    // let nokia = new Phone('诺基亚');
+    // console.log(nokia);
+    // console.dir(Phone);
+
+
+    class Phone {
+        //static 静态的 静态成员属于类，不属于实例对象
+        static name1 = '手机';
+
+        static change() {
+            console.log('我改变了世界');
+        }
+    }
+
+    console.log(Phone.name1);
+    Phone.change();
+
+</script>
+</body>
+</html>

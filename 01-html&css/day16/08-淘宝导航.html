@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*    设置外部容器的大小*/
+        .nav-wrapper {
+            /*设置宽度*/
+            width: 100%;
+            /*    设置为弹性容器*/
+            display: flex;
+            /*    设置方向和换行*/
+            flex-flow: row wrap;
+            /*    设置对齐方式*/
+            /*    justify-content: space-around;*/
+        }
+
+        /*    设置图片的容器*/
+        .nav-inner {
+            /*    弹性元素*/
+            width: calc(20% - 10px);
+            /*    设置外边距*/
+            margin: 0 5px;
+
+            text-align: center;
+
+        }
+
+        /*    设置图片的大小*/
+        .nav-inner img {
+            width: 100%;
+        }
+
+        .nav-inner span {
+            font-size: 16px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+<!--创建一个外部容器-->
+<div class="nav-wrapper">
+    <div class="nav-inner">
+        <img src="img/1.png" alt="">
+        <span>天猫</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/2.png" alt="">
+        <span>聚划算</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/3.png" alt="">
+        <span>天猫国际</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/4.png" alt="">
+        <span>外卖</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/5.png" alt="">
+        <span>天猫超市</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/6.png" alt="">
+        <span>充值中心</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/7.png" alt="">
+        <span>飞猪旅行</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/8.png" alt="">
+        <span>领金币</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/9.png" alt="">
+        <span>拍卖</span>
+    </div>
+    <div class="nav-inner">
+        <img src="img/10.png" alt="">
+        <span>分类</span>
+    </div>
+</div>
+</body>
+</html>

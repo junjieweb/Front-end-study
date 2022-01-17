@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            通过定位我们可以将元素摆放到页面中的任意位置
+                使用position属性来设置元素的定位
+                可选值：
+                    static 默认值，开启定位
+                    relative 开启相对定位
+                    absolute 开启绝对定位
+                    fixed 开启固定定位
+        */
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0;
+            /* 
+                当为元素设置position: relative;则开启元素的相对定位
+                    1、开启相对定位以后，元素不会发生任何变化
+                    2、开启相对定位后，元素不会脱离文档流
+                    3、相对定位的元素，使相对于其在文档流中的位置进行定位
+                    4、相对定位会使元素提升一个层级
+                    5、相对定位不会改变元素的性质，块还是块，行内还是行内
+
+                当元素开启定位以后，可以通过四个方向的偏移量来控制元素的位置
+                    top 元素与其定位位置的顶部距离
+                    bottom 元素与其定位位置的底部距离
+                    left 元素与其定位位置的左侧距离
+                    right 元素与其定位位置的右侧距离
+
+                    一般只需要使用两个值，即可确定一个元素的位置
+
+
+            */
+            position: relative;
+            left: 100px;
+            top: 100px;
+            /* left: 200px; */
+            /* top: 100px; */
+            /* bottom: 200px; */
+            /* right: 100px; */
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* position: relative; */
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+</body>
+
+</html>

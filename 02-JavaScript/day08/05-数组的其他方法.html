@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let arr = ['孙悟空', '猪八戒', '沙和尚'];
+        let arr2 = ['白骨精', '蜘蛛精', '玉兔精'];
+
+        /*
+            concat()
+                用来链接两个或多个函数
+                不会影响原数组，而是将元素拼接到一个新数组中返回
+
+            indexOf()
+                查询元素再数组中的位置
+                参数：
+                    1、要查询的元素
+                    2、查询的起始位置
+                返回值：
+                    返回元素第一次在数组中出现的索引
+                        如果没找到元素，则返回-1
+
+             lastIndexOf()
+                查询元素在数组中的位置
+                 参数：
+                    1、要查询的元素
+                    2、查询的起始位置
+                 返回值：
+                    返回元素最后一次出现的索引，找不到返回-1
+
+              join()
+                用来将数组中的所有元素链接为一个字符串
+                参数
+                    1、指定一个连接符（字符串）作为参数
+                        如果不指定，则默认使用,
+
+              reverse()
+                用来对数组进行反转，这是一个破坏性方法，会改变原数组
+
+             sort()
+                用来对数组进行排序，也会影响到原数组
+                使用sort()对元素进行排序的时候，比较的是元素的字符编码而不是数字的大小
+                可以在sort()通过回调函数来指定排序规则
+                    如果希望升序排列（从小到大）
+                        function(a, b){
+                            return a - b;
+                        }
+                    如果希望降序排列（从大到小）
+                        function(a, b){
+                            return b - a;
+                        }
+
+        */
+        // let result = arr.concat(arr2, ['牛魔王', '二郎神'], '哈哈');
+
+        arr = ['孙悟空', '猪八戒', '孙悟空', '沙和尚'];
+        result = arr.indexOf('孙悟空', 1);
+        result = arr.lastIndexOf('孙悟空');
+
+        arr = ['a', 'b', 'c', 'd'];
+
+        result = arr.join('');
+        arr.reverse();
+
+        // console.log(arr);
+
+        // console.log(result);
+
+        arr = ['b', 'c', 'e', 'f', 'g', 'a'];
+        arr = [23, 34, 2, 1, 43, 532, 1, 2, 3];
+
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="target.html">
+
+    <!--    表单项-->
+    用户名 <input type="text" name="username">
+    <br><br>
+    密码 <input type="password" name="password">
+    <br><br>
+    <!--
+        表单中的数据默认情况下会以查询字符串（query string）的形式发送给服务器
+            username=admin&password=123123
+            查询字符串就是一个一个的名值对结构，名字就是表单项的name属性值
+            值是用户所填写的内容，名和值用=连接，多个名值对之间使用&隔开
+    -->
+
+    <!--
+        单选按钮，单选按钮是input，type属性是radio
+        单选按钮是通过name属性进行分组的，相同name属性的单选按钮只有一个能被选中
+        像这种选择框，它不需要用户填写，只是选择即可，这种表单项，我们必须指定一个value属性
+            最终提交到服务器的就是它们的value属性
+            可以在单选按钮中添加checked属性来使其变成默认选中状态
+    -->
+    性别 <input type="radio" name="gender" value="male"> 男
+    <input type="radio" name="gender" value="female" checked> 女
+
+    <br><br>
+    <!--
+        多选框，多选框也是input，type属性是checkbox
+        
+    -->
+    爱好 <input type="checkbox" name="hobby" value="lq"> 篮球
+    <input type="checkbox" name="hobby" value="ymq" checked> 羽毛球
+    <input type="checkbox" name="hobby" value="ppq"> 乒乓球
+    <input type="checkbox" name="hobby" value="zq" checked> 足球
+
+    <br><br>
+    <!--
+        下拉列表
+            使用select来创建一个下拉列表
+            在select中使用potion来设置选项
+            在select标签中添加一个multiple属性可以将下拉列表设置为多选下拉列表
+            在option中添加selected属性将当前选项设置为默认选项
+    -->
+    你最喜欢的明显
+    <select name="star" id="">
+        <optgroup label="男明星">
+            <option value="zbs">赵本山</option>
+            <option value="ldh">刘德华</option>
+            <option value="wyz" selected>吴彦祖</option>
+        </optgroup>
+        <optgroup label="女明星">
+            <option value="fbb">范冰冰</option>
+            <option value="zw">赵薇</option>
+            <option value="lxr">林心如</option>
+        </optgroup>
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="登录">
+
+    <!--    重置按钮，将表单恢复到初始状态-->
+    <input type="reset">
+
+    <!--    type="button" 创建的是一个按钮-->
+    <input type="button" value="按钮">
+    <br><br>
+
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+    <button type="button">按钮</button>
+    <button type="button">
+        <img src="img/an.jpg" alt="">
+    </button>
+</form>
+</body>
+</html>

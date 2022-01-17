@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1111</li>
+    <li>2222</li>
+    <li>3333</li>
+    <li>4444</li>
+</ul>
+
+<li>22222</li>
+<br>
+<button id="btn1">添加新的li</button>
+<button id="btn2">删除ul上的事件委托的监听器</button>
+
+<!--
+1. 事件委托:
+  * 将多个子元素(li)的事件监听委托给父辈元素(ul)处理
+  * 监听回调是加在了父辈元素上
+  * 当操作任何一个子元素(li)时, 事件会冒泡到父辈元素(ul)
+  * 父辈元素不会直接处理事件, 而是根据event.target得到发生事件的子元素(li), 通过这个子元素调用事件回调函数
+2. 事件委托的2方:
+  * 委托方: 业主  li
+  * 被委托方: 中介  ul
+3. 使用事件委托的好处
+  * 添加新的子元素, 自动有事件响应处理
+  * 减少事件监听的数量: n==>1
+4. jQuery的事件委托API
+  * 设置事件委托: $(parentSelector).delegate(childrenSelector, eventName, callback)
+  * 移除事件委托: $(parentSelector).undelegate(eventName)
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    // $('ul li').click(function () {
+    //     this.style.background = 'pink';
+    // });
+
+
+    //由父元素调用，传递三个参数，参数1：委托的子元素 参数2：事件名称 参数3：回调函数
+    //在jQuery的事件委托绑定中，jQuery的底层帮我们修正了this的指向，直接指向当前这个事件的被委托的子元素
+    $('ul').delegate('li', 'click', function () {
+        this.style.background = 'pink';
+    });
+
+    //由父元素调用，传递三个参数，参数1：事件名称 参数2：委托的子元素 参数3：回调函数
+    $('ul').on('click', 'li', function () {
+        this.style.background = 'skyblue';
+    });
+
+    $('#btn2').click(function () {
+        //解绑的操作也是由父元素或祖先元素调用
+        // $('ul').undelegate();
+        $('ul').off();
+    });
+
+    $('#btn1').click(function () {
+        $('ul').append('<li>我是新增的li元素</li>');
+    });
+
+</script>
+</body>
+</html>

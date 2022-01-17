@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            height: 256px;
+            margin: 0 auto;
+            /*calc() 用来帮我们计算*/
+            width: calc(1536px / 6);
+            /*    设置背景图片*/
+            background-image: url("img/bg3.png");
+
+            /*    指定位置*/
+            background-position: 0 0;
+
+            /*    设置过渡*/
+            /*transition: background-position 500ms steps(3, start);*/
+
+            /*    需要在执行动画的元素上，设置动画细节*/
+            /*
+                animation-name 指定动画的名字
+            */
+            /*animation-name: 练习2-添加删除记录;*/
+            /*animation-duration 指定动画持续的时间*/
+            /*animation-duration: 400ms;*/
+            /*animation-delay 动画的延时*/
+            /*animation-delay: 3s;*/
+
+            /*指定时间函数*/
+            /*animation-timing-function: steps(6, end);*/
+
+            /*动画执行的次数
+                infinite 表示循环执行
+            */
+            /*animation-iteration-count: infinite;*/
+            /*
+                animation-play-state
+                    动画的播放的状态
+                        可选值：
+                            paused 动画暂停
+                            running 动画运行（默认值）
+
+                animation-direction 动画运行的方向
+                    可选值：
+                        normal 默认值，动画从0% - 100%执行
+                        reverse 反转执行 100% - 0%执行
+                        alternate 第一次从0-100 第二次从100-0 交替
+                        alternate-reverse 第一次从100-0 第二次从0-100
+
+            */
+            /*animation-direction: normal;*/
+
+            animation: test 400ms steps(6) alternate-reverse infinite;
+        }
+
+        .box1:hover {
+            animation-play-state: paused;
+
+        }
+
+        /*.box1:hover {*/
+        /*    background-position: calc(-528px / 4 * 3) 0;*/
+        /*}*/
+
+        /*
+            动画
+                通过动画可以实现一些更加复杂的交互效果
+                要实现css动画，必须要先设置关键帧
+                @keyframes 用来设置关键帧
+                @keyframes 名字 {
+
+                }
+        */
+        @keyframes test {
+            /*指定动画的开始位置*/
+            from {
+                background-position: 0 0;
+            }
+            /*指定动画的结束位置*/
+            to {
+                background-position: -1536px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            任何值和字符串做加法时都会转换为字符串
+                然后再和字符串进行拼串
+
+            利用这个特点，可以通过为一个任意值加上一个空串 ''的形式来将其转换为字符串
+                它的原理和String()函数是一样的，但是这种方式要简单一些
+
+        */
+        //'hello' + '123' = 'hello123'
+        let a = 'hello' + 123;
+        a = 'hello' + NaN;
+
+        a = true;
+        console.log(a, typeof a);
+
+        a = a + '';
+
+        console.log(a, typeof a);
+
+        let b = 33;
+
+        console.log('b = ' + b);
+        console.log('b =', b);
+        console.log(`b = ${b}`);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

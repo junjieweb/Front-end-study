@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="box">
+    <button id="btn">测试</button>
+    <br>
+    <input type="text" name="msg1">
+    <br>
+    <input type="text" name="msg2">
+    <br>
+</div>
+
+<!--
+    1、作为一般函数调用：$(param)
+        参数为函数：当DOM加载完成后，执行此回调函数
+        参数为选择器字符串：查找所有匹配的标签，并将它们封装成jQuery对象
+        参数为DOM对象：将dom对象封装成jQuery对象
+        参数为html标签字符串（用的少）：创建标签对象并封装成jQuery对象
+    2、作为对象使用：$.xxx()
+        $.each()：隐式遍历数组
+        $.trim()：去除两端的空格
+-->
+<script src="js/jquery-1.10.1.js"></script>
+<script>
+    /*
+        1、参数为函数，则约等于页面加载完成（window.onload）的回调函数
+        2、参数为选择器字符串，通过选择器去匹配的元素封装成jQuery对象返回
+        3、参数为dom对象，将当前的dom对象转换为jQuery对象返回
+        4、参数为html标签字符串，将当前这个标签创建，并且直接为jQuery对象
+    */
+
+    //需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+    //1、参数为函数，则约等于页面加载完成（window.onload）的回调函数
+    $(function () {
+        //2、参数为选择器字符串，通过选择器去匹配的元素封装成jQuery对象返回
+        $('#btn').click(function () {
+            //3、参数为dom对象，将当前的dom对象转换为jQuery对象返回
+            alert($(this).html());
+            //4、参数为html标签字符串，将当前这个标签创建，并且直接为jQuery对象
+            $('<input type="text" name="msg3"><br>').appendTo('div');
+        });
+    });
+    //需求2. 遍历输出数组中所有元素值
+    var arr = [23, 34, 21, 4, 6, 3];
+    $.each(arr, function (index, item) {
+        console.log(index, item);
+    })
+    //需求3. 去掉"  hello world "两端的空格
+    var str = '  hello world  ';
+    // console.log(str.trim());
+    console.log($.trim(str));
+
+</script>
+</body>
+</html>

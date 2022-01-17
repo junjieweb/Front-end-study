@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+            /* 
+                文字不会被浮动元素所覆盖，而是环绕在浮动元素的四周
+                从而我们可以利用浮动来实现文字环绕图片的效果
+            */
+        }
+
+        .p1 {
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+<p class="p1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum suscipit hic veritatis corporis totam
+    laudantium in inventore perferendis aut corrupti ratione sint et commodi, autem animi tenetur doloremque voluptatem
+    excepturi!</p>
+</body>
+
+</html>

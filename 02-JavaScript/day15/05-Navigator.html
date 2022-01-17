@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn01">点我一下</button>
+
+<script>
+    document.getElementById('btn01').addEventListener('click', function () {
+        /*
+            Navigator
+                代表浏览器的信息，通过Navigator来识别不同的浏览器
+                在Navigator中大部分属性都没有什么使用价值
+            userAgent   用户代理
+                返回的是一个字符串
+                用来表示浏览器的信息
+
+            Chrome
+                Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36
+            Firefox
+                Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0
+            Edge
+                Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36 Edg/96.0.1054.53
+
+        */
+        let userAgent = navigator.userAgent;
+        // console.log(userAgent);
+        // if (userAgent.indexOf('Firefox') !== -1) {
+        //     alert('你是火狐');
+        // } else if (userAgent.indexOf('MSIE') !== -1) {
+        //     alert('你是IE');
+        // } else if (userAgent.indexOf('Edg') !== -1) {
+        //     alert('你是Edge');
+        // } else if (userAgent.indexOf('Chrome') !== -1) {
+        //     alert('你是Chrome');
+        // }
+
+        // alert(window.ActiveXObject);
+        if ('ActiveXObject' in window) {
+            alert('你是IE');
+        }
+    });
+</script>
+</body>
+</html>

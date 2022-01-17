@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            typeof
+                检查一个值的类型
+            +
+                一元的+（正号）
+                不会对数值产生任何影响
+            -
+                一元的-（负号）
+                会对数值进行符号位取反
+
+            对于非数值类型的值进行正负运算时
+                它会先将其转换为数值然后再运算
+
+            利用一元的+，可以将任意类型的值转换为数值
+                原理同Number()函数，但是更加简单
+
+        */
+
+        let a = 10;
+        a = +a;
+
+        a = true;
+
+        // console.log(a, typeof a);
+
+        // a = -a;
+        a = +a;
+
+        // console.log('a =', a, typeof a);
+
+        a = 1 + '2' + 3;// '123'
+        a = 1 + +'2' + 3;// 6
+        console.log(a);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /*
+     面向对象语言三大特征：封装、继承、多态
+        在js（es5）当中，我们可以将构造函数，理解为类
+        在es6当中，出现了一个新的关键字，class类
+            不过它也不是真正的类，底层依旧是通过封装构造函数来实现的，其本质就是一个语法糖
+
+        继承，核心的问题，就是为了让子类能够继承父类已有的属性和方法
+    */
+    function Dog(name, color, age) {
+        this.name = name;
+        this.color = color;
+        this.age = age;
+    }
+
+    Dog.prototype.run = function () {
+        console.log('我可以跑');
+    };
+    Dog.prototype.eat = function () {
+        console.log('我很能吃');
+    };
+
+    function Corgi(name, color, age) {
+        //当前作用域内，this是Corgi的实例化对象
+        //这种继承方式，叫做构造函数继承，专门让子类继承父类的属性
+        Dog.call(this, name, color, age);
+    }
+
+    //原型链式继承，让子类的原型等于父类的一个实例
+    Corgi.prototype = new Dog();
+    //我们需要手动的将Corgi原型上的构造器属性，重新指向Corgi
+    Corgi.prototype.constructor = Corgi;
+
+    //第三种，叫做混合继承，就是将构造函数继承和原型继承一起使用
+
+    var d1 = new Dog('Tom', 'black', 3);
+    var c1 = new Corgi('dc', 'black', 3);
+    d1.run();
+    //用c1调用一个方法，自身没有时，会沿着__proto__去找构造函数的prototype
+    //但是现在Corgi和prototype指向Dog的实例
+    //Dog的实例也没有这个方法，但是可以顺着实例化对象的__proto__找到Dog的prototype
+    c1.run();
+    console.log(d1);
+    console.log(c1);
+
+</script>
+
+</body>
+</html>

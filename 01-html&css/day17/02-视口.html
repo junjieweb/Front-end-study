@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        viewport 视口
+        width=device-width 将视口大小设置为完美视口
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            /*1rem = 40px*/
+            font-size: 5.3333vw;
+        }
+
+        .box1 {
+            /*
+                1vw 表示 1% 的视口宽度
+                    %单位是参考包含块计算的
+                    vw 总是相对于视口计算的
+
+                    750px宽的设计图
+                        使用vw表示其中的60px的宽度
+
+                    750px  100vw  0.13333vw = 1px
+
+                    60px
+
+                    1rem = 1 html的font-size
+            */
+            width: 1.5rem;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+
+</div>
+</body>
+</html>

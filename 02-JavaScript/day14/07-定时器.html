@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1></h1>
+
+<script>
+
+    /*
+        setTimeout()    延时调用
+            它可以用来在指定时间后调用函数
+            参数：
+                1、回调函数，要调用的函数
+                2、时间（）毫秒
+        clearTimeout()
+            关闭延时调用
+
+        setInterval()   定时调用
+            参数：
+                1、回调函数，要调用的函数
+                2、时间（）毫秒
+            返回值：
+                返回一个定时器的id
+
+        clearInterval()
+            用来关闭定时器
+            参数：
+                定时器的id，根据id将定时器关闭
+
+        setTimeout() 和 setInterval()本质上是一样的，是相互代替的
+
+    */
+    // setTimeout(function () {alert('hello');},2000);
+
+    let num = 0;
+    let h1 = document.getElementsByTagName('h1')[0];
+
+    let timer = setInterval(function () {
+        num++;
+        h1.innerHTML = num;
+
+        if (num === 10) {
+            clearInterval(timer);
+        }
+    }, 1000);
+
+    /*let timeout = setTimeout(function () {
+        alert(123);
+    }, 2000);
+
+    clearTimeout(timeout);*/
+
+    setTimeout(function test() {
+        num++;
+        h1.innerHTML = num;
+
+        if (num === 10) {
+            return;
+        }
+        setTimeout(test, 1000);
+    }, 1000);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn:link {
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url(btn/btn.png);
+            background-repeat: no-repeat;
+        }
+
+        .btn:hover {
+            /* 修改背景图片的偏移量 */
+            /* background-position: center; */
+            background-position: -93px 0;
+        }
+
+        .btn:active {
+
+            /* background-position: right; */
+            background-position: -186px 0;
+        }
+
+        /* 
+            当按钮状态从link切换到hover时，或从hover切换到active时，第一次会出现一个闪烁
+            浏览器在加载页面时需要先加载当前页面，然后再加载页面中引入的外部资源
+            而外部资源不是立刻加载的，外部资源需要在被使用时才会加载，当我们从link切换到hover状态时，需要去加载hover的图片
+                而加载和显示之间存在一个时间差，这样在图片加载前会出现没有背景图片的情况，导致闪烁
+
+            解决方式：
+                可以将多个按钮保存到一个图片中，这样可以一次性加载所有的图片，然后通过偏移量来修改我们需要显示的图片即可
+                    这个技术，我们称为CSS Sprite（CSS精灵），这种图称为雪碧图
+                优点：
+                    将多个图片保存到一个图片中，降低发送请求的次数，增加用户的访问速度
+                    将多个图片保存到一个图片里，也会降低图片的总大小，增快加载速度
+
+        */
+
+        .box1 {
+            width: 122px;
+            height: 46px;
+            background-image: url(img/amazon-sprite_.png);
+            background-position: 0 0;
+        }
+
+        .box2 {
+            width: 42px;
+            height: 30px;
+            background-image: url(img/amazon-sprite_.png);
+            background-position: -58px -338px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--
+    雪碧图的使用步骤：
+        1、创建一个元素，大小就是图标的大小
+        2、将雪碧图设置为背景图
+        3、设置背景的偏移量，使其可以显示图标
+ -->
+<div class="box2"></div>
+<div class="box1"></div>
+
+
+<a class="btn" href="javascript:;"></a>
+</body>
+
+</html>

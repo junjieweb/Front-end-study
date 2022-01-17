@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+
+            /* 
+                使用float来设置元素的浮动
+                    浮动可以使元素向左或向右移动
+                可选值：
+                    none 默认值，不浮动
+                    left 向左浮动
+                    right 向右浮动
+
+                浮动的特点
+                    1、设置浮动以后，元素会向页面的左侧或右侧移动
+                    2、设置浮动以后，元素会完全脱离文档流，不再占据文档流中的位置，
+                        所以它下边的元素会自动上移
+                    3、浮动的元素不会超过其上没有浮动的块元素
+                    4、浮动元素的默认位置不会超过其上的其他的浮动元素，最多一边齐
+
+                元素脱离文档流以后的特点：
+                    1、默认宽度被内容撑开
+                    2、默认高度被内容撑开
+                    3、块元素不会独占一行
+                    4、元素不会在文档流中再占据位置
+
+                行内元素浮动以后也会脱离文档流
+                    脱离文档流以后行内元素自动变成块元素，特点和块元素一样
+
+            */
+            /* float: right; */
+            float: left;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            float: left;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            float: left;
+        }
+
+        a {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(43, 192, 135);
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+
+<a href="#">我是超链接</a>
+</body>
+
+</html>

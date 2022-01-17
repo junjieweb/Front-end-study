@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //  练习2：
+        //  编写一个程序，检查任意一个年份是否是闰年。
+        //  如果一个年份可以被4整除不能被100整除，或者可以被400整除，这个年份就是闰年
+        // let year = +prompt('请输入一个年份');
+        // if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+        //     alert(`${year}是闰年`);
+        // } else {
+        //     alert(`${year}是平年`);
+        // }
+
+        //      - 练习3：
+        //     我家的狗5岁了，5岁的狗相当于多大年龄的人呢？
+        //     其实非常简单，狗的前两年每一年相当于人类的10.5岁，然后每增加一年就增加四岁。
+        //     那么5岁的狗相等于人类的年龄就应该是10.5+10.5+4+4+4 = 33岁
+        //     编写一个程序，获取用户输入的狗的年龄，然后通过程序显示其相当于人类的年龄。
+        //     如果用户输入负数，请显示一个提示信息
+
+        let dogAge = +prompt('你家狗多大了？');
+
+        // if (dogAge !== null && dogAge !== "") {
+        //     dogAge = +dogAge;
+        // } else {
+        //     dogAge = NaN;
+        // }
+
+        let likePersonAge;
+
+        if (dogAge <= 0 || isNaN(dogAge)) {
+            alert('请输入一个正确的年龄')
+        } else {
+            if (dogAge <= 2) {
+                likePersonAge = dogAge * 10.5;
+            } else {
+                likePersonAge = 10.5 * 2 + (dogAge - 2) * 4;
+            }
+            alert(`${dogAge}岁的狗相当于${likePersonAge}岁的人`)
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font/css/all.css">
+    <style>
+
+        body {
+            background-color: #5ad5b7;
+        }
+
+        .outer {
+            width: 800px;
+            height: 600px;
+            margin: auto;
+            background-image: url("img/bg.jpg");
+            overflow: hidden;
+        }
+
+        .inner {
+            width: 368px;
+            height: 454px;
+            background-color: #ffffff;
+            margin: 72px auto auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .form-wrapper {
+            text-align: center;
+        }
+
+        .inner .avatar {
+            width: 107px;
+            height: 107px;
+            background-image: url("img/avatar.png");
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 48px auto 32px;
+        }
+
+        .inner input[type='text'],
+        .inner input[type='password'] {
+            width: 209px;
+            height: 56px;
+            border: none;
+            border-bottom: 2px solid #333333;
+            /*去除轮廓线*/
+            outline: none;
+            font-size: 20px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+
+        /*    当文本框获取焦点以后，文本框改变颜色*/
+        .inner input[type='text']:focus,
+        .inner input[type='password']:focus {
+            border-color: #3eb18b;
+        }
+
+        .inner input[type='text']:focus ~ i,
+        .inner input[type='password']:focus ~ i {
+            color: #3eb18b;
+        }
+
+        .sub-wrapper {
+            margin-top: 74px;
+        }
+
+        form div {
+            width: 249px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .sub-wrapper input {
+            color: #3eb18b;
+            font-size: 18px;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /*.text-wrapper::after {*/
+        /*    content: '\f2bd';*/
+        /*    font-family: 'Font Awesome 5 Free';*/
+        /*    font-weight: 900;*/
+        /*    font-size: 30px;*/
+        /*    position: absolute;*/
+        /*    right: 0;*/
+        /*    bottom: 10px;*/
+        /*    color: #333333;*/
+        /*}*/
+
+        /*.pwd-wrapper::after {*/
+        /*    content: '\f023';*/
+        /*    font-family: 'Font Awesome 5 Free';*/
+        /*    font-weight: 900;*/
+        /*    font-size: 30px;*/
+        /*    position: absolute;*/
+        /*    right: 0;*/
+        /*    bottom: 10px;*/
+        /*    color: #333333;*/
+        /*}*/
+
+        form i {
+            content: '\f2bd';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 30px;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+<!--<i class="fas fa-blind"></i>-->
+
+<div class="outer">
+    <!--    创建一个内部容器-->
+    <div class="inner">
+
+        <!--    创建头像的div-->
+        <div class="avatar"></div>
+
+        <!--    创建表单-->
+        <div class="form-wrapper">
+            <form action="#">
+                <div class="text-wrapper">
+                    <input type="text" placeholder="用户名">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+
+                <div class="pwd-wrapper">
+                    <input type="password" placeholder="密码">
+                    <i class="fas fa-lock"></i>
+                </div>
+
+                <div class="sub-wrapper">
+                    <input type="submit" value="登录 →">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

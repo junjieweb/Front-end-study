@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+            and 表示两个条件必须同时满足
+            ,表示或者
+            not 表示取反 不是对某个条件进行取反，而是对整个条件
+        */
+        @media only screen and (min-width: 500px) and (min-width: 800px) {
+            body {
+                background-color: #bfa;
+            }
+        }
+        
+        @media not screen and (orientation: landscape) {
+            body{
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 50px auto;
+
+            /* 
+                轮廓就是不占空间的边框，设置轮廓不会影响元素的布局
+            */
+            /* outline: 1px red solid; */
+
+            /* 
+                box-shadow 用来设置元素的阴影，和轮廓一样，阴影也不会影响页面的布局
+                    box-shadow 值
+                        inset 内部阴影
+                        第一个值，阴影的水平偏移量
+                            正值向右移动，负值向左移动
+                        第二个值，阴影的垂直偏移量
+                            正值向下移动，负值向上移动
+                        第三个值，阴影的模糊半径
+                        第四个值，阴影的颜色
+
+
+            */
+            /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5)，
+                        -10px -10px 20px rgba(0, 0, 0, 0.5),
+                        -10px -10px 20px rgba(0, 0, 0, 0.5); */
+
+            box-shadow: 10px 10px 20px black
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+
+<a href="#">hello</a>
+</body>
+
+</html>

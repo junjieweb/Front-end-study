@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            //点击按钮后创建一个新的li元素
+            document.getElementById('btn01').onclick = function () {
+                //获取list
+                let list = document.getElementById('list');
+                //创建一个li
+                let li = document.createElement('li');
+                //设置文本内容
+                li.innerHTML = '玉兔精';
+                //将li添加到list中
+                // list.appendChild(li);
+                // list.insertAdjacentElement("beforeend", li);
+                // list.insertAdjacentElement("afterbegin", li);
+                /*
+                    insertAdjacentElement()
+                        用来将一个元素插入到指定元素的指定位置
+                        参数
+                            1、传一个插入的位置
+                                beforebegin 开始标签前
+                                afterbegin 开始标签后（元素的开头）
+                                beforeend 结束标签前（元素的结尾）
+                                afterend 结束标签后
+                            2、被插入的元素
+
+                    insertAdjacentHTML()
+                        在元素的指定位置插入HTML代码
+                    insertAdjacentText()
+                        在元素的指定位置插入文本内容
+
+                */
+                // list.insertAdjacentElement("beforebegin", li);
+                list.insertAdjacentHTML('afterbegin', '<li>二郎神</li>');
+
+            };
+
+            document.getElementById('btn02').onclick = function () {
+                //获取list
+                let list = document.getElementById('list');
+                //获取沙和尚的li
+                let shs = document.getElementById('shs');
+                //创建一个li
+                let li = document.createElement('li');
+                //设置文本内容
+                li.innerHTML = '犀牛精';
+                // shs.insertAdjacentElement('beforebegin', li);
+
+                /*
+                    将某个元素插入到指定元素的前面
+                        父元素.insertBefore(新节点,旧节点);
+                            将指定节点插入到某节点的前面
+                        父元素.replaceChild(新节点,旧节点);
+                            使用新节点替换旧节点
+                */
+                // list.insertBefore(li, shs);
+                list.replaceChild(li,shs);
+            };
+
+        };
+    </script>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+
+<!--beforebegin-->
+<ul id="list">
+    <!--    afterbegin-->
+    <li>孙悟空</li>
+    <li>猪八戒</li>
+    <li id="shs">沙和尚</li>
+    <li>唐僧</li>
+    <!--    beforeend-->
+</ul>
+<!--afterend-->
+
+</body>
+</html>

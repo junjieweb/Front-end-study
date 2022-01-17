@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            DOM(Document Object Model)
+                文档对象模型
+                    文档（Document）
+                        文档指整个网页
+                    对象（Object）
+                        DOM将网页中的所有的东西都转换为了对象
+                    模型（Model）
+                        模型用来体现节点之间的关系
+                网页由三个部分组成：
+                    结构（Html）
+                    表现（CSS）
+                    行为（JavaScript）
+                DOM中为我们提供了大量的对象，使我们可以通过js来完成对网页的操控
+
+                节点（Node）
+                    网页中的所有部分都可以称为是一个节点，虽然都是节点，但是也有着不同的类型
+                        文档节点
+                            表示整个网页
+                        元素节点
+                            各种标签都属于元素节点
+                        属性节点
+                            标签中的属性称为属性节点
+                        文本节点
+                            标签中的文字
+        */
+    </script>
+</head>
+<body>
+<button id="btn">我是一个按钮</button>
+<script>
+
+    //希望通过js来修改button按钮
+    //document 对象表示整个网页，它由浏览器提供，我们可以直接使用
+    let btn = document.getElementById('btn');
+    btn.innerHTML = 'I\'m Button';
+
+
+</script>
+</body>
+</html>

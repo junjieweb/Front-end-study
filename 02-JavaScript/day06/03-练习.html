@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        console.log(a);// 4
+        var a = 1;
+        console.log(a);// 1
+
+        function a() {
+            alert(2);
+        }
+
+        console.log(a);//1
+
+        a = 3;
+        console.log(a);//3
+
+        function a() {
+            alert(4);
+        }
+
+        console.log(a);//3
+        a = function () {
+            alert(5);
+        }
+        console.log(a);//5
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

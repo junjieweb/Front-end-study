@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // document.write("今天天气真不错<br>");
+
+        /*
+            循环语句
+                循环语句可以让指定的代码反复执行多次
+                循环有3种
+                    while循环
+                    do-while循环
+                    for循环
+
+            循环的三个条件
+                初始化表达式，创建一个变量来控制循环的执行
+                条件表达式，设置循环的执行条件
+                更新表达式，修改初始化变量
+        */
+
+        // let a = 1;
+        // while (a <= 10) {
+        //     document.write("今天天气真不错<br>");
+        //     a++;
+        // }
+
+        // let i = 0;
+        // while (true) {
+        //     console.log(i);
+        //     i++;
+        //     if (i === 5) {
+        //         break;
+        //     }
+        // }
+
+        let money = 1000;
+        let a = 0.05;
+        let year = 0;
+        while (true) {
+            money = money + money * a;
+            year++;
+            if (money >= 5000) {
+                break;
+            }
+        }
+
+
+        alert(`${year}年后存款为${money}元`);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

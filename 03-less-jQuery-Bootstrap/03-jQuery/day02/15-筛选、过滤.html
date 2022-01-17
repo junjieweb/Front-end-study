@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>AAAAA</li>
+    <li title="hello" class="box2">BBBBB</li>
+    <li class="box">CCCCC</li>
+    <li title="hello" class="item">DDDDDD</li>
+    <li title="two"><span class="test">BBBBB</span></li>
+</ul>
+<li>eeeee</li>
+<li>EEEEE</li>
+<br>
+
+<!--
+在jQuery对象中的元素对象数组中过滤出一部分元素来
+1. first()
+2. last()
+3. eq(index|-index)
+4. filter(selector)
+5. not(selector)
+6. has(selector)
+-->
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    //过滤选择器，是在元素查询的阶段，传入到jQuery核心函数中，当作匹配元素的规则
+    //过滤筛选方法，是在已经有jQuery对象的前提之下，我们想要对这个现有的jQuery对象里面的元素进行筛选
+    //所有反复使用的集合，统一获取，反复使用
+
+    var $list = $('ul li');
+    // 1. ul下li标签第一个
+    $list.first().css('background', 'pink');
+
+    // 2. ul下li标签的最后一个
+    $list.last().css('background', 'pink')
+
+    // 3. ul下li标签的第二个
+    $list.eq(1).css('background', 'pink');
+
+    // 4. ul下li标签中title属性为hello的
+    //filter() 根据传入的选择器，筛选已有的jQuery对象
+    $list.filter('[title=hello]').css('background', 'red');
+
+    // 5. ul下li标签中title属性不为hello的
+    $list.filter('[title!=hello]').css('background', 'skyblue');
+
+    // 6. ul下li标签中有span子标签的
+    $list.has('span').css('background', 'blue');
+
+</script>
+
+</body>
+</html>

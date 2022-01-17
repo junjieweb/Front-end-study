@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            返回值
+                返回值就是函数的执行结果
+                通过return来设置函数的返回值
+                    语法：return 值;
+                    任何值都可以作为函数的返回值
+                    如果不设置return 或 return后不跟任何值，
+                        则相当于return undefined
+                    return后的所有代码都不会执行，return执行后，函数立即结束
+
+        */
+
+        function sum(a, b) {
+            // console.log(a + b);
+            return a + b;
+        }
+
+        //调用函数时，返回值就是函数的执行结果
+        let s = sum(23, 54);
+        console.log(s);
+
+        function fn() {
+            // return {name: '孙悟空'};
+            return function () {
+                console.log('我是内部函数');
+            };
+        }
+
+        let result = fn();
+        console.log(result);
+        result();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" autocomplete="off">
+
+    <!--
+        type=email 是邮件的输入框
+            在PC端，如果我们输入的格式不合法，则表单无法提交，会显示提示信息
+            在移动端，输入时会显示不同的键盘
+
+            属性：
+                autofocus 自动获取焦点
+                required 表单项为必填表单项
+                value 可以用于指定输入框的默认值
+                readonly 将属性设置为只读属性
+                disabled 使表单项不可用
+                autocomplete="off" 自动填写关闭
+                autocomplete="on" 自动填写开启
+
+    -->
+    <!--    用户名 <input type="text" name="username" autofocus value="Hello" disabled>-->
+    用户名 <input type="text" name="username">
+    <br><br>
+
+    电子邮件<input type="email" name="email" required>
+    <br><br>
+
+    生日 <input type="date" name="birth">
+
+
+    <br><br>
+    <input type="submit">
+
+</form>
+</body>
+</html>

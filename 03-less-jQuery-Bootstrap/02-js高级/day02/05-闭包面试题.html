@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //代码片段一
+    var name = "The Window";
+    var object = {
+        name: "My Object",
+        getNameFunc: function () {
+
+            return function () {
+                return this.name;
+            };
+        }
+    };
+    console.log(object.getNameFunc()());
+
+    //代码片段二
+    var name2 = "The Window";
+    var object2 = {
+        name2: "My Object",
+        getNameFunc: function () {
+            var that = this;
+            return function () {
+                return that.name2;
+            };
+        }
+    };
+    console.log(object2.getNameFunc()());
+
+
+    //代码片段三
+
+    function fun(n, o) {
+        //n = 0  o = undefined
+        //n = 1  o = 0
+        console.log(o);
+        return {
+            // m = 1    n = 0
+            fun: function (m) {
+                return fun(m, n);
+            }
+        };
+    }
+
+    //存在几套闭包机制，取决于外部函数调用几次
+    //a现在是一个对象，对象上有一个fun方法      a.fun(1)执行之后返回的对象没有被接收
+    var a = fun(0);//undefined    这是外部函数的第一次执行，和a对象中的fun方法形成了闭包
+    a.fun(1);// 0
+    a.fun(2);
+    a.fun(3);
+
+    var b = fun(0).fun(1).fun(2).fun(3);
+</script>
+</body>
+</html>

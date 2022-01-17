@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>小米商城 - 小米10 Pro、Redmi K30、小米MIX Alpha，小米电视官方网站</title>
+		<!-- 引入重置样式表 -->
+		<link rel="stylesheet" href="css/reset.css">
+		<!-- 引入图标字体库 -->
+		<!-- 
+			xxx.css 正常的代码（保留格式）
+				- 正常的代码，阅读起来比较方便，开发时可以使用
+			xxx.min.css 压缩的代码（不保留格式）
+				- 压缩过的代码，加载速度快，在生产环境中使用
+		 -->
+		<link rel="stylesheet" href="iconfont/css/all.min.css">
+		<!-- 引入基础样式表 -->
+		<link rel="stylesheet" href="css/base.css">
+		<!-- 引入当前页面的样式表 -->
+		<link rel="stylesheet" href="css/index.css">
+		
+		<!-- 设置网站的收藏图标 -->
+		 <link rel="icon" href="favicon.ico" type="image/x-icon">
+<!--		<link rel="icon" href="./an.ico">-->
+		
+	</head>
+	<body>
+		
+		<!-- 
+			顶部导航条
+			
+			创建一个顶部导航条的外部容器
+		 -->
+		<div class="topbar-wrapper">
+			<!-- 创建顶部导航条的内部容器 -->
+			<div class="topbar w">
+				
+				<!-- 创建三个菜单 -->
+				<!-- 左侧的shortcut -->
+				<ul class="shortcut">
+					<li class="item">
+						<a href="#">小米商城</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">MIUI</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">loT</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">云服务</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">金融</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">有品</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">小爱开放平台</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">企业团购</a>
+					</li>
+					
+				
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">资质证照</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">协议规则</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item download">
+						<a href="#">下载app
+							<!-- 创建一个下拉层 -->
+							<div class="hide-wrapper">
+								<!-- 添加一个层 -->
+								<div class="hide-inner">
+									<!-- 设置二维码的图片 -->
+									<div class="qrcode">
+										<!-- 下载app的二维码 -->
+										<img src="img/download.png">
+									</div>
+									
+									<!-- 设置文字 -->
+									<span>小米商城app</span>
+								</div>
+							</div>
+						</a>
+						
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">Select Location</a>
+					</li>
+					
+					
+				</ul>
+				
+				
+				
+				<!-- 右侧的购物车 -->
+				<div class="shopcart">
+					<!-- 设置图标字体 -->
+					<a href="#">
+						<span class="fas fa-shopping-cart"></span>
+						<span>购物车（0）</span>
+					</a>
+				</div>
+				
+				<!-- 中间的用户的信息 -->
+				<ul class="userinfo">
+					<li class="item">
+						<a href="#">登录</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">注册</a>
+					</li>
+					
+					<li class="line">|</li>
+					
+					<li class="item">
+						<a href="#">消息通知</a>
+					</li>
+				</ul>
+				
+				
+			</div>
+		</div> 
+		 
+	
+		<!-- 
+			网页的头部
+		 -->
+		<div class="header w clearfix">
+			<!-- 创建logo -->
+			<h1 class="logo" title="小米商城">
+				<!-- 在链接处直接写/ 就表示回到主页（index.html） -->
+				<a href="#">小米商城</a>
+			</h1>
+			
+			<!-- 创建中间的主导航条 -->
+			<ul class="main-menu">
+				<li class="item no-show">
+					<a class="all-goods" href="#">全部商品分类</a>
+					
+					<!-- 创建一个左侧的导航的菜单 -->
+					<ul class="left-menu">
+						<li>
+							<a href="#">
+								手机 电话卡
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								电视 盒子
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								笔记本 平板
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								家电 插线板
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								出行 穿戴
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								智能 路由器
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								电源 配件
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								健康 儿童
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								耳机 音箱
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								生活 箱包
+								<span class="fas fa-angle-right"></span>
+							</a>
+						</li>
+						
+					</ul>
+				</li>
+				<li class="item">
+					<a href="#">小米手机</a>
+				</li>
+				<li class="item">
+					<a href="#">Redmi 红米</a>
+				</li>
+				<li class="item">
+					<a href="#">电视</a>
+				</li>
+				<li class="item">
+					<a href="#">笔记本</a>
+				</li>
+				<li class="item">
+					<a href="#">家电</a>
+				</li>
+				<li class="item">
+					<a href="#">路由器</a>
+				</li>
+				<li class="item">
+					<a href="#">智能硬件</a>
+				</li>
+				<li class="item no-show">
+					<a href="#">服务</a>
+				</li>
+				<li class="item no-show">
+					<a href="#">社区</a>
+				</li>
+			
+				<!-- 创建一个隐藏的div -->
+				<div class="goods-list">
+					
+				</div>
+			</ul>
+		
+			<!-- 创建右侧的搜索框 -->
+			<div class="search-wrapper">
+				<!-- 创建一个表单 -->
+				<form action="#" autocomplete="off">
+					<!-- 创建一个input -->
+					<input class="txt" type="text" name="keywords">
+					<!-- 创建一按钮 -->
+					<button class="btn" type="submit">
+						<span class="fas fa-search"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+		
+		<!-- 创建轮播图的容器 -->
+		<div class="banner w">
+			<!-- 放图片的容器 -->
+			<ul>
+				<li>
+					<a href="#1">
+						<img src="img/banner/1.jpg">
+					</a>
+				</li>
+				
+				<li>
+					<a href="#2">
+						<img src="img/banner/2.jpg">
+					</a>
+				</li>
+				
+				<li>
+					<a href="#3">
+						<img src="img/banner/3.jpg">
+					</a>
+				</li>
+				
+				<li>
+					<a href="#4">
+						<img src="img/banner/4.jpg">
+					</a>
+				</li>
+				
+				<li>
+					<a href="#5">
+						<img src="img/banner/5.jpg">
+					</a>
+				</li>
+			</ul>
+		
+			<!-- 创建轮播图上的小点点 -->
+			<div class="pointer">
+				<!--
+					可以在标签中，添加一个data-xxx这种自定义属性
+						可以在这些属性中，存储一些我们需要的数据
+				-->
+				<a class="active" href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+			</div>
+			
+			<!-- 设置翻页的按钮 -->
+			<div class="prev-next">
+				<a class="prev" href="javascript:;"></a>
+				<a class="next" href="javascript:;"></a>
+			</div>
+		</div>
+		
+		
+		<!-- 创建home-hero 的容器 -->
+		<div class="home-hero w">
+			<!-- 左侧的服务栏 -->
+			<div class="service">
+				<!-- 创建图标的ul -->
+				<ul>
+					<li>
+						<a href="#">
+							<i class="fas fa-cat"></i>
+							<span>小米秒杀</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fas fa-star"></i>
+							<span>企业团购</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fas fa-plane"></i>
+							<span>F码通道</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fas fa-flag"></i>
+							<span>米粉卡</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fas fa-bath"></i>
+							<span>以旧换新</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="fas fa-baby"></i>
+							<span>话费充值</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- 右侧三个商品 -->
+			<div class="goods-hero">
+				<a href="#">
+					<img src="img/1.jpg">
+				</a>
+			</div>
+			
+			<div class="goods-hero">
+				<a href="#">
+					<img src="img/2.jpg">
+				</a>
+			</div>
+			
+			
+			<div class="goods-hero">
+				<a href="#">
+					<img src="img/3.jpg">
+				</a>
+			</div>
+		</div>
+		
+		
+		<!-- 创建一个固定定位的工具栏 -->
+		<div class="tools-fixed"></div>
+
+		<script>
+
+			/*
+			* 	点击下一个按钮，切换到下一张图片
+			* */
+
+			// 获取所有的存储图片的li
+			let imgList = document.querySelectorAll('.banner li');
+			// 创建一个变量来记录当前显示的图片
+			let currentIndex = 0;
+			// 获取下一个按钮
+			let next = document.querySelector('.prev-next .next');
+			// 获取上一个按钮
+			let prev = document.querySelector('.prev-next .prev');
+
+			// 获取所有的导航点的a标签
+			let pointers = document.querySelectorAll('.pointer a');
+
+			// 为prev绑定一个单击响应函数
+			prev.addEventListener('click', function (event) {
+				// 取消默认行为
+				event.preventDefault();
+				// 调用changeImg来切换图片
+				changeImg(currentIndex-1);
+
+			});
+			// 为next按钮绑定单击响应函数
+			next.addEventListener('click', function (event) {
+				// 取消默认行为
+				event.preventDefault();
+
+				changeImg(currentIndex+1);
+
+			});
+
+			// 创建一个公共的函数，用来切换图片
+			// 需要一个参数 index，表示要切换到的图片
+			function changeImg(index) {
+
+				// 检查index是否合法
+				if(index < 0){
+					index = imgList.length - 1;
+				}else if(index > imgList.length - 1){
+					index = 0;
+				}
+
+				//将之前显示的图片的zIndex取消
+				imgList[currentIndex].style.zIndex = '';
+				// 将之前选中的导航点取消
+				pointers[currentIndex].className = '';
+				// 将之前图片的不透明度设置为0
+				imgList[currentIndex].style.opacity = 0;
+
+				// 将当前图片的zIndex设置为1
+				imgList[index].style.zIndex = 1;
+				// 将当前图片的不透明度设置为1
+				imgList[index].style.opacity = 1;
+				// 将当前图片所对应的导航点设置为选中状态
+				pointers[index].className = 'active';
+
+				// 将currentIndex修改为index
+				currentIndex = index;
+			}
+
+		</script>
+	</body>
+</html>

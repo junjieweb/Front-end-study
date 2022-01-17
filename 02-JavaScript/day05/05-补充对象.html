@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let obj = Object();
+        let obj2 = Object();
+
+        obj.name = '孙悟空';
+        obj2.name = '孙悟空';
+        obj2 = obj;
+
+        const obj3 = Object();
+        obj3.name = '猪八戒';
+
+        obj3.name = '孙悟空';
+        console.log(obj3);
+
+        /*
+            比较两个对象时，无论是相等还是全等，比较的都是对象的内存地址
+            声明常量是禁止修改变量，不会影响修改对象
+        */
+
+        // console.log(obj);
+        // console.log(obj2);
+        // console.log(obj === obj2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

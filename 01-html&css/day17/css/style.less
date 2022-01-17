@@ -1,0 +1,197 @@
+//清除默认的内外边距
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//浏览器可以使用的最小字体就是12px 0px可以
+//0.13333vw = 1px（物理像素）
+//100vw = 375px
+//1vw = 3.75px
+
+//计算font-size基本的值（根标签，用于vw的适配）
+@root-font-size: (100/750vw) * 40;
+//创建一个变量存储背景颜色
+@body-bg-color: #eff0f4;
+//创建图标的颜色
+@icon-color: #656565;
+
+//根标签的样式
+html {
+  font-size: @root-font-size;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+//设置body的样式
+body {
+  background-color: @body-bg-color;
+}
+
+//设置a的样式
+a {
+  color: white;
+  text-decoration: none;
+}
+
+//设置最外层的容器
+.outer {
+  //height: 100px;
+  margin: 0 (27/40rem);
+  //background-color: red;
+}
+
+//设置顶部工具条的样式
+.top-bar {
+  //  设置高度
+  height: (174/40rem);
+  //  设置弹性盒
+  display: flex;
+  //  设置对齐方式
+  justify-content: space-between;
+  align-items: center;
+
+  //  设置图标的样式
+  i {
+    color: @icon-color;
+  }
+}
+
+//-----------------------------------------------------
+//设置banner
+.banner {
+  border-radius: 5px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    vertical-align: top;
+  }
+}
+
+//设置四个按钮的样式
+.btn-wrapper {
+  //设置高度
+  height: (244/40rem);
+  //设置为弹性盒
+  display: flex;
+  //设置自动换行
+  flex-flow: row wrap;
+
+  justify-content: space-between;
+  align-content: space-between;
+
+  margin-top: (40/40rem);
+
+  a {
+    width: (327/40rem);
+    height: (104/40rem);
+    border-radius: 5px;
+    text-align: center;
+    line-height: (104/40rem);
+  }
+
+  a:nth-child(1) {
+    background-color: #f97053;
+  }
+
+  a:nth-child(2) {
+    background-color: #c657ff;
+  }
+
+  a:nth-child(3) {
+    background-color: #ff3971;
+  }
+
+  a:nth-child(4) {
+    background-color: #1d92ff;
+  }
+}
+
+//--------------------------------------------------------
+.course-list {
+  overflow: hidden;
+}
+
+//设置列表
+.list-head {
+  height: (120/40rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  //设置课程的名称
+  h2 {
+    color: #24253d;
+    font-size: (33/40rem);
+    font-weight: normal;
+    //  设置左边框
+    border-left: 3px solid #3a84ff;
+    padding-left: .5em;
+  }
+
+  //设置超链接
+  a {
+    color: #656565;
+    font-size: (28/40rem);
+  }
+}
+
+//列表项
+.list-item {
+  width: (327/40rem);
+  height: (323/40rem);
+  padding: (22/40rem) (20/40rem);
+  background-color: white;
+  border-radius: 5px;
+
+  //图片容器
+  .course-img {
+    width: (285/40rem);
+
+    //图片
+    img {
+      width: 100%;
+    }
+  }
+
+  //设置课程的标题
+  .course-title {
+    color: #24253d;
+    font-size: (33/40rem);
+    margin: (14/40rem) 0;
+  }
+}
+
+.list-content {
+  display: flex;
+  width: (720/40rem);
+  overflow: auto;
+
+  .list-item {
+    margin-right: (24/40rem);
+    flex: none;
+  }
+}
+
+.course-author {
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    width: (42/40rem);
+    height: $width;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .author {
+    color: #969393;
+    font-size: (24/40rem);
+    margin-left: 5px;
+  }
+}

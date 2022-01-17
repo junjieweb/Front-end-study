@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            开启定位以后元素都会提升一个层级
+                定位元素层级可以用z-index来设置
+                z-index需要一个整数作为参数，值越大层级越高
+                如果z-index的值相同，则后边的元素会盖住前边的元素
+                父元素的层级再高，也不会盖住子元素
+
+        */
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            position: relative;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        /* .box4{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            z-index: 2;
+        } */
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0;
+            position: relative;
+            top: -100px;
+            left: 100px;
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+            top: -200px;
+            left: 200px;
+            z-index: 3;
+
+            /* 
+                opacity:用来设置元素的不透明度，
+                需要一个0-1之间的值 
+                rgba() 只是一个透明的颜色
+                opacity() 让元素整个透明
+            */
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <div class="box4"></div>
+</div>
+<div class="box2"></div>
+<div class="box3"></div>
+</body>
+
+</html>

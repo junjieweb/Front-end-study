@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* padding-top: 100px; */
+            /* padding-top: 1px; */
+            border-top: red 1px solid;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin-top: 100px;
+
+        }
+
+        /*
+            外边距的折叠
+                兄弟元素
+                    兄弟元素相邻的会取最大值
+                父子元素
+                    父子元素相邻垂直外边距，子元素的外边距会传递给父元素
+
+        */
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

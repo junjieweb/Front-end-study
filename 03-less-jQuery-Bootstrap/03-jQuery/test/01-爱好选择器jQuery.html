@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    你爱好的运动是？<input type="checkbox" id="checkedAllBox"/>全选/全不选
+
+    <br/>
+    <input type="checkbox" name="items" value="足球"/>足球
+    <input type="checkbox" name="items" value="篮球"/>篮球
+    <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+    <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+    <br/>
+    <input type="button" id="checkedAllBtn" value="全　选"/>
+    <input type="button" id="checkedNoBtn" value="全不选"/>
+    <input type="button" id="checkedRevBtn" value="反　选"/>
+    <input type="button" id="sendBtn" value="提　交"/>
+</form>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    /*
+         功能说明:
+         1. 点击'全选': 选中所有爱好
+         2. 点击'全不选': 所有爱好都不勾选
+         3. 点击'反选': 改变所有爱好的勾选状态
+         4. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+         5. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+         6. 点击'提交': 提示所有勾选的爱好
+    */
+    $(function () {
+        //获取全选/全不选复选框
+        var $checkedAllBox = $('#checkedAllBox');
+
+        //获取爱好的复选框集合
+        var $items = $(':checkbox[name=items]');
+
+        //1. 点击'全选': 选中所有爱好
+        $('#checkedAllBtn').click(function () {
+            $items.prop('checked', true);
+            $checkedAllBox.prop('checked', true);
+        });
+
+        //2. 点击'全不选': 所有爱好都不勾选
+        $('#checkedNoBtn').click(function () {
+            $items.prop('checked', false);
+            $checkedAllBox.prop('checked', false);
+        });
+
+        //3. 点击'反选': 改变所有爱好的勾选状态
+        $('#checkedRevBtn').click(function () {
+            //反选功能需要通过判断每一个复选框当前的选中状态来切换，所有隐式遍历不能满足需求了
+            $items.each(function () {
+                this.checked = !this.checked;
+            });
+
+            //当我点击反选按钮之后，如果所有的爱好都处于选中的状态，则全选/全不选的复选框应该选中
+            //所以，我们需要获取爱好的总数和选中的爱好的个数，如果这两个值相等，则证明全选
+            //如果我们通过一个表达式是否成立来设置一个布尔值的结果，可以直接将这个表达式作为设置的内容
+            // var checkedLength = $items.filter(':checked').length;
+            // if (checkedLength === $items.length) {
+            //     //选中个数与爱好总数相等，则说明全选了
+            //     $checkedAllBox.prop('checked', true);
+            // } else {
+            //     $checkedAllBox.prop('checked', false);
+            // }
+
+            // $checkedAllBox.prop('checked', $items.filter(':checked').length === $items.length);
+            //不选中的个数为0，则说明全选
+            $checkedAllBox.prop('checked', $items.filter(':not(:checked)').length === 0);
+        });
+
+        // 4. 点击'全选/全不选': 选中所有爱好, 或者全不选中    让所以爱好的复选框的状态和这个复选框保持一致
+        $checkedAllBox.click(function () {
+            $items.prop('checked', this.checked);
+        });
+
+        // 5. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+        $items.click(function () {
+            //如果当前这个爱好选中后，满足全选的条件，则设置为true
+            $checkedAllBox.prop('checked', $items.filter(':not(:checked)').length === 0);
+        });
+
+        // 6. 点击'提交': 提示所有勾选的爱好
+        //因为是读值的操作，所以不能使用隐式遍历了
+        $('#sendBtn').click(function () {
+            $items.filter(':checked').each(function () {
+                //在遍历当中，this指的是当前jQuery对象中存储的每一个dom对象
+                alert(this.value);
+            })
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

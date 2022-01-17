@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s1 {
+            background-color: aqua;
+            /* 内联元素不支持设置宽度和高度 */
+            /* width: 100px;
+            height: 100px; */
+
+            /* 
+                内敛元素可以设置padding
+                但是垂直方向的padding不会影响页面的布局
+            */
+            /* padding: 20px; */
+
+
+            /* 
+                内联元素可以设置border
+                但是垂直方向的border不会影响页面的布局
+            */
+            /* border: 10px red solid; */
+
+            /* 
+                内联元素支持水平方向的外边距，不支持垂直方向的
+            */
+            margin: 10px;
+        }
+
+        .s2 {
+            background-color: red;
+            margin-right: 100px;
+        }
+
+        .s3 {
+            background-color: aqua;
+            margin-left: 100px;
+            /* 
+                水平方向相邻的外边距不会重叠，而是求和
+            */
+        }
+
+        .d1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+<span class="s1">我是一个span</span>
+<div class="d1"></div>
+
+<span class="s2">我是span2</span>
+<span class="s3">我是span3</span>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //新建一个对象
+    var car = {
+        name: '汽车',
+        run: function () {
+            console.log('我可以行驶')
+        }
+    };
+
+    //调用create方法创建新对象
+    var Passat = Object.create(car, {
+        brand: {
+            //设置的是属性的值
+            value: '帕萨特',
+            //属性值是否可以修改
+            writable: true,
+            //属性是否可以删除
+            configurable: true,
+            //属性是否可以枚举（遍历）
+            enumerable: true
+        },
+        //价格属性
+        price: {
+            //get 是一个对象的方法，无需手动调用
+            get: function () {
+                console.log('Price被获取了');
+                return 280000;
+            },
+            //set 设置
+            set: function (value) {
+                //this 指的是新建的对象
+                this.jiage = value;
+                console.log('我的值被修改了' + value);
+            }
+        }
+    });
+    // console.log(Passat);
+    // Passat.brand = '大众';
+    // delete Passat.brand;
+    // for (var i in Passat) {
+    //     console.log(i)
+    // }
+
+    //获取价格属性
+    // console.log(Passat.price);
+    //设置价格属性
+    Passat.price = 300000;
+    console.log(Passat);
+
+    // console.log(Passat);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1. $.each(): 遍历数组或对象中的数据
+2. $.trim(): 去除字符串两边的空格
+3. $.type(obj): 得到数据的类型
+4. $.isArray(obj): 判断是否是数组
+5. $.isFunction(obj): 判断是否是函数
+6. $.parseJSON(json) : 解析json字符串转换为js对象/数组
+-->
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    var person = {
+        name: 'tom',
+        age: 12
+    };
+    var arr = [3, 6, 12, 41, 29];
+    //jquery当中有两个each方法 一个在jquery对象上   一个在工具对象上
+    //$().each    是用来专门遍历jquery对象的
+    //$.each()    通用遍历方法   拿来遍历数组和对象
+    //第一个参数 要遍历的目标   第二个参数回调函数   回调函数中有两个参数
+    //（如果遍历对象 就是 属性名称  属性值 如果遍历数组  就是索引 元素值）
+    $.each(person, function (k, v) {
+        console.log(k, v)
+    });
+
+    $.each(arr, function (index, item) {
+        console.log(index, item)
+    });
+
+    //2.$.trim  去除字符串两端空格，把要去除两端空格的字符串当做参数传递，$.trim的返回值就是处理好的字符串
+    var str = '    hello world    ';
+    console.log($.trim(str));
+
+    //type
+    console.log($.type(arr));
+    console.log($.type($));
+    console.log($.type($()));
+
+    //检测当前的值是否是一个数组
+    console.log($.isArray(person));
+
+    //检测当前的值是否是一个函数
+    console.log($.isFunction($))
+
+    var json = '{"username":"jack", "age" : 12}';
+    var jsonArr = '[{"username":"jack", "age" : 12},{"username":"Tom", "age" : 13}]';
+    console.log($.parseJSON(json));
+    console.log($.parseJSON(jsonArr));
+
+</script>
+</body>
+</html>

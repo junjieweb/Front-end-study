@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Symbol.replace
+    let obj = {
+        [Symbol.replace]: function () {
+            console.log('我被replace方法调用了');
+        }
+    };
+
+    //声明字符串
+    let str = 'hello';
+    //调用replace方法
+    let result = str.replace(obj, 'world');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <script>
+        /*
+            正则表达式（对象）
+                用来定义一个字符串的规则
+                    计算机可以根据正则表达式来判断一个字符串是否符合规则
+                    也可以将符合内容的字符串从一段内容中提取出来
+                严格区分大小写
+                语法
+                    new RegExp('正则表达式','匹配模式');
+                    语法：/正则/匹配模式
+        */
+        //创建一个正则表达式的对象
+        let re = new RegExp('a');
+        //字面量  语法：/正则/匹配模式
+        let re2 = /a/;
+
+        // console.log(re);
+        // console.log(re2);
+
+        //a 表示检查一个字符串中是否含有a
+        re = /a/;
+        re = /ab/i;
+
+        //练习2-添加删除记录() 用来检查一个字符串是否符合正则表达式
+        // alert(re.练习2-添加删除记录('Ab'));
+        alert(/ab/i.test('Ab'));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

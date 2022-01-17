@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+
+<a id="baidu" href="https://www.baidu.com">去百度</a>
+
+<script>
+
+    let box1 = document.getElementById('box1');
+    console.log(getComputedStyle(box1).backgroundColor);
+    // box1.onclick = function (event) {
+    //     console.log(event);
+    // };
+
+    box1.addEventListener('click', function (event) {
+        alert(event);
+    });
+
+    let baidu = document.getElementById('baidu');
+    baidu.addEventListener('click', function (event) {
+        event.preventDefault();
+        alert(123);
+    });
+
+    // baidu.onclick = function (event) {
+    //     event.preventDefault();
+    //     alert(123);
+    //     // return false;
+    // };
+
+</script>
+</body>
+</html>

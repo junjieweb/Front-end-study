@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        /*
+            1、将数组中元素赋值给变量
+                let [变量1,变量2,...变量n] = 数组;
+            2、将数组中的元素拆分作为参数传递
+                fn(...数组);
+            3、对对象的结构
+                let {变量1,变量2} = 对象;
+        */
+        let arr = [1, 2, 3, 4, 5, 6, 7];
+        let [a, b, ...c] = arr;
+
+        // console.log('a =', a);
+        // console.log('b =', b);
+        // console.log('c =', c);
+
+        [arr[1], arr[2]] = [arr[2], arr[1]];
+
+        // console.log(arr);
+
+        function sum(a, b, c) {
+            return a + b + c;
+        }
+
+        let arr2 = [345, 423, 654];
+
+        // console.log(sum(...arr2));
+
+        let obj = {name: 'Tom', age: 18, gender: '男'};
+        let {name, age, gender} = obj;
+
+        console.log(name, age, gender);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

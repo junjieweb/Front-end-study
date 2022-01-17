@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // let a = 0;
+    // for (let i = 0; i < 50000; i++) {
+    //     for (let j = 0; j < 5000; j++) {
+    //         a++;
+    //     }
+    // }
+
+    //以一个js文件为单位，启动模拟多线程
+    let myWorker = new Worker('js/myWorker.js');
+
+    //向另外一个线程发送消息
+    myWorker.postMessage(50000);
+
+    //在主线程也要绑定接收消息的事件，当主线程处理完成之后，我们就可以拿到结果了
+    myWorker.onmessage = function (event) {
+        console.log(event.data);
+    }
+
+    console.log('你干啥');
+
+</script>
+
+</body>
+</html>

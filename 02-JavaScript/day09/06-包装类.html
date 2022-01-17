@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            包装类
+                js中，给我们提供了包装类
+                    String
+                    Number
+                    Boolean
+                    通过这三个包装类可以直接创建String类型的，Number类型的，Boolean类型的对象
+                    包装类并不是提供给我们创建对象用的，而是js自己留着用的
+        */
+
+        //以下这些写法，在实际开发中，绝对不要出现
+        // let num = new Number(10);
+        // let str = new String('hello');
+        // let bool = new Boolean(true);
+        //
+        // console.log(num);
+        let num = 10;
+        /*
+            当我们调用一个基本数据类型的属性或方法时，
+                浏览器会通过包装类临时将其转换为对象，然后调用对象的属性或方法
+
+        */
+        num.toString();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

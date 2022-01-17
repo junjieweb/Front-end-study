@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset=UTF-8>
+    <title>添加删除记录练习</title>
+    <style>
+
+        #total {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px;
+            margin: 5px;
+            background-color: #99ff99;
+            float: left;
+        }
+
+        .inner {
+            width: 400px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+        }
+
+        #employeeTable {
+            border-spacing: 1px;
+            background-color: black;
+            margin: 80px auto 10px auto;
+        }
+
+        th, td {
+            background-color: white;
+        }
+
+        #formDiv {
+            width: 250px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 50px auto 10px auto;
+            padding: 10px;
+        }
+
+        #formDiv input {
+            width: 100%;
+        }
+
+        .word {
+            width: 40px;
+        }
+
+        .inp {
+            width: 200px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            //提取删除的函数
+            function delA() {
+                /*
+                    点击超链接后页面会发生跳转，这是超链接的默认行为
+                        如果不希望默认行为的发生，可以在响应函数的最后
+                        return false;
+                */
+
+                //点击哪个超链接，this就是哪个
+                //点击链接后删除指定员工
+                let tr = this.parentNode.parentNode;
+
+                //获取要删除的员工的名字
+                let name = tr.firstElementChild.innerHTML;
+
+                //confirm() 用来弹出一个确认框
+                // let isDel = confirm('确认删除吗？');
+
+                if (confirm(`确认删除【${name}】吗？`)) {
+                    //删除tr
+                    tr.parentNode.removeChild(tr);
+                }
+
+                //取消默认行为
+                return false;
+            }
+
+            //点击超链接后删除指定员工
+
+            //获取所以的超链接
+            let links = document.getElementsByTagName('a');
+            //遍历超链接
+            for (let i = 0; i < links.length; i++) {
+                //为超链接绑定单击响应函数
+                links[i].onclick = delA;
+            }
+
+            /*
+                点击按钮后，将员工信息添加到表格中
+            */
+            //获得点击按钮
+            let addEmpButton = document.getElementById('addEmpButton');
+            addEmpButton.onclick = function () {
+                //获取员工的姓名
+                let name = document.getElementById('empName').value;
+                //邮件
+                let email = document.getElementById('email').value;
+                //薪水
+                let salary = document.getElementById('salary').value;
+                // alert(name + '--' + email + '--' + salary);
+                //将员工信息添加到表格中
+                /*
+                        <tr>
+                            <td>Tom</td>
+                            <td>tom@tom.com</td>
+                            <td>5000</td>
+                            <td><a href="deleteEmp?id=001">Delete</a></td>
+                        </tr>
+                */
+                //创建一个tr
+                let tr = document.createElement('tr');
+                //设置tr内部的HTML代码
+                // tr.innerHTML = `<td>${name}</td>
+                //                 <td>${email}</td>
+                //                 <td>${salary}</td>
+                //                 <td><a href="javascript:;">Delete</a></td>`;
+                tr.innerHTML =
+                    '<td>' + name + '</td>' +
+                    '<td>' + email + '</td>' +
+                    '<td>' + salary + '</td>' +
+                    '<td><a href="javascript:;">Delete</a></td>';
+
+                //获取tr中的a
+                let link = tr.getElementsByTagName('a')[0];
+                link.onclick = delA;
+
+                //获取table
+                /*
+                    创建一个表格时，如果不指定thead，tbody，tfoot这些标签
+                        浏览器会自动创建一个tbody标签，然后将所有的tr都放入到tbody中
+                */
+                let employeeTable = document.getElementById('employeeTable');
+                //获取tbody
+                let tbody = employeeTable.getElementsByTagName('tbody')[0];
+
+                // tbody.insertAdjacentHTML('beforeend','<tr></tr>');
+                tbody.appendChild(tr);
+            };
+
+        };
+    </script>
+
+</head>
+<body>
+
+<table id="employeeTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+</table>
+
+<div id="formDiv">
+
+    <h4>添加新员工</h4>
+
+    <table>
+        <tr>
+            <td class="word">name:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email:</td>
+            <td class="inp">
+                <input type="text" name="email" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

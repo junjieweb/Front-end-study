@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            闭包
+                闭包就是能访问到外部函数中变量的内部函数
+            用途
+                闭包主要用来藏起一些不希望被别人看到的东西的东西
+            闭包构成要件
+                1、闭包必须有函数的嵌套
+                2、内部函数必须要访问外部函数的变量
+                3、必须将内部函数作为返回值返回
+            闭包的生命周期
+                当外部函数调用时，闭包就产生了
+                    外部函数每调用一次，就产生一个闭包
+                当内部函数被垃圾回收时，闭包销毁
+        */
+        function outer() {
+
+            //定义一个变量，记录函数执行的次数
+            let times = 0;
+
+            //创建一个函数，函数每次调用时，都会打印函数被调用的次数
+            function inner() {
+                times++;
+                alert(times);
+            }
+
+            //将inner设置为函数的返回值
+            return inner;
+        }
+
+        let fn = outer();
+
+        function f() {
+            let a = 10;
+
+            function f1() {
+                console.log(a);
+            }
+
+            return f1;
+        }
+
+        let fn4 = (function () {
+            let times = 0;
+            return function () {
+                alert(++times);
+            };
+        })();
+        fn4();
+        fn4();
+        fn4();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

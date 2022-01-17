@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //向对象中添加方法 up down
+    //为对象创建独一无二的属性
+    let method = {
+        up: Symbol(),
+        down: Symbol()
+    }
+    let str = 'run';
+    let game = {
+        name: '俄罗斯方块',
+        up: function () {
+
+        },
+        //内部添加方法
+        [str]: function () {
+
+        },
+        [method.up]: function () {
+            console.log('UP');
+        }
+    };
+    console.log(game);
+    game[method.up]();
+
+
+    //添加up方法
+    // game[method.up] = function () {
+    //     console.log('向上移动');
+    // }
+    //
+    // game[method.up]();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .b1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+        }
+
+        .b2 {
+            /*width: 200px;*/
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+
+<div id="box1" class="b1"></div>
+
+<script>
+
+    //点击按钮后，修改box1的样式
+    let btn01 = document.getElementById('btn01');
+    let box1 = document.getElementById('box1');
+
+    btn01.addEventListener('click', function () {
+        // box1.style.width = '200px';
+        // box1.style.height = '200px';
+        // box1.style.backgroundColor = 'yellow';
+
+        /*
+            当修改的样式过多时，可以通过修改元素的class属性来影响元素的样式
+        */
+        // box1.className += ' b2';
+
+        //classList 可以用来返回当前元素的所有的类
+        /*
+            classList中给我们提供了一些方法，使我们可以很方便的操作元素的类
+                它的类型是DOMTokenList，提供了如下的方法
+                    add() 用来向元素中添加一个或多个类
+                    remove() 用来移除元素中的一个类
+                    replace() 用来使用一个新的class替换旧的class
+                    toggle() 切换一个元素的class
+                        如果元素拥有该类，则删除
+                        如果元素没有该类，则添加
+                    contains() 检查一个元素是否含有某个class
+                        如果包含返回true，否则返回false
+        */
+        // console.log(box1.classList);
+        // box1.classList.add('b2');
+        // box1.classList.remove('b1');
+        // box1.classList.replace('b1','b2');
+        // box1.classList.toggle('b2');
+        console.log(box1.classList.contains('b1'));
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let arr = [1, 2, 1, 3, 4, 2, 2, 3, 5, 4, 6, 5];
+
+        //思路：分别取出每个数，和其他的数字进行比较
+        //获取数组中的每一个数字
+        for (let i = 0; i < arr.length; i++) {
+            //将arr[i]和它后边的元素进行比较
+            //获取arr[i]后边的元素
+            for (let j = i + 1; j < arr.length; j++) {
+                //比较arr[i]和arr[j]
+                if (arr[i] === arr[j]) {
+                    //全等，删除后边的数字j
+                    arr.splice(j, 1);
+                    //当删除一个元素后，后边所有的元素索引会自动前移，会导致有元素会错过比较
+                    //执行j--，将当前位置再比较一遍
+                    j--;
+                }
+            }
+        }
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

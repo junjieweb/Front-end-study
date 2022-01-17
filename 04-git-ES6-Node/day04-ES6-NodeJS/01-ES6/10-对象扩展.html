@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1. 判断两个值是否完全相等  ===  Object.is
+    // let n = 100;
+    // let n2 = 200;
+    // console.log(Object.is(n, n2));
+    // console.log(Object.is(NaN, NaN));
+
+    //2. Object.assign 对象的合并
+    const A = {
+        name: 'Tom'
+    }
+    const B = {
+        pos: ['beijing', 'shanghai', 'shenzhen'],
+        name: 'jerry'
+    }
+    const C = {
+        name: 'hello'
+    }
+
+    const res = Object.assign(A, B, C)
+    console.log(res);
+    console.log(A);
+    console.log(A === res);
+
+
+    //3. 直接修改 __proto__ 设置原型
+    const Q = {
+        name: '父级'
+    }
+    const W = {
+        test: '测试'
+    }
+    W.__proto__ = Q;
+    console.log(W);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            border: 10px red solid;
+            /* float: left; */
+            /* display: inline-block; */
+            overflow: hidden;
+
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* 设置元素浮动 */
+            float: left;
+
+            /* 
+                高度塌陷，块元素默认情况下是被子元素撑开的
+                    如果子元素浮动，将会完全脱离文档流，脱离文档流后子元素无法撑起父元素的高度，
+                    将会导致父元素的高度丢失,父元素高度一旦丢失，页面中的其他元素位置也会移动，
+                    导致布局的混乱
+
+                BFC(Block Format Context)
+                    块级格式化环境
+                    BFC是元素的一个隐藏的属性，一旦元素开启了BFC，它将会开启一个独立的布局的区域
+                        这个布局区域将会具有一些特殊的性质
+                        1、开启了BFC的元素子元素的垂直外边距不会传递给父元素
+                        2、开启了BFC的元素不会被浮动的元素所覆盖
+                        3、开启了BFC的元素可以包含浮动的子元素
+                    BFC无法直接开启，需要通过一些特殊的属性来开启BFC
+                        1、设置元素浮动可以开启BFC
+                        2、将元素设置为行内块元素
+                        3、可以将元素的overflow设置为非visible的值
+
+                    我们可以通过overflow:hidden来开启元素的BFC，从而解决高度塌陷的问题
+
+            */
+        }
+
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+
+<div class="box3"></div>
+</body>
+
+</html>

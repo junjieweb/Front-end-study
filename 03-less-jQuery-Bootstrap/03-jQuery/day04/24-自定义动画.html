@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 300px;
+            background: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">逐渐扩大</button>
+<button id="btn2">向右移动</button>
+<button id="btn3">向左移动</button>
+<button id="btn4">停止动画</button>
+
+<div class="div1">
+    爱在西元前，学在尚硅谷
+</div>
+
+<!--
+jQuery动画本质 : 在指定时间内不断改变元素样式值来实现的
+1. animate(): 自定义动画效果的动画
+2. stop(): 停止动画
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+    /*需求：
+        1.逐渐扩大
+            1.宽度扩大
+            2.宽度和高度扩大
+            3.先宽度扩大后高度扩大
+        2.向右移动
+            1.向右移动 固定的200px
+            2.基于当前位置向右移动 200px
+        3.向左移动
+            1.向右移动 固定的200px
+            2.基于当前位置向右移动 200px
+        4.停止动画
+            1.停止所有的动画
+            2.停止当前动画，直接开始下一个动画
+            3.停止并结束当前动画，开始下一个动画
+    */
+    $(function () {
+        // 1.逐渐扩大
+        // 1.宽度扩大
+        // 2.宽度和高度扩大
+        // 3.先宽度扩大后高度扩大
+        $('#btn1').click(function () {
+            //animate 自定义动画方法，两个参数，参数一：要改变的样式（对象的形式），参数二：过渡时间，有默认值
+            $('.div1').animate({
+                'width': '300px'
+            }, 2000).animate({
+                'height': '300px'
+            }, 1000)
+        })
+
+        // 2.向右移动
+        // 1.向右移动 固定的200px
+        // 2.基于当前位置向右移动 200px
+        $('#btn2').click(function () {
+            $('.div1').stop().animate({
+                'left': '+=200px'
+            }, 2000)
+        })
+
+        // 3.向左移动
+        // 1.向左移动 固定的200px
+        // 2.基于当前位置向左移动 200px
+        $('#btn3').click(function () {
+            $('.div1').stop().animate({
+                'left': '-=200px'
+            }, 2000)
+        })
+
+        $('#btn4').click(function () {
+            //第一个参数：是否清空动画队列，默认为false，不清空，true为清空
+            //第二个参数：动画是否执行完整，默认为false，不完整，true为完整
+            // $('.div1').stop(false,false);//立即停止当前动画，在当前位置执行下一个动画，不清空动画队列
+            // $('.div1').stop(false, true);//立即停止当前动画，直接跳到当前动画结束的位置，执行下一个动画，不清空动画队列
+            // $('.div1').stop(true, true);//立即停止当前动画，直接跳到当前动画结束的位置，清空动画队列
+            $('.div1').stop(true, false);//立即停止当前动画，停留在当前位置，清空动画队列
+        })
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>空值和未定义</title>
+    <script>
+        /*
+            null通常用来表示一个空的对象，一个不存在的东西
+                null类型只有一个值就是null
+                使用typeof检查一个null时，他会返回' object '
+
+            undefined 表示未定义，当我们定义一个变量但是不赋值时，他就是undefined
+                undefined类型的值只有一个就是undefined
+                使用typeof检查一个undefined时，会返回' undefined '
+
+            基本数据类型：
+                基本数据类型是构成整个js世界的基石
+                数值（number）
+                字符串（string）
+                布尔值（boolean）
+                空值（null）
+                未定义（undefined）
+                在js中所有的基本数据类型都是不可变类型
+                    值一旦创建，就不可修改
+
+            js中的变量并不直接存储值，而是存储值的内存地址
+                当我们访问变量时，是通过地址找到其对应的值
+
+            所以js中的变量，其实更像是一个值的别名
+        */
+        let a = null;
+        let b = undefined;//不要这么做
+        // alert(typeof b);
+
+        let c = 100;
+        console.log(c);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

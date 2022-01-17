@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            条件运算符（三元运算符、三目运算符）
+                语法
+                    条件表达式 ? 语句1 : 语句2;
+
+                执行流程
+                    条件运算符在执行时，会先对条件表达式进行求值判断
+                        如果判断结果为true，则执行语句1
+                        如果判断结果为false，则执行语句2
+        */
+        // false ? alert('yu1') : alert('yu2');
+        let num = 10;
+        // num > 20 ? alert('num比20大') : alert('num比20小');
+
+        let a = 40;
+        let b = 20;
+        let c = 55;
+
+        // let max = a > b ? a : b;
+        // max = max > c ? max : c;
+
+        let max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+
+        console.log('max =', max);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

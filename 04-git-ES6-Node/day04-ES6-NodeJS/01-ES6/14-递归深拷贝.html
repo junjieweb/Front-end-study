@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //封装一个函数
+    function deepClone(data) {
+        //创建一个容器
+        let container;
+        //判断
+        let type = getDataType(data);//Array  Object
+        if (type === 'Object') {
+            container = {};
+        } else if (type === 'Array') {
+            container = [];
+        }
+        //遍历数据   for...in
+        for (let i in data) {
+            //获取键值的类型
+            let type = getDataType(data[i]);
+            //判断
+            if (type === 'Array' || type === 'Object') {
+                //递归调用
+                container[i] = deepClone(data[i]);
+            } else {
+                //如果数据为非引用数据类型数据，则直接复制
+                container[i] = data[i];
+            }
+        }
+        return container;
+    }
+
+    //待克隆的数据
+    const school = {
+        name: '尚硅谷',
+        pos: ['北京', '上海', '深圳'],
+        founder:
+            {
+                name: '刚哥'
+            },
+        change: function () {
+            console.log('改变');
+        }
+    }
+
+    //调用函数完成深拷贝
+    const nSchool = deepClone(school);
+
+    nSchool.pos[0] = 'beijing';
+    console.log(school);
+    console.log(nSchool);
+
+    //封装一个函数，用来获取数据的类型
+    function getDataType(data) {
+        return Object.prototype.toString.call(data).slice(8, -1);
+    }
+
+    console.log(getDataType([]))
+    console.log(getDataType({}))
+
+</script>
+</body>
+</html>

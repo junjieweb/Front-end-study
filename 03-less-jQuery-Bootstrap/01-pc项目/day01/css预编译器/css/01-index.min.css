@@ -1,0 +1,1 @@
+*{margin:0;padding:0}ul{width:300px;margin:100px auto;border:1px solid #000;list-style:none}ul li{height:30px;line-height:30px}ul li a{color:red}ul li:hover{background-color:pink}ul li:nth-child(2){background-color:red}ul>a{color:#9acd32}

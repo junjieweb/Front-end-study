@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建对象的方式 new Object  {}  工厂函数  构造函数  Object.create
+    // function Phone(brand, price) {
+    //     this.brand = brand;
+    //     this.price = price
+    // }
+    //
+    // //添加方法
+    // Phone.prototype.call = function (someone) {
+    //     console.log(`我可以给${someone}打电话`);
+    // }
+    // Phone.prototype.sendMessage = function (someone) {
+    //     console.log(`我可以给${someone}发送短信`);
+    // }
+    //
+    // //实例化对象
+    // const nokia = new Phone('诺基亚', 223);
+    //
+    // console.log(nokia);
+
+    //语法    类名相当于构造函数的函数名
+    class Phone {
+        //构造方法
+        constructor(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+
+        //方法
+        call(someone) {
+            console.log(`我可以给${someone}打电话`);
+        }
+
+        sendMessage(someone) {
+            console.log(`我可以给${someone}发送短信`);
+        }
+    }
+
+    const jinli = new Phone('金立', 599);
+    console.log(jinli);
+
+    //构造方法不是必须的
+    class A {
+        //构造方法只能有一个
+        constructor() {
+
+        }
+    }
+
+    let a = new A();
+    console.log(a);
+
+
+</script>
+</body>
+</html>

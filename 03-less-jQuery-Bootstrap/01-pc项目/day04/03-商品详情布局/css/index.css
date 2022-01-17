@@ -1,0 +1,535 @@
+.wrap .header {
+  width: 100%;
+}
+.wrap .header .top {
+  width: 100%;
+  height: 30px;
+  background: #eaeaea;
+}
+.wrap .header .top .topMain {
+  width: 1200px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+}
+.wrap .header .top .topMain .login {
+  width: 200px;
+  height: 30px;
+  float: left;
+}
+.wrap .header .top .topMain .login p {
+  float: left;
+}
+.wrap .header .top .topMain .login p a {
+  line-height: 30px;
+}
+.wrap .header .top .topMain .login .btn1 {
+  margin-left: 3px;
+}
+.wrap .header .top .topMain .topNav {
+  height: 30px;
+  float: right;
+}
+.wrap .header .top .topMain .topNav a {
+  padding: 0 10px;
+}
+.wrap .header .top .topMain .topNav a + a {
+  border-left: 1px solid #b3aeae;
+}
+.wrap .header .bottom .bottomMain {
+  width: 1200px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.wrap .header .bottom .bottomMain::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .header .bottom .bottomMain .logo {
+  float: left;
+  margin: 25px 45px;
+}
+.wrap .header .bottom .bottomMain .logo img {
+  width: 175px;
+  height: 56px;
+}
+.wrap .header .bottom .bottomMain .search {
+  float: right;
+  margin-top: 35px;
+}
+.wrap .header .bottom .bottomMain .search input {
+  width: 490px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 4px;
+  border: 2px solid #ea4a36;
+  float: left;
+  outline: none;
+}
+.wrap .header .bottom .bottomMain .search button {
+  width: 68px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  background: #ea4a36;
+  color: #fff;
+  float: left;
+  border: none;
+}
+.wrap .typeNav {
+  width: 100%;
+  border-bottom: 2px solid #e1251b;
+}
+.wrap .typeNav .typeNavMain {
+  width: 1200px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+.wrap .typeNav .typeNavMain::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .typeNav .typeNavMain h3 {
+  width: 210px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  background: #e1251b;
+  font-weight: bold;
+  font-size: 14px;
+  float: left;
+}
+.wrap .typeNav .typeNavMain div {
+  float: left;
+}
+.wrap .typeNav .typeNavMain div a {
+  margin: 0 22px;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+}
+.wrap .main {
+  width: 100%;
+}
+.wrap .main .mainCon {
+  width: 1200px;
+  margin: 15px auto 0;
+}
+.wrap .main .mainCon .conPoin {
+  padding: 9px 15px 9px 0;
+}
+.wrap .main .mainCon .conPoin i {
+  color: #ccc;
+  margin: 0 2px;
+}
+.wrap .main .mainCon .infoWrap {
+  margin: 5px 0 15px;
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .previewWrap {
+  width: 400px;
+  float: left;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #DFDFDF;
+  position: relative;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview .zoomImgBox {
+  position: relative;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview .zoomImgBox img {
+  width: 100%;
+  height: 100%;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview .zoomImgBox .mask {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ddd;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview .bigImgBox {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  position: absolute;
+  left: 420px;
+  top: 0;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .preview .bigImgBox img {
+  width: 800px;
+  height: 800px;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail {
+  width: 100%;
+  margin-top: 5px;
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail a {
+  width: 10px;
+  height: 54px;
+  border: 1px solid #ccc;
+  background: #ebebeb;
+  float: left;
+  text-align: center;
+  line-height: 54px;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail a.prev {
+  margin-right: 4px;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail .itemWrap {
+  float: left;
+  width: 372px;
+  height: 56px;
+  overflow: hidden;
+  position: relative;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail .itemWrap ul {
+  width: 9999px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail .itemWrap ul li {
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 1px solid #CCC;
+  padding: 2px;
+  margin-right: 20px;
+}
+.wrap .main .mainCon .infoWrap .previewWrap .thumbnail .itemWrap ul li img {
+  width: 100%;
+  height: 100%;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap {
+  float: right;
+  width: 700px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop h3 {
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 15px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop > p {
+  color: #e12228;
+  margin-top: 15px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap {
+  margin-top: 10px;
+  line-height: 28px;
+  background: #fee9ec;
+  padding: 7px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop {
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop > p {
+  float: left;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.remark {
+  float: right;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.title {
+  margin-right: 15px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.price {
+  color: #cc1122;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.price i {
+  font-size: 16px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.price em {
+  font-size: 24px;
+  font-weight: bold;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceTop p.price span {
+  font-size: 12px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom {
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom p {
+  float: left;
+  margin-right: 15px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom > div {
+  float: left;
+  width: 520px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom > div i {
+  background: #c81623;
+  padding: 3px;
+  color: #fff;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .priceWrap .priceBottom > div span {
+  color: #999;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support {
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 5px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support > div {
+  *zoom: 1;
+  margin-top: 10px;
+  line-height: 28px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support > div::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support > div p {
+  float: left;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support > div p.title {
+  margin-right: 15px;
+  margin-left: 7px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .infoTop .support > div p.text {
+  width: 520px;
+  color: #999;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose {
+  margin-top: 10px;
+  line-height: 28px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .choosed mark {
+  background: snow;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  margin-right: 20px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .choosed mark a {
+  margin-left: 20px;
+  color: red;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .chooseArea dl {
+  margin: 13px 0;
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .chooseArea dl::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .chooseArea dl dt {
+  float: left;
+  margin-right: 15px;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .chooseArea dl dd {
+  float: left;
+  margin-right: 5px;
+  line-height: 24px;
+  color: #666;
+  padding: 2px 14px;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  cursor: pointer;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .chooseArea dl dd:nth-of-type(1) {
+  color: red;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap {
+  *zoom: 1;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap .control {
+  width: 55px;
+  margin-right: 15px;
+  position: relative;
+  float: left;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap .control input {
+  width: 38px;
+  height: 37px;
+  border: 1px solid #ddd;
+  color: #555;
+  text-align: center;
+  outline: none;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap .control a {
+  position: absolute;
+  width: 15px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  background: #f1f1f1;
+  color: #666;
+  border: 1px solid #ddd;
+  right: 0;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap .control a.minus {
+  top: 20px;
+  border-top: none;
+}
+.wrap .main .mainCon .infoWrap .chooseWrap .choose .carWrap .addCar {
+  float: left;
+  padding: 0 25px;
+  height: 36px;
+  line-height: 36px;
+  color: #fff;
+  background: #e1251b;
+  border: none;
+  outline: none;
+}
+.wrap .main .mainCon .detailWrap {
+  width: 1200px;
+  margin-top: 30px;
+  *zoom: 1;
+}
+.wrap .main .mainCon .detailWrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .detailWrap aside {
+  width: 210px;
+  border: 1px solid #ccc;
+  float: left;
+}
+.wrap .main .mainCon .detailWrap aside .tabWrap {
+  height: 40px;
+}
+.wrap .main .mainCon .detailWrap aside .tabWrap h4 {
+  height: 40px;
+  line-height: 37px;
+  float: left;
+  width: 105px;
+  text-align: center;
+  border-bottom: #ccc solid 1px;
+  border-top: 3px solid #fff;
+}
+.wrap .main .mainCon .detailWrap aside .tabWrap h4.active {
+  border-top: 3px solid #e1251b;
+  border-bottom: 1px solid #fff;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent {
+  padding: 10px;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent > div {
+  display: none;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent > div.active {
+  display: block;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .partList {
+  *zoom: 1;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .partList::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .partList li {
+  width: 50%;
+  float: left;
+  line-height: 28px;
+  border-bottom: 1px dashed #ededed;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item {
+  margin: 5px 0 15px;
+  border-bottom: 1px solid #ededed;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item .partImg {
+  text-align: center;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item .partImg img {
+  width: 152px;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item .partPrice {
+  font-size: 16px;
+  color: #c81623;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item .carBox {
+  margin: 5px 0;
+  text-align: center;
+}
+.wrap .main .mainCon .detailWrap aside .tabContent .goodsList .item .carBox a {
+  border: 1px solid #8c8c8c;
+  color: #8c8c8c;
+  padding: 2px 14px;
+  line-height: 18px;
+}
+.wrap .main .mainCon .detailWrap .intro {
+  float: right;
+  width: 980px;
+}
+.wrap .main .mainCon .detailWrap .intro .tabWrap {
+  *zoom: 1;
+  height: 40px;
+  background: #ededed;
+}
+.wrap .main .mainCon .detailWrap .intro .tabWrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.wrap .main .mainCon .detailWrap .intro .tabWrap li {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 11px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.wrap .main .mainCon .detailWrap .intro .tabWrap li.active {
+  background: #e1251b;
+}
+.wrap .main .mainCon .detailWrap .intro .tabWrap li.active a {
+  color: #fff;
+}
+.wrap .main .mainCon .detailWrap .intro .tabContent > div {
+  display: none;
+}
+.wrap .main .mainCon .detailWrap .intro .tabContent > div.active {
+  display: block;
+}
+.wrap .main .mainCon .detailWrap .intro .tabContent ul li {
+  margin: 10px 0;
+  padding-left: 10px;
+}
+.wrap .main .mainCon .detailWrap .intro .tabContent img {
+  width: 100%;
+}
+/*# sourceMappingURL=index.css.map */

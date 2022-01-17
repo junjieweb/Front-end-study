@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            函数作用域
+                函数作用域在函数调用时创建，调用结束时销毁
+                函数每次调用都会产生一个新的函数作用域
+                    每个作用域间是相互独立的
+                在函数作用域中声明的变量是局部变量
+                    局部变量只能在函数内部访问，外部无法访问
+                    注意：在函数中声明变量时如果不使用let或var
+                        则变量会变成全局变量（一定要注意）
+                在函数作用域中可以访问全局作用域的变量
+                    但是在全局作用域中无法访问函数作用域的变量
+                变量和函数的提升，在函数作用域中同样适用
+        */
+
+        function fn() {
+
+            console.log(b);
+            test();
+            let a = 10;
+            var b = 20;
+
+            function test() {
+                let c = 30;
+                console.log(a, b);
+            }
+
+            // console.log(c);
+            // 练习2-添加删除记录();
+        }
+
+        fn();
+        // console.log(a, b);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

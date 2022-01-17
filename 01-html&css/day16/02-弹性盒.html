@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            /*height: 300px;*/
+            border: 2px red solid;
+            /*width: 500px;*/
+        /*    设置弹性盒*/
+        /*
+            弹性容器
+                弹性元素就是弹性容器，要使用弹性盒，必须先将元素设置弹性容器
+                设置弹性容器有两种方式
+                    display:flex; 块级弹性容器
+                    display:inline-flex; 行内弹性容器
+            弹性元素（弹性项、弹性子元素）
+                弹性容器中的子元素是弹性元素
+        */
+            display: flex;
+            /*justify-content: space-evenly;*/
+
+        /*
+            弹性容器的属性：
+                flex-direction
+                    作用：用来设置弹性容器的主轴的方向
+                    可选值：
+                        row 主轴是横向的（自左向右排列）
+                        row-reverse 主轴是横向的（自右向左排列）
+                        column 主轴是纵向的（自上向下排列）
+                        column-reverse 主轴是纵向的（自下向上排列）
+
+        */
+
+            flex-direction: row;
+
+            /*
+                flex-wrap
+                    作用：弹性元素在主轴上是否自动换行
+                    可选值：
+                        nowrap 默认值，不换行
+                        wrap 自动换行
+            */
+            flex-wrap: wrap;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+
+            /*禁止盒子收缩*/
+            flex-shrink: 0;
+        }
+
+        li:nth-child(1) {
+        }
+
+        li:nth-child(2) {
+            background-color: orange;
+        }
+
+        li:nth-child(3) {
+            background-color: yellowgreen;
+        }
+
+        li:nth-child(4) {
+            background-color: yellow;
+        }
+
+        li:nth-child(5) {
+            background-color: skyblue;
+        }
+
+        li:nth-child(6) {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<!--
+  弹性盒 伸缩盒
+    弹性盒是CSS3中新增的布局方式，通过弹性盒可以使一个盒子自动适应其容器的大小
+    通过弹性盒可以创造出非常灵活的布局
+
+-->
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1、数组去重
+    const arr = ['大事儿', '小事儿', '好事儿', '坏事儿', '小事儿'];
+
+    //集合
+    // const s = new Set(arr);
+    // console.log(s);
+    // const result = [...s];
+    // console.log(result);
+
+    //2、交集
+    const arr1 = [1, 2, 3, 4, 5, 1, 2];
+    const arr2 = [3, 4, 5, 4, 5, 6];
+
+    // const result = [...new Set(arr1)].filter(item => {
+    //     return (new Set(arr2)).has(item);
+    // });
+    // console.log(result);
+
+    //3、并集
+    // const result = [...new Set([...new Set(arr1), ...arr2])];
+    // console.log(result);
+
+    //4、差集
+    const result = [...new Set(arr1)].filter(item => {
+        return !(new Set(arr2)).has(item);
+    });
+    console.log(result);
+
+
+</script>
+</body>
+</html>

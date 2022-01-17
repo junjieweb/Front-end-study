@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //检查一个字符串中是否含有a
+        let re = /a/;
+
+        //检查一个字符串中是否含有aa
+        re = /aa/;
+
+        /*
+            量词
+                {m}     正好出现m次
+                {m,n}   出现m到n次
+                {m,}    至少出现m次
+                + 至少一次，等价于{1,}
+                ? 0-1 次，等价于{0,1}
+                * 0-多次，等价于{0,}
+        */
+        //检查一个字符串中是否含有aaaaaaaaaa
+        re = /a{4}/;
+        re = /ab{4}c/;
+        re = /ab{1,3}c/;
+        re = /ab{1,}c/;
+        re = /(ab){2}c/;
+        re = /ab+c/;
+        re = /ab?c/;
+        re = /ab*c/;
+
+        alert(re.test('abbc'));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

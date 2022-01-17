@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const school = {
+        name: '尚硅谷',
+        pos: ['北京', '上海', '深圳'],
+        founder:
+            {
+                name: '刚哥'
+            },
+        change: function () {
+            console.log('改变');
+        }
+    }
+
+    //创建数据容器
+    const nSchool = {};
+    //name
+    nSchool.name = school.name;
+    //pos
+    nSchool.pos = [];
+    nSchool.pos[0] = school.pos[0];
+    nSchool.pos[1] = school.pos[1];
+    nSchool.pos[2] = school.pos[2];
+    //founder
+    nSchool.founder = {};
+    nSchool.founder.name = school.founder.name;
+    //方法
+    nSchool.change = school.change.bind(nSchool);
+
+    nSchool.pos[0] = 'beijing';
+
+    console.log(school);
+    console.log(nSchool);
+
+
+</script>
+</body>
+</html>

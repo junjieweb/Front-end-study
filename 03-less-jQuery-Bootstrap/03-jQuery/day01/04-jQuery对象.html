@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p></p>
+<button>测试一</button>
+<button>测试二</button>
+<button id="btn3">测试三</button>
+<button>测试四</button>
+
+<script src="js/jquery-1.10.1.js"></script>
+<script>
+    /*
+        jQuery对象是一个包含所有匹配的任意多个dom元素的伪数组对象
+        基本行为：
+            size()/length：包含的DOM元素个数
+            [index]/get(index)：得到对应位置的DOM元素
+            each()：遍历包含的所有DOM元素
+            index()：得到在所在兄弟元素中的下标
+    */
+
+    //需求1. 统计一共有多少个按钮
+    //需求2. 取出第2个button的文本
+    //需求3. 输出所有button标签的文本
+    //需求4. 输出'测试三'按钮是所有按钮中的第几个
+    $(function () {
+        //通常我们通过jQuery获取的元素集合，我们称作jQuery对象，在变量命名的时候，都会在前面加一个$
+        var $btn = $('button');
+
+        //需求1. 统计一共有多少个按钮
+        console.log($btn.length);
+        console.log($btn.size());
+
+        //需求2. 取出第2个button的文本
+        //DOM对象与jQuery对象的互转
+        //dom对象 => jQuery对象，就是将dom对象传入jQuery核心函数，则会返回封装后的jQuery对象 $(this)
+        //jQuery对象 => dom对象，只是在访问个体的情况下，拿到的都是jQuery对象这个伪数组对象中存储的dom对象
+        //一共两种情况：1、索引取值，2、遍历
+        console.log($btn[1].innerHTML);
+        console.log($btn.eq(1).html());
+
+        //需求3. 输出所有button标签的文本
+        $btn.each(function () {
+            //jQuery对象上的each方法的回调函数中，this直接指向当前的遍历目标
+            console.log(this.innerHTML);
+        })
+
+        //需求4. 输出'测试三'按钮是所有按钮中的第几个
+        //index 是返回当前元素，在同级兄弟元素当中的索引
+        console.log($('#btn3').index());
+    });
+
+</script>
+</body>
+</html>

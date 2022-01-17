@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            /* 
+                设置背景图片时
+                    如果图片小于元素，则图片默认会从元素的左上角开始平铺
+                    如果图片大于元素，则多余部分不会显示
+
+            */
+            /* background-image: url(./img/2.jpg); */
+            background-image: url(img/1.png);
+            background-repeat: no-repeat;
+
+            /* 
+                background-size 可以用来设置背景图片的尺寸
+                需要两个值作为参数：宽度 高度
+                    可选值：
+                        contain 完整显示背景图片，可能会有位置没有图片
+                        cover 使图片将元素填满，可能有部分图片从元素中溢出
+
+            */
+            /* background-size: 500px 500px; */
+            /* background-size: 100% auto; */
+
+            /* background-size: contain; */
+            /* background-size: cover; */
+
+            /* 
+                background-position 用来设置背景图片的位置
+                设置方式：
+                    可以通过位置关键字来设置位置
+                        top left right bottom center
+                    可以通过指定偏移量来设置背景图片的位置
+                        第一个值，水平方向偏移量
+                            正值向右移动，负值向左移动
+                        第二个值，垂直方向偏移量
+                            正值向下移动，负值向上移动
+
+            */
+            /* background-position: center center; */
+            /* background-position: top center; */
+
+            background-position: 200px 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1"></div>
+</body>
+
+</html>

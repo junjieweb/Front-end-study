@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .todo-main li button {
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //父元素ul
+            let $todoMain = $('.todo-main');
+            //全选/全不选复选框
+            let $checkAll = $('#checkAll');
+            let dataJson = [
+                {
+                    'content': '吃饭'
+                },
+                {
+                    'content': '睡觉'
+                },
+                {
+                    'content': '滑雪'
+                }
+            ];
+
+            //数据动态渲染
+            bindData(dataJson);
+
+            function bindData(data) {
+                //当前传入的数据长度为多少，就要创建多少个li的结构
+                for (let i = 0; i < data.length; i++) {
+                    $todoMain.append('<li class="todoItem" style="background: rgb(255, 255, 255);"><label>' +
+                        '<input type="checkbox"><span>' + data[i].content + '</span></label>' +
+                        '<button class="btn btn-danger" style="display: none;">删除</button></li>');
+                }
+                allTodos();
+            }
+
+            //更新任务总数
+            function allTodos() {
+                //当前在ul中有多少个li，就说明有多少个任务，所以使用li集合的长度即可
+                $('#allTodos').html($todoMain.children().length);
+            }
+
+            //更新已完成任务数
+            function allCompletedTodos() {
+                //根据当前任务列表结构中，被选择的复选框的长度来设置这个元素的内容
+                $('#allCompletedTodos').html($todoMain.find(':checkbox:checked').length);
+            }
+
+            //任务复选框单击逻辑
+            // $('.todoItem input').click(function () {
+            //     //更新已完成任务数
+            //     allCompletedTodos();
+            //     //当所以任务都被选中，触发全选状态时，我们需要更新checkAll的状态
+            //     $checkAll.prop('checked', $todoMain.find(':checkbox:checked').length === $todoMain.find(':checkbox').length);
+            // });
+            //复选框单击事件委托版本
+            $todoMain.delegate('.todoItem input', 'click', function () {
+                //更新已完成任务数
+                allCompletedTodos();
+                //当所以任务都被选中，触发全选状态时，我们需要更新checkAll的状态
+                $checkAll.prop('checked', $todoMain.find(':checkbox:checked').length === $todoMain.find(':checkbox').length);
+
+            });
+
+            //全选全不选复选框单击事件
+            $checkAll.click(function () {
+                $todoMain.find(':checkbox').prop('checked', this.checked);
+                //更新已完成任务数
+                allCompletedTodos();
+            })
+
+            //给所有的todoItem绑定移入移出事件
+            // $('.todoItem').hover(function () {
+            //     $(this).css('background', '#ccc');
+            //     $(this).children('button').show();
+            // }, function () {
+            //     $(this).css('background', '#fff');
+            //     $(this).children('button').hide();
+            // })
+            //todoItem的移入移出事件委托版本
+            $todoMain.delegate('.todoItem', 'mouseenter', function () {
+                $(this).css('background', '#ccc');
+                $(this).children('button').show();
+            })
+            $todoMain.delegate('.todoItem', 'mouseleave', function () {
+                $(this).css('background', '#fff');
+                $(this).children('button').hide();
+            })
+
+            //删除按钮功能
+            // $('.todoItem button').click(function () {
+            //     //根据当前点击的按钮删除对应的li
+            //     $(this).parent().remove();
+            //     //更新任务总数
+            //     allTodos();
+            //     //更新已完成任务数
+            //     allCompletedTodos();
+            //     //部分任务选中的情况下，将其余所有未选中的任务删除后，任务列表变成了全选状态，所以需要去更新
+            //     //任务列表如果为空的情况下，不选中的个数为0，总长度也为0，等式成立，就会选中$checkAll
+            //     //所以我们需要在原有的基础之上，增加一个逻辑，就是任务列表中li的长度不能为0
+            //     $checkAll.prop('checked', $todoMain.children().length !== 0 && $todoMain.find(':checkbox:checked').length === $todoMain.find(':checkbox').length);
+            // })
+            //删除按钮单击事件委托版本
+            $todoMain.delegate('.todoItem button', 'click', function () {
+                //根据当前点击的按钮删除对应的li
+                $(this).parent().remove();
+                //更新任务总数
+                allTodos();
+                //更新已完成任务数
+                allCompletedTodos();
+                $checkAll.prop('checked', $todoMain.children().length !== 0 && $todoMain.find(':checkbox:checked').length === $todoMain.find(':checkbox').length);
+            })
+
+            //清除所有已完成任务
+            $('#removeAllCompleted').click(function () {
+                //根据当前选中任务的复选框，删除其对应的li
+                $todoMain.find(':checkbox:checked').parent().parent().remove();
+                //更新已完成任务数
+                allCompletedTodos();
+                //更新任务总数
+                allTodos();
+                //当我点击这个按钮之后，只有两种情况，部分选中和全部选中
+                //部分选中的情况下，点击之后剩下的任务一定都为未完成，所以checkedAll一定是不选中的状态
+                //全选中的情况下，点击之后，任务列表直接清空，所以也一定为不选中状态
+                $checkAll.prop('checked', false);
+            })
+
+            //新增任务
+            //keydown 和 keyup 在实际使用中，keyup相对来说应用的多一些，因为可以保证一次行为产生，回调函数只被触发一次
+            $('#newTodo').keyup(function (event) {
+                //因为我们所有的逻辑都是要在用户按下回车的前提之下，
+                // 所以我们直接将按键的判断写在if的条件中，如果不成立，则不需要考虑任何逻辑
+                if (event.keyCode === 13) {
+                    //获取当前输入框中的value
+                    let content = this.value.trim();
+                    //判断去除空格后的输入内容是否还有值，有值执行创建，为空提示信息
+                    if (content) {
+                        let data = [
+                            {
+                                'content': content
+                            }
+                        ]
+                        bindData(data);
+                        //新增任务，都为未完成状态，所以checkAll一定为不选中状态
+                        $checkAll.prop('checked', false);
+                    } else {
+                        alert('请不要输入空信息');
+                    }
+                    //清空输入框
+                    this.value = '';
+                }
+            })
+
+        });
+    </script>
+</head>
+<body>
+<div id="root">
+    <div class="todo-container">
+        <div class="todo-wrap">
+            <div class="todo-header">
+                <input id="newTodo" type="text" placeholder="请输入你的任务名称，按回车键确认"/>
+            </div>
+            <ul class="todo-main">
+
+            </ul>
+            <div class="todo-footer">
+                <label>
+                    <input id="checkAll" type="checkbox"/>
+                </label>
+                <span>
+          已完成<span id="allCompletedTodos">0</span> / 全部<span id="allTodos">2</span>
+						</span>
+                <button id="removeAllCompleted" class="btn btn-danger">清除已完成任务</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

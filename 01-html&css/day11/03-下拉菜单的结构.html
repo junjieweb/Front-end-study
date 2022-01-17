@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 40px;
+            background-color: #ffff00;
+            position: relative;
+        }
+
+        .box1 a {
+            display: block;
+            height: 40px;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .box2 {
+            width: 500px;
+            /*可以通过将高度设置为0来隐藏元素*/
+            height: 0;
+            overflow: hidden;
+            background-color: #bfa;
+            position: absolute;
+            left: 0;
+            /*
+                transition 过渡效果
+                    第一个值 表示要执行动画的属性(属性必须要有数值)
+                    第二个值 表示动画持续的时间
+                    第三个值 表示动画延迟的时间
+            */
+            transition: all 1s;
+        }
+
+        /*a:hover{*/
+        /*    background-color: red;*/
+        /*}*/
+
+        /*a:hover + .box2, .box2:hover {*/
+        /*    display: block;*/
+        /*}*/
+
+        .box1:hover .box2 {
+            /*display: block;*/
+            height: 200px;
+            left: 800px;
+        }
+
+        .box1:hover a {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box1">
+    <a href="javascript:">超链接</a>
+    <div class="box2">
+        我是下拉的菜单
+    </div>
+</div>
+</body>
+</html>

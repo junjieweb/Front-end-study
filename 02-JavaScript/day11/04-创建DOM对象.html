@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            //点击按钮后创建一个新的li元素
+            document.getElementById('btn01').onclick = function () {
+                /*
+                    document.createElement
+                        用来根据标签名创建一个新的元素节点对象
+                */
+                //获取id为list的ul
+                let list = document.getElementById('list');
+                //创建一个新的li
+                let li = document.createElement('li');
+                //创建一个新的文本节点
+                let text = document.createTextNode('白骨精');
+                //将text设置为li的子节点
+                li.appendChild(text);
+
+                //将li添加到list中
+                //list.appendChild() 用于向父元素中添加子节点
+                list.appendChild(li);
+
+                // alert(li);
+            };
+
+            document.getElementById('btn02').onclick = function () {
+                //获取list
+                let list = document.getElementById('list');
+                //创建一个li
+                let li = document.createElement('li');
+                //设置li中的文本内容
+                li.innerHTML = '蜘蛛精';
+                list.appendChild(li);
+            };
+
+        };
+    </script>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+
+<ul id="list">
+    <li>孙悟空</li>
+    <li>猪八戒</li>
+    <li>沙和尚</li>
+    <li>唐僧</li>
+</ul>
+</body>
+</html>

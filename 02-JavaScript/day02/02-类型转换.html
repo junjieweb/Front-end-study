@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>类型转换</title>
+    <script>
+        /*
+            类型转换，指将其他的类型转换string number boolean
+
+            将其他的类型转换为字符串
+                方式一：
+                    调用被转换类型的toString()方法
+                    调用xxx的yyy方法 --> xxx.yyy()
+                    由于null和undefined中不含有toString()方法，所以对它俩调用时会报错
+
+                方式二：
+                    调用String()函数，来将被转换类型转换为字符串
+                    调用xxx函数 --> xxx()
+                    原理：
+                        对于具有toString()方法的值，就是直接调用toString()对其进行转换
+                        但是对于null来说，它是直接将其转换为字符串' null '
+                        undefined 直接转换为 ' undefined '
+
+        */
+
+        let a = 10;
+        a = NaN; //NaN --> 'NaN'
+        a = true; //true --> 'true'
+
+        a = 33;
+
+        a = null;
+        a = undefined;
+
+
+        console.log(a, typeof a);
+        // console.log();
+        // document.write();
+
+        //调用toString()，将10转换为字符串
+        // a = a.toString();
+
+        //调用String() 函数来将其他类型转换为字符串
+        a = String(a);
+
+        console.log(a, typeof a);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

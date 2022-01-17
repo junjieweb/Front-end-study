@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+        setTimeout()
+            的执行是同步，里面的回调函数的执行，走的是异步
+    */
+    let nowTime = Date.now();
+    console.log(nowTime);
+
+    setTimeout(function () {
+        console.log('今天吃点啥');
+        console.log(Date.now() - nowTime);
+    }, 3000);
+
+    var a = 0;
+    for (var i = 0; i < 10000; i++) {
+        for (var j = 0; j < 10000; j++) {
+            a++;
+        }
+    }
+    console.log(a);
+
+</script>
+</body>
+</html>

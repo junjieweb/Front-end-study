@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+    </ol>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+
+        <nav aria-label="...">
+            <ul class="pager">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </nav>
+        <span class="label label-default">Default</span>
+        <span class="label label-primary">Primary</span>
+        <span class="label label-success">Success</span>
+        <span class="label label-info">Info</span>
+        <span class="label label-warning">Warning</span>
+        <span class="label label-danger">Danger</span>
+        <a href="#">Inbox <span class="badge">42</span></a>
+
+        <button class="btn btn-primary" type="button">
+            Messages <span class="badge">4</span>
+        </button>
+    </nav>
+    <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+    <div class="page-header">
+        <h1>Example page header <small>Subtext for header</small></h1>
+    </div>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            60%
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+            0%
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 2%;">
+            2%
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">40% Complete (success)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+            <span class="sr-only">20% Complete</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+            <span class="sr-only">60% Complete (warning)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            <span class="sr-only">80% Complete (danger)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">40% Complete (success)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+            <span class="sr-only">20% Complete</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+            <span class="sr-only">60% Complete (warning)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            <span class="sr-only">80% Complete (danger)</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+            <span class="sr-only">45% Complete</span>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width: 35%">
+            <span class="sr-only">35% Complete (success)</span>
+        </div>
+        <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+            <span class="sr-only">20% Complete (warning)</span>
+        </div>
+        <div class="progress-bar progress-bar-danger" style="width: 10%">
+            <span class="sr-only">10% Complete (danger)</span>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</body>
+</html>

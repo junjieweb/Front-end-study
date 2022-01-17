@@ -1,0 +1,12 @@
+{
+  "name": "9-yarn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0"
+  }
+}

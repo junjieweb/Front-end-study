@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            BOM（浏览器对象模型）
+                BOM中为我们提供了一组对象，用来完成对浏览器的各种操作
+                BOM对象
+                    Window
+                        代表的是浏览器窗口
+                    History
+                        代表的是浏览器的历史记录(左右箭头)
+                    Location
+                        代表的是浏览器的地址栏
+                    Navigator
+                        代表的是浏览器的信息
+                    Screen
+                        代表的是设备的屏幕信息
+                BOM对象都是window对象的属性，所以可以直接访问
+        */
+        // alert(location);
+        // alert(window.history);
+
+        window.onload = function () {
+            let btn01 = document.getElementById('btn01');
+            btn01.addEventListener('click', function () {
+                /*
+                    history 表示浏览器的历史记录
+                        由于隐私的原因，History无法访问具体的历史记录
+                        只能用来控制浏览器向前向后翻页
+                    history.length
+                        当前访问的页面的数量
+                    history.forward()
+                        切换到前边访问的网址
+                    history.back()
+                        相当于浏览器的回退按钮
+                    history.go()
+                        调转到指定的历史记录
+                */
+
+                // alert(history.length);
+                // history.forward();
+                // history.back();
+                // history.go(1);
+                // history.go(-1);
+
+                /*
+                    location
+                        location 表示浏览器地址栏的信息
+                        如果直接读取location，则可以获取到地址栏的信息
+                        如果修改location的值，则浏览器会自动调转到新的页面
+                            通过这种方式跳转页面，会留下历史记录，可以通过回退按钮回退
+                        assign()
+                            用来跳转地址，和直接修改location是一样的
+                        replace()
+                            用来跳转地址，它不会产生历史记录，无法通过回退按钮回退
+                        location.reload()
+                            用来重新加载网页，相当于网页的刷新按钮
+                */
+                // alert(location);
+                // location = 'https://www.baidu.com';
+                // alert(location.port);
+                // location.assign('https://www.jd.com');
+                // location.replace('https://www.jd.com');
+                location.reload(true);
+
+            });
+        };
+
+    </script>
+</head>
+<body>
+<button id="btn01">点我以下</button>
+
+<label>
+    <input type="text">
+</label>
+
+</body>
+</html>

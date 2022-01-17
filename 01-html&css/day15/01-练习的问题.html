@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+
+            /*
+                绝对路径
+                    以唯品会为例，它网站中的图片路径都不是相对路径，而是绝对路径
+                    唯品会的图片都存储在了一个CDN（Content Delivery Network）的服务器中
+                    然后通过地址从CDN中加载图片
+
+            */
+            /*
+                这个路径实际上省略了协议名
+                完整写法：http://
+                编写路径时，如果省略协议名，则会使用当前协议
+            */
+            background-image: url("//b.appsimg.com/upload/momin/2021/11/15/143/1636944500230.jpg");
+        }
+    </style>
+</head>
+<body>
+
+<!-- 使用相对路径，来引入项目内部的图片 -->
+<img src="img/an.jpg" alt="">
+<div class="box1"></div>
+</body>
+</html>

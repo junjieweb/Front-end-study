@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function Computer(name, brand, price, color) {
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.color = color;
+    }
+
+    Computer.prototype.playGame = function () {
+        console.log('玩游戏');
+    };
+
+    //constructor  是构造函数 显式圆形对象上的一个属性  指向这个原型对象 对应的构造函数
+    let t1 = new Computer('macBook', 'apple', '18000', '银色');
+    console.log(t1);
+    t1.playGame();
+
+    //Function  new了  Function
+    //Function 即是一个实例化对象  也是其自己的构造函数
+    //实例化对象的 __proto__  指向构造函数的 prototype
+    console.log(Function.prototype === Function.__proto__);
+    console.log(Computer.__proto__);//ƒ () { [native code] }
+    console.log(Computer.prototype);//{playGame: ƒ, constructor: ƒ}
+
+    /*
+        实例化对象的隐式原型，是其构造函数的显式原型
+        实例化对象一定存在隐式原型，构造函数一定存在显式原型
+        Object new了所有的对象
+        Function new了所有的函数
+        构造函数身上一定有一个属性，叫做prototype（显式原型）它指向当前这个构造函数的原型对象的地址
+        实例化对象身上一定有一个属性，叫做__proto__（隐式原型），它指向其构造函数的原型对象的地址
+        用实例化对象调用一个方法时，如果自身没有，实例化对象会沿着隐式原型，去访问构造函数显式原型上的方法
+
+    */
+
+</script>
+</body>
+</html>

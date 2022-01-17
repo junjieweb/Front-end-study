@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>测试window.onload与$(document).ready()</h1>
+<img id="logo"
+     src="https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-05-19/6fec71d56242b74eb24b4ac80b817eac.png"
+     alt="">
+
+<!--
+区别: window.onload与 $(document).ready()
+  * window.onload
+    * 包括页面的图片加载完后才会回调(晚)
+    * 只能有一个监听回调
+  * $(document).ready()
+    * 等同于: $(function(){})
+    * 页面加载完就回调(早)
+    * 可以有多个监听回调
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    let $img = $('#logo');
+    //直接输出图片的宽度、高度等信息，是拿不到的，因为图片的加载需要时间
+    console.log($img.width());
+
+    //window.onload 是等页面加载完所有的外部资源之后，会执行的回调函数，并且包括页面渲染完成
+    //window.onload 只能指定一个回调函数，如果设置多个，就是覆盖操作
+    window.onload = function () {
+        console.log('onload1' + $img.width());
+    }
+    window.onload = function () {
+        console.log('onload2' + $img.width());
+    }
+
+    //jQuery提供的加载函数，全称叫document.ready 它是在dom加载完成之后就会执行，所以等待的资源更少，执行比onload块
+    //document.ready 可以指定多个回调函数
+    $(function () {
+        console.log('jQuery1' + $img.width());
+    })
+    $(function () {
+        console.log('jQuery2' + $img.width());
+    })
+
+    //复杂写法
+    // $(document).ready(function () {
+    //
+    // })
+
+</script>
+</body>
+</html>

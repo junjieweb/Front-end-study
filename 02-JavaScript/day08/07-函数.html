@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function fn(a, b) {
+
+            /*
+                根据函数的调用方式不同，this的值也不同
+                    1、以函数形式调用，this是window
+                    2、以方法形式调用，this是调用方法的对象
+                    3、以构造函数形式调用，this是新建的对象
+                    4、通过call和apply调用函数时，第一个参数是谁this就是谁
+
+            */
+            // alert(this);
+            // alert('函数执行了');
+            console.log(a, b);
+        }
+
+        let obj = {fn};
+
+        // fn();
+        // obj.fn();
+        // new fn();
+
+        /*
+            函数对象的方法
+                call()
+                    当我们调用call()方法时，实际上和直接调用函数的效果类似
+                    call可以用来指定函数的this，它的第一个参数传谁函数的this就是谁
+                    call在传递实参时，直接从第二个参数开始一一传递
+
+                apply()
+                    作用和call一样
+                    apply需要将实参保存到一个类数组对象中统一传递
+
+        */
+        // fn.call('hello');
+        // fn.apply(obj);
+
+        // obj.fn.call(window,123,456);
+        obj.fn.apply(window, [123, 456]);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

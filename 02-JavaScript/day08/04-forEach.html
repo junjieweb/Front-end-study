@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let arr = ['孙悟空', '猪八戒', '沙和尚', '唐僧'];
+        // for (let i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+        /*
+            forEach()
+                专门用来对数组进行遍历
+                该方法需要一个函数作为参数
+
+                像这种由我们定义，但是不由我们调用
+                    这种函数称为回调函数（callback）
+
+                forEach()的回调会被调用多次
+                    数组有几个元素，函数就调用几次
+                    forEach()通过回调函数，将元素传递出来
+                元素信息将会以参数的形式传递进回调函数
+                    我们可以通过定义形参获取元素的信息
+                    forEach()的回调函数共有三个参数：
+                    1、当前被遍历的元素
+                    2、表示当前遍历元素的索引
+                    3、当前正在被遍历的数组对象
+
+        */
+        // function fn() {
+        //
+        // }
+        arr.forEach(function (element, index, array) {
+            // console.log('element =', element);
+            // console.log('index =', index);
+            // console.log('array =', array);
+
+            console.log(index, element);
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

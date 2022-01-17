@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let arr = [1, 2, 3];
+
+        //类似于 ...args 被称为剩余参数，剩余参数它会获取到所有的没有形参对应的实参
+        /*
+            ...args 表示剩余参数，它和arguments的与别
+                1、剩余参数就是一个数组，可以调用数组的方法
+                2、args只会保存没有形参对应的参数
+                3、剩余参数必须是参数列表中的最后一个
+        */
+        function fn(...args) {
+            console.log(args);
+        }
+
+        fn(12, 23, 43, 1, 324, 43);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

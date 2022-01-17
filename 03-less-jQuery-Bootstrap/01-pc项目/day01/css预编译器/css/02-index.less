@@ -1,0 +1,30 @@
+@import "mixins/mixin";
+
+.box1 {
+  .allCenter(@w:400px,@h:400px,@bg:red);
+}
+
+.box2 {
+  .allCenter(@w:300px,@h:300px,@bg:orange);
+}
+
+.box3 {
+  .allCenter(@w:200px,@h:200px,@bg:yellowgreen);
+}
+
+.box4 {
+  .allCenter(@h:100px);
+  .clearfix();
+}
+
+//清除浮动
+.clearfix() {
+  *zoom: 1;
+  //BFC
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+    //定高、定位、浮动、溢出、clear
+  }
+}

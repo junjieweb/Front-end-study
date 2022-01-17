@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!--模拟body-->
+<div class="wrap">
+    <!--头部-->
+    <div class="header">
+        <div class="top">
+            <div class="topMain">
+                <!--登录注册-->
+                <div class="login">
+                    <p>欢迎来到商品汇！ 请</p>
+                    <p class="loginBtn">
+                        <a href="#" class="btn1">登录</a>
+                        <a href="#">注册</a>
+                    </p>
+                </div>
+                <!--头部导航-->
+                <div class="topNav">
+                    <a href="#">我的订单</a>
+                    <a href="#">我的购物车</a>
+                    <a href="#">我的尚品汇</a>
+                    <a href="#">尚品汇会员</a>
+                    <a href="#">企业采购</a>
+                    <a href="#">关注尚品汇</a>
+                    <a href="#">合作招商</a>
+                    <a href="#">商家后台</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottomMain">
+                <!--logo-->
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="../01、放大镜布局/images/Logo.png" alt="">
+                    </a>
+                </h1>
+                <!--搜索框-->
+                <div class="search">
+                    <input type="text">
+                    <button>搜索</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--分类导航-->
+    <div class="typeNav">
+        <div class="typeNavMain">
+            <h3>全部商品分类</h3>
+            <div>
+                <a href="#">服装城</a>
+                <a href="#">美妆馆</a>
+                <a href="#">尚品汇超市</a>
+                <a href="#">全球购</a>
+                <a href="#">闪购</a>
+                <a href="#">团购</a>
+                <a href="#">有趣</a>
+                <a href="#">秒杀</a>
+            </div>
+        </div>
+    </div>
+    <!--商品内容区-->
+    <div class="main">
+        <div class="mainCon">
+            <!--路径导航-->
+            <div class="conPoin">
+                <!--<a href="#">手机、数码、通讯</a>
+                <i>/</i>
+                <a href="#">手机</a>
+                <i>/</i>
+                <a href="#">Apple苹果</a>
+                <i>/</i>
+                <a>iphone 6S系类</a>-->
+            </div>
+            <!--商品区域-->
+            <div class="infoWrap">
+                <!--放大镜区域-->
+                <div class="previewWrap">
+                    <!--放大镜-->
+                    <div class="preview">
+                        <!--小图容器-->
+                        <div class="zoomImgBox">
+                            <!--小图-->
+                            <img src="../01、放大镜布局/images/s1.png" alt="">
+                            <!--蒙版-->
+                        </div>
+                        <!--大图容器-->
+                    </div>
+                    <!--缩略图-->
+                    <div class="thumbnail">
+                        <a href="javascript:;" class="prev">&lt;</a>
+                        <!--图片显示区域-->
+                        <div class="itemWrap">
+                            <ul>
+                                <li><img src="../01、放大镜布局/images/s1.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s2.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s3.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s1.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s2.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s3.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s1.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s2.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s3.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s1.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s2.png" alt=""></li>
+                                <li><img src="../01、放大镜布局/images/s3.png" alt=""></li>
+                            </ul>
+                        </div>
+                        <a href="javascript:;" class="next">&gt;</a>
+                    </div>
+                </div>
+                <!--筛选区域-->
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../01、放大镜布局/js/data.js"></script>
+<script type="text/javascript">
+    console.log(goodData);
+    window.onload = function () {
+
+        // 路径导航
+        conPoin();
+
+        function conPoin() {
+            //需要获取数据
+            var path = goodData.path;
+
+            //路径导航的父容器
+            var conPoinNode = document.querySelector('.wrap .main .mainCon .conPoin');
+
+            for (var i = 0; i < path.length; i++) {
+                //数组长度是多少，就需要创建多少个a标签，所以直接在循环最开始的时候创建a标签即可
+                var aNode = document.createElement('a');
+
+                //判断是否是最后一个路径，如果是，不需要设置href属性，不要创建i标签
+                if (i === path.length - 1) {
+                    //能进入判断，说明path[i]一定对应数组中最后一个元素的内容
+
+                    //在遍历的过程中，使用path数组中每一个对象的title属性值作为a标签的文本
+                    aNode.innerHTML = path[i].title;
+                    conPoinNode.appendChild(aNode);
+                } else {
+                    //如果不是最后一个，需要给a标签设置文本，设置href属性，并且同时添加i标签，添加斜线
+                    aNode.innerHTML = path[i].title;
+                    aNode.href = path[i].url;
+                    conPoinNode.appendChild(aNode);
+                    var iNode = document.createElement('i');
+                    iNode.innerHTML = '/';
+                    conPoinNode.appendChild(iNode);
+                }
+            }
+        }
+
+        //放大镜
+        preview();
+
+        function preview() {
+            //放大镜父容器
+            var previewNode = document.querySelector('.wrap .main .mainCon .infoWrap .previewWrap .preview');
+            //小图容器
+            var zoomImgBox = document.querySelector('.wrap .main .mainCon .infoWrap .previewWrap .preview .zoomImgBox');
+            //创建蒙版
+            var maskNode = null;
+            //创建大图，
+            var bigImg = null;
+            //大图容器
+            var bigImgBox = null;
+
+            //当鼠标移入时，创建蒙版、大图容器、大图
+            previewNode.onmouseenter = function () {
+                //当你需要一个为假的值去执行if的逻辑的时候，直接对这个值取反，写在判断条件里就行了
+                if (!maskNode) {
+                    //创建蒙版
+                    maskNode = document.createElement('div');
+                    maskNode.className = 'mask';
+                    zoomImgBox.appendChild(maskNode);
+                    //创建大图容器
+                    bigImgBox = document.createElement('div');
+                    bigImgBox.className = 'bigImgBox';
+                    previewNode.appendChild(bigImgBox);
+                    //创建大图
+                    bigImg = document.createElement('img');
+                    // bigImg = new Image();
+                    bigImg.src = './images/b1.png';
+                    bigImgBox.appendChild(bigImg);
+                }
+                //当鼠标移入放大镜区域时，才需要绑定move事件
+                zoomImgBox.onmousemove = function (event) {
+                    //高版本浏览器，会将事件对象作为事件回调函数的第一个形参传递给我们使用
+                    //低版本浏览器，是将事件对象作为window的一个属性存在的
+                    event = event || window.event;
+                    //根据当前鼠标的坐标，来修改蒙版的位置
+                    //鼠标的位置是不能通过我们的代码所修改的，所以我们想让蒙版的正中心和鼠标重合的话，我们只能通过修改蒙版位置来实现
+                    //向左和向上修正自身宽度和高度一半的值，即可让蒙版中心和鼠标重合
+                    //getBoundingClientRect() 是获取一个元素相对于视口的最干净的获取方式
+                    //鼠标距离视口左侧的值 - 父容器距离视口左侧的值 - 蒙版宽度的一半
+                    var maskPosition = {
+                        left: event.clientX - previewNode.getBoundingClientRect().left - maskNode.offsetWidth / 2,
+                        top: event.clientY - previewNode.getBoundingClientRect().top - maskNode.offsetHeight / 2
+
+                    };
+                    //蒙版的边界值判断
+                    //大于最大值等于最大值，小于最小值等于最小值，范围限定类
+                    //大于最大值等于最小值，小于最小值等于最大值，首位相接类
+                    if (maskPosition.left < 0) {
+                        maskPosition.left = 0;
+                    } else if (maskPosition.left > previewNode.clientWidth - maskNode.offsetWidth) {
+                        maskPosition.left = previewNode.clientWidth - maskNode.offsetWidth;
+                    }
+                    if (maskPosition.top < 0) {
+                        maskPosition.top = 0;
+                    } else if (maskPosition.top > previewNode.clientHeight - maskNode.offsetHeight) {
+                        maskPosition.top = previewNode.clientHeight - maskNode.offsetHeight;
+                    }
+
+                    //修改蒙版位置
+                    maskNode.style.left = maskPosition.left + 'px';
+                    maskNode.style.top = maskPosition.top + 'px';
+                    //根据蒙版的位置，来计算大图的位置
+                    //计算比例  蒙版可移动空间 / 大图可移动空间
+                    var scale = (previewNode.clientWidth - maskNode.offsetWidth) / (bigImg.offsetWidth - bigImgBox.clientWidth);
+
+                    //根据当前蒙版的位置和计算的比例，得到大图的位置
+                    var bigImgPosition = {
+                        left: maskPosition.left / scale,
+                        top: maskPosition.top / scale
+                    }
+                    bigImg.style.marginLeft = -bigImgPosition.left + 'px';
+                    bigImg.style.marginTop = -bigImgPosition.top + 'px';
+                }
+                //当鼠标离开放大镜区域时，移除move事件和leave事件，并删除蒙版、大图容器、大图
+                previewNode.onmouseleave = function () {
+                    zoomImgBox.removeChild(maskNode);
+                    previewNode.removeChild(bigImgBox);
+                    //删除元素后，需要重置元素变量为空的状态
+                    maskNode = null;
+                    bigImgBox = null;
+                    bigImg = null;
+
+                    zoomImgBox.onmousemove = null;
+                    previewNode.onmouseleave = null;
+                }
+
+            }
+
+        }
+    };
+</script>
+</body>
+</html>

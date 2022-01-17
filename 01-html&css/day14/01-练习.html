@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*设置外部的容器*/
+        .outer {
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+
+        .outer > div {
+            position: absolute;
+            transition: all 300ms;
+            /*用于设置元素是否显示背面*/
+            backface-visibility: hidden;
+        }
+
+        /*
+            设置文字层的样式
+        */
+        .back {
+            width: 320px;
+            height: 320px;
+            background-color: #333333;
+            font-size: 40px;
+            color: #fff;
+            text-align: center;
+            line-height: 320px;
+
+            transform: rotateY(180deg);
+        }
+
+        .outer:hover .front {
+            transform: rotateY(180deg);
+        }
+
+        .outer:hover .back {
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="back">
+        这是一个女人
+    </div>
+    <div class="front">
+        <img src="img/an.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

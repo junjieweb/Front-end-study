@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 10px;
+            background: red;
+            display: none;
+        }
+    </style>
+<body>
+<button id="btn1">瞬间显示</button>
+<button id="btn2">慢慢显示</button>
+<button id="btn3">慢慢隐藏</button>
+<button id="btn4">显示隐藏切换</button>
+
+<div class="div1">
+</div>
+
+<!--
+显示隐藏，默认没有动画
+1. show(): (不)带动画的显示
+2. hide(): (不)带动画的隐藏
+3. toggle(): (不)带动画的切换显示/隐藏
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // show和hide方法 如果不传递时间  默认是没有任何过渡效果的
+    $('#btn1').click(function () {
+        $('.div1').show();
+    })
+    $('#btn2').click(function () {
+        $('.div1').show(2000);
+    })
+    $('#btn3').click(function () {
+        $('.div1').hide(2000)
+    })
+    $('#btn4').click(function () {
+        $('.div1').toggle(2000)
+    })
+</script>
+</body>
+</html>

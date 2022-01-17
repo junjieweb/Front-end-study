@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let arr = ['孙悟空', '猪八戒', '沙和尚', '唐僧'];
+
+        /*
+            push()
+                用来向数组的最后添加一个或多个元素
+                    会返回新的长度
+            pop()
+                从数组的最后删除一个元素,并返回被删除的元素
+            unshift()
+                用来向数组的前面添加一个或多个元素
+            shift()
+                删除数组并返回数组的第一个元素
+
+        */
+
+        arr.push('白龙马');
+        let result = arr.push('白骨精', '蜘蛛精');
+
+        arr.pop();
+        arr.pop();
+        result = arr.pop();
+        result = arr.unshift('二郎神', '哪吒', '姜子牙');
+        result = arr.shift();
+        result = arr.shift();
+        result = arr.shift();
+
+        console.log(arr);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

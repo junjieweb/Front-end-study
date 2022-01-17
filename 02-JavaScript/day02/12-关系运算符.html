@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let a = 123;
+
+        //将a转换为字符串，调用toString()来转
+        // a = a && a.toString();
+        // console.log(a,typeof a);
+
+        /*
+            关系运算符，用来比较两个值之间的大小等于的关系
+                使用关系运算符时，如果关系成立则返回true，不成立则返回false
+            >
+                比较左侧值是否大于右侧值
+            >=
+                比较左侧值是否大于或等于右侧值
+            <
+                比较左侧值是否小于右侧值
+            <=
+                比较左侧值是否小于或等于右侧值
+
+            对于非数值类型的值进行大于小于的比较时
+                浏览器会自动将其转换为数字然后再比较
+
+            注意，如果比较的是两个字符串的大小，则情况比较特殊
+
+        */
+
+        let result = 10 > 5;//true
+        result = 10 > 10;//false
+        result = 10 >= 10;//true
+
+        result = true > false;//true
+        result = 10 < '55';//true
+        result = null < '5';//true
+
+        //任何值和NaN作比较最后结果都是false
+        result = null < undefined;//false
+
+        console.log('result =', result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

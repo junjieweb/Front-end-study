@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变背景</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            /*background-color: yellow;*/
+            /*
+                渐变背景不是背景颜色，而是图片
+                    所以需要通过background-image
+                        或background来设置渐变的效果
+
+                    linear-gradient() 线性渐变
+                        线性渐变默认是自上向下进行变化的
+                    radial-gradient() 径向渐变
+
+            */
+            background-image: linear-gradient(red, yellow);
+            background-image: linear-gradient(green, blue);
+            /* 线性渐变默认是自上向下进行变化的 */
+            background-image: linear-gradient(red, orange, yellow, greenyellow);
+            /*
+                可以通过关键字来指定渐变的方向：
+                    to top 向上渐变
+                    to right 向右渐变
+                    to left 向左渐变
+                    to bottom 向下渐变
+            */
+            /*
+                默认情况下，渐变的颜色在元素中是平均分布的
+            */
+            background-image: linear-gradient(to right top, red, orange, yellow, greenyellow);
+            background-image: linear-gradient(90deg, red, orange, yellow, greenyellow);
+
+            /* 颜色后边可以指定一个长度，用来指定颜色的起始位置*/
+            background-image: linear-gradient(red 100px, yellow 300px);
+
+
+            background-image: linear-gradient(red 50px, yellow 100px);
+
+            background-image: repeating-linear-gradient(red 50px, yellow 100px);
+
+            background: linear-gradient(greenyellow,skyblue);
+        }
+    </style>
+
+</head>
+<body>
+<div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            height: 500px;
+            border: 2px red solid;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            /*
+                align-content 用来设置辅轴上空白的分布方式
+                    可选值：
+                        flex-start 元素沿辅轴起边对齐
+                        flex-end 元素沿辅轴终边对齐
+                        ……
+            */
+            align-content: space-evenly;
+        }
+
+        li {
+            width: 300px;
+            height: 200px;
+            background-color: #bfa;
+            flex-shrink: 0;
+        }
+
+        li:nth-child(1) {
+        }
+
+        li:nth-child(2) {
+            background-color: orange;
+        }
+
+        li:nth-child(3) {
+            background-color: yellowgreen;
+        }
+
+        li:nth-child(4) {
+            background-color: yellow;
+        }
+
+        li:nth-child(5) {
+            background-color: skyblue;
+        }
+
+        li:nth-child(6) {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+
+</body>
+</html>

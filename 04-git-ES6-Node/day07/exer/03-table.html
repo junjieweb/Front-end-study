@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行换色效果</title>
+    <style>
+        table, td {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr><tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <script>
+        //获取所有的tr元素
+        const trs = document.querySelectorAll('tr');
+        //遍历
+        for (let i = 0; i < trs.length; i++) {
+            if (i % 2 === 0) {
+                trs[i].style.background = '#1d6cd3';
+            } else {
+                trs[i].style.background = '#aef';
+            }
+        }
+    </script>
+</table>
+</body>
+</html>

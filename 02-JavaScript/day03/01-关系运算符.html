@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let result = true > false;
+
+        result = '5' > '10';//true
+
+        /*
+            特殊情况
+                当比较运算符两侧都是字符串时，它不会将其转换为数字进行比较
+                而是逐位比较字符串的字符编码，
+                利用这个特点可以对一个字符串按照字母顺序进行排序
+        */
+
+        //       97     98
+        result = 'a' < 'b';//true
+
+        //      99      98
+        result = 'c' < 'b';//false
+
+        result = 'c' < 'background';//false
+
+        result = '1' < '5';//true
+
+        let a = '10';
+        let b = '5';
+        result = +a > b;
+
+        console.log('result =', result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

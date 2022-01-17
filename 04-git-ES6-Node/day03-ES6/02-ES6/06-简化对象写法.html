@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    let name = 'Tom';
+    let pos = '北京';
+    let change = function () {
+        console.log('改变');
+    };
+
+    const i = {
+        name,
+        pos,
+        change,
+
+        improve() {
+            console.log('提升');
+        }
+    }
+    console.log(i);
+
+</script>
+
+</body>
+</html>

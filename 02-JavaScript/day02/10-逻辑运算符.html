@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            逻辑运算符
+                ! 逻辑非
+                    !可以对一个值进行非运算（取反操作）
+                    如果值是true，则变成false，false变成true
+                    如果对一个非布尔值进行逻辑非运算，会先将其转换为布尔值，然后再取反
+                    利用这一点，可以对任意值取两次反，来将其转换为布尔值，原理和Boolean()函数一样
+                && 逻辑与
+                    可以对符号左右两侧的值进行与运算
+                    如果两侧的值都是true，则返回true，否则返回false
+                    与运算是找false的
+                    与运算是短路的与
+                        如果第一个值是false，则不会去看第二个值
+                || 逻辑或
+                    可以对符号两侧的值进行或运算
+                    如果两侧有一个true，就返回true，否则返回false
+                    或运算是找true
+                    或运算是短路的或
+                        如果第一个值是true，则不会看第二个值
+        */
+
+        // true && alert('你看我出来没');
+        // false && alert('你看我出来没');
+
+        // let result = true && true;// true
+        // result = true && false;// false
+        // result = false && false;// false
+        //
+        console.log('result =', result);
+
+        let bool = true;
+        bool = !bool;
+
+        // console.log('bool =' ,bool);
+
+        let num = 10;
+        num = !!num;
+
+        // console.log(num, typeof num);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

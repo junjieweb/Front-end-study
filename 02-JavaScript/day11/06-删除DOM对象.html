@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            //点击按钮后创建一个新的li元素
+            document.getElementById('btn01').onclick = function () {
+                //获取id为list的元素
+                // let list = document.getElementById('list');
+                //删除id为shs的元素
+                let shs = document.getElementById('shs');
+
+                /*
+                    父节点.removeChild(子节点)
+                        用来删除一个子节点
+                */
+                // list.removeChild(shs);
+                // shs.parentNode.removeChild(shs);
+                /*
+                    remove()
+                        用来删除当前节点，老版本浏览器不支持
+                */
+                shs.remove();
+            };
+
+            document.getElementById('btn02').onclick = function () {
+                /*
+                    添加元素时，可以直接通过修改元素innerHTML属性来达到目的
+                        但是修改innerHTML时，是直接为innerHTML进行重新赋值
+                        这样将会导致其他元素被替换，所以使用innerHTML时一定要慎重
+                */
+                //获取list
+                let list = document.getElementById('list');
+                // list.innerHTML += '<li>白骨精</li>';
+                list.insertAdjacentHTML('beforeend','<li>白骨精</li>');
+
+            };
+
+            document.getElementById('shs').onclick = function () {
+                alert(12);
+            };
+
+        };
+    </script>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+<button id="btn02">按钮2</button>
+
+<!--beforebegin-->
+<ul id="list">
+    <!--    afterbegin-->
+    <li>孙悟空</li>
+    <li>猪八戒</li>
+    <li id="shs">沙和尚</li>
+    <li>唐僧</li>
+    <!--    beforeend-->
+</ul>
+<!--afterend-->
+
+</body>
+</html>

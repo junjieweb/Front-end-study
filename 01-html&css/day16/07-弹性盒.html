@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性盒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 1000px;
+            margin: 0 auto;
+            border: 2px red solid;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        li {
+            width: 200px;
+            height: 100px;
+            background-color: #bfa;
+            font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+
+            /*flex-grow: 1;*/
+
+            /*flex-shrink: 0;*/
+            /*
+                flex-basis 指定弹性元素的标准大小
+                    flex-basis 这个元素一旦设置了数值，则width自动失效
+            */
+
+            /*flex-basis: 100px;*/
+
+            /*
+                flex 简写属性，可以同时设置三个值
+                    flex: flex-grow flex-shrink flex-basis;
+            */
+            flex: 0 0 200px;
+        }
+
+        li:nth-child(1) {
+            flex: 0 1 200px;
+            /*    第一个li*/
+            /*
+                当父元素中有空白空间时，需要使用增长系数来分配每一个元素的增长大小（按比例）
+                flex-grow 用来指定元素增长的系数
+
+                当子元素的总宽度超过父元素时，需要使用缩短系数来分配每一个元素缩减的大小
+                flex-shrink 用来指定元素缩减的系数
+            */
+            /*flex-shrink: 1;*/
+            /*flex-grow: 1;*/
+        /*
+            每一个元素缩减多少，由元素的flex-basis和flex-shrink共同决定
+                溢出的大小（200）
+                溢出的大小 除以 （第一个元素flex-basis * flex-shrink + 第一个元素flex-basis * flex-shrink）
+                200 / 400 = 0.5
+                第一个元素缩减 = flex-shrink * 0.5 * flex-basis
+                第二个元素缩减 = flex-shrink * 0.5 * flex-basis
+
+        */
+        }
+
+        li:nth-child(2) {
+            background-color: orange;
+            flex: 0 1 200px;
+            /*flex-grow: 1;*/
+            /*flex-shrink: 1;*/
+        }
+
+        li:nth-child(3) {
+            background-color: yellowgreen;
+        }
+
+        li:nth-child(4) {
+            background-color: yellow;
+        }
+
+        li:nth-child(5) {
+            background-color: skyblue;
+        }
+
+        li:nth-child(6) {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+
+</body>
+</html>

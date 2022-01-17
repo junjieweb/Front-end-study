@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //定义一个表示人的类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+
+            /*
+                现在我们的方法直接定义在了构造函数中，
+                    也就是构造函数每执行一次，就会创建一个新的构造函数
+                    这样也就意味着每一个对象都有不同的sayHello()方法
+                    但是这些sayHello()的功能却是一样的
+                    而创建许多会占用大量的内存空间，实际上完全可以所有的对象都用一个sayHello()
+            */
+
+            //向类中添加一个方法
+            // this.sayHello = sayHello;
+        }
+
+        //将sayHello()定义为一个全局函数
+        // 污染全局的命名空间（namespace）
+        // function sayHello() {
+        //     alert(`大家好，我是${this.name}`);
+        // }
+
+        //将sayHello添加到原型中
+        Person.prototype.sayHello = function () {
+            alert(`大家好，我是${this.name}`);
+        }
+
+        //创建一个人类的实例
+        let per = new Person('Tom', 18);
+        let per2 = new Person('Jerry', 18);
+        let per3 = new Person('Tom2', 18);
+
+        console.log(per.sayHello === per2.sayHello);//false
+
+        console.log(per);
+        per.sayHello();
+        per2.sayHello();
+        per3.sayHello();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

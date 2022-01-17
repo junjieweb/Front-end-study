@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="01-添加删除记录jQuery.css">
+</head>
+<body>
+
+<table id="employeeTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+
+</table>
+
+<div id="formDiv">
+
+    <h4>添加新员工</h4>
+
+    <table>
+        <tr>
+            <td class="word">name:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email:</td>
+            <td class="inp">
+                <input type="text" name="email" id="email"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton" value="abc">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    /*
+         功能说明:
+         1. 点击'Submit', 根据输入的信息在表单中生成一行员工信息
+         2. 点击Delete链接, 提示删除当前行信息, 点击确定后删除信息
+         技术要点:
+         1. DOM查询
+         2. 绑定事件监听
+         3. DOM增删改
+         4. 取消事件的默认行为
+    */
+    $(function () {
+        //获取三个输入框
+        var $empName = $('#empName');
+        var $email = $('#email');
+        var $salary = $('#salary');
+
+        //获取提交按钮，绑定单击事件
+        $('#addEmpButton').click(function () {
+            //获取三个输入框的value
+            empName = $empName.val();
+            email = $email.val();
+            salary = $salary.val();
+
+            //判断三个输入框都有值的情况下，我们执行创建的逻辑，如果任意一个为空，我们提示信息
+            if (empName.trim() && email.trim() && salary.trim()) {
+                //只要能够进入这个if中，说明当前三个输入框都有值
+                alert('创建成功');
+
+                $('<tr></tr>')
+                    .append('<td>' + empName + '</td>')
+                    .append('<td>' + email + '</td>')
+                    .append('<td>' + salary + '</td>')
+                    .append('<td><a href="deleteEmp?id=003">Delete</a></td>')
+                    .appendTo('#employeeTable tbody').find('a').click(clickA);
+
+            } else {
+                alert('请不要输入空信息');
+            }
+
+            //清空输入框
+            $empName.val('');
+            $email.val('');
+            $salary.val('');
+        });
+
+        //删除功能
+        $('a').click(clickA);
+
+        //回调函数：你定义的，你没调用，但是最终执行了
+        function clickA(event) {
+            //阻止a标签的默认行为
+            event.preventDefault();
+
+            //根据点击的a标签，获取其对应的父元素的父元素，tr
+            var $tr = $(this).parent().parent();
+
+            //获取当前这个tr中第一个td的标签文本 name
+            var name = $tr.children(':first').html();
+
+            if (confirm('你确定要删除' + name + '的信息吗')) {
+                $tr.remove();
+            }
+        }
+
+    });
+
+</script>
+</body>
+</html>

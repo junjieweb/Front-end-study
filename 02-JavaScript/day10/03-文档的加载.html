@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            网页中的代码在加载时，是自上向下一行一行加载的
+                如果将script标签写在页面上边，此时js代码会优先于网页中元素加载
+                所以会出现无法正常获取到DOM对象的情况出现
+            为了解决问题
+                1、可以直接将js代码写在body的下边
+                2、也可以将js代码编写到window.onload的回调函数
+                3、如果是外部文件，可以在引入时，在script标签上添加defer属性使其延迟加载
+        */
+
+        //window.onload 事件会在网页加载完毕之后触发
+        window.onload = function () {
+
+            //获取id为btn的按钮
+            let btn = document.getElementById('btn');
+
+            //为按钮绑定一个单击响应函数
+            btn.onclick = function () {
+                alert('你点我干嘛');
+            };
+        };
+
+    </script>
+</head>
+<body>
+<button id="btn">点我一下</button>
+
+<!--<script>
+    //获取id为btn的按钮
+    let btn = document.getElementById('btn');
+
+    //为按钮绑定一个单击响应函数
+    btn.onclick = function () {
+        alert('你点我干嘛');
+    };
+</script>-->
+</body>
+</html>

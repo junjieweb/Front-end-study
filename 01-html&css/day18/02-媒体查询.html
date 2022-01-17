@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+
+            希望窗口大的时候，背景颜色是绿色
+            窗口小的时候，背景颜色是黄色
+            媒体查询（media query）
+                通过媒体查询可以为不同的设备，不同的屏幕大小设置不同的样式
+            媒体类型：
+                @media all {} 他里边的样式会应用到所有的设备上
+                @media print {} 它里边的样式会应用到打印样式上
+                @media screen {} 它里边的样式会应用到屏幕
+                @media speech {} 它里边的样式会应用到阅读器
+        */
+
+        /*
+            ,表示或者
+        */
+        /*@media screen, print {*/
+
+        /*
+            一般媒体查询都会以 only screen 开头
+                screen 表示仅仅对显示屏应用该样式
+                only 主要用于解决兼容性的问题
+        */
+
+        @media only screen and (min-width: 800px) {
+            body {
+                background-color: #bfa;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>

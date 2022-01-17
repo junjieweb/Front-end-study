@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function fn(a, b) {
+            a++;
+            // console.log('a =', a);
+            // // b = {name: 'tom'};//改变量
+            // // b.name = '猪八戒';//改对象
+            // console.log('b =', b);
+        }
+
+        /*
+            参数可以是任意类型的值
+        */
+        // fn(1, true);
+        // fn('hello', null);
+        // fn('abc', {});
+        //
+        // fn(true, function () {
+        //     console.log('hello');
+        // });
+
+        let a = 10;
+        let b = {name: '孙悟空'};
+
+        fn(a, b);
+
+        // console.log('a =', a);
+        // console.log('b =', b);
+
+        function fn2() {
+            let a = 10;
+            let b = 20;
+            // return {a: a, b: b};
+            // return {a, b};
+            return function () {
+                console.log('hello');
+            };
+        }
+
+        let result = fn2();
+
+        // console.log(result);
+
+        // IIFE 立即执行函数，它会在函数创建完成后立即调用，并且只会调用一次
+        /*
+            (function(){})();
+
+            (function(){}());
+        */
+        // js禁止一个以function开头的函数没有名字
+        (function () {
+            console.log('我是一个匿名函数');
+        })();
+
+        (function () {
+            console.log('我是一个匿名函数');
+        }());
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

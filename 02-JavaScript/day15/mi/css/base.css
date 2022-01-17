@@ -1,0 +1,46 @@
+/* 设置html的最小宽度 */
+
+
+/* 放置公共的样式 */
+body {
+    /* 指定一个默认的字体大小 */
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    /* 指定一个默认的字体颜色 */
+    color: #333;
+    /* 设置body的宽度 */
+    min-width: 1226px;
+
+    /* 使body成为定位元素 */
+    position: relative;
+}
+
+/* 重置超链接的样式 */
+a {
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 设置文字的颜色 */
+    color: inherit;
+}
+
+/* 重置图片的样式 */
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+/* 设置clearfix */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 确定网页主容器的宽度 */
+/* container */
+.w {
+    /* 主容器的宽度 */
+    width: 1226px;
+    /* 设置居中 */
+    margin: 0 auto;
+}

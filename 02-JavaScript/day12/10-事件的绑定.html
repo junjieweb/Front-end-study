@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn01">按钮1</button>
+
+<script>
+
+    /*
+        使用属性来绑定事件时，一个元素上同时只能为一个事件绑定一个响应函数
+            如果同时为一个事件设置了多个响应函数，则后边的会覆盖掉前面的
+    */
+    let btn01 = document.getElementById('btn01');
+    // btn01.onclick = function () {
+    //     alert(1);
+    // };
+    //
+    // btn01.onclick = function () {
+    //     alert(2);
+    // };
+    // btn01.onclick = null;
+
+    /*
+        可以通过 addEventListener() 来为元素设置响应函数
+            参数：
+                1、要绑定的事件，需要一个事件的字符串作为参数（不要on）
+                2、事件的回调函数
+                3、是否在捕获阶段触发事件，需要布尔值
+                    true 会发生事件的捕获
+                    false 不会（默认值）
+
+        通过改方式所绑定的事件不会互相干扰，可以为同一个事件绑定多个响应函数
+            事件触发时，函数会按照绑定的顺序执行
+
+        removeEventListener()
+            用来移除一个事件的响应函数
+            移除时的参数必须和设置时的一模一样
+    */
+    function clickHandler(event) {
+        alert(1);
+    }
+
+    btn01.addEventListener('click', clickHandler);
+
+    btn01.removeEventListener('click', clickHandler);
+
+    btn01.addEventListener('click', function () {
+        alert(2);
+    });
+
+
+</script>
+</body>
+</html>

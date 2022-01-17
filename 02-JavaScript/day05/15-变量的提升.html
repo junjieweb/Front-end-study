@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            在js中使用var声明的变量，
+                会在所有的代码执行前被创建，但是不会赋值
+                所以我们可以在变量声明前就对其进行访问
+                这个特点称为变量的提升
+
+            使用function开头的函数，会在所有代码执行前被创建
+                所以我们可以在函数声明前就对其进行调用
+                这个特点称为函数的提升
+
+        */
+
+        // console.log(a);
+        // var a = 10;
+
+        fn();
+
+
+        function fn() {
+            console.log('函数1');
+        }
+
+        var fn2 = function () {
+            console.log('函数2')
+        };
+
+        fn2();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

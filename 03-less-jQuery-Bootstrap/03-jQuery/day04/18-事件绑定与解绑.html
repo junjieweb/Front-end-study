@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        .out {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 10px;
+            background: pink;
+        }
+
+        .inner {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: skyblue;
+        }
+
+        .divBtn {
+            position: absolute;
+            top: 250px;
+        }
+
+    </style>
+
+<body style="height: 2000px;">
+
+<div class="out">
+    外部DIV
+    <div class="inner">内部div</div>
+</div>
+<div class='divBtn'>
+    <button id="btn1">取消绑定所有事件</button>
+    <button id="btn2">取消绑定mouseover事件</button>
+</div>
+
+<!--
+1. 事件绑定(2种)：
+  * eventName(function(){})
+    绑定对应事件名的监听,	例如：$('#div').click(function(){});
+  * on(eventName, function(){})
+    通用的绑定事件监听, 例如：$('#div').on('click', function(){})
+  * 优缺点:
+    eventName: 编码方便, 但只能加一个监听, 且有的事件监听不支持
+    on: 编码不方便, 可以添加多个监听, 且更通用
+    滑动事件：mouseenter，mouseleave，mouseover，mouseout
+2. 事件解绑：
+  * off(eventName)
+-->
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    // 1. 给.out绑定点击监听(用两种方法绑定)
+    // $('.out').click(function () {
+    //     console.log('点击');
+    // })
+
+    //通用事件绑定方法 能够绑定所有事件，比如（transitionEnd 过渡结束）
+    //可以同时给多个事件指定一个回调函数
+    //jQuery当中，所有事件都是使用dom2级事件绑定方式
+    $('.out').on('click', function () {
+        console.log('点击');
+    });
+
+    // 2. 给.inner绑定鼠标移入和移出的事件监听(用3种方法绑定)
+    //mouseover 移入  mouseout 移出
+    // $('.out').mouseover(function () {
+    //     console.log('mouseover移入');
+    // }).mouseout(function () {
+    //     console.log('mouseout移出');
+    // });
+
+    $('.out').mouseenter(function () {
+        console.log('mouseenter移入');
+    }).mouseleave(function () {
+        console.log('mouseleave移出');
+    })
+
+    //hover方法的底层，是使用mouseenter和mouseleave实现的
+    //如果只传递一个回调函数，则移入移出都执行这一个回调函数
+    // $('.out').hover(function () {
+    //     console.log('移入');
+    // })
+
+    // 3. 点击btn1解除.out上的所有事件监听
+    $('#btn1').click(function () {
+        //off() 解除事件监听的方法，如果不传参数，默认清除所有事件
+        $('.out').off();
+    });
+
+    // 4. 点击btn2解除.inner上的mouseleave事件
+    $('#btn2').click(function () {
+        //off() 方法允许传递参数，参数类型为字符串，内容为事件名称，
+        // 可以单独解绑一个或多个事件，多个事件名称用空格隔开
+        $('.out').off('click mouseleave');
+    })
+
+</script>
+
+</body>
+</html>

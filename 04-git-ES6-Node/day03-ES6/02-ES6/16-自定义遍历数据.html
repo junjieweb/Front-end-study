@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const team = {
+        name: '终极一班',
+        members: [
+            'xm',
+            'xn',
+            'xt',
+            'kn'
+        ],
+        //添加Symbol.iterator
+        [Symbol.iterator]: function () {
+            let index = 0;
+            return {
+                next: () => {
+                    //声明对象
+                    const result = {value: this.members[index], done: false}
+                    //判断下标，修改done的值
+                    if (index >= this.members.length) {
+                        result.done = true;
+                    }
+                    //下标自增
+                    index++;
+                    return result;
+                }
+            }
+        }
+    };
+
+    //需求：用for...of遍历
+    for (let v of team) {
+        console.log(v);
+    }
+
+</script>
+</body>
+</html>

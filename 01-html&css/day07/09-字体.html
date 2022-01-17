@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用font-face 引入字体 */
+        @font-face {
+            /* 指定字体的名称 */
+            font-family: 'test';
+            /* 本地字体的路径，要求字体必须是本地的字体 */
+            src: url(font/ZCOOLKuaiLe-Regular.ttf);
+        }
+
+        .box1 {
+            /* 颜色 */
+            color: red;
+            /* 字体大小 */
+            font-size: 50px;
+            /* 
+                font-family 用来指定字体的家族 
+                可以指定一个字体的分类，也可以指定一个具体的字体
+                可以同时指定多个字体，多个字体之间使用，隔开
+            */
+            /* font-family: serif; */
+            /* font-family: sans-serif; */
+            /* font-family: monospace; */
+
+            /* font-family: Helvetica; */
+            /* font-family: 微软雅黑; */
+            /* font-family: Arial, 华文彩云, serif; */
+
+            /* font-family: Helvetica Neue, Helvetica, Arial, 
+            Microsoft Yahei, Hiragino Sans GB, Heiti SC, 
+            WenQuanYi Micro Hei, sans-serif; */
+
+            font-family: test;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    hello 你好 你真帅
+</div>
+</body>
+
+</html>

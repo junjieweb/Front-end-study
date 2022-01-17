@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    device-width 表示一个设备的完美值 -->
+    <!--    <meta name="viewport" content="width=device-width">-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            /*width: 375px;*/
+            /*
+                vw 表示视口
+                    1vw = 1%视口宽度
+                    100vw = 整个视口的宽度
+            */
+            width: 100vw;
+            height: 100px;
+            background-color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<!--
+  CSS像素 物理像素
+    手机的屏幕中的像素相比于显示器的物理像素是要小很多的
+    去过在移动端依然保持1：1的像素比的话，会导致字体、布局都变得特别的小
+    所以在移动端，都是使用多个物理像素表示一个CSS像素
+        1：2     1：3
+    当我们使用移动端的浏览器访问一个网页时，默认情况下浏览器会自动对网页进行缩放
+        以使网页可以完整呈现
+    修改浏览器的视口
+-->
+
+<div class="box1">
+    hello
+</div>
+</body>
+</html>

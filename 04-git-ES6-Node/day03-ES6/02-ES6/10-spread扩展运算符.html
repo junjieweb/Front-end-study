@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组的展开
+    // const arr = ['王元', '易烊千玺', '王俊凯'];
+    //
+    // function fn() {
+    //     console.log(arguments);
+    // }
+
+    // fn(...arr);//...arr  --> ...['王元', '易烊千玺', '王俊凯']; --> '王元', '易烊千玺', '王俊凯'
+
+    //对象的展开
+    const skillOne = {
+        q: '天音波'
+    };
+    const skillTwo = {
+        w: '金钟罩'
+    };
+    const skillThree = {
+        e: '天雷破'
+    };
+    const skillFour = {
+        r: '猛龙摆尾'
+    };
+    const mangseng = {...skillOne, ...skillTwo, ...skillThree, ...skillFour};
+    console.log(mangseng);
+
+
+</script>
+</body>
+</html>

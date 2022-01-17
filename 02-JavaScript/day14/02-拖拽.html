@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            position: absolute;
+        }
+
+        #box2 {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1"></div>
+<div style="width: 100px;height: 100px;background-color: orange;position: absolute;top: 100px;left: 400px;"></div>
+
+<img id="box2" src="img/1.jpg" alt="hello">
+
+<script>
+
+    /*
+        将所有的onxxx修改为addEventListener()
+        希望页面中的元素只要含有drag这个class的就可以被拖拽
+    */
+
+
+    /*
+        通过鼠标来拖拽box1移动
+            1、当鼠标在box1上按下时，功能开始  （mousedown）
+            2、鼠标移动，box1跟随鼠标一起移动  （mousemove）
+            3、鼠标松开，功能结束，           （mouseup）
+                box1固定在当前位置，不再跟随鼠标移动
+    */
+    //获取box1
+    let box1 = document.getElementById('box1');
+    //为box1绑定鼠标按下的事件
+    box1.onmousedown = function (event) {
+        /*
+            问题：如何保持鼠标指针和被拖拽的元素相对位置不变
+
+            当我们选中文字，并进行拖拽时，浏览器会默认将文字在搜索引擎中搜索
+                这是浏览器的默认行为，这个行为的存在会影响到拖拽的功能
+        */
+        event.preventDefault();
+
+        //计算水平方向的偏移量
+        let left = event.clientX - box1.offsetLeft;
+        //计算垂直方向的偏移量
+        let top = event.clientY - box1.offsetTop;
+
+        //当鼠标在box1上按下时，功能开始
+        //为document来绑定一个鼠标移动事件，使元素可以跟随鼠标移动
+        document.onmousemove = function (event) {
+            box1.style.left = event.clientX - left + 'px';
+            box1.style.top = event.clientY - top + 'px';
+
+        };
+        //鼠标松开功能结束mouseup
+        document.onmouseup = function (event) {
+            //取消鼠标移动的事件
+            document.onmousemove = null;
+            //取消鼠标松开事件
+            document.onmouseup = null;
+        };
+
+    };
+    //获取box1
+    let box2 = document.getElementById('box2');
+    //为box1绑定鼠标按下的事件
+    box2.onmousedown = function (event) {
+        /*
+            问题：如何保持鼠标指针和被拖拽的元素相对位置不变
+
+            当我们选中文字，并进行拖拽时，浏览器会默认将文字在搜索引擎中搜索
+                这是浏览器的默认行为，这个行为的存在会影响到拖拽的功能
+        */
+        event.preventDefault();
+
+        //计算水平方向的偏移量
+        let left = event.clientX - box2.offsetLeft;
+        //计算垂直方向的偏移量
+        let top = event.clientY - box2.offsetTop;
+
+        //当鼠标在box1上按下时，功能开始
+        //为document来绑定一个鼠标移动事件，使元素可以跟随鼠标移动
+        document.onmousemove = function (event) {
+            box2.style.left = event.clientX - left + 'px';
+            box2.style.top = event.clientY - top + 'px';
+
+        };
+        //鼠标松开功能结束mouseup
+        document.onmouseup = function (event) {
+            //取消鼠标移动的事件
+            document.onmousemove = null;
+            //取消鼠标松开事件
+            document.onmouseup = null;
+        };
+    };
+
+</script>
+</body>
+</html>

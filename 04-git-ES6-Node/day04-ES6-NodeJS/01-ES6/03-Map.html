@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //缓存
+    //声明Map
+    const m = new Map();
+    console.log(m);
+
+    //添加元素
+    let key = {};
+    m.set('name', 'Tom');
+    m.set(key, 'hello');
+    console.log(m);
+
+    //获取元素
+    console.log(m.get('name'));
+    console.log(m.get(key));
+
+    //删除元素
+    m.delete('name');
+    console.log(m);
+
+    // 检测
+    console.log(m.has('name'));
+
+    // 元素个数
+    console.log(m.size);
+
+    // 清空
+    m.clear();
+    console.log(m);
+
+</script>
+</body>
+</html>

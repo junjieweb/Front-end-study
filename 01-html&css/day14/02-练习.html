@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            /*background-color: #bfa;*/
+            margin: 300px auto;
+            transition: all 500ms;
+            position: relative;
+
+            /*指定变形的原点*/
+            /*transform-origin: top left;*/
+            /*transform-origin: 50px 100px;*/
+        }
+
+        /*.box1:hover {*/
+        /*    transform: rotateZ(180deg);*/
+        /*}*/
+
+        .box1 .inner {
+            position: absolute;
+            transition: all 2s;
+            transform-origin: top left;
+        }
+
+        .box1:hover .inner:nth-child(1) {
+            transform: rotateZ(360deg);
+        }
+
+        .box1:hover .inner:nth-child(2) {
+            transform: rotateZ(300deg);
+        }
+
+        .box1:hover .inner:nth-child(3) {
+            transform: rotateZ(240deg);
+        }
+
+        .box1:hover .inner:nth-child(4) {
+            transform: rotateZ(180deg);
+        }
+
+        .box1:hover .inner:nth-child(5) {
+            transform: rotateZ(120deg);
+        }
+
+        .box1:hover .inner:nth-child(6) {
+            transform: rotateZ(60deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="inner">
+        <img src="img/1.jpg" alt="">
+    </div>
+    <div class="inner">
+        <img src="img/2.jpg" alt="">
+    </div>
+    <div class="inner">
+        <img src="img/3.jpg" alt="">
+    </div>
+    <div class="inner">
+        <img src="img/4.jpg" alt="">
+    </div>
+    <div class="inner">
+        <img src="img/5.jpg" alt="">
+    </div>
+    <div class="inner">
+        <img src="img/6.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            perspective: 800px;
+        }
+        body{
+            text-align: center;
+        }
+        img{
+            transition: all 2s;
+        }
+        img:hover{
+            /*
+                scaleX() 水平方向的缩放
+                scaleY() 垂直方向的缩放
+                scale() 双方向的缩放
+            */
+            /*transform: scaleX(2);*/
+            /*transform: scaleY(2);*/
+            /*transform: scaleX(1.2) scaleY(1.2);*/
+            /*transform: scale(1.2) ;*/
+            /*transform: scaleZ(2);*/
+
+        /*    skewX() */
+        /*    skewY() */
+            transform: skewX(45deg);
+            transform: skewY(45deg);
+            transform: skew(45deg 45deg);
+        }
+    </style>
+</head>
+<body>
+<img src="img/an.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p class="test">尚硅谷的后裔</p>
+<p style="color: green;">太阳的后裔</p>
+
+<!--
+设置css样式/读取css值
+  css()
+-->
+<script src="../jquery-1.12.4.js"></script>
+<script>
+
+    // css   不受只能读取行间样式的限制      只要是这个元素身上的 都可以读取得到
+    // 1、得到第一个p标签的颜色
+    console.log($('p:first').css('color'));
+
+    //2. 设置所有p标签的文本颜色为pink
+    $('p').css('color', 'skyblue');
+
+    //3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
+    // $('p:last').css('color','#ff0011');
+    // $('p:last').css('background','blue');
+    // $('p:last').css('width','300px');
+    // $('p:last').css('height','30px');
+    
+    //配置对象
+    $('p:last').css({
+        'color': '#ff0011',
+        'background': 'blue',
+        'width': '300px',
+        'height': '30px'
+    });
+
+
+</script>
+
+</body>
+</html>

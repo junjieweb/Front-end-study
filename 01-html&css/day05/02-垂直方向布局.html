@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            /* 
+                宽度是auto时，子元素会占满父元素
+            */
+            width: 200px;
+            /* 高度是auto时，父元素的高度由其内容的高度决定 */
+            height: 300px;
+            background-color: #bfa;
+            /* 
+                如果不为父元素指定高度，则父元素会自动适应子元素的高度，确保能容纳所有的子元素
+                如果为父元素指定了高度，则指定多少就是多少，
+                    此时如果子元素的大小超过了父元素，则会导致子元素从父元素中溢出
+                    溢出的子元素不会影响到页面的布局
+                可以使用overflow来设置溢出内容的处理方式
+                可选值：
+                    visible 默认值，溢出内容不会被裁剪，直接在父元素外部显示
+                    hidden 溢出的内容会被裁剪，超过父元素的不会显示
+                    scroll 生成滚动条，可以通过滚动条查看完整内容
+                    auto 根据需要生成滚动条
+            */
+            overflow: auto;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 400px;
+            margin-bottom: 10px;
+            background-color: orange;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        /*
+            垂直方向：
+                margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom = 父元素的高度
+
+        */
+    </style>
+</head>
+
+<body>
+<div class="box1">
+    <div class="box2"></div>
+    <div class="box3"></div>
+</div>
+
+
+</body>
+
+</html>

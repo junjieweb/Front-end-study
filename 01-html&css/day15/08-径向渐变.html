@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>径向渐变</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            /*border-radius: 50%;*/
+            /*
+                radial-gradient()
+                    设置径向渐变
+                    在开头可以指定渐变的形状
+                        circle 圆形
+                        ellipse 椭圆形
+                        也可以通过 半径来指定元素的大小
+
+                        可以通过at 来指定圆心的位置
+            */
+            background: radial-gradient(red, yellow, orange, yellowgreen);
+            background: radial-gradient(circle, red, yellow, orange, yellowgreen);
+            background: radial-gradient(100px 100px, red, yellow, orange, yellowgreen);
+
+            /*
+                closest-side 表示渐变效果显示到离圆心最近的边
+                farthest-side 表示渐变效果显示到离圆心最远的边
+
+                closest-corner 表示渐变效果显示到离圆心最近的角
+                farthest-corner 表示渐变效果显示到离圆心最远的角
+            */
+            background: radial-gradient(closest-side at 100px 100px, red, yellow, orange, yellowgreen);
+            background: radial-gradient(farthest-side at 100px 100px, red, yellow, orange, yellowgreen);
+            background: radial-gradient(closest-corner at 100px 100px, red, yellow, orange, yellowgreen);
+            background: radial-gradient(farthest-corner at 100px 100px, red, yellow, orange, yellowgreen);
+
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+</body>
+</html>

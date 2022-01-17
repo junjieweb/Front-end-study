@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+            Math
+                Math不是一个构造函数，不能用来创建对象
+                Math中包含了一些数学相关的常量或方法
+                Math我们称其为是一种 工具类
+                属性
+                    Math.PI 表示圆周率
+
+                方法：
+                    Math.abs()
+                        求一个数绝对值
+                    Math.ceil()
+                        对一个数进行向上取整
+                    Math.floor();
+                        对一个数进行向下取整
+                    Math.round();
+                        对一个数进行四舍五入取整
+                    Math.max()
+                    Math.min()
+                        用来获取多个数中的较大或较小值
+                    Math.pow(x,y)
+                        用x的y次幂
+                    Math.sqrt()
+                        对一个数进行开方
+
+        */
+        // console.log(Math.abs(-20));
+        // console.log(Math.ceil(1.1));
+        // console.log(Math.floor(3.9));
+        // console.log(Math.round(2.3));
+        // console.log(Math.max(2, 3, 5443, 1, 3212));
+        // console.log(Math.min(2, 3, 5443, 1, 3212));
+        // console.log(Math.pow(2, 3));
+        // console.log(Math.sqrt(9));
+
+        //Math.random() 用来生成一个0 - 1 之间的随机数
+        //生成一个0-x之间的随机数 Math.round(Math.random() * x)
+        /*
+            生成一个x-y之间的随机数
+                Math.round(Math.random() * (y - x)) + x
+        */
+        for (let i = 0; i < 100; i++) {
+            //生成一个0-5之间的随机数
+            // console.log(Math.round(Math.random() * 5));
+
+            //生成一个1-6之间的随机数
+            //生成一个5-8之间的随机数
+            // console.log(Math.round(Math.random() * 3) + 5);
+        }
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        arr.sort(function (a, b) {
+            return Math.random() - Math.random();
+        });
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

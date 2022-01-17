@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>小米商城 - Xiaomi 11 Ultra、Redmi K40 Pro、MIX FOLD，小米电视官方网站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--    引入重置样式表-->
+    <link rel="stylesheet" href="css/reset.css">
+    <!--    引入基础样式表-->
+    <link rel="stylesheet" href="css/base.css">
+    <!--    引入图标字体-->
+    <link rel="stylesheet" href="font/css/all.css">
+    <!--    引入当前页面的样式表-->
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--
+        设置网站的图标
+        使用图标的步骤：
+            1、制作ico的图标（在线制作）
+            2、将图标放到项目的根目录下，并命名为favicon.ico
+            3、然后在网页中通过link标签进行引入
+    -->
+    <link rel="icon" href="favicon.ico">
+
+</head>
+<body style="height: 2000px">
+
+<!--创建顶部工具条的容器-->
+<!--bar-wrapper开始-->
+<div class="bar-wrapper">
+
+    <!--    bar的内部容器-->
+    <div class="top-bar w">
+
+        <!--        左侧导航的div-->
+        <div class="link-bar">
+            <a href="javascript:;">小米商城</a>
+            <span class="line">|</span>
+            <a href="javascript:;">MIUI</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">loT</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">云服务</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">金融</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">有品</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">小爱开放平台</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">企业团购</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">资质证照</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">协议规则</a>
+
+            <span class="line">|</span>
+            <a class="download-app" href="javascript:;">
+                下载app
+                <div class="code">
+                    <!--                    创建一个小三角-->
+                    <i class="arrow"></i>
+                    <img src="img/code.png" alt="" width="84px">
+                    <span>小米商城APP</span>
+                </div>
+            </a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">Select Region</a>
+        </div>
+
+        <!--        购物车-->
+        <div class="cart-bar">
+            <a href="javascript:;">
+                <span class="fas fa-shopping-cart"></span>
+                购物车（0）
+            </a>
+
+            <!--            购物车的信息-->
+            <div class="cart-info">
+                <span>购物车中还没有商品,赶紧选购吧!</span>
+            </div>
+
+        </div>
+
+        <!--        登录导航-->
+        <div class="info-bar">
+            <a href="javascript:;">登录</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">注册</a>
+
+            <span class="line">|</span>
+            <a href="javascript:;">消息通知</a>
+        </div>
+
+
+    </div>
+
+</div>
+<!--bar-wrapper结束-->
+
+
+<!--网页的头部,导航条,头部容器-->
+<div class="header-wrapper">
+
+    <!--    头部-->
+    <div class="header w">
+        <!--        网页的logo-->
+        <h1 class="logo" title="小米官网">
+            <a href="javascript:;">
+                <!--                <img src="img/logo.png" width="55" alt="">-->
+                小米官网
+            </a>
+        </h1>
+
+        <!--        头部的导航-->
+        <div class="header-nav">
+            <!--            导航的内容-->
+            <ul class="nav clearfix">
+                <li>
+                    <a style="visibility: hidden" href="javascript:;">全部商品分类</a>
+
+                    <!--                    创建菜单-->
+                    <ul class="left-nav">
+                        <li><a href="javascript:;">手机 电话卡</a></li>
+                        <li><a href="javascript:;">电视 盒子</a></li>
+                        <li><a href="javascript:;">笔记本 平板</a></li>
+                        <li><a href="javascript:;">家电 插线板</a></li>
+                        <li><a href="javascript:;">出行 穿戴</a></li>
+                        <li><a href="javascript:;">智能 路由器</a></li>
+                        <li><a href="javascript:;">电源 配件</a></li>
+                        <li><a href="javascript:;">健康 儿童</a></li>
+                        <li><a href="javascript:;">耳机 音箱</a></li>
+                        <li><a href="javascript:;">生活 箱包</a></li>
+                    </ul>
+                </li>
+                <li class="active-hide"><a href="javascript:;">小米手机</a></li>
+                <li class="active-hide"><a href="javascript:;">Redmi 红米</a></li>
+                <li class="active-hide"><a href="javascript:;">电视</a></li>
+                <li class="active-hide"><a href="javascript:;">笔记本</a></li>
+                <li class="active-hide"><a href="javascript:;">家电</a></li>
+                <li class="active-hide"><a href="javascript:;">路由器</a></li>
+                <li class="active-hide"><a href="javascript:;">智能硬件</a></li>
+                <li><a href="javascript:;">服务</a></li>
+                <li><a href="javascript:;">社区</a></li>
+
+                <!--                创建下拉层-->
+                <div class="hide-list">
+
+                </div>
+            </ul>
+        </div>
+        <!--        创建搜索框-->
+        <div class="search">
+            <form action="#">
+                <input type="text" name="keyword">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--    创建一个中间的banner-->
+    <div class="banner w">
+        <!--        设置轮播图-->
+        <ul class="img-list">
+            <li><a href="javascript:;"><img src="img/banner/1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/banner/2.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/banner/3.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/banner/4.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/banner/5.jpg" alt=""></a></li>
+        </ul>
+
+        <!--        创建导航按钮-->
+        <div class="point">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+
+        <!--        创建向前向后切换图片-->
+        <div class="slide">
+            <a class="prev" href="javascript:;"></a>
+            <a class="next" href="javascript:;"></a>
+        </div>
+    </div>
+
+    <!--    固定定位条-->
+    <ul class="fixed-bar">
+        <li><a href="javascript:;"><i class="fas fa-mobile-alt"></i></a></li>
+        <li><a href="javascript:;"><i class="fas fa-user"></i></a></li>
+        <li><a href="javascript:;"><i class="fas fa-tools"></i></a></li>
+        <li><a href="javascript:;"><i class="fas fa-server"></i></a></li>
+        <li><a href="javascript:;"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+</div>
+
+<!--创建服务的div-->
+<div class="service clearfix w">
+    <div class="shortcut">
+        <ul class="icon-list">
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-clock"></i>
+                    小米秒杀
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-spider"></i>
+                    一只蜘蛛
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-hamburger"></i>
+                    吃个汉堡
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-gift"></i>
+                    企业团购
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="fab fa-superpowers"></i>
+                    好强大
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-football-ball"></i>
+                    一个足球
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ad">
+        <a href="javascript:;"><img src="img/xmad_1564584687704_fIYFd.jpg" alt=""></a>
+    </div>
+    <div class="ad">
+        <a href="javascript:;"><img src="img/xmad_15604776623629_bRHhl.jpg" alt=""></a>
+    </div>
+    <div class="ad">
+        <a href="javascript:;"><img src="img/xmad_15629205000801_vZyDb.jpg" alt=""></a>
+    </div>
+</div>
+
+
+</body>
+</html>

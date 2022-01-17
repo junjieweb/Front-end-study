@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        let a = {x: 10};
+        let b = a;
+        // a.x = a = {n: 20};
+        a.x = {n: 20};
+        a = {n: 20};
+
+        console.log(a.x);//undefined
+        console.log(b.x);
+
+        let str = 'hello hello';
+        // let result = str.split('');
+        // result.reverse();
+        // str = result.join('');
+
+        str = str.split('').reverse().join('');
+
+        console.log(str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

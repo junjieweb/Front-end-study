@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+            自增（++）
+                自增分为前++（++a） 和 后++（a++）
+                无论是++a还是a++，对于a来说都是一样的
+                    都会使变量a立刻增加1
+                a++和++a的返回结果不同
+                    a++ 返回的是变量自增前的值，旧值
+                    ++a 返回的是变量自增后的值，新值
+
+            自减（--）
+                自减分为前--（--a）和后--（a--）
+                无论是--a还是a--都会使变量a立刻自减1
+                不同点在于--a和a--的值不同
+                    --a是自减后的值，新值
+                    a--是自减前的值，旧值
+        */
+        let a = 10;
+        // a++;
+        // ++a;
+
+        // console.log('++a =', ++a);// 11
+        // console.log('a++ =', a++);// 11
+        // console.log('a =', a);// 12
+
+        // a = a++;
+        // console.log('a =', a);// 10
+
+        //           10   12   12
+        let result = a++ + ++a + a;
+        console.log('result =', result);
+
+        a = 10;
+        // a--;
+        console.log('a-- =', a--);//10
+        console.log('--a =', --a);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
