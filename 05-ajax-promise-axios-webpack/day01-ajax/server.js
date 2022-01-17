@@ -47,6 +47,22 @@ app.post('/test_post', (request, response) => {
     response.send('hello_test_post');
 });
 
+
+//响应GET请求--jQuery
+app.get('/test_jquery_get', (request, response) => {
+    console.log('有人请求test_jquery_get了', request.query);
+    const car = {name: '马自达·阿特兹', price: '25万'};
+    response.send(JSON.stringify(car));
+});
+
+//响应POST请求--jQuery
+app.post('/test_jquery_post', (request, response) => {
+    console.log('有人请求test_jquery_post了', request.query);
+    const car = {name: '马自达·阿特兹', price: '25万'};
+    response.send(JSON.stringify(car));
+});
+
+
 //监听
 app.listen(8080, (err) => {
     if (!err) {
@@ -59,5 +75,6 @@ app.listen(8080, (err) => {
         console.log('http://127.0.0.1:8080/7-ajax请求异常与超时处理.html');
         console.log('http://127.0.0.1:8080/8-ajax取消请求.html');
         console.log('http://127.0.0.1:8080/9-避免多次重复请求.html');
+        console.log('http://127.0.0.1:8080/10-jquery封装的Ajax.html');
     }
 });
