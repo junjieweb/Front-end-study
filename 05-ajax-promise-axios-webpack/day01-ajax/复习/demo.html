@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {a: 1, b: {c: 2}};
+
+    //标准的解构赋值
+    // const {c} = obj.b;
+
+    //连续解构赋值
+    const {b: {c}} = obj;
+
+    //连续解构赋值 + 重命名
+    const {b: {c: value}} = obj;
+
+
+    console.log(value);
+</script>
+</body>
+</html>
