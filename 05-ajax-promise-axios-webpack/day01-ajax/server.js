@@ -57,5 +57,6 @@ app.listen(8080, (err) => {
         console.log('http://127.0.0.1:8080/5_ajax解析json数据.html');
         console.log('http://127.0.0.1:8080/6-ajax处理ie-get请求缓存问题.html');
         console.log('http://127.0.0.1:8080/7-ajax请求异常与超时处理.html');
+        console.log('http://127.0.0.1:8080/8-ajax取消请求.html');
     }
 });
