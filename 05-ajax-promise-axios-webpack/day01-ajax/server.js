@@ -63,6 +63,14 @@ app.post('/test_jquery_post', (request, response) => {
 });
 
 
+app.get('/test_jsonp', (request, response) => {
+    const {callback} = request.query;
+    console.log(callback);
+    const person = {name: 'tom', age: 18}
+    response.send(`${callback}(${JSON.stringify(person)})`);
+})
+
+
 //监听
 app.listen(8080, (err) => {
     if (!err) {

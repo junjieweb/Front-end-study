@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>14-jQuery封装的jsonp</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>当前页面一定不要用服务器去打开，因为要制造跨域问题，用jsonp去解决</h3>
+<button id="btn">点我获取数据</button>
+
+<script>
+
+    const btn = $('#btn');
+    btn.click(() => {
+        $.getJSON('http://127.0.0.1:8080/test_jsonp?callback=?', {}, (data) => {
+            console.log(data);
+        });
+    })
+
+</script>
+
+</body>
+</html>
