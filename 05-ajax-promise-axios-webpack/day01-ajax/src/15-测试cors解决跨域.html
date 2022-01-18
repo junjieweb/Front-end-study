@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>15-测试cors解决跨域</title>
+</head>
+<body>
+
+<h3>当前页面一定不要用服务器去打开，因为要制造跨域问题，用cors去解决</h3>
+<button id="btn">点我获取数据</button>
+
+<script>
+
+    const btn = document.getElementById('btn');
+    btn.onclick = () => {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                    console.log(xhr.getAllResponseHeaders());
+                }
+            }
+        }
+
+        xhr.open('GET','http://127.0.0.1:8080/test_get');
+
+        xhr.send();
+    }
+
+</script>
+
+</body>
+</html>
