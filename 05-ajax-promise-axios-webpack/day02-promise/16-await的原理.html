@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>16-await的原理</title>
+</head>
+<body>
+
+<script>
+    /*
+        我们使用async配合await这种写法：
+            1.表面上不出现任何的回调函数
+            2.但实际上底层把我们写的代码进行了加工，把回调函数“还原”回来了。
+            3.最终运行的代码是依然有回调的，只是程序员没有看见。
+    */
+
+    const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('a');
+        }, 500);
+    });
+
+    async function f() {
+        //程序员轻松的写法
+        const result = await p;
+        console.log(result);
+
+        //浏览器翻译后的代码
+        /*p.then(
+            result => {
+                console.log(result);
+            }
+        );*/
+    }
+
+    f();
+    console.log(1);
+
+</script>
+
+</body>
+</html>
