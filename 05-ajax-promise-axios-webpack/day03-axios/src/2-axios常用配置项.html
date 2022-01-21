@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>2-axios常用配置项.html</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.24.0/axios.min.js"></script>
+</head>
+<body>
+
+<button id="btn1">点我获取所有人</button>
+<button id="btn2">点我获取测试数据</button>
+<button id="btn3">点我获取一些笑话</button>
+
+<script>
+    //获取按钮
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    const btn3 = document.getElementById('btn3');
+
+    //给axios配置默认属性
+    axios.defaults.timeout = 2000;
+    axios.defaults.headers = {token: 123};
+    axios.defaults.baseURL = 'http://localhost:5000';
+
+    btn1.onclick = () => {
+        axios({
+            url: '/persons',//请求地址
+            method: 'GET',//请求方式
+            // params: {delay: 3000},//配置query参数
+            // params: {a: 1, b: 2},//配置query参数（json编码）
+            // data: {c: 3, d: 4},//配置请求体参数（json编码）
+            // data: 'e=5&f=6',//配置请求体参数（urlencoded编码）
+            // timeout: 2000,//配置超时时间
+            // headers: {demo: 123},//配置请求头
+            // responseType:'json',//配置响应数据的格式（默认值）
+        }).then(
+            response => {
+                console.log('成功了', response.data);
+            },
+            error => {
+                console.log('失败了', error);
+            }
+        )
+    }
+
+    btn2.onclick = () => {
+        axios({
+            url: '/test1',//请求地址
+            method: 'GET',//请求方式
+            // timeout: 2000,//配置超时时间
+            // headers: {demo: 123},//配置请求头
+        }).then(
+            response => {
+                console.log('成功了', response.data);
+            },
+            error => {
+                console.log('失败了', error);
+            }
+        )
+    }
+
+    btn3.onclick = () => {
+        axios({
+            url: 'https://api.apiopen.top/getJoke',
+        })
+    }
+
+</script>
+
+</body>
+</html>
