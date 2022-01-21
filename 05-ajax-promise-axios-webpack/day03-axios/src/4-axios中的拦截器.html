@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>4-axios中的拦截器.html</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.24.0/axios.min.js"></script>
+</head>
+<body>
+
+<button id="btn1">点我获取所有人</button>
+
+<script>
+    /*
+        axios请求拦截器
+            1.是什么？
+                在真正发请求前执行的一个回调函数
+            2.作用：
+                对所有的请求做统一的处理：追加请求头、追加参数、界面loading提示等等
+
+        axios响应拦截器
+            1.是什么？
+                得到响应之后执行的一组回调函数
+            2.作用：
+                若请求成功，对成功的数据进行处理
+                若请求失败，对失败进行统一的操作
+    */
+
+    const btn1 = document.getElementById('btn1');
+
+    //请求拦截器
+    axios.interceptors.request.use((config) => {
+        console.log('请求拦截器执行了');
+        if (Date.now() % 2 === 0) {
+            config.headers.token = '123';
+        }
+        // console.log(config);
+        return config;
+    });
+
+    //响应拦截器
+    axios.interceptors.response.use(
+        response => {
+            console.log('响应拦截器成功的回调执行了', response);
+            if (Date.now() % 2 === 0) {
+                return response.data;
+            } else {
+                return '时间戳是奇数，不能给你数据';
+            }
+        },
+        error => {
+            console.log('响应拦截器失败的回调执行了');
+            alert(error);
+            return new Promise(() => {});
+        }
+    );
+
+    btn1.onclick = async () => {
+        const result = await axios.get('http://localhost:5000/persons');
+        console.log(result);
+    };
+
+
+</script>
+</body>
+</html>
