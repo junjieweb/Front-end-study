@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>5-axios中取消请求.html</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.24.0/axios.min.js"></script>
+</head>
+<body>
+
+<button id="btn1">点我获取测试数据</button>
+<button id="btn2">取消请求</button>
+
+<script>
+
+    const btn1 = document.getElementById('btn1');
+    const btn2 = document.getElementById('btn2');
+    //CancelToken能为一次请求打标识
+    const {CancelToken} = axios;
+    let cancel;
+
+    btn1.onclick = () => {
+        axios({
+            url: 'http://localhost:5000/test1?delay=3000',
+            //c是一个函数，调用c就可以关闭本次请求
+            cancelToken: new CancelToken((c) => {
+                cancel = c;
+            })
+        }).then(
+            response => {
+                console.log('成功了', response.data);
+            },
+            error => {
+                console.log('失败了了', error);
+            }
+        );
+    };
+
+    btn2.onclick = () => {
+        cancel();
+    }
+
+
+</script>
+</body>
+</html>
