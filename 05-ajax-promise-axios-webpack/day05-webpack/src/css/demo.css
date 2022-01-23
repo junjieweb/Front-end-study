@@ -1,0 +1,6 @@
+.title {
+    background-color: grey;
+    color: orange;
+    font-size: 40px;
+    display: flex;
+}
