@@ -5,6 +5,7 @@ import school from './module3';
 import data from '../json/test.json';
 import '../css/demo.css';
 import '../css/demo2.less';
+import '../css/iconfont.css';
 
 sum(1, 3);
 sub(3, 2);
