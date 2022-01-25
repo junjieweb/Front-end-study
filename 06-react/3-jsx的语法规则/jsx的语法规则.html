@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx的语法规则.html</title>
+    <style>
+        .demo1{
+            background-color: grey;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    /*
+        jsx的语法规则
+            1.创建虚拟DOM时，不要用引号
+            2.标签中想混入js表达式，需要用{}包裹
+            3.根标签必须只有一个
+            4.标签必须闭合
+            5.样式的类名，不要用class，必须用className
+            6.内联样式要用style={{}}形式去写
+            7.标签可以随意的编写：
+                （1）若标签首字母是【小写】的，则react会尝试将当前的jsx标签对应成一个html标签
+                    若对应成了，直接渲染展示
+                    若无法对应，直接报错
+                （2）若标签首字母是【大写】的，则react会查找Haha组件对应的位置
+                    若找到了，直接渲染
+                    若未找到，报错（Haha is not defined）
+    */
+    const myID = 'AtGuiGu';
+    const myData = 'Hello,React';
+
+    //1.创建虚拟DOM，
+    const VDOM = (
+        <div>
+            <h2 id={myID.toLowerCase()} className="demo1">
+                <span>{myData.toUpperCase()}</span>
+            </h2>
+            <h2 style={{backgroundColor:'skyblue',color:'red'}}>hello,world</h2>
+            <input type="text"/>
+        </div>
+    );
+
+    //2.渲染虚拟DOM到页面
+    ReactDOM.render(VDOM, document.getElementById('test'));
+
+</script>
+</body>
+</html>

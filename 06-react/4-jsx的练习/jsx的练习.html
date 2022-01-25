@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jsx的练习</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    /*
+        一定注意区分：【js语句(代码)】与【js表达式】
+            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
+                下面这些都是表达式：
+                    (1). a
+                    (2). a+b
+                    (3). demo(1)
+                    (4). arr.map()
+                    (5). function test () {}
+            2.语句(代码)：
+                下面这些都是语句(代码)：
+                    (1).if(){}
+                    (2).for(){}
+                    (3).switch(){case:xxx}
+            备注：React可以自动遍历数组，但是不可以遍历对象
+    */
+
+    //模拟一些后台数据
+    const arr = ['Angular', 'React', 'Vue'];
+
+    //1.创建虚拟DOM
+    const VDOM = (
+        <div>
+            <h1>前端JS框架列表</h1>
+            <ul>
+                {arr.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
+        </div>
+    );
+
+    //2.渲染虚拟DOM到页面
+    ReactDOM.render(VDOM, document.getElementById('test'));
+
+</script>
+</body>
+</html>
