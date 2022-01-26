@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Demo {
+        show(){
+            //ES6中所有方法自动开启了严格模式
+            console.log(this);
+        }
+    }
+
+    const d = new Demo();
+    d.show();
+
+    const x = d.show;
+    x();
+
+</script>
+</body>
+</html>
