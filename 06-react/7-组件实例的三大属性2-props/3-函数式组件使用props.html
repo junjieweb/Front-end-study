@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>3-函数式组件使用props</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+<div id="test2"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+<!-- 引入prop-types，用于制定对props限制的具体规则 -->
+<script src="../js/prop-types.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //定义组件（函数式组件）
+    function Person(props) {
+        const {name, sex, age, address} = props;
+        return (
+            <ul>
+                <li>姓名：{name}</li>
+                <li>性别：{sex}</li>
+                <li>年龄：{age}</li>
+                <li>地址：{address}</li>
+            </ul>
+        )
+    }
+
+    Person.propTypes = {
+        name: PropTypes.string, //限制name必须为字符串类型
+        sex: PropTypes.string.isRequired,//限制sex必须为字符串类型，且是必要属性
+        age: PropTypes.number,//限制age必须为数值类型
+        address: PropTypes.string, //限制address必须为字符串类型
+    }
+    //对传给Person组件的props进行默认值的设置
+    Person.defaultProps = {
+        address: '中国'
+    }
+
+    //渲染组件到页面
+    ReactDOM.render(<Person name="tom" sex="nv" age={19} address="chain"/>, document.getElementById('test'));
+    const p = {
+        name: 'jerry',
+        sex: 'nan',
+        age: 18,
+        // address: 'chain'
+    }
+    //下面的...p，并不是原生js里的{...p}，babel+react环境就可以让展开运算符展开一个对象，但是仅仅用于传递标签属性
+    ReactDOM.render(<Person {...p}/>, document.getElementById('test2'));
+
+
+</script>
+</body>
+</html>

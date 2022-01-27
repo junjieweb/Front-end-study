@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>1-props的基本使用.html</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+<div id="test2"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //定义组件（类式组件）
+    class Person extends React.Component {
+
+        render() {
+            console.log(this);
+            const {name, sex, age} = this.props;
+            return (
+                <ul>
+                    <li>姓名：{name}</li>
+                    <li>性别：{sex}</li>
+                    <li>年龄：{age}</li>
+                </ul>
+            );
+        }
+    }
+
+    //渲染组件到页面
+    ReactDOM.render(<Person name="tom" sex="nv" age="19"/>, document.getElementById('test'));
+    const p = {
+        name: 'jerry',
+        sex: 'nan',
+        age: 18
+    }
+    //下面的...p，并不是原生js里的{...p}，babel+react环境就可以让展开运算符展开一个对象，但是仅仅用于传递标签属性
+    ReactDOM.render(<Person {...p}/>, document.getElementById('test2'));
+
+
+</script>
+</body>
+</html>

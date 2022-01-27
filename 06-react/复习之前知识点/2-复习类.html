@@ -8,44 +8,52 @@
 <script>
 
     //定义一个Person类
-    class Person {
-        constructor(name, age) {
-            //构造器中的this是Person的实例对象
-            this.name = name;
-            this.age = age;
+    /*    class Person {
+            constructor(name, age) {
+                //构造器中的this是Person的实例对象
+                this.name = name;
+                this.age = age;
+            }
+
+            //speak是放在Person的原型对象上，原型上的方法一般都是给该类的实例对象用的
+            speak() {
+                //speak中的this是谁？--Person的实例对象
+                console.log(`我的名字是${this.name}，年龄是${this.age}`);
+            }
         }
 
-        //speak是放在Person的原型对象上，原型上的方法一般都是给该类的实例对象用的
-        speak() {
-            //speak中的this是谁？--Person的实例对象
-            console.log(`我的名字是${this.name}，年龄是${this.age}`);
+        //定义一个Student类，继承于Person类
+        class Student extends Person {
+            constructor(name, age, grade) {
+                super(name, age);
+                this.grade = grade;
+            }
+
+            //重写从父类继承过来的方法
+            speak() {
+                console.log(`我的名字是${this.name}，年龄是${this.age}，我的年纪是${this.grade}`)
+            }
+
+            study() {
+                console.log(`我的年纪是${this.grade}，我在努力的学习`);
+            }
         }
+
+        const p = new Person('tom', 18);
+        const s = new Student('jerry', 23, '大一');
+        console.log(p);
+        p.speak();
+        console.log(s);
+        s.speak();
+        s.study();*/
+
+    class Dog {
+        name = 'tom';
+        static a = 1;
     }
 
-    //定义一个Student类，继承于Person类
-    class Student extends Person {
-        constructor(name, age, grade) {
-            super(name, age);
-            this.grade = grade;
-        }
-
-        //重写从父类继承过来的方法
-        speak() {
-            console.log(`我的名字是${this.name}，年龄是${this.age}，我的年纪是${this.grade}`)
-        }
-
-        study() {
-            console.log(`我的年纪是${this.grade}，我在努力的学习`);
-        }
-    }
-
-    const p = new Person('tom', 18);
-    const s = new Student('jerry', 23, '大一');
-    console.log(p);
-    p.speak();
-    console.log(s);
-    s.speak();
-    s.study();
+    const d = new Dog();
+    console.log(d)
 
 </script>
 </body>

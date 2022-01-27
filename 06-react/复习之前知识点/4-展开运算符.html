@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4, 5]
+    console.log(...arr)
+
+    let person = {
+        name: 'tom',
+        age: 23,
+        sex: {a: 'nan', b: 'nv'}
+    }
+    // console.log(...person)
+
+    const person2 = {...person}//复制一个对象
+    console.log(person2 === person)
+    person.sex.a = 'nv';
+    console.log(person)
+    console.log(person2)
+
+</script>
+</body>
+</html>

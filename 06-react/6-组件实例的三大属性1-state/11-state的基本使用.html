@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>1-state的基本使用</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //1.定义组件---类式组件
+    class Weather extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {isHot: true};
+            this.changeWeather = this.changeWeather.bind(this);
+        }
+
+        changeWeather() {
+            const {isHot} = this.state;
+            this.setState({isHot: !isHot});
+        }
+
+        render() {
+            return <h2 onClick={this.changeWeather}>今天天气真{this.state.isHot ? '炎热' : '凉爽'}</h2>
+        }
+    }
+
+    //2.渲染组件
+    ReactDOM.render(<Weather/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>
