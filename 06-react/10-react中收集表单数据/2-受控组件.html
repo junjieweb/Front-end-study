@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>受控组件</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //定义组件
+    //受控组件：组件中输入类的DOM，随着用户的输入，将输入的值维护到state中
+    class Login extends React.Component {
+        state = {
+            username: '',
+            password: ''
+        }
+
+        //点击登录的回调
+        handleSubmit = (event) => {
+            event.preventDefault();
+            const {username, password} = this.state
+            console.log(username, password);
+        }
+
+        //存储用户名到状态
+        saveUsername = (event) => {
+            this.setState({username: event.target.value});
+        }
+
+        //存储密码到状态
+        savePassword = (event) => {
+            this.setState({password: event.target.value});
+        }
+
+        render() {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    用户名：<input onChange={this.saveUsername} type="text" placeholder="用户名"/>
+                    密码：<input onChange={this.savePassword} type="password" placeholder="密码"/>
+                    <button>登录</button>
+                </form>
+            )
+        }
+    }
+
+    ReactDOM.render(<Login/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>

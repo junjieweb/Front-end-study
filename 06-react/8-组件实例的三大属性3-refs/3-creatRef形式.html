@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>3-creatRef形式.html</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //定义组件
+    class Demo extends React.Component {
+
+        //使用createRef，可以创建一个存储节点的容器，此容器是专人专用的
+        //createRef是放在组件实例身上的
+        container1 = React.createRef();
+        container2 = React.createRef();
+
+        showData = () => {
+            const {current} = this.container1;
+            alert(current.value);
+        }
+
+        showData2 = () => {
+            const {current} = this.container2;
+            alert(current.value);
+        }
+
+        render() {
+            return (
+                <div>
+                    <input ref={this.container1} type="text" placeholder="点击按钮提示输入"/>&nbsp;
+                    <button onClick={this.showData}>点我提示数据</button>
+                    <input ref={this.container2} onBlur={this.showData2} type="text" placeholder="失去焦点提示输入"/>
+                </div>
+            )
+        }
+    }
+
+    //渲染组件
+    ReactDOM.render(<Demo/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>

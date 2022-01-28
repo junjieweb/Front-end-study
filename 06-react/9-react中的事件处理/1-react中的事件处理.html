@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>1-react中的事件处理.html</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    /*
+        1.	通过onXxx属性指定事件处理函数(注意大小写)
+            1)React使用的是自定义(合成)事件, 而不是使用的原生DOM事件 ———————— 为了更好的兼容性
+            2)React中的事件是通过事件委托方式处理的(委托给组件最外层的元素) ———————— 为了提高效率
+        2.	通过event.target得到发生事件的DOM元素对象
+    */
+
+    //定义组件
+    class Demo extends React.Component {
+
+        showData = () => {
+            //获取用户输入，input1是真实DOM节点
+            const {input1} = this
+            //提示数据
+            alert(input1.value);
+        }
+
+        showData2 = (event) => {
+            const {value} = event.target;
+            alert(value);
+        }
+
+        render() {
+            return (
+                <div>
+                    <input ref={c => this.input1 = c} type="text" placeholder="点击按钮提示输入"/>&nbsp;
+                    <button onClick={this.showData}>点我提示数据</button>
+                    <input onBlur={this.showData2} type="text" placeholder="失去焦点提示输入"/>
+                </div>
+            )
+        }
+    }
+
+    //渲染组件
+    ReactDOM.render(<Demo/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>

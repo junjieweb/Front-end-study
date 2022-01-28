@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>1-字符串形式的ref.html</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //定义组件
+    class Demo extends React.Component {
+
+        showData = () => {
+            //获取用户输入，input1是真实DOM节点
+            const {input1} = this.refs
+            //提示数据
+            alert(input1.value);
+        }
+        showData2 = () => {
+            //获取用户输入，input1是真实DOM节点
+            const {input2} = this.refs
+            //提示数据
+            alert(input2.value);
+        }
+
+        render() {
+            return (
+                <div>
+                    <input ref="input1" type="text" placeholder="点击按钮提示输入"/>&nbsp;
+                    <button onClick={this.showData}>点我提示数据</button>
+                    &nbsp;
+                    <input ref="input2" onBlur={this.showData2} type="text" placeholder="失去焦点提示输入"/>
+                </div>
+            )
+        }
+    }
+
+    //渲染组件
+    ReactDOM.render(<Demo/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>

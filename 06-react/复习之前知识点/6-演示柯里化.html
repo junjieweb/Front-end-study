@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //普通写法
+    /*function sum(a, b, c) {
+        return a + b + c;
+    }
+
+    let result = sum(1, 2, 3);
+    console.log(result);*/
+
+    //柯里化写法
+    function sum(a) {
+        return (b) => {
+            return (c) => {
+                return a + b + c;
+            }
+        }
+    }
+
+    let result = sum(1)(2)(3);
+    console.log(result);
+
+
+</script>
+</body>
+</html>

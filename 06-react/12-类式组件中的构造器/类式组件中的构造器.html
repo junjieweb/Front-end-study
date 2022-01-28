@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>类式组件中的构造器</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    /*
+        1.类式组件中的构造器，完全可以省略掉
+        2.若在类式组件中写了构造器，那就必须调用super
+        3.调用super时，如果不传props，那么在构造器中，通过this.props是不可以访问props的
+    */
+    class Demo extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {idHot: true}
+            console.log(this.props)
+        }
+
+        render() {
+            console.log(this.props)
+            return <h2>你好，我是Demo组件，今天天气很{this.state.isHot ? '炎热' : '凉爽'}</h2>
+        }
+    }
+
+    ReactDOM.render(<Demo a={1} b='hello'/>, document.getElementById('test'));
+
+
+</script>
+</body>
+</html>
