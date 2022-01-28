@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>react生命周期（旧）</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    /*
+        1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
+            1.	constructor()
+            2.	componentWillMount()
+            3.	render()
+            4.	componentDidMount() =====> 常用
+                一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
+        2. 更新阶段: 由组件内部this.setSate()或父组件render触发this.forceUpdate()
+            1.	shouldComponentUpdate() 注意：强制更新不走“阀门”
+            2.	componentWillUpdate()
+            3.	render()
+            4.	componentDidUpdate()
+        3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+            1.	componentWillUnmount()  =====> 常用
+                一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
+    */
+
+    class Sum extends React.Component {
+        //构造器---调一次
+        constructor() {
+            console.log('---constructor---')
+            super();
+            this.state = {count: 0}
+        }
+
+        //加1的回调
+        add = () => {
+            const {count} = this.state
+            this.setState({count: count + 1})
+        }
+
+        //卸载的回调
+        death = () => {
+            ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+        }
+
+        //强制更新的回调
+        force = () => {
+            this.forceUpdate()
+        }
+
+        //组件将要挂载---调1次
+        componentWillMount() {
+            console.log('---componentWillMount---')
+        }
+
+        //组件挂载完毕---调1次
+        componentDidMount() {
+            console.log('---componentDidMount---')
+        }
+
+        //组件即将卸载---调1次
+        componentWillUnmount() {
+            console.log('---componentWillUnmount---')
+        }
+
+        //组件更新的“阀门”
+        shouldComponentUpdate() {
+            console.log('---shouldComponentUpdate---')
+            return true
+        }
+
+        //组件即将更新---调用n次，n是更新的次数
+        componentWillUpdate() {
+            console.log('---componentWillUpdate---')
+        }
+
+        //组件更新完毕---调用n次，n是更新的次数
+        componentDidUpdate() {
+            console.log('---componentDidUpdate---')
+        }
+
+        //组件即将接收新的props
+        componentWillReceiveProps() {
+            console.log('---componentWillReceiveProps---')
+        }
+
+        //组件初次渲染+更新---调1+n次
+        render() {
+            console.log('---render---')
+            return (
+                <div>
+                    <h2>当前求和为：{this.state.count}，传过来的值是{this.props.a}</h2>
+                    <button onClick={this.add}>点我+1</button>
+                    <button onClick={this.death}>卸载组件</button>
+                    <button onClick={this.force}>强制更新一下</button>
+                </div>
+            )
+        }
+    }
+
+    class Car extends React.Component {
+        state = {carName: '阿特兹'}
+
+        changeCar = () => {
+            this.setState({carName: '奔驰c63'})
+        }
+
+        render() {
+            return (
+                <div>
+                    <h2>我是Car组件，车的名字是：{this.state.carName}</h2>
+                    <button onClick={this.changeCar}>换车</button>
+                    <Sum a={this.state.carName}/>
+                </div>
+            )
+        }
+    }
+
+    //渲染组件
+    ReactDOM.render(<Car/>, document.getElementById('test'))
+
+
+</script>
+</body>
+</html>

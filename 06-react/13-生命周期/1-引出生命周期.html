@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+</head>
+<body>
+<!--准备好一个容器，用于让react渲染用-->
+<div id="test"></div>
+
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom，用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!--引入babel，用于将jsx转为js-->
+<script src="../js/babel.min.js"></script>
+
+<!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
+<script type="text/babel">
+
+    //生命周期 === 生命周期函数 === 生命周期钩子函数 === 生命周期钩子
+
+    //定义组件
+    class Life extends React.Component {
+
+        state = {opacity: 1}
+
+        death = () => {
+            ReactDOM.unmountComponentAtNode(document.getElementById('test'));
+        }
+
+        //componentWillUnmount 组件将要卸载，由react去调用，只调1次
+        componentWillUnmount() {
+            clearInterval(this.timer)
+        }
+
+        //componentDidMount 组件挂载完毕后，由react去调用，只调1次
+        componentDidMount() {
+            console.log('componentDidMount')
+            this.timer = setInterval(() => {
+                //获取原状态
+                let {opacity} = this.state
+                //减小透明度的值
+                opacity -= 0.1;
+                if (opacity <= 0) {
+                    opacity = 1;
+                }
+                //更新状态
+                this.setState({opacity})
+            }, 200)
+        }
+
+        //render 组件初次渲染+状态更新，由react去调用，调用1+n次
+        render() {
+            console.log('render')
+            //获取透明度
+            const {opacity} = this.state;
+            return (
+                <div>
+                    <h1 style={{opacity}}>React学不会怎么办？</h1>
+                    <button onClick={this.death}>不活了</button>
+                </div>
+            )
+        }
+    }
+
+    //渲染组件
+    ReactDOM.render(<Life/>, document.getElementById('test'))
+
+
+</script>
+</body>
+</html>
