@@ -4,12 +4,12 @@ import './index.css'
 
 class List extends Component {
     render() {
-        const {todos} = this.props
+        const {todos, checkTodo,deleteTodo} = this.props
         return (
             <ul className="todo-main">
                 {
                     todos.map((todoObj) => {
-                        return <Item key={todoObj.id} {...todoObj}/>
+                        return <Item key={todoObj.id} {...todoObj} checkTodo={checkTodo} deleteTodo={deleteTodo}/>
                     })
                 }
             </ul>
