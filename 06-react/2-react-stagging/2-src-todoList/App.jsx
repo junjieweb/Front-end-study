@@ -52,13 +52,31 @@ class App extends Component {
         this.setState({todos: newTodos})
     }
 
+    //全选or取消全选
+    checkAll = (done) => {
+        const {todos} = this.state
+        const newTodos = todos.map((t) => {
+            return {...t, done}
+        })
+        this.setState({todos: newTodos})
+    }
+
+    clear = () => {
+        const {todos} = this.state
+        const newTodos = todos.filter((t) => {
+            return !t.done
+        })
+        this.setState({todos: newTodos})
+    }
+
     render() {
+        const {todos} = this.state
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo}/>
-                    <List todos={this.state.todos} checkTodo={this.checkTodo} deleteTodo={this.deleteTodo}/>
-                    <Footer/>
+                    <List todos={todos} checkTodo={this.checkTodo} deleteTodo={this.deleteTodo}/>
+                    <Footer todos={todos} checkAll={this.checkAll} clear={this.clear}/>
                 </div>
             </div>
         );
