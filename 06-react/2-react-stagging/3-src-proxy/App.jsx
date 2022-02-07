@@ -4,7 +4,7 @@ import axios from "axios";
 class App extends Component {
 
     getStudentList = () => {
-        axios.get('http://localhost:3000/students').then(
+        axios.get('http://localhost:3000/api1/students').then(
             response => {
                 console.log('成功了', response)
             },
@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     getCarList = () => {
-        axios.get('http://localhost:3000/cars').then(
+        axios.get('http://localhost:3000/api2/cars').then(
             response => {
                 console.log('成功了', response)
             },
