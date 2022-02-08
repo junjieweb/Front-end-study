@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Home from "./pages/Hmoe";
 import About from "./pages/About";
 import Header from "./components/Header";
-import {NavLink, Routes, Route,Navigate} from 'react-router-dom'
+import {NavLink, Routes, Route} from 'react-router-dom'
 
 class App extends Component {
     render() {
@@ -18,8 +18,8 @@ class App extends Component {
                             <a className="list-group-item" href="./home.html">Home</a>*/}
 
                             {/*React中，使用Link进行路径的切换*/}
-                            <NavLink className="list-group-item" to="/about">About</NavLink>
-                            <NavLink className="list-group-item" to="/home">Home</NavLink>
+                            <NavLink className="list-group-item" to="/a/about">About</NavLink>
+                            <NavLink className="list-group-item" to="/a/home">Home</NavLink>
                         </div>
                     </div>
                     <div className="col-xs-6">
@@ -27,9 +27,8 @@ class App extends Component {
                             <div className="panel-body">
                                 {/*注册路由*/}
                                 <Routes>
-                                    <Route path="/about" element={<About/>}/>
-                                    <Route path="/home" element={<Home/>}/>
-                                    <Route path="*" element={<Navigate to="/about" />} />
+                                    <Route path="/a/about" element={<About/>}/>
+                                    <Route path="/a/home" element={<Home/>}/>
                                 </Routes>
                             </div>
                         </div>
