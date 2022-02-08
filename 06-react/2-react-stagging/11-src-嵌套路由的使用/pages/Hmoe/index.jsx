@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Message from "./Message";
 import News from "./News";
 import {NavLink, Routes, Route, Outlet} from 'react-router-dom'
-import Detail from "./Message/Detail";
 
 class Home extends Component {
     render() {
@@ -21,9 +20,7 @@ class Home extends Component {
                     {/*注册路由*/}
                     <Routes>
                         <Route path="news" element={<News/>}/>
-                        <Route path="message/*" element={<Message/>}>
-                            <Route path="detail1" element={<Detail/>}/>
-                        </Route>
+                        <Route path="message" element={<Message/>}/>
                     </Routes>
                 </div>
             </div>
