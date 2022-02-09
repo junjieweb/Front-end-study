@@ -1,4 +1,4 @@
-//该问文件是专门用于创建Count组件相关的action
+//该文件是专门用于创建Count组件相关的action
 
 import {INCREMENT, DECREMENT} from './constant'
 
