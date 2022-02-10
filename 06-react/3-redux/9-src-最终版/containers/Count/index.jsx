@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 //引入action
 import {
-    createDecrementAction,
-    createIncrementAction,
-    createIncrementAsyncAction
+    decrement,
+    increment,
+    incrementAsync
 } from "../../redux/actions/count";
 //引入connect用于连接UI与redux，且connect()()可以生成容器组件
 import {connect} from "react-redux";
@@ -15,36 +15,36 @@ class Count extends Component {
     increment = () => {
         //获取用户选择的数字
         const {value} = this.checkNumber
-        this.props.add(+value)
+        this.props.increment(+value)
     }
 
     decrement = () => {
         //获取用户选择的数字
         const {value} = this.checkNumber
-        this.props.reduce(+value)
+        this.props.decrement(+value)
     }
 
     incrementIfOdd = () => {
         //获取用户选择的数字
         const {value} = this.checkNumber
-        if (this.props.sum % 2 !== 2) {
-            this.props.add(+value)
+        if (this.props.count % 2 !== 2) {
+            this.props.increment(+value)
         }
     }
 
     incrementAsync = () => {
         //获取用户选择的数字
         const {value} = this.checkNumber
-        this.props.addAsync(+value)
+        this.props.incrementAsync(+value)
     }
 
     render() {
         // console.log(this.props)
-        // console.log(this.props.sum)
+        // console.log(this.props.count)
         return (
             <div>
-                <h3>我是Count组件,下方组件总人数为：{this.props.renCount}</h3>
-                <h4>当前求和为：{this.props.sum}</h4>
+                <h3>我是Count组件,下方组件总人数为：{this.props.personCount}</h3>
+                <h4>当前求和为：{this.props.count}</h4>
                 <select ref={c => this.checkNumber = c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -67,21 +67,13 @@ export default connect(
     //映射状态
     state => {
         return {
-            sum:state.sum,
-            renCount:state.yiduiren.length
+            count: state.count,
+            personCount: state.persons.length
         }
     },
-
-    //映射操作状态的方法
-    /*dispatch => ({
-        add: number => dispatch(createIncrementAction(number)),
-        reduce: number => dispatch(createDecrementAction(number)),
-        addAsync: number => dispatch(createIncrementAsyncAction(number))
-    })*/
-
     {
-        add: createIncrementAction,
-        reduce: createDecrementAction,
-        addAsync: createIncrementAsyncAction
+        increment,
+        decrement,
+        incrementAsync
     }
 )(Count)
