@@ -95,7 +95,8 @@ import ReactDom from "react-dom";
 //定义一个Count组件（函数式组件）
 function Count() {
     console.log('Count')//1 + n次
-
+    // let inputNode
+    // let myRef = React.createRef()
     let myRef = React.useRef()
 
     const [count, setCount] = React.useState(0)
