@@ -1,7 +1,7 @@
 //引入常量模块
-import {INCREMENT, DECREMENT} from "./constant";
+import {INCREMENT, DECREMENT} from "../constant";
 
-export default function count_reducer(preState = 0, action) {
+export default function count(preState = 0, action) {
     //从action对象中获取type和data
     const {type, data} = action
     switch (type) {

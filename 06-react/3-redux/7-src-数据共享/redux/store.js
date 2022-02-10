@@ -7,8 +7,6 @@ import countReducer from './reducers/count'
 import personReducer from './reducers/person'
 //引入thunk用于支持异步action
 import thunk from 'redux-thunk';
-//引入
-import {composeWithDevTools} from "redux-devtools-extension";
 
 const allReducer = combineReducers({
     sum: countReducer,
@@ -16,4 +14,4 @@ const allReducer = combineReducers({
 })
 
 //调用createStore创建并暴露store，注意：要传入为store服务的reducer
-export default createStore(allReducer, composeWithDevTools(applyMiddleware(thunk)))
+export default createStore(allReducer, applyMiddleware(thunk))
