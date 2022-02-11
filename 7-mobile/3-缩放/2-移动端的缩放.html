@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端的缩放.html</title>
+    <style>
+        img {
+            width: 200px;
+        }
+
+        #info {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="../images/1.jpg" alt="">
+    <img src="../images/2.jpg" alt="">
+    <img src="../images/3.jpg" alt="">
+    <img src="../images/4.jpg" alt="">
+</div>
+<div id="info"></div>
+<script>
+
+    setInterval(() => {
+        const info = document.getElementById('info')
+        info.innerHTML = '布局视口宽度为：' + document.documentElement.clientWidth + '<br/>'
+        info.innerHTML += '视觉视口宽度为：' + window.innerWidth
+    }, 200)
+
+</script>
+</body>
+</html>

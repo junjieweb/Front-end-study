@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端-理想视口标准</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+
+    const demo = document.getElementById('demo')
+    demo.innerHTML = '当前设备的布局视口宽度为：' + document.documentElement.clientWidth + '<br/>'
+    demo.innerHTML += '当前设备的视觉视口宽度为：' + window.innerWidth
+
+</script>
+</body>
+</html>

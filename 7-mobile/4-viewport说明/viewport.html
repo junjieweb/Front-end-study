@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>viewport</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            font-size: 50px;
+            width: 500px;
+            height: 400px;
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<script>
+
+    setInterval(() => {
+        console.log('布局视口', document.documentElement.clientWidth);
+        const demo = document.getElementById('demo')
+        demo.innerHTML = '布局视口宽度为' + document.documentElement.clientWidth + '<br/>'
+        demo.innerHTML += '视觉视口宽度为' + window.innerWidth
+    }, 200)
+
+</script>
+
+</body>
+</html>

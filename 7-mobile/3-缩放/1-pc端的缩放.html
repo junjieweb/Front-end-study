@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-pc端的缩放.html</title>
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="../images/1.jpg" alt="">
+    <img src="../images/2.jpg" alt="">
+    <img src="../images/3.jpg" alt="">
+    <img src="../images/4.jpg" alt="">
+</div>
+<script>
+    console.log('当前浏览器视口的宽带为：', document.documentElement.clientWidth)
+    //检测视口大小
+    window.onresize = () => {
+        console.log('当前浏览器视口的宽带为：', document.documentElement.clientWidth)
+    }
+</script>
+</body>
+</html>
