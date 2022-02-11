@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#demo {
+  width: 92vw;
+  height: 40vw;
+  background: skyblue;
+  margin: 4vw auto 0;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=index.css.map */

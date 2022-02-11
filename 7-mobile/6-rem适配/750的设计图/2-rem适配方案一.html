@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-rem适配方案一_750</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 6.9rem;
+            height: 3rem;
+            margin: 0.3rem auto 0;
+            background: skyblue;
+            /*border: 1px solid black;*/
+        }
+    </style>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<script>
+    function adapter() {
+        //获取布局视口宽度，因为开启了理想视口，布局视口 = 设备横向独立像素值
+        const dpWidth = document.documentElement.clientWidth
+        //计算根字体大小
+        const rootFontSize = (dpWidth * 100) / 750
+        //设置根字体大小
+        document.documentElement.style.fontSize = rootFontSize + 'px'
+    }
+
+    adapter()
+    window.onresize = adapter
+
+</script>
+
+</body>
+</html>
