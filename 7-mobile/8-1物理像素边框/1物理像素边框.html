@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1物理像素边框.html</title>
+    <style>
+        #demo {
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            border: 1px solid black;
+        }
+        @media screen  and (-webkit-min-device-pixel-ratio: 2){
+            #demo{
+                border: 0.5px solid black;
+            }
+        }
+        @media screen  and (-webkit-min-device-pixel-ratio: 3){
+            #demo{
+                border: 0.333px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>

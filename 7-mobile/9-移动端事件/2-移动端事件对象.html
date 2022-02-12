@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-移动端事件对象.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100%;
+            height: 350px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+
+    /*
+        touches：屏幕上的触点数
+        targetTouches：当前屏幕上的触点数
+        changedTouches：同时按下几个手指
+    */
+
+    const demo = document.getElementById('demo')
+
+    demo.addEventListener('touchstart', (event) => {
+        event.preventDefault()
+        demo.innerHTML = '当前屏幕上触点数：' + event.touches.length + '<br>'
+        demo.innerHTML += '橙色盒子上触点数：' + event.targetTouches.length + '<br>'
+        demo.innerHTML += '屏幕上同时按下几个手指：' + event.changedTouches.length
+    })
+
+</script>
+</body>
+</html>

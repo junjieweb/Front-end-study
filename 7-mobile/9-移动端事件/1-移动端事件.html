@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-移动端事件.html</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100%;
+            height: 350px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    const demo = document.getElementById('demo')
+
+    demo.addEventListener('touchstart', () => {
+        console.log('你触摸橙色的盒子了-touchstart')
+        demo.innerHTML = '你触摸橙色的盒子了-touchstart'
+    })
+
+    demo.addEventListener('touchmove', () => {
+        console.log('你手指在橙色的盒子上移动了-touchmove')
+        demo.innerHTML = '你手指在橙色的盒子上移动了-touchmove'
+    })
+
+    demo.addEventListener('touchend', () => {
+        console.log('你手指在橙色的盒子移开了-touchend')
+        demo.innerHTML = '你手指在橙色的盒子移开了-touchend'
+    })
+
+    demo.addEventListener('touchcancel', () => {
+        console.log('触摸被打断了-touchcancel')
+        demo.innerHTML = '触摸被打断了-touchcancel'
+    })
+
+</script>
+</body>
+</html>
