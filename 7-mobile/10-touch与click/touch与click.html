@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch与click</title>
+    <style>
+        button {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点我</button>
+<script>
+    let btn = document.getElementById('btn')
+    let time
+    btn.addEventListener('click', () => {
+        console.log('你点击了我', Date.now() - time)
+    })
+    btn.addEventListener('touchstart', () => {
+        time = Date.now()
+        console.log('你触摸了我')
+    })
+</script>
+</body>
+</html>
