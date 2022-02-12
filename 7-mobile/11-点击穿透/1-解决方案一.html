@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解决方案一</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #app {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: skyblue;
+        }
+
+        .banner {
+            display: block;
+            width: 100%;
+            height: 200px;
+            background: orange;
+        }
+
+        .shade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-top: 100px;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <a class="banner" href="https://www.baidu.com">点我去百度</a>
+    <div class="shade">
+        <h1>恭喜一等奖</h1>
+        <button id="btn">关闭</button>
+    </div>
+</div>
+
+<script>
+    const shade = document.querySelector('.shade')
+    const btn = document.getElementById('btn')
+    btn.addEventListener('touchstart', (event) => {
+        event.preventDefault()
+        shade.style.display = 'none'
+    })
+</script>
+</body>
+</html>
