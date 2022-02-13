@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {DatePicker, Button, Input, message} from 'antd';
 import {WechatOutlined} from '@ant-design/icons';
-// import './App.less'
 
 class App extends Component {
 
