@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初探vue</title>
+</head>
+<body>
+
+<div id="app">
+    <p id="p1">{{str}}</p>
+</div>
+<script src="./js/vue.js"></script>
+<!--<script src="https://unpkg.com/vue@next"></script>-->
+<script>
+
+    //原生
+    /*let str = 'hello world'//ajax请求的数据
+    let p1 = document.getElementById('p1');
+    p1.innerHTML = str*/
+
+
+    //jQuery
+    // $('#p1').html(str) // 效率和原生一样的
+
+    //vue
+    const app = new Vue({
+        //配置对象
+        el: '#app',//挂载点是上面的div
+        data: {
+            str: 'hello vue'
+        }
+    })
+
+    //三者对比，vue的性能是最好的
+    //原生的和jquery,他们都获取了dom，而且在修改dom元素内容的时候，都会重绘dom树，尤其是对多个元素
+    //vue和原生及jquery是不一样的，它采用了文档碎片把整个dom树的重绘从多次变成了1次。所以效率很高
+
+</script>
+
+</body>
+</html>
