@@ -7,7 +7,7 @@
 <body>
 <div id="app">
     <ul>
-        <li v-for="(person,index) in persons" :key="person.id">
+        <li v-for="person in persons" :key="person.id">
             {{ person.id }} -- {{ person.name }} -- {{ person.age }}
         </li>
     </ul>
@@ -15,6 +15,7 @@
 
 <script src="./js/vue.js"></script>
 <script>
+    Vue.config.productionTip = false
     new Vue({
         el: '#app',
         data: {

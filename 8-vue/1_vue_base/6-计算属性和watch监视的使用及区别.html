@@ -31,6 +31,7 @@
 </div>
 <script src="./js/vue.js"></script>
 <script>
+    Vue.config.productionTip = false
     const vm = new Vue({
         el: '#app',
         data() {
@@ -121,7 +122,7 @@
     //computed函数当中只能使用同步，而watch当中可以是同步也可以是异步
 
     //我们去比较computed和watch的时候起始比较的是计算属性的get方法
-    //计算属性的set没什么说的，其实仅仅是对计算的属性添加了监视（当计算属性的值修改之后，会调用set）
+    //计算属性的set，其实仅仅是对计算的属性添加了监视（当计算属性的值修改之后，会调用set）
 
 </script>
 </body>
