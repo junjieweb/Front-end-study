@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5-Object.defineProperty的使用.html</title>
+</head>
+<body>
+
+<script>
+    //Object.defineProperty
+    //这个方法在为对象添加或者修改  属性为响应式属性
+
+    let obj = {
+        firstName: 'zhang',
+        lastName: 'san'
+    }
+
+    // obj.fullName = 'zhao-san'
+    // console.log(obj)
+    //
+    // obj.firstName = 'li'
+    // console.log(obj)
+    //
+    // obj.fullName = 'li-si'
+    // console.log(obj)
+
+    Object.defineProperty(obj, 'fullName', {
+        get() {
+            //当访问对象的fullName属性时
+            return this.firstName + '-' + this.lastName
+        },
+        set(v) {
+            //当设置对象的fullName属性时
+            let arr = v.split('-')
+            this.firstName = arr[0]
+            this.lastName = arr[1]
+        }
+    })
+    console.log(obj.fullName)
+    obj.fullName = 'wang-wu'
+    console.log(obj)
+
+
+    //模拟数据代理
+    let vm = {}
+    let data = {msg: 'zhaoLiYang'}
+
+    Object.defineProperty(vm, 'msg', {
+        get() {
+            return data.msg
+        },
+        set(v) {
+            data.msg = v
+        }
+    })
+
+    console.log(vm.msg)
+    vm.msg = 'hello'
+    console.log(vm.msg)
+    console.log(data)
+
+
+</script>
+</body>
+</html>

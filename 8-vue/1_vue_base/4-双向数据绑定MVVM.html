@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-双向数据绑定MVVM.html</title>
+</head>
+<body>
+<!-- 表单类元素：form里面  input(text  password  radio  checkbox  button  reset  submit  file  date)  select  textarea   -->
+<div id="app">
+    <!--    单项数据绑定-->
+    <!--    <input type="text" :value="message" >-->
+    <!--
+        双向数据绑定  一般情况下只针对表单类元素才使用双向数据绑定
+        MVVM 说的就是双向数据绑定模型
+        M代表model 就是我们的数据   V代表的view 就是我们的页面  VM代表的就是Vue的实例化对象
+        双向数据绑定 ：数据可以从data 流向页面  页面的数据被更新，也会从页面流向data
+        （当data的数据被更改以后，又会重新流向页面）
+    -->
+    <input type="text" v-model="message">
+    <p>hello {{ message }}</p>
+</div>
+<script src="./js/vue.js"></script>
+<script>
+
+    const vm = new Vue({
+        // el: '#app',//一般情况挂载都是书写配置项
+        //data可以是对象也可以是函数
+        data() {
+            return {
+                message: 'Vue'
+            }
+        }
+    }).$mount('#app')
+
+</script>
+</body>
+</html>
