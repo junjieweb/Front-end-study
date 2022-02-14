@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(person,index) in persons" :key="person.id">
+            {{ person.id }} -- {{ person.name }} -- {{ person.age }}
+        </li>
+    </ul>
+</div>
+
+<script src="./js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {id: 1, name: 'tom', age: 23},
+                {id: 2, name: 'jerry', age: 56},
+                {id: 3, name: 'jock', age: 12},
+                {id: 4, name: 'jim', age: 35},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
