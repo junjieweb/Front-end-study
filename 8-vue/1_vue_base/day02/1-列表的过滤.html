@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-列表的过滤.html</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="请输出过滤的条件" v-model="keyword">
+    <ul>
+        <li v-for="person in newPersons" :key="person.id">
+            {{ person.id }} -- {{ person.name }} -- {{ person.age }}
+        </li>
+    </ul>
+</div>
+<script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                keyword: '',
+                persons: [
+                    {id: 1, name: 'tom', age: 23},
+                    {id: 2, name: 'jerry', age: 56},
+                    {id: 3, name: 'jock', age: 12},
+                    {id: 4, name: 'jim', age: 35}
+                ]
+            }
+        },
+        computed: {
+            newPersons() {
+                //从vm身上获取keyword和persons
+                let {keyword, persons} = this
+
+                /*
+                    函数和方法最主要的三要素
+                    功能：从原数组当中过滤出一个新的数组
+                    参数：回调函数（同步的回调）
+                        回调函数的参数：当前项，当前项的索引，当前遍历的数组
+                        功能：对遍历的每一项执行回调函数
+                        返回值：返回的是一个布尔值，根据这个布尔值来决定当前遍历的这项要不要收集到新数组中
+                    返回值：返回的是新的数组
+                */
+
+                //根据获取的两个数据计算新的数据
+                //普通函数
+                /*return persons.filter(function (item, index) {
+                    return item.name.indexOf(keyword) !== -1
+                })*/
+
+                //箭头函数
+                return persons.filter(item => item.name.indexOf(keyword) !== -1)
+            }
+        }
+    })
+</script>
+</body>
+</html>

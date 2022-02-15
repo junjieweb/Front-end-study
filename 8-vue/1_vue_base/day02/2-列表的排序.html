@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-列表的排序.html</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="请输入过滤条件" v-model="keyword">
+    <ul>
+        <li v-for="person in newPersons" :key="person.id">
+            {{ person.id }} -- {{ person.name }} -- {{ person.age }}
+        </li>
+    </ul>
+
+    <!--<button @click="test(1)">按年龄升序</button>
+        <button @click="test(2)">按年龄降序</button>
+        <button @click="test(0)">按原样排序</button>-->
+
+    <button @click="sortType = 1">按年龄升序</button>
+    <button @click="sortType = 2">按年龄降序</button>
+    <button @click="sortType = 0">按原样排序</button>
+</div>
+<script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                keyword: '',
+                persons: [
+                    {id: 1, name: 'tom', age: 23},
+                    {id: 2, name: 'jerry', age: 56},
+                    {id: 3, name: 'jock', age: 12},
+                    {id: 4, name: 'jim', age: 35}
+                ],
+                //排序首先要设计这个数据，标志用户点击的到底是什么排序类型
+                sortType: 0 //0 表示原样，1 标识升序，2 表示降序
+            }
+        },
+        methods: {
+            /*test(num) {
+                //函数当中如果只有一行代码，可以省略函数，直接把代码写在上面
+                this.sortType = num
+            }*/
+        },
+        computed: {
+            newPersons() {
+                let {keyword, persons, sortType} = this
+                let arr = persons.filter(item => item.name.indexOf(keyword) !== -1)
+                //在过滤的基础上排序完成再返回
+                if (sortType !== 0) {
+                    arr.sort((a, b) => sortType === 1 ? a.age - b.age : b.age - a.age)
+                }
+                return arr
+            }
+        }
+    })
+</script>
+</body>
+</html>

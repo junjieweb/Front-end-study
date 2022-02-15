@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-响应式数据针对对象和数组的区别.html</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="person in persons" :key="person.id">
+            {{ person.id }} -- {{ person.name }} -- {{ person.age }}
+        </li>
+    </ul>
+    <button @click="update">点击修改第一项的name</button>
+</div>
+
+<script>
+    /*
+        在vue当中 一开始data中的属性数据都是响应式的
+        数组的数据   说的每个数组当中元素整体
+        对象的数据   说的对象的属性
+
+        vue当中处理响应式数据对于数组和对象是不一样的
+
+        1、如果修改的是对象的属性，随便改，都是响应式的。
+        因为Vue一开始就为data当中所有的属性通过Object.defineProperty添加了get和set
+
+        2、数组修改的时候，必须使用特定的几个方法才能是响应式，如果直接通过下标操作数组的数据，不是响应式
+            为什么数组的方法就可以是响应式？
+            此splice非原生的splice，Vue当中给数组部分方法添加了修改页面的功能（重写数组的方法）
+        面试高频点
+        总结  vue在对待数组和对象的时候处理响应式是不一样的
+        对象是通过Object.defineProperty添加了get和set
+        数组是 重写数组的方法
+    */
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#app',
+        data: {
+            persons: [
+                {id: 1, name: 'tom', age: 23},
+                {id: 2, name: 'jerry', age: 56},
+                {id: 3, name: 'jock', age: 12},
+                {id: 4, name: 'jim', age: 35},
+            ]
+        },
+        methods: {
+            update() {
+                //1.第一种方法
+                // this.persons[0].name = 'tom1'
+                //2.第二种方法
+                // this.persons[0] = {id: 1, name: 'tom2', age: 23}
+
+                //3、push  pop  shift  unshift  splice(增删改一体化)
+                //splice根据参数不同功能不同，参数是不一样的
+                //返回值都是删除的元素组成的数组
+                // splice
+                // 参数只有两个，代表删除：第一个起始位置，第二个删几个
+                // 参数如果是多个，是增还是改：看第二个参数，第二个参数是0代表增，如果不是0代表改
+                this.persons.splice(0, 1, {id: 1, name: 'tom3', age: 23})
+            }
+        }
+    })
+</script>
+</body>
+</html>

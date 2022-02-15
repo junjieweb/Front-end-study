@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>5-强制绑定样式.html</title>
+    <!--绑定样式，绑定类和绑定style样式两种方式-->
+    <style>
+        .classA {
+            background: red;
+        }
+
+        .classB {
+            color: skyblue;
+        }
+
+        .classC {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- 绑定类 -->
+    <!--第一种情况 我不知道这个元素用的是哪个类，用哪个类是后台数据告诉我的 -->
+    <!-- 动态绑定class以后，静态class仍然可以使用 -->
+    <p :class="myClass" class="classB">Hello Vue 1</p>
+
+    <!--重点-->
+    <!--第二种情况 这个元素绑定的是哪个类或者是哪些个类确定了，但是那个类生效不清除，生效不生效由数据决定 用的最多-->
+    <p :class="{classA:isA,classB:isB}">Hello Vue 2</p>
+
+    <!-- 第三种情况 这个元素一下子有好多个确定的类 v-bind就是动态数据绑定-->
+    <!-- <p class="classA classB classC">Hello Vue 3</p> 静态绑定-->
+    <p :class="['classA','classB','classC']">Hello Vue 3</p>
+
+    <!-- 绑定style -->
+    <p :style="{color:myColor,fontSize:mySize}">Hello Vue 4</p>
+</div>
+<script>
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                myClass: 'classA',
+                isA: false,
+                isB: true,
+                myColor: 'green',
+                mySize: '30px'
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>6-绑定事件监听相关.html</title>
+    <style>
+        /* 禁用系统滚动条 */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<!--
+    事件对象：
+        什么是事件对象？
+        回调函数  自己定义 自己没用 最后执行了（系统指定（浏览器内核））
+        系统调用回调函数的时候默认传递了一个实参，这个实参就是我们所说事件对象
+        事件对象：是这一次事件触发后相关的所有一切信息被封装成的一对象
+        为什么浏览器调用回调要传递事件对象，是为了防止用于在函数内部用到这次事件相关的信息
+-->
+<div id="app">
+    <!-- 第一种 事件监听的完整写法-->
+    <button v-on:click="test1">test1</button>
+
+    <!-- 第二种 事件监听的简写 -->
+    <!-- 在vue的模板当中，事件回调函数在调用的时候可以传递$event，名字不能随意改，这个东西就是事件对象 -->
+    <button @click="test2($event)">test2</button>
+
+    <!-- 第三种：事件在添加的时候除了事件对象之外还要传递自己的参数的时候必须写$event,谁先传谁后传你开心就好 -->
+    <button @click="test3($event,'ok')">test3</button>
+
+    <!-- 第四种 vue事件当中阻止冒泡 事件描述符-->
+    <div style="width:300px;height: 300px;background: red" @click="outer">
+        <div style="width:100px;height: 100px;background: skyblue" @click.stop="inner"></div>
+    </div>
+
+    <!-- 第五种 vue事件当中取消浏览器默认行为 描述符 -->
+    <a href="https://www.bilibili.com/" @click.prevent="testPrevent">点我去学习</a>
+
+    <!-- 第六种 键盘事件添加回车事件  也有键盘的事件描述符-->
+    <input type="text" @keyup.enter="testKey">
+
+</div>
+<script>
+
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            test1(event) {
+                console.log(event.target.innerHTML)
+            },
+            test2(event) {
+                console.log(event.target.innerHTML)
+            },
+            test3(event, str) {
+                console.log(event, str)
+            },
+
+            outer() {
+                console.log('outer')
+            },
+            inner(event) {
+                console.log('inner')
+                // event.stopPropagation()//阻止冒泡
+            },
+            testPrevent(event) {
+                console.log('testPrevent')
+                event.preventDefault()
+            },
+            testKey() {
+                console.log('testKey')
+            }
+        }
+    })
+</script>
+</body>
+</html>
