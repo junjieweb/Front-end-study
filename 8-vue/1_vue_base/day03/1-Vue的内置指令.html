@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>1-Vue的内置指令.html</title>
+</head>
+<body>
+<div id="app">
+    <p>{{msg}}</p>
+
+    <p v-text="message"></p>
+    <p v-html="message"></p>
+
+    <!-- ref是vue当中给我们提供的一个标识数据， -->
+    <p ref="p1"></p>
+    <p ref="p2"></p>
+
+    <button @click="test">点击获取最后一个p</button>
+
+</div>
+<script>
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#app',
+        data: {
+            msg: 'Vue',
+            message:'<h1>hello</h1>'
+        },
+        methods:{
+            test(){
+                console.log(this.$refs.p1);
+                this.$refs.p1.innerText = '$refs'
+                this.$refs.p2.innerText = '$refs 2'
+            }
+        }
+    })
+</script>
+</body>
+</html>

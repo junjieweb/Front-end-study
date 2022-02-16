@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>2-生命周期相关.html</title>
+</head>
+<body>
+<div id="app">
+    <p ref="p1" v-show="isShow">{{isShow ? 'hello' : 'vue'}}</p>
+
+    <button @click="destroy">点击销毁实例</button>
+</div>
+<script>
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                isShow: true,
+            }
+        },
+        methods: {
+            destroy() {
+                this.$destroy() //必须在某个特定的场合下 自己手动调用vm.$destroy方法，才能进入销毁的阶段
+            }
+        },
+
+        //初始化阶段有两个钩子 beforeCreate created
+        beforeCreate() {
+            //初始化之前最大的特点是数据还没代理好，打印不到
+            console.log(this)
+            console.log(this.isShow)//undefined
+        },
+        created() {
+            //初始化之后数据就能访问了
+            console.log(this.isShow)//true
+        },
+
+        //挂载阶段，挂载前和挂载后
+        beforeMount() {
+            console.log(this.$refs.p1)//undefined
+        },
+        mounted() {
+            //这个钩子用的是最多的，一般用于发送Ajax请求获取数据，开启定时器，添加事件
+            console.log(this.$refs.p1)
+            this.timer = setInterval(() => {
+                this.isShow = !this.isShow
+            }, 2000)
+        },
+
+        //前两个阶段完成 代表初始化展示页面就完成了
+        //页面数据更新前和页面数据更新 不是vm的数据
+        beforeUpdate() {
+            //页面更新前，vm的数据已经做了更新了，但是此时页面的数据还没有更新过来
+            console.log(this.isShow, this.$refs.p1.innerHTML)
+        },
+        updated() {
+            //页面更新后，vm的数据已经做了更新了，页面的数据也更新过来了
+            console.log(this.isShow, this.$refs.p1.innerHTML)
+        },
+
+        //销毁阶段
+        beforeDestroy() {
+            //销毁前，一般用于解除事件监听，取消定时器等
+            clearInterval(this.timer)//定时器管理模块会把这个定时器给停止，但是并没有把这个编号从timer当中销毁
+            this.timer = null
+        },
+        //销毁之后
+        destroyed() {
+            //没什么用
+            console.log('vm销毁了')
+        }
+    })
+</script>
+</body>
+</html>

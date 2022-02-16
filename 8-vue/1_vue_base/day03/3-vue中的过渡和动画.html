@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>过渡和动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 500px;
+            background: skyblue;
+        }
+
+        .slide-enter {
+            height: 0;
+            opacity: 0;
+        }
+
+        .slide-enter-to {
+            height: 500px;
+            opacity: 1;
+            background: skyblue;
+        }
+
+        .slide-enter-active {
+            transition: all 3s;
+        }
+
+        .slide-leave {
+            height: 500px;
+            opacity: 1;
+        }
+
+        .slide-leave-to {
+            height: 0;
+            opacity: 0;
+            background: skyblue;
+        }
+
+        .slide-leave-active {
+            transition: all 3s;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <transition name="slide">
+        <div class="box" v-show="isShow"></div>
+    </transition>
+
+    <button @click="isShow = !isShow">点击切换</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                isShow: true
+            }
+        }
+    })
+</script>
+</body>
+</html>

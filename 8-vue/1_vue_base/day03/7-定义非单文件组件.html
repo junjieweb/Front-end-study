@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+    <title>7-定义非单文件组件.html</title>
+</head>
+<body>
+<div id="app">
+    <!-- 当每次写标签使用的时候，都会偷偷的实例化定义出来的函数的实例化对象，被称作是组件对象
+    也就是说每一个组件标签背后都会对应自己的组件对象在支撑着 -->
+    <mybutton></mybutton>
+    <mybutton></mybutton>
+</div>
+<script>
+    Vue.config.productionTip = false
+
+    //麻烦写法
+    //1、定义组件（定义的组件之后都是全局组件）本质上是根据一个配置对象定义返回一个函数，后期是当构造函数使用
+    /*const VueComponent = Vue.extend({
+        //组件配置对象和Vue的配置对象很相似，除了el
+        //组件的配置对象中，data只能写函数
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: '<div><h2>求和</h2><button @click="count++">加了{{count}}次</button></div>'
+    })
+
+    //2、注册（全局注册和局部注册） 本质是把一个标签的名称和刚才定义出来的函数绑定在一起
+    Vue.component('mybutton', VueComponent)
+    //3、使用*/
+
+    //简单写法（定义带注册）
+    //本质上内部还是使用extend生成一个函数，然后再去和mybutton绑定
+    /*Vue.component('mybutton', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        template: '<div><h2>求和</h2><button @click="count++">加了{{count}}次</button></div>'
+    })*/
+
+    new Vue({
+        el: '#app',
+        components: {
+            mybutton: {
+                data() {
+                    return {
+                        count: 0
+                    }
+                },
+                template: '<div><h2>求和</h2><button @click="count++">加了{{count}}次</button></div>'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

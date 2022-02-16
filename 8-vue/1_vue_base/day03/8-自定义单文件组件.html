@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8-定义单文件组件.html</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="./js/vue.js"></script>
+<script>
+    import App from "./App.vue";
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: '#app',
+        components: {
+            App //定义带注册App
+        },
+        template: '<App/>'
+    })
+</script>
+</body>
+</html>
