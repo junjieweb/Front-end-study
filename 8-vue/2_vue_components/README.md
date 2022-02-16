@@ -1,4 +1,4 @@
-# 2_vue_stagging
+# 2_vue_components
 
 ## Project setup
 ```

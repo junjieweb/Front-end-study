@@ -49,6 +49,12 @@
     </style>
 </head>
 <body>
+<!--
+    1、理解进入和离开，一共6个类
+    2、哪个元素在变化，就给哪个元素使用transition（vue给我们定义的一个子元素标签）标签
+    3、组件标签使用的时候，name值决定了类名的前缀
+    4、变化的元素添加过渡，就是给对应的类添加样式
+-->
 <div id="app">
     <transition name="slide">
         <div class="box" v-show="isShow"></div>
