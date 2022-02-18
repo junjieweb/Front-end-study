@@ -27,25 +27,30 @@ export default {
       content: ''
     }
   },
-  props: ['addComment'],
-  methods: {
-    addC() {
-      let {username, content} = this
-      if (username.trim() && content.trim()) {
+  methods:{
+    addC(){
+      let {username,content} = this
+      if (username.trim() && content.trim()){
         let id = Date.now()
         let obj = {
           id,
           username,
           content
         }
-        this.addComment(obj)
-      } else {
-        alert('请输入合法的内容')
+        //props
+        // this.addComment(obj)
+
+        //自定义事件的触发，分发  调用回调
+        this.$emit('addComment',obj)
+
+      }else{
+        alert('请输入合法内容')
       }
       this.username = ''
       this.content = ''
     }
-  }
+  },
+  // props:['addComment']
 }
 </script>
 
