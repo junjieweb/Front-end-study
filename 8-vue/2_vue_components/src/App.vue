@@ -8,7 +8,7 @@
       <Header @addTodo="addTodo"></Header>
 
       <List :todos="todos" :updateOne="updateOne" :deleteOne="deleteOne"></List>
-      <Footer :todos="todos" :updateAll="updateAll"></Footer>
+      <Footer :todos="todos" :updateAll="updateAll" :deleteAll="deleteAll"></Footer>
 
     </div>
   </div>
@@ -45,8 +45,12 @@ export default {
     deleteOne(index) {
       this.todos.splice(index, 1)
     },
-    updateAll(val){
+    updateAll(val) {
       this.todos.forEach(item => item.isOver = val)
+    },
+    deleteAll() {
+      //把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
+      this.todos = this.todos.filter(item => !item.isOver)
     }
   }
 }

@@ -6,7 +6,7 @@
     <span>
           <span>已完成{{ overNum }}</span> / 全部{{ allNum }}
         </span>
-    <button class="btn btn-danger">清除已完成任务</button>
+    <button class="btn btn-danger" @click="deleteA">清除已完成任务</button>
   </div>
 </template>
 
@@ -15,7 +15,13 @@ export default {
   name: "Footer",
   props: {
     todos: Array,
-    updateAll: Function
+    updateAll: Function,
+    deleteAll:Function
+  },
+  methods:{
+    deleteA(){
+      this.deleteAll()
+    }
   },
   computed: {
     allNum() {
