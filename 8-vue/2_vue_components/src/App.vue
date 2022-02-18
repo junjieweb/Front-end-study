@@ -1,45 +1,46 @@
 <template>
-  <div>
-    <Header></Header>
-    <div class="container">
-      <Add :addComment="addComment"></Add>
-      <List :comments="comments" :deleteComment="deleteComment"></List>
+  <div class="todo-container">
+    <div class="todo-wrap">
+      <Header></Header>
+      <List :todos="todos"></List>
+      <Footer></Footer>
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Add from "./components/Add";
 import List from "./components/List";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
-  data() {
-    return {
-      comments: [
-        {id: 1, content: 'vue挺好', username: '洛丽塔'},
-        {id: 2, content: 'vue真棒', username: '达芬奇'},
-        {id: 3, content: 'vue厉害', username: '牛顿'},
-      ]
-    }
-  },
   components: {
     Header,
-    Add,
-    List
+    List,
+    Footer
   },
-  methods:{
-    addComment(comment){
-      this.comments.unshift(comment)
-    },
-    deleteComment(index){
-      this.comments.splice(index,1)
+  data() {
+    return {
+      todos: [
+        {id: 1, content: '吃饭', isOver: false},
+        {id: 2, content: '睡觉', isOver: true},
+        {id: 3, content: '打豆豆', isOver: true},
+      ]
     }
   }
 }
 </script>
 
 <style scoped>
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
+}
 
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 </style>

@@ -1,53 +1,75 @@
 <template>
-  <li class="list-group-item">
-    <div class="handle">
-      <a href="javascript:;" @click="deleteC">删除</a>
-    </div>
-    <p class="user"><span>{{ comment.username }}</span><span>说:</span></p>
-    <p class="centence">{{ comment.content }}</p>
+  <li>
+    <label>
+      <input type="checkbox" :checked="todo.isOver"/>
+
+      <!--
+        checkbox的两种用法：
+        1.多个复选框一组，此时每个复选框需要自己填写value的属性值，最终收集数据到一个数组中
+        2.单个复选框使用，此时不需要填写value值，v-model操作的数据，对于操作的就是复选框的checked属性
+      -->
+
+      <!--<input type="checkbox" v-model="isCheck"/>-->
+
+      <span>{{ todo.content }}</span>
+    </label>
+    <button class="btn btn-danger" style="display:none">删除</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "Item",
-  props: ['comment', 'deleteComment', 'index'],
-  methods: {
-    deleteC(index) {
-      if (confirm('确定删除吗？')) {
-        this.deleteComment(index)
+  props: {
+    //props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
+    todo: Object
+  },
+  //data中不能出现this
+  /*computed: {
+    isCheck: {
+      get() {
+        return this.todo.isOver
+      },
+      set() {
       }
     }
-  }
+  }*/
 }
 </script>
 
 <style scoped>
+/*item*/
 li {
-  transition: .5s;
-  overflow: hidden;
+  list-style: none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 5px;
+  border-bottom: 1px solid #ddd;
 }
 
-.handle {
-  width: 40px;
-  border: 1px solid #ccc;
-  background: #fff;
-  position: absolute;
-  right: 10px;
-  top: 1px;
-  text-align: center;
+li label {
+  float: left;
+  cursor: pointer;
 }
 
-.handle a {
-  display: block;
-  text-decoration: none;
+li label li input {
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -1px;
 }
 
-.list-group-item .centence {
-  padding: 0 50px;
+li button {
+  float: right;
+  display: none;
+  margin-top: 3px;
 }
 
-.user {
-  font-size: 22px;
+li:before {
+  content: initial;
+}
+
+li:last-child {
+  border-bottom: none;
 }
 </style>
