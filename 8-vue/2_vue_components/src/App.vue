@@ -1,9 +1,15 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header></Header>
-      <List :todos="todos"></List>
-      <Footer></Footer>
+      <!--props传递方法-->
+      <!--<Header :addTodo="addTodo"></Header>-->
+
+      <!--自定义事件传递-->
+      <Header @addTodo="addTodo"></Header>
+
+      <List :todos="todos" :updateOne="updateOne" :deleteOne="deleteOne"></List>
+      <Footer :todos="todos" :updateAll="updateAll"></Footer>
+
     </div>
   </div>
 </template>
@@ -27,6 +33,20 @@ export default {
         {id: 2, content: '睡觉', isOver: true},
         {id: 3, content: '打豆豆', isOver: true},
       ]
+    }
+  },
+  methods: {
+    addTodo(todo) {
+      this.todos.unshift(todo)
+    },
+    updateOne(index) {
+      this.todos[index].isOver = !this.todos[index].isOver
+    },
+    deleteOne(index) {
+      this.todos.splice(index, 1)
+    },
+    updateAll(val){
+      this.todos.forEach(item => item.isOver = val)
     }
   }
 }

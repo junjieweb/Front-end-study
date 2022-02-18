@@ -1,7 +1,7 @@
 <template>
-  <li>
+  <li @mouseenter="isShow = true" @mouseleave="isShow = false" :class="{myClass:isShow}">
     <label>
-      <input type="checkbox" :checked="todo.isOver"/>
+      <input type="checkbox" :checked="todo.isOver" @click="updateO"/>
 
       <!--
         checkbox的两种用法：
@@ -13,7 +13,7 @@
 
       <span>{{ todo.content }}</span>
     </label>
-    <button class="btn btn-danger" style="display:none">删除</button>
+    <button class="btn btn-danger" v-show="isShow" @click="deleteO">删除</button>
   </li>
 </template>
 
@@ -22,8 +22,30 @@ export default {
   name: "Item",
   props: {
     //props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
-    todo: Object
+    todo: Object,
+    index: {
+      type: Number,
+      // default: 0 //传递了就拿传递的值，没有传递就默认为0
+      required: true
+    },
+    updateOne: Function,
+    deleteOne: Function
   },
+  data() {
+    return {
+      isShow: false
+    }
+  },
+  methods: {
+    updateO() {
+      this.updateOne(this.index)
+    },
+    deleteO() {
+      if (confirm('确认删除吗？')) {
+        this.deleteOne(this.index)
+      }
+    }
+  }
   //data中不能出现this
   /*computed: {
     isCheck: {
@@ -38,6 +60,10 @@ export default {
 </script>
 
 <style scoped>
+.myClass {
+  background: #bfc;
+}
+
 /*item*/
 li {
   list-style: none;
@@ -61,7 +87,7 @@ li label li input {
 
 li button {
   float: right;
-  display: none;
+  /*display: none;*/
   margin-top: 3px;
 }
 

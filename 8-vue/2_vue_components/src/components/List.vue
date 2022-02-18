@@ -4,6 +4,9 @@
       v-for="(todo,index) in todos"
       :key="todo.id"
       :todo="todo"
+      :updateOne="updateOne"
+      :index="index"
+      :deleteOne="deleteOne"
     ></Item>
   </ul>
 </template>
@@ -13,7 +16,7 @@ import Item from "./Item";
 
 export default {
   name: "List",
-  props:['todos'],
+  props:['todos','updateOne','deleteOne'],
   components: {
     Item
   }
