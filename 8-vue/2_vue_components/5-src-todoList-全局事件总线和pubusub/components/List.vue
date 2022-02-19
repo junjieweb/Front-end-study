@@ -6,7 +6,6 @@
       :todo="todo"
       :updateOne="updateOne"
       :index="index"
-      :deleteOne="deleteOne"
     ></Item>
   </ul>
 </template>
@@ -16,7 +15,7 @@ import Item from "./Item";
 
 export default {
   name: "List",
-  props:['todos','updateOne','deleteOne'],
+  props:['todos','updateOne'],
   components: {
     Item
   }
