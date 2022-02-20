@@ -34,6 +34,7 @@
         <span v-if="todo.isOver" style="color: red">√ {{ todo.content }} </span>
       </template>
     </ScopedChild>
+
   </div>
 </template>
 

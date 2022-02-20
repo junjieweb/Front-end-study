@@ -29,17 +29,34 @@ export default {
     this.$bus.$on('searchAjax', this.searchAjax)
   },
   methods: {
-    searchAjax(q) {
-      //修改页面显示的状态数据，为了让页面显示正在搜索
-      this.isFirst = false
-      this.isLoading = true
-      axios({
-        url: 'https://api.github.com/search/users',
-        method: 'get',
-        params: {
-          q
-        }
-      }).then(response => {
+    /*
+        async await 是使用同步代码实现异步效果
+          async函数代表这是一个异步函数，async函数返回的是promise
+          async函数返回值不看return，必然返回promise
+
+        async函数返回的promise是成功还是失败，看return
+        return的结果代表promise是成功还是失败
+          1.如果return的是一个非promise的值，代表async函数返回的promise是成功的
+            成功的结果是return的结果
+          2.如果返回的是成功的promise，代表async函数返回的promise也是成功的（他们不是同一个promise）
+            成功的结果是return的promise的成功结果
+          3.如果返回的是失败的promise，代表async函数返回的promise是失败的
+            失败的原因是return的promise失败的原因
+          4.如果throw出错误，代表async函数返回的promise是失败的
+            失败的原因是抛出的错误原因
+      */
+    async searchAjax(q) {
+      try {
+        //修改页面显示的状态数据，为了让页面显示正在搜索
+        this.isFirst = false
+        this.isLoading = true
+        const response = await axios({
+          url: 'https://api.github.com/search/users',
+          method: 'get',
+          params: {
+            q
+          }
+        })
         this.isLoading = false
         /*
           forEach map filter some every reduce 都暗含遍历
@@ -54,12 +71,11 @@ export default {
           userurl: item.html_url,
           userimg: item.avatar_url
         }))
-        // console.log(response.data)
-      }).catch(error => {
+      } catch (error) {
         this.isLoading = false
         this.errMsg = error.message
         console.log(error.message)
-      })
+      }
     }
   }
 }
