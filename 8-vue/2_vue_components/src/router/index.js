@@ -15,6 +15,11 @@ export default new VueRouter({
         {
             path: '/about',
             component: About
+        },
+        {
+            //重定向路由
+            path: '/',
+            redirect: '/home'
         }
     ]
 })

@@ -2,10 +2,12 @@
   <div role="tabpanel" class="tab-pane active" id="home">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#Message" aria-controls="Message" role="tab"
-                                                data-toggle="tab">Message</a></li>
-      <li role="presentation"><a href="#News" aria-controls="News" role="tab"
-                                 data-toggle="tab">News</a></li>
+      <li role="presentation" class="active">
+        <a href="#Message" aria-controls="Message" role="tab"
+           data-toggle="tab">Message</a></li>
+      <li role="presentation">
+        <a href="#News" aria-controls="News" role="tab"
+           data-toggle="tab">News</a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
