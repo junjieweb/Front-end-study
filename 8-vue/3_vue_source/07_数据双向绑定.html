@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>07_数据双向绑定</title>
+    <meta charset="UTF-8">
+    <title>07_数据双向绑定</title>
 </head>
 <body>
+<div id="test">
+    <input type="text" v-model="msg">
+    <!-- <input type="text" :value="msg" @input="msg=$event.target.value"> -->
+    <p>{{msg}}</p>
+</div>
+<script src="./js/mvvm.js"></script>
+<script src="./js/compile.js"></script>
+<script src="./js/observer.js"></script>
+<script src="./js/watcher.js"></script>
+<script>
+    const vm = new MVVM({
+        el: '#test',
+        data: {
+            msg: 'msg',
+        }
+    })
+</script>
 </body>
 </html>
