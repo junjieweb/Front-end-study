@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>06_数据劫持-数据绑定</title>
+    <meta charset="UTF-8">
+    <title>06_数据劫持-数据绑定</title>
 </head>
 <body>
-  
+<!--
+    compile
+      编译模板
+      new Watcher()
+    observer
+      发布者
+      给data中所有层次的属性都添加getter/setter  ==> 添加数据劫持
+      为data中的每个属性创建一个对应的dep对象
+    dep
+      订阅器
+      与data中属性一一对应的对象
+    watcher
+      订阅者
+      有用于更新节点的回调函数
+
+    this.name = 'xxx'
+    ==> data中的name会变为xxx    因为数据代理
+    ==> observer中的name的setter方法调用
+    ==> 通过订阅器(dep)通知所有相关的订阅者(watcher)
+    ==> watcher调用更新节点的函数更新界面节点
+-->
+<div id="test">
+    <p>{{name}}</p>
+    <p v-text="name"></p>
+    <button v-on:click="update">更新</button>
+</div>
+<script src="./js/mvvm.js"></script>
+<script src="./js/compile.js"></script>
+<script src="./js/observer.js"></script>
+<script src="./js/watcher.js"></script>
+<script>
+    const vm = new MVVM({
+        el: '#test',
+        data: {
+            name: 'tom',
+            wife: {
+                name: 'jerry',
+                age: 12
+            }
+        },
+        methods: {
+            update() {
+                this.name = 'tom2'
+                this.wife.name = 'jerry2'
+                this.wife.age = 23
+            }
+        }
+    })
+</script>
 </body>
 </html>

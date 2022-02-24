@@ -40,7 +40,7 @@
 
     - 指令语法: 操作元素节点
 
-        - 事件指令: 给元素绑定指定事件名和回调的DOM事件监听: element.addEventListener(type, callback.bind(vm))
+        - 事件指令: 给元素绑定指定事件名和回调的DOM事件监听: `element.addEventListener(type, callback.bind(vm))`
 
         - 非事件指令
 
