@@ -32,9 +32,9 @@
         </router-link>
       </h1>
       <div class="searchArea">
-        <form action="###" class="searchForm">
-          <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="keyword"/>
-          <button class="sui-btn btn-xlarge btn-danger" type="button" @click="search">搜索</button>
+        <form action="/xxx" class="searchForm">
+          <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model.trim="keyword"/>
+          <button class="sui-btn btn-xlarge btn-danger" @click.prevent="search">搜索</button>
         </form>
       </div>
     </div>
@@ -53,15 +53,29 @@ export default {
     search() {
       //编程式路由导航
       // this.$router.push(`/search/${this.keyword}`)
-      this.$router.push({
+
+      const location = {
         name: 'search',
-        params: {
+      }
+      //只有有数据时，才携带params参数
+      if (this.keyword) {
+        location.params = { //路由必须配置name
           keyword: this.keyword
-        },
-        query: {
+        }
+        location.query = {
           keyword2: this.keyword.toUpperCase()
         }
-      })
+      }
+      /*
+        router.push(location, onComplete?, onAbort?)
+        router.push(location).then(onComplete).catch(onAbort)
+      */
+      this.$router.push(location)
+      //解决重复跳转路由的错误
+      //方法一：传入成功的回调函数参数
+      // this.$router.push(location, () => {})
+      //方法二：catch处理错误的promise
+      // this.$router.push(location).catch(() => {})
     }
   }
 }
