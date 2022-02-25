@@ -12,8 +12,9 @@ import "nprogress/nprogress.css"
 //1. 配置通用的基础路径和超时
 // service是一个能发任意ajax请求的函数, 当然可以作为对象使用
 const service = axios.create({
-    baseURL: 'http://39.99.186.36/api',//基础路径
-    timeout: 20000,//超时时间
+    // baseURL: 'http://39.99.186.36/api',//基础路径
+    baseURL: '/api',//基础路径
+    timeout: 5000,//超时时间
 })
 
 // 添加请求拦截器
