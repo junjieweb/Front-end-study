@@ -16,15 +16,15 @@
         <div class="all-sort-list2">
           <div class="item" v-for="(c1) in categoryList" :key="c1.categoryId">
             <h3>
-              <a href="">{{c1.categoryName}}</a>
+              <a href="">{{ c1.categoryName }}</a>
             </h3>
             <div class="item-list clearfix">
               <div class="subitem">
                 <dl class="fore" v-for="c2 in c1.categoryChild" :key="c2.categoryId">
-                  <dt>{{c2.categoryName}}</dt>
+                  <dt>{{ c2.categoryName }}</dt>
                   <dd>
                     <em v-for="c3 in c2.categoryChild" :key="c3.categoryId">
-                      <a href="">{{c3.categoryName}}</a>
+                      <a href="">{{ c3.categoryName }}</a>
                     </em>
                   </dd>
                 </dl>
@@ -43,13 +43,19 @@
 2.store.state / mapState() 读取vuex中state数据，数据从state到组件的computed
 3.在模板中动态显示
 */
+import {mapState} from "vuex";
 
 export default {
   name: "TypeNav",
   computed: {
-    categoryList() {
+    /*categoryList() {
       return this.$store.state.home.categoryList
-    }
+    }*/
+    // ...mapState(['categoryList']) //不行
+    // ...mapState({categoryList: 'categoryList'})//不可以
+    ...mapState({
+      categoryList: state => state.home.categoryList //函数接收的是总状态，返回值作为计算属性
+    })
   }
 }
 </script>
