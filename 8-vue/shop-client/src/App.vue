@@ -11,15 +11,17 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {getCategoryList} from "@/api";
+// import {getCategoryList} from "@/api";
 
 export default {
   name: 'App',
   mounted() {
     //异步获取三级分类列表
-    getCategoryList().then((result) => {
+    /*getCategoryList().then((result) => {
       console.log(result)
-    })
+    })*/
+    //分发请求获取分类列表的异步action
+    this.$store.dispatch('getCategoryList')
   },
   components: {
     Header,

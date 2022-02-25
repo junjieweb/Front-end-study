@@ -7,7 +7,7 @@ import ajax from "@/api/ajax";
 
 // 首页三级分类
 // /api/product/getBaseCategoryList  GET
-export function getCategoryList() {
+export function reqCategoryList() {
     // return ajax.get('/product/getBaseCategoryList')
     // return ajax('/product/getBaseCategoryList') //发不带参数的get请求
     return ajax({
