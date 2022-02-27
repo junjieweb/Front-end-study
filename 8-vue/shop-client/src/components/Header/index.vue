@@ -56,15 +56,16 @@ export default {
 
       const location = {
         name: 'search',
+        query: this.$route.query //将当前就有的query参数携带上
       }
       //只有有数据时，才携带params参数
       if (this.keyword) {
         location.params = { //路由必须配置name
           keyword: this.keyword
         }
-        location.query = {
-          keyword2: this.keyword.toUpperCase()
-        }
+        // location.query = {
+        //   keyword2: this.keyword.toUpperCase()
+        // }
       }
       /*
         router.push(location, onComplete?, onAbort?)
