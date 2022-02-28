@@ -4,6 +4,7 @@ import router from "@/router";
 import TypeNav from "@/components/TypeNav";
 import store from "@/store";
 import "@/plugins/swiper"; // 加载swiper的配置
+import "./mock/mockServer"
 
 // import 'swiper/css/swiper.min.css'; //所有组件都能用上这个样式
 
