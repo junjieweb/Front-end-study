@@ -4,6 +4,8 @@ import router from "@/router";
 import TypeNav from "@/components/TypeNav";
 import store from "@/store";
 
+import 'swiper/css/swiper.min.css'; //所有组件都能用上这个样式
+
 Vue.config.productionTip = false
 
 //注册全局组件

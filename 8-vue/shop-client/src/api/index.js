@@ -15,3 +15,6 @@ export function reqCategoryList() {
         // method: 'get'
     })
 }
+
+//获取首页广告轮播列表 /api/cms/banner GET
+export const reqBannerList = () => ajax('/cms/banner')
