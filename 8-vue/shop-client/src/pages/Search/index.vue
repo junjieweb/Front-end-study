@@ -11,15 +11,28 @@
             </li>
           </ul>
           <ul class="fl sui-tag">
-            <li class="with-x">手机</li>
-            <li class="with-x">iphone<i>×</i></li>
-            <li class="with-x">华为<i>×</i></li>
-            <li class="with-x">OPPO<i>×</i></li>
+            <li class="with-x" v-if="options.categoryName">
+              {{ options.categoryName }}
+              <i @click="removeCategory">×</i>
+            </li>
+            <li class="with-x" v-if="options.keyword">
+              {{ options.keyword }}
+              <i @click="removeKeyword">×</i>
+            </li>
+            <li class="with-x" v-if="options.trademark">
+              {{ options.trademark }}
+              <i @click="removeTrademark">×</i>
+            </li>
+
+            <li class="with-x" v-for="(prop,index) in options.props" :key="prop">
+              {{ prop }}
+              <i @click="removeProp(index)">×</i>
+            </li>
           </ul>
         </div>
 
         <!--selector-->
-        <SearchSelector/>
+        <SearchSelector :setTrademark="setTrademark" @addProp="addProp"/>
 
         <!--details-->
         <div class="details clearfix">
@@ -118,33 +131,145 @@ import {mapGetters} from "vuex";
 
 export default {
   name: 'Search',
-  data(){
-    return{
-      category1Id: '', // 一级分类ID
-      category2Id: '', // 二级分类ID
-      category3Id: '', // 三级分类ID
-      categoryName: '', // 分类名称
-      keyword: '', // 搜索关键字
+  data() {
+    return {
+      options: {
+        category1Id: '', // 一级分类ID
+        category2Id: '', // 二级分类ID
+        category3Id: '', // 三级分类ID
+        categoryName: '', // 分类名称
+        keyword: '', // 搜索关键字
 
-      props: [], // ["属性ID:属性值:属性名"]示例: ["2:6.0～6.24英寸:屏幕尺寸"]
-      trademark: '', // 品牌: "ID:品牌名称"示例: "1:苹果"
-      order: '2:asc', // 排序方式 1: 综合,2: 价格 asc: 升序,desc: 降序 示例: "1:desc"
+        props: [], // ["属性ID:属性值:属性名"]示例: ["2:6.0～6.24英寸:屏幕尺寸"]
+        trademark: '', // 品牌: "ID:品牌名称"示例: "1:苹果"
+        order: '2:asc', // 排序方式 1: 综合,2: 价格 asc: 升序,desc: 降序 示例: "1:desc"
 
-      pageNo: 1, // 页码
-      pageSize: 3, // 每页数量
+        pageNo: 1, // 页码
+        pageSize: 3, // 每页数量
+      }
     }
   },
-  mounted() {
-    this.$store.dispatch('getProductList', {
-      pageNo: 1,
-      pageSize: 10
-    })
-  },
+  //在created中收集参数数据到options中, 并发送搜索的请求
+  /*created() {
+    this.updateParams()
+    this.getShopList()
+  },*/
   computed: {
     // ...mapState({
     //   goodsList: state => state.search.productList.goodsList || []
     // })
     ...mapGetters(['goodsList'])
+  },
+  watch: {
+    // watch监视回调默认调用时机: 数据有变化才调用
+    // 如何实现初始化就调用第一次:
+    /*$route() {
+      this.updateParams()
+      this.getShopList()
+    }*/
+    $route: {
+      immediate: true, //初始化立即执行一次
+      handler() {
+        this.updateParams()
+        this.getShopList()
+      }
+    }
+  },
+  methods: {
+    //删除一个属性条件
+    removeProp(index) {
+      //删除props中index的元素
+      this.options.props.splice(index, 1)
+      // 重新请求获取数据列表
+      this.getShopList()
+    },
+
+    //添加一个属性条件
+    addProp(prop) {
+      const {props} = this.options
+      // 如果已经存在条件数组中, 不添加
+      if (props.includes(prop)) return
+      // 向props数组添加一个条件字符串 子向父通信==>vue自定义事件
+      props.push(prop)
+      // 重新请求获取数据列表
+      this.getShopList()
+    },
+
+    //删除品牌条件
+    removeTrademark() {
+      // 重置品牌条件数据
+      this.options.trademark = ''
+      // 重新请求获取数据列表
+      this.getShopList()
+    },
+
+    //设置品牌条件
+    setTrademark(trademark) {
+      // 如果当前品牌已经在条件中了, 直接结束
+      if (trademark === this.options.trademark) return
+
+      // 更新options中的trademark为指定的值
+      this.options.trademark = trademark
+
+      // 重新请求获取数据列表
+      this.getShopList()
+    },
+
+    //更新options中的参数属性
+    updateParams() {
+      //取出参数数据
+      const {keyword} = this.$route.params
+      const {category1Id, category2Id, category3Id, categoryName} = this.$route.query
+      //保存到options中
+      this.options = {
+        ...this.options,
+        keyword,
+        category1Id,
+        category2Id,
+        category3Id,
+        categoryName
+      }
+    },
+    //异步获取商品列表
+    getShopList() {
+      //发搜索的请求
+      this.$store.dispatch('getProductList', this.options)
+    },
+
+    //删除分类的条件
+    removeCategory() {
+      //更新分类相关数据
+      this.options.category1Id = ''
+      this.options.category2Id = ''
+      this.options.category3Id = ''
+      this.options.categoryName = ''
+      //重新发请求
+      // this.getShopList()
+
+      //重新跳转到search, 不再携带删除的条件所对应的参数(query)
+      // this.$router.push({
+      this.$router.replace({
+        name: 'search',
+        params: this.$route.params
+      })
+    },
+    //删除关键字条件
+    removeKeyword() {
+      //更新分类相关的数据
+      this.options.keyword = ''
+      //重新发送请求
+      // this.getShopList()
+
+      //重新跳转到search, 不再携带删除的条件所对应的参数(params)
+      // this.$router.push({
+      this.$router.replace({
+        name: 'search',
+        query: this.$route.query
+      })
+
+      // 3). 在Search中分发事件
+      this.$bus.$emit('removeKeyword')
+    }
   },
   components: {
     SearchSelector

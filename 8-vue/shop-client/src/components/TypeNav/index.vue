@@ -170,8 +170,17 @@ export default {
           params: this.$route.params //需要携带上当前已有的params参数
         }
 
-        //跳转到search
-        this.$router.push(location)
+        // 跳转到search
+        // 从其它页到搜索页: push()
+        // 从搜索到搜索页: replace()
+        if (this.$route.name === 'search') { //当前是搜索
+          this.$router.replace(location)
+        } else {
+          this.$router.push(location)
+        }
+
+        //隐藏一级分类列表
+        this.hideFirst()
       }
     }
   }
