@@ -76,7 +76,7 @@ import throttle from "lodash/throttle";//只引入需要的模块，减小打包
 export default {
   name: "TypeNav",
   data() {
-    console.log('data()')
+    // console.log('data()')
     const path = this.$route.path
     return {
       // isShowFirst: false, //是否显示一级列表
@@ -85,7 +85,7 @@ export default {
     }
   },
   beforeCreate() {
-    console.log('beforeCreate')
+    // console.log('beforeCreate')
   },
   created() {
     //判断当前请求的是否是首页，如果是显示一级列表
