@@ -13,7 +13,10 @@
                      :data-categoryName="c1.categoryName"
                      :data-category1Id="c1.categoryId"
                   >{{ c1.categoryName }}</a>
-                  <!--<a href="javascript:" @click="$router.push(`/search?categoryName=${c1.categoryName}&category1Id=${c1.categoryId}`)">{{ c1.categoryName }}</a>-->
+                  <!--<a href="javascript:"
+                     @click="$router.push(`/search?categoryName=${c1.categoryName}&category1Id=${c1.categoryId}`)">{{
+                      c1.categoryName
+                    }}</a>-->
                   <!--<router-link :to="`/search?categoryName=${c1.categoryName}&category1Id=${c1.categoryId}`">
                     {{ c1.categoryName }}
                   </router-link>-->
