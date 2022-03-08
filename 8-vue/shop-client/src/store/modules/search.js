@@ -22,10 +22,10 @@ const actions = {
         // 如果不想改变组件中的options
         searchParams = {...searchParams}
 
-        // 过滤掉searchParams对象中所有属性值为空串的属性
+        // 过滤掉searchParams对象中所有属性值为空串或空数组属性
         // Object.keys(obj): 得到对象本身所有属性名的数组
         Object.keys(searchParams).forEach(key => {
-            if (searchParams[key] === '') {
+            if (searchParams[key] === '' || (Array.isArray(searchParams[key]) && searchParams[key].length === 0)) {
                 delete searchParams[key]  // 组件中的options也改变了
             }
         })
