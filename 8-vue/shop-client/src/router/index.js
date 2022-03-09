@@ -48,5 +48,9 @@ export default new VueRouter({
     //模式
     mode: 'history',//不带#
     //应用中的所有路由
-    routes
+    routes,
+    //滚动行为
+    scrollBehavior(to, from, savedPosition) {
+        return {x: 0, y: 0}
+    }
 })
