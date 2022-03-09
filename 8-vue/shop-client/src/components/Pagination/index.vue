@@ -1,24 +1,36 @@
 <template>
   <div class="pagination">
-    <button :disabled="myCurrentPage===1" :class="{disable: myCurrentPage===1}"
-            @click="setCurrentPage(myCurrentPage-1)">上一页
+    <button
+        :disabled="myCurrentPage === 1"
+        :class="{disabled: myCurrentPage === 1}"
+        @click="setCurrentPage(myCurrentPage - 1)"
+    >上一页
     </button>
-    <button v-if="startEnd.start!=1" @click="setCurrentPage(1)">1</button>
-    <button class="disable" v-if="startEnd.start>2">...</button>
-    <button v-for="item in startEnd.end" v-if="item>=startEnd.start"
-            :class="{active: item===myCurrentPage}" @click="setCurrentPage(item)">{{ item }}
-    </button>
-    <!-- <button>4</button>
-    <button class="active">5</button>
-    <button>6</button>
-    <button>7</button> -->
+    <button v-if="starEnd.start !== 1" @click="setCurrentPage(1)">1</button>
+    <button class="disabled" v-if="starEnd.start > 2">...</button>
 
-    <button class="disable" v-if="startEnd.end<totalPages-1">...</button>
-    <button v-if="startEnd.end<totalPages" @click="setCurrentPage(totalPages)">{{ totalPages }}</button>
-    <button :disabled="myCurrentPage===totalPages" :class="{disable: myCurrentPage===totalPages}"
-            @click="setCurrentPage(myCurrentPage+1)">下一页
+    <button
+        v-for="item in starEnd.end"
+        v-if="item >= starEnd.start"
+        :class="{active: item === myCurrentPage}"
+        @click="setCurrentPage(item)"
+    >
+      {{ item }}
     </button>
-    <button class="disable">共 {{ total }} 条</button>
+
+    <button class="disabled" v-if="starEnd.end < totalPages - 1">...</button>
+    <button
+        v-if="starEnd.end < totalPages"
+        @click="setCurrentPage(totalPages)"
+    >{{ totalPages }}
+    </button>
+    <button
+        :disabled="myCurrentPage === totalPages"
+        :class="{disabled: myCurrentPage === totalPages}"
+        @click="setCurrentPage(myCurrentPage + 1)"
+    >下一页
+    </button>
+    <button class="disabled">共{{ total }}条</button>
   </div>
 </template>
 
@@ -26,97 +38,60 @@
 export default {
   name: 'Pagination',
   props: {
-    currentPage: { // 当前页码
+    currentPage: { //当前页码
       type: Number,
       default: 1
     },
-    total: { // 所有数据的总数量
+    total: { //所有数据的总数量
       type: Number,
       default: 0
     },
-    pageSize: {// 每页的最大数量
+    pageSize: { //每页的最大数量
       type: Number,
       default: 10
     },
-    showPageNo: { // 最大连续页码数
+    showPageNo: { //最大连续页码数
       type: Number,
       default: 5,
-      // 要求传的值要是奇数
+      //要求传入的值要是奇数
       validator: function (value) {
-        return value % 2 === 1
+        return value % 2 !== 0
       }
     }
   },
-
   data() {
     return {
-      myCurrentPage: this.currentPage  // 初始值由父组件来指定
+      myCurrentPage: this.currentPage //初始值由父组件来指定
     }
   },
-
   computed: {
-    /*
-    总页数
-    */
+    //总页数
     totalPages() {
       const {total, pageSize} = this
       return Math.ceil(total / pageSize)
     },
 
-    /*
-    start/end: 连续页码数的开始页码与结束页码 {start: 3, end: 7}
-    */
-    startEnd() {
+    //start/end: 连续页码数的开始页码与结束页码 {start: 3, end: 7}
+    starEnd() {
       let start, end
+      //      当前页码     最大连续页码数  总页数
       const {myCurrentPage, showPageNo, totalPages} = this
-
-      // 计算start
-      /*
-        myCurrentPage, showPageNo, totalPages
-        4                5          8        23[4]56
-        start = 4 - 2
-      */
-      //  start = myCurrentPage - (showPageNo-1)/2
+      //计算start
+      // start = currentPage - (showPageNo - 1) / 2
       start = myCurrentPage - Math.floor(showPageNo / 2)
-      // 如果myCurrentPage比较小, 计算的结果有可能小于1   start>=1
-      /*
-        myCurrentPage, showPageNo, totalPages
-        1                5          8        [1]2345
-        上面的计算的结果为 1-2
-        */
+      //如果myCurrentPage比较小, 计算的结果有可能小于1   start>=1
       if (start < 1) {
         start = 1
       }
-
-      // 计算end
-      /*
-        myCurrentPage, showPageNo, totalPages
-        4                5          8        23[4]56
-        start = 2
-        end = 2 + 5 - 1
-      */
+      //计算end
       end = start + showPageNo - 1
       // end的最大值为totalPages
-      /*
-        myCurrentPage, showPageNo, totalPages
-        8                5          8        4567[8]
-        上面算出的
-        start = 6   ===> 4
-        end = 10  ==> 超过了totalPages  8
-      */
       if (end > totalPages) {
-        // 修改end为totalPages
+        //修改end为totalPages
         end = totalPages
-        // 修正start
+        //修正start
         start = end - showPageNo + 1
-        // 一旦总页数小于最大连续页码数 ==> start<1
-        /*
-          myCurrentPage, showPageNo, totalPages
-          3                5          4        12[3]4
-          上面算出的
-          end = 4
-          start = 0  ===> 应该为1
-        */
+        //一旦总页数小于最大连续页码数 ==> start<1
         if (start < 1) {
           start = 1
         }
@@ -125,27 +100,15 @@ export default {
       return {start, end}
     }
   },
-
-  watch: {
-    /*
-    子组件监视父组件传入的数据变化
-    */
-    currentPage(value) {
-      this.myCurrentPage = value
-    }
-  },
-
   methods: {
-    /*
-    设置新的当前页码
-    */
+    //设置新的当前页码
     setCurrentPage(page) {
-      // 如果页码没有变化, 直接结束
+      //如果页码没有变化，直接结束
       if (page === this.myCurrentPage) return
-      // 更新当前页码
+      //更新当前页码
       this.myCurrentPage = page
 
-      // 分发自定义事件通知父组件
+      //分发自定义事件通知父组件
       this.$emit('currentChange', page)
     }
   }
@@ -173,14 +136,14 @@ export default {
     border: 0;
 
     &.active {
-      background: blue;
+      background: #409eff;
       color: white;
       cursor: not-allowed;
     }
 
-    &.disable {
+    &.disabled {
       cursor: not-allowed;
-      color: #ccc;
+      color: #cccccc;
     }
   }
 }
