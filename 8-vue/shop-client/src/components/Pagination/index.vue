@@ -9,9 +9,17 @@
     <button v-if="starEnd.start !== 1" @click="setCurrentPage(1)">1</button>
     <button class="disabled" v-if="starEnd.start > 2">...</button>
 
-    <button
+    <!--多执行了从1到start-1的v-for和v-if的判断-->
+    <!--<button
         v-for="item in starEnd.end"
         v-if="item >= starEnd.start"
+        :class="{active: item === myCurrentPage}"
+        @click="setCurrentPage(item)"
+    >{{ item }}
+    </button>-->
+
+    <button
+        v-for="item in startEndArr"
         :class="{active: item === myCurrentPage}"
         @click="setCurrentPage(item)"
     >
@@ -71,6 +79,16 @@ export default {
       return Math.ceil(total / pageSize)
     },
 
+    //包含从start到end的数组
+    startEndArr() {
+      const arr = []
+      const {start, end} = this.starEnd
+      for (let page = start; page < end; page++) {
+        arr.push(page)
+      }
+      return arr
+    },
+
     //start/end: 连续页码数的开始页码与结束页码 {start: 3, end: 7}
     starEnd() {
       let start, end
@@ -96,8 +114,13 @@ export default {
           start = 1
         }
       }
-
       return {start, end}
+    }
+  },
+  watch: {
+    //子组件监视父组件传入的数据变化
+    currentPage(value) {
+      this.myCurrentPage = value
     }
   },
   methods: {
