@@ -20,6 +20,7 @@
 
     <button
         v-for="item in startEndArr"
+        :key="item"
         :class="{active: item === myCurrentPage}"
         @click="setCurrentPage(item)"
     >

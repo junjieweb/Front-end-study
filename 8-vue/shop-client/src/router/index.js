@@ -10,7 +10,7 @@ const originalPush = VueRouter.prototype.push
 const originalReplace = VueRouter.prototype.replace
 // 指定新的push方法
 VueRouter.prototype.push = function push(location, onResolve, onReject) {
-    console.log('push', onResolve, onReject)
+    // console.log('push', onResolve, onReject)
     // 如果指定了成功或失败的回调
     if (onResolve || onReject) {
         // 直接调用原本的push方法
@@ -31,7 +31,7 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
 }
 
 VueRouter.prototype.replace = function (location, onResolve, onReject) {
-    console.log('replace', onResolve, onReject)
+    // console.log('replace', onResolve, onReject)
     if (onResolve || onReject) {
         return originalReplace.call(this, location, onResolve, onReject)
     }
