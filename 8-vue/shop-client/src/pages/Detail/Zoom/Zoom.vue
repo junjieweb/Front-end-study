@@ -18,10 +18,18 @@ export default {
       defaultIndex: 0 //显示图片的默认下标
     }
   },
+  mounted() {
+    this.$bus.$on('syncDefaultIndex', this.syncDefaultIndex)
+  },
   computed: {
     //解决假报错 不能在上面直接写 imgList[defaultIndex].imgUrl
     defaultImg() {
       return this.imgList[this.defaultIndex] || {}
+    }
+  },
+  methods: {
+    syncDefaultIndex(index) {
+      this.defaultIndex = index
     }
   }
 }
