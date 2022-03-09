@@ -149,7 +149,7 @@ export default {
     toSearch(event) {
       const target = event.target
       // alert(target.tagName)
-      console.dir(target)
+      // console.dir(target)
       //取出data自定义属性值
       const {categoryname, category1id, category2id, category3id} = target.dataset
       // if (target.tagName.toUpperCase() === 'A') {
