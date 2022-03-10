@@ -1,11 +1,11 @@
 <template>
   <div class="spec-preview">
     <img :src="defaultImg.imgUrl"/>
-    <div class="event"></div>
+    <div class="event" @mousemove="move"></div>
     <div class="big">
-      <img :src="defaultImg.imgUrl"/>
+      <img :src="defaultImg.imgUrl" ref="big"/>
     </div>
-    <div class="mask"></div>
+    <div class="mask" ref="mask"></div>
   </div>
 </template>
 
@@ -30,6 +30,36 @@ export default {
   methods: {
     syncDefaultIndex(index) {
       this.defaultIndex = index
+    },
+    move(event) {
+      //1.添加了移动事件，代表鼠标动了
+      let mouseX = event.offsetX
+      let mouseY = event.offsetY
+
+      //2.计算遮罩的位置让遮罩动
+      let mask = this.$refs.mask
+      let maskX = mouseX - mask.offsetWidth / 2
+      let maskY = mouseY - mask.offsetHeight / 2
+      let big = this.$refs.big
+
+      //限定临界值
+      if (maskX < 0) {
+        maskX = 0
+      } else if (maskX > mask.offsetWidth) {
+        maskX = mask.offsetWidth
+      }
+      if (maskY < 0) {
+        maskY = 0
+      } else if (maskY > mask.offsetHeight) {
+        maskY = mask.offsetHeight
+      }
+
+      mask.style.left = maskX + 'px'
+      mask.style.top = maskY + 'px'
+
+      //3.大图动
+      big.style.left = -maskX * 2 + 'px'
+      big.style.top = -maskY * 2 + 'px'
     }
   }
 }

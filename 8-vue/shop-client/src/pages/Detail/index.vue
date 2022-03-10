@@ -78,9 +78,9 @@
             </div>
             <div class="cartWrap">
               <div class="controls">
-                <input autocomplete="off" class="itxt">
-                <a href="javascript:" class="plus">+</a>
-                <a href="javascript:" class="mins">-</a>
+                <input autocomplete="off" class="itxt" v-model="skuNum">
+                <a href="javascript:" class="plus" @click="skuNum++">+</a>
+                <a href="javascript:" class="mins" @click="skuNum--">-</a>
               </div>
               <div class="add">
                 <a href="javascript:">加入购物车</a>
@@ -346,7 +346,8 @@ export default {
   },
   data() {
     return {
-      skuId: ''
+      skuId: '',
+      skuNum: 1
     }
   },
   computed: {
