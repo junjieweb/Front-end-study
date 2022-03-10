@@ -4,11 +4,16 @@ import Search from "@/pages/Search";
 import Register from "@/pages/Register";
 import Login from "@/pages/Login";
 import Detail from "@/pages/Detail";
+import AddCartSuccess from "@/pages/AddCartSuccess";
 
 export default [
     {
         path: '/',
         component: Home
+    },
+    {
+        path: '/addcartsuccess',
+        component: AddCartSuccess
     },
     {
         path: '/detail/:skuId',

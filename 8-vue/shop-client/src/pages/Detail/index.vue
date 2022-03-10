@@ -78,12 +78,23 @@
             </div>
             <div class="cartWrap">
               <div class="controls">
-                <input autocomplete="off" class="itxt" v-model="skuNum">
+                <!--
+                  input事件，输入的时候同步触发
+
+                  blur事件，失去焦点的时候就触发，不管内容有没有变化
+                  change事件，失去焦点的时候触发，但是内容必须变化
+                -->
+                <input
+                    autocomplete="off"
+                    class="itxt"
+                    v-model="skuNum"
+                    @change="skuNum = skuNum >= 1 ? parseInt(skuNum) : 1"
+                >
                 <a href="javascript:" class="plus" @click="skuNum++">+</a>
-                <a href="javascript:" class="mins" @click="skuNum--">-</a>
+                <a href="javascript:" class="mins" @click="skuNum > 1 ? skuNum-- :skuNum = 1">-</a>
               </div>
               <div class="add">
-                <a href="javascript:">加入购物车</a>
+                <a href="javascript:" @click="addShopCart">加入购物车</a>
               </div>
             </div>
           </div>
@@ -371,12 +382,49 @@ export default {
     getSkuDetailInfo() {
       this.$store.dispatch('getSkuDetailInfo', this.skuId)
     },
+
     //排他处理用户点击选择销售属性值
     changeChecked(spuSaleAttrValue, spuSaleAttrValueList) {
       //第一步：所有的属性值全部变白
       spuSaleAttrValueList.forEach(item => item.isChecked = '0')
-      //第二部：点击的这个属性值变绿
+      //第二步：点击的这个属性值变绿
       spuSaleAttrValue.isChecked = '1'
+    },
+
+    //添加购物车按钮点击之后的逻辑
+    async addShopCart() {
+      //发请求让后台给数据库的购物车数据表当中添加一条数据
+      //根据添加成功还是失败来决定要不要跳转到添加购物车成功页面
+      let {skuId, skuNum} = this
+
+      //dispatch 分发触发的意思，其实就是调用响应的actions函数
+      // this.$store.dispatch('addOrUpdateCart', {skuId, skuNum}) 就是函数调用表达式
+      // 结果就是 actions中异步函数的返回值，异步函数返回值一定是promise
+      try {
+        const result = await this.$store.dispatch('addOrUpdateCart', {skuId, skuNum})
+        alert('添加购物车成功')
+
+        //成功需要跳转，编程式导航跳转
+        //因为下个页面，添加购物车成功页面需要：商品数量和商品详细信息
+        // 以后如果碰到的数据是简单数据，那么我们考虑路由传参
+        // 如果碰到的数据是复杂数据 那么我们考虑存储手段
+        // localStorage     setItem   getItem  removeItem  clear
+        // sessionStorage   setItem   getItem  removeItem  clear
+        // 区别： localStorage是永久存储    sessionStorage浏览器关闭就没了
+        sessionStorage.setItem('SKUINFO_KEY', JSON.stringify(this.skuInfo))
+
+        await this.$router.push('/addcartsuccess?skuNum=' + this.skuNum)
+
+      } catch (error) {
+        alert(error.message)
+      }
+
+      //只有成功的时候，需要判断成功结果的不同
+      // const result = await this.$store.dispatch('addOrUpdateCart',{skuId,skuNum})
+      // if(result === 'ok'){
+      // }else{
+      // }
+
     }
   }
 }
