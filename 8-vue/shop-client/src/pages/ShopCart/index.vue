@@ -11,25 +11,25 @@
         <div class="cart-th6">操作</div>
       </div>
       <div class="cart-body">
-        <ul class="cart-list">
+        <ul class="cart-list" v-for="(shopCart) in shopCartList" :key="shopCart.id">
           <li class="cart-list-con1">
-            <input type="checkbox" name="chk_list">
+            <input type="checkbox" name="chk_list" :checked="shopCart.isChecked">
           </li>
           <li class="cart-list-con2">
-            <img src="./images/goods1.png">
-            <div class="item-msg">米家（MIJIA） 小米小白智能摄像机增强版 1080p高清360度全景拍摄AI增强</div>
+            <img :src="shopCart.imgUrl">
+            <div class="item-msg">{{ shopCart.skuName }}</div>
           </li>
 
           <li class="cart-list-con4">
-            <span class="price">399.00</span>
+            <span class="price">{{ shopCart.cartPrice }}</span>
           </li>
           <li class="cart-list-con5">
             <a href="javascript:void(0)" class="mins">-</a>
-            <input autocomplete="off" type="text" value="1" minnum="1" class="itxt">
+            <input autocomplete="off" type="text" :value="shopCart.skuNum" minnum="1" class="itxt">
             <a href="javascript:void(0)" class="plus">+</a>
           </li>
           <li class="cart-list-con6">
-            <span class="sum">399</span>
+            <span class="sum">{{ shopCart.cartPrice * shopCart.skuNum }}</span>
           </li>
           <li class="cart-list-con7">
             <a href="#none" class="sindelet">删除</a>
@@ -67,8 +67,28 @@
 </template>
 
 <script>
+import {mapGetters, mapState} from "vuex";
+
 export default {
   name: 'ShopCart',
+  mounted() {
+    this.getCartList()
+  },
+  computed: {
+    //mapState使用数组，必须名字相同，数据只能是总的state中的数据才能使用，模块化后就不能用了
+    // ...mapState({
+    //   shopCartList: state => state.shopcart.shopCartList || []
+    // }),
+    shopCartList() {
+      return this.$store.getters.shopCartList.cartInfoList || []
+    },
+
+  },
+  methods: {
+    getCartList() {
+      this.$store.dispatch('getCartList')
+    }
+  }
 }
 </script>
 
