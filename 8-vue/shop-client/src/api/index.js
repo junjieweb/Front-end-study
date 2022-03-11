@@ -73,3 +73,35 @@ export const reqDeleteCart = (skuId) => {
         method: 'delete'
     })
 }
+
+//获取验证码
+//  /api/user/passport/sendCode/{phone}
+//  get
+export const reqGetCode = (phone) => {
+    return ajax({
+        url: `/user/passport/sendCode/${phone}`,
+        method: 'get'
+    })
+}
+
+//注册
+//  /api/user/passport/register
+//  post
+export const reqUserRegister = (userInfo) => {
+    return ajax({
+        url: '/user/passport/register',
+        method: 'post',
+        data: userInfo
+    })
+}
+
+//登录
+// /api/user/passport/login
+// post
+export const reqUserLogin = (userInfo) => {
+    return ajax({
+        url: '/user/passport/login',
+        method: 'post',
+        data: userInfo
+    })
+}
