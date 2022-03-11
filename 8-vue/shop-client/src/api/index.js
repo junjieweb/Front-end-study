@@ -105,3 +105,13 @@ export const reqUserLogin = (userInfo) => {
         data: userInfo
     })
 }
+
+//获取用户信息【需要带着用户的token向服务器要用户信息】
+//  /api/user/passport/auth/getUserInfo
+//  method:get
+export const reqUserInfo = () => {
+    return ajax({
+        url: '/user/passport/auth/getUserInfo',
+        method: 'get'
+    })
+}
