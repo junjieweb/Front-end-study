@@ -36,7 +36,7 @@
             <span class="sum">{{ shopCart.cartPrice * shopCart.skuNum }}</span>
           </li>
           <li class="cart-list-con7">
-            <a href="#none" class="sindelet">删除</a>
+            <a href="javascript:" class="sindelet" @click="deleteOne(shopCart)">删除</a>
             <br>
             <a href="#none">移到收藏</a>
           </li>
@@ -50,7 +50,7 @@
         <span>全选</span>
       </div>
       <div class="option">
-        <a href="#none">删除选中的商品</a>
+        <a href="javascript:" @click="deleteAll">删除选中的商品</a>
         <a href="#none">移到我的关注</a>
         <a href="#none">清除下柜商品</a>
       </div>
@@ -105,8 +105,18 @@ export default {
       get() {
         return this.shopCartList.every(item => item.isChecked)
       },
-      set(val) {
-
+      async set(val) {
+        // this.$store.dispatch('updateCartCheckedAll', val ? 1 : 0)  是调用updateCartCheckedAll异步函数
+        // 它的结果拿的是异步函数的返回值 固定的那个promise，不是函数return后面Promise.all的返回值promise
+        // 但是这个promise的结果和return后面Promise.all的返回值promise的状态结果一致
+        try {
+          const result = await this.$store.dispatch('updateCartCheckedAll', val ? 1 : 0)
+          // console.log(result)
+          alert('修改所有的状态成功')
+          this.getCartList()
+        } catch (e) {
+          alert(e.message)
+        }
       }
     }
 
@@ -154,7 +164,26 @@ export default {
     },
 
     //删除购物车单个
+    async deleteOne(shopCart) {
+      try {
+        await this.$store.dispatch('deleteCart', shopCart.skuId)
+        alert('删除成功')
+        this.getCartList()
+      } catch (e) {
+        alert(e.message)
+      }
+    },
 
+    //删除购物车所有
+    async deleteAll() {
+      try {
+        await this.$store.dispatch('deleteCartAll')
+        alert('删除多个成功')
+        this.getCartList()
+      } catch (e) {
+        alert(e.message)
+      }
+    }
   }
 }
 </script>
