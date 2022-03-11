@@ -74,7 +74,7 @@ router.beforeEach(async (to, from, next) => {
             //登录过了,又想去登录页,直接跳转到首页
             next('/')
         } else {
-            let hasUserInfo = !!store.state.user.userInfo
+            let hasUserInfo = !!store.state.user.userInfo.nickName
             if (hasUserInfo) {
                 //此时代表登录了，去的不是登录页，用户信息存在,直接无条件放行
                 next()
@@ -87,11 +87,16 @@ router.beforeEach(async (to, from, next) => {
                     alert('用户的token过期')
                     await store.dispatch('resetUserInfo')
                     //去到之前想去但是没有去成的地方,需要和登录逻辑去配合使用
-                    next('/login')
+                    next('/login?redirect='+to.path)
                 }
             }
-
         }
+    }else{
+        //代表用户没登录或者之前也没登录过
+        //后期我们需要判断用户是不是去订单相关的页面，如果是那么就先登录
+
+        // 1、交易相关的    支付相关的   用户中心相关的  都要登录才能访问
+        next()
     }
 })
 

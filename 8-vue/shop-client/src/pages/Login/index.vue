@@ -83,7 +83,9 @@ export default {
         try {
           await this.$store.dispatch('userLogin', {phone, password})
           alert('登录成功,准备跳转首页')
-          await this.$router.push('/')
+          //下面的需要和导航守卫配合去到想去而没有去到的地方
+          let redirect = this.$route.query.redirect || '/'
+          await this.$router.push(redirect)
         } catch (e) {
           alert(e.message)
         }

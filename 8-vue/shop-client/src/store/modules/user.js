@@ -2,6 +2,7 @@
 import {getUserTempId, setToken, getToken, removeToken} from "@/utils/userabout";
 import {reqGetCode, reqUserInfo, reqUserLogin, reqUserRegister} from "@/api";
 
+//页面刷新或者项目重新启动，之前state当中所有的数据全部销毁重新初始化
 const state = {
     code: '',
     //getUserTempId() 获取用户临时标识id
