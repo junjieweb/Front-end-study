@@ -49,7 +49,17 @@ export const reqAddOrUpdateCart = (skuId, skuNum) => {
 //    get
 export const reqCartList = () => {
     return ajax({
-        url:"/cart/cartList",
-        method:'get'
+        url: "/cart/cartList",
+        method: 'get'
+    })
+}
+
+//修改购物车的选中状态
+//  /api/cart/checkCart/{skuID}/{isChecked}
+//   get
+export const reqUpdateCartChecked = (skuID, isChecked) => {
+    return ajax({
+        url: `/cart/checkCart/${skuID}/${isChecked}`,
+        method: 'get'
     })
 }

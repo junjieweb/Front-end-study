@@ -1,4 +1,4 @@
-import {reqAddOrUpdateCart, reqCartList} from "@/api";
+import {reqAddOrUpdateCart, reqCartList, reqUpdateCartChecked} from "@/api";
 
 
 const state = {
@@ -36,6 +36,15 @@ const actions = {
         const result = await reqCartList()
         if (result.code === 200) {
             commit('RECEIVE_SHOP_CART_LIST', result.data)
+        }
+    },
+
+    async updateCartChecked({commit}, {skuId, isChecked}) {
+        const result = await reqUpdateCartChecked(skuId, isChecked)
+        if (result.code === 200) {
+            return 'ok'
+        } else {
+            return Promise.reject(new Error('failed'))
         }
     }
 }

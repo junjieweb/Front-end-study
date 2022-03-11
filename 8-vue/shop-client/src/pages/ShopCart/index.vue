@@ -13,7 +13,9 @@
       <div class="cart-body">
         <ul class="cart-list" v-for="(shopCart) in shopCartList" :key="shopCart.id">
           <li class="cart-list-con1">
-            <input type="checkbox" name="chk_list" :checked="shopCart.isChecked">
+            <input type="checkbox" name="chk_list"
+                   :checked="shopCart.isChecked"
+                   @click="updateOne(shopCart)">
           </li>
           <li class="cart-list-con2">
             <img :src="shopCart.imgUrl">
@@ -24,9 +26,11 @@
             <span class="price">{{ shopCart.cartPrice }}</span>
           </li>
           <li class="cart-list-con5">
-            <a href="javascript:void(0)" class="mins">-</a>
-            <input autocomplete="off" type="text" :value="shopCart.skuNum" minnum="1" class="itxt">
-            <a href="javascript:void(0)" class="plus">+</a>
+            <a href="javascript:void(0)" class="mins" @click="changeCartNum(shopCart,-1,true)">-</a>
+            <input autocomplete="off" type="text" minnum="1" class="itxt"
+                   :value="shopCart.skuNum"
+                   @change="changeCartNum(shopCart,$event.target.value * 1,false)">
+            <a href="javascript:void(0)" class="plus" @click="changeCartNum(shopCart,1,true)">+</a>
           </li>
           <li class="cart-list-con6">
             <span class="sum">{{ shopCart.cartPrice * shopCart.skuNum }}</span>
@@ -42,7 +46,7 @@
     </div>
     <div class="cart-tool">
       <div class="select-all">
-        <input class="chooseAll" type="checkbox">
+        <input class="chooseAll" type="checkbox" v-model="isAllCheck">
         <span>全选</span>
       </div>
       <div class="option">
@@ -52,11 +56,11 @@
       </div>
       <div class="money-box">
         <div class="chosed">已选择
-          <span>0</span>件商品
+          <span>{{ checkedNum }}</span>件商品
         </div>
         <div class="sumprice">
           <em>总价（不含运费） ：</em>
-          <i class="summoney">0</i>
+          <i class="summoney">{{ allMoney }}</i>
         </div>
         <div class="sumbtn">
           <a class="sum-btn" href="###" target="_blank">结算</a>
@@ -67,7 +71,6 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from "vuex";
 
 export default {
   name: 'ShopCart',
@@ -82,12 +85,76 @@ export default {
     shopCartList() {
       return this.$store.getters.shopCartList.cartInfoList || []
     },
+    checkedNum() {
+      return this.shopCartList.reduce((pre, item) => {
+        if (item.isChecked) {
+          pre += item.skuNum
+        }
+        return pre
+      }, 0)
+    },
+    allMoney() {
+      return this.shopCartList.reduce((pre, item) => {
+        if (item.isChecked) {
+          pre += item.cartPrice * item.skuNum
+        }
+        return pre
+      }, 0)
+    },
+    isAllCheck: {
+      get() {
+        return this.shopCartList.every(item => item.isChecked)
+      },
+      set(val) {
+
+      }
+    }
 
   },
   methods: {
     getCartList() {
       this.$store.dispatch('getCartList')
-    }
+    },
+
+    //修改购物车商品数量
+    async changeCartNum(shopCart, disNum, flag) {
+      if (!flag) {
+        //针对输入的数据是最终的商品数量，我们得转化为变化的量
+        if (disNum > 0) {
+          disNum = disNum - shopCart.skuNum
+        } else {
+          disNum = 1 - shopCart.skuNum
+        }
+      } else {
+        //针对点击+-的数据，传递过来的就是变化的量
+        if (disNum + shopCart.skuNum <= 0) {
+          disNum = 1 - shopCart.skuNum
+        }
+      }
+
+      //把传递过来的数据全部转化为正确的变化的量之后就可以发请求
+      try {
+        await this.$store.dispatch('addOrUpdateCart', {skuId: shopCart.skuId, skuNum: disNum})
+        alert('修改数量成功')
+        this.getCartList()
+      } catch (e) {
+        alert(e.message)
+      }
+    },
+
+    //修改购物车选中状态单个
+    async updateOne(shopCart) {
+      try {
+        await this.$store.dispatch('updateCartChecked', {skuId: shopCart.skuId, isChecked: shopCart.isChecked ? 0 : 1})
+        alert('修改状态成功')
+        this.getCartList()
+      } catch (e) {
+        alert(e.message)
+      }
+    },
+
+    //删除购物车单个
+
   }
 }
 </script>
