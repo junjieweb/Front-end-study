@@ -29,6 +29,12 @@ service.interceptors.request.use((config) => {
         config.headers.userTempId = userTempId
     }
 
+    //携带登录后标识token
+    let token = store.state.user.token
+    if (token) {
+        config.headers.token = token
+    }
+
     // 必须返回config
     return config // 后面就会根据返回的config，使用xhr对象发Ajax请求
 })
