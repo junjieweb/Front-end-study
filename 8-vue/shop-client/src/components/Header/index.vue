@@ -6,8 +6,8 @@
         <div class="loginList">
           <p>尚品汇欢迎您！</p>
           <p v-if="$store.state.user.userInfo.name">
-            <a href="javascript:">{{$store.state.user.userInfo.name}}</a>
-            <a href="javascript:" class="register">退出登录</a>
+            <a href="javascript:">{{ $store.state.user.userInfo.name }}</a>
+            <a href="javascript:" class="register" @click="logout">退出登录</a>
           </p>
           <p v-else>
             <span>请</span>
@@ -89,6 +89,15 @@ export default {
       // this.$router.push(location, () => {})
       //方法二：catch处理错误的promise
       // this.$router.push(location).catch(() => {})
+    },
+    async logout() {
+      try {
+        await this.$store.dispatch('userLogout')
+        alert('退出成功')
+        await this.$router.push('/')
+      } catch (e) {
+        alert(e.message)
+      }
     }
   },
   mounted() {

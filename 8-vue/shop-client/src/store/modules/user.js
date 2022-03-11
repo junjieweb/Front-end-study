@@ -1,6 +1,6 @@
 //管理登录用户数据的vuex子模块
 import {getUserTempId, setToken, getToken, removeToken} from "@/utils/userabout";
-import {reqGetCode, reqUserInfo, reqUserLogin, reqUserRegister} from "@/api";
+import {reqGetCode, reqUserInfo, reqUserLogin, reqUserLogout, reqUserRegister} from "@/api";
 
 //页面刷新或者项目重新启动，之前state当中所有的数据全部销毁重新初始化
 const state = {
@@ -76,6 +76,17 @@ const actions = {
     async resetUserInfo({commit}) {
         removeToken() //先调用函数清空localStorage中的token信息
         commit('RESET_USERINFO')
+    },
+
+    async userLogout({commit}) {
+        const result = await reqUserLogout()
+        if (result.code === 200) {
+            removeToken() //先调用函数清空localStorage中的token信息
+            commit('RESET_USERINFO')
+            return 'ok'
+        } else {
+            return Promise.reject(new Error('failed'))
+        }
     }
 }
 const getters = {}

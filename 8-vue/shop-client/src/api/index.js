@@ -115,3 +115,13 @@ export const reqUserInfo = () => {
         method: 'get'
     })
 }
+
+//退出登录
+//  /api/user/passport/logout
+//  get
+export const reqUserLogout = () => {
+    return ajax({
+        url: '/user/passport/logout',
+        method: 'get'
+    })
+}
