@@ -86,7 +86,7 @@
                 <div class="list-wrap">
                   <div class="p-img">
                     <router-link :to="'/detail/'+ item.id">
-                      <img :src="item.defaultImg" alt=""/>
+                      <img v-lazy="item.defaultImg" />
                     </router-link>
                   </div>
                   <div class="price">
