@@ -69,32 +69,38 @@
 
       </div>
       <div class="choose-order">
-        <div class="pagination">
-          <ul>
-            <li class="prev disabled">
-              <a href="javascript:">«上一页</a>
-            </li>
-            <li class="page actived">
-              <a href="javascript:">1</a>
-            </li>
-            <li class="page">
-              <a href="javascript:">2</a>
-            </li>
-            <li class="page">
-              <a href="javascript:">3</a>
-            </li>
-            <li class="page">
-              <a href="javascript:">4</a>
-            </li>
-
-            <li class="next disabled">
-              <a href="javascript:">下一页»</a>
-            </li>
-          </ul>
-          <div>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;共2页&nbsp;</span>
-          </div>
-        </div>
+        <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage4"
+            :page-sizes="[100, 200, 300, 400]"
+            :page-size="100"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="400">
+        </el-pagination>
+        <!--<MyPagination
+            :currentPage="page"
+            :total="total"
+            :pageSize="limit"
+            :showPageNo="5"
+            @currentChange="getMyOrderInfo"
+        ></MyPagination>-->
+        <!--
+        currentPage: { //当前页码
+          type: Number,
+          default: 1
+        },
+        total: { //所有数据的总数量
+          type: Number,
+          default: 0
+        },
+        pageSize: { //每页的最大数量
+          type: Number,
+          default: 10
+        },
+        showPageNo: { //最大连续页码数
+          type: Number,
+        -->
       </div>
     </div>
     <!--猜你喜欢-->
@@ -175,7 +181,8 @@ export default {
     this.getMyOrderInfo()
   },
   methods: {
-    async getMyOrderInfo() {
+    async getMyOrderInfo(page = 1) {
+      this.page = page
       //page 和 limit是一上来就要使用的请求参数，但是此时我们是没有的，要让我们自己给定
       const result = await this.$API.reqMyOrderInfo(this.page, this.limit)
       if (result.code === 200) {
@@ -183,7 +190,11 @@ export default {
         this.myOrderList = result.data.records
         this.total = result.data.total
       }
-    }
+    },
+    /*currentChange(page) {
+      this.page = page
+      this.getMyOrderInfo()
+    }*/
   }
 }
 </script>
