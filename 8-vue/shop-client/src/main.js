@@ -7,6 +7,7 @@ import Pagination from "@/components/Pagination";
 import store from "@/store";
 import "@/plugins/swiper"; // 加载swiper的配置
 import "./mock/mockServer"
+import * as API from '@/api'
 
 // import 'swiper/css/swiper.min.css'; //所有组件都能用上这个样式
 
@@ -24,6 +25,8 @@ new Vue({
     beforeCreate() {
         // 创建或指定事件总线对象, 保存到Vue的原型上
         Vue.prototype.$bus = this
+        //当不适用vuex的时候，可以把接口请求函数全部装在对象当中挂在Vue原型身上
+        Vue.prototype.$API = API
     },
     router,//注册路由器 ==> 所有组件都可以直接访问两个对象：$router $route
     store, //注册vuex ==> 所有组件都可以直接访问一个对象：$store
