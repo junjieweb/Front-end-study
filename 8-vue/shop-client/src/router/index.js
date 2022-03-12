@@ -87,16 +87,20 @@ router.beforeEach(async (to, from, next) => {
                     alert('用户的token过期')
                     await store.dispatch('resetUserInfo')
                     //去到之前想去但是没有去成的地方,需要和登录逻辑去配合使用
-                    next('/login?redirect='+to.path)
+                    next('/login?redirect=' + to.path)
                 }
             }
         }
-    }else{
+    } else {
         //代表用户没登录或者之前也没登录过
         //后期我们需要判断用户是不是去订单相关的页面，如果是那么就先登录
 
         // 1、交易相关的    支付相关的   用户中心相关的  都要登录才能访问
-        next()
+        if (to.path.indexOf('/trade') === 0 || to.path.startsWith('/pay') || to.path.startsWith('/center')) {
+            next('/login?redirect=' + to.path)
+        } else {
+            next()
+        }
     }
 })
 

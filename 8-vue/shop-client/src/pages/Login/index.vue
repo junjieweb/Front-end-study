@@ -74,6 +74,21 @@ export default {
       password: ''
     }
   },
+  // 组件内守为 生命周期钩子
+  /*beforeRouteEnter(to, from, next) {
+    // 在渲染该组件的对应路由被 confirm 前调用  组件创建前会调用
+    // 不！能！获取组件实例 `this`
+    // 因为当守卫执行前，组件实例还没被创建
+    // if(this.$store.state.user.token)
+    next(vm => {
+      // 通过 `vm` 访问组件实例
+      if (vm.$store.state.user.token) {
+        next('/')
+      } else {
+        next()
+      }
+    })
+  },*/
   methods: {
     async login() {
       //获取用户数据

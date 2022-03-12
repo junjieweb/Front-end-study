@@ -12,6 +12,7 @@ import PaySuccess from "@/pages/PaySuccess";
 import Center from "@/pages/Center";
 import MyOrder from "@/pages/Center/MyOrder";
 import GroupOrder from "@/pages/Center/GroupOrder";
+import store from "@/store";
 
 export default [
     {
@@ -20,11 +21,26 @@ export default [
     },
     {
         path: '/pay',
-        component: Pay
+        component: Pay,
+        beforeEnter:(to,from,next)=>{
+            if (from.path === '/trade'){
+                next()
+            }else{
+                next('/')
+            }
+        }
     },
     {
         path: '/paysuccess',
-        component: PaySuccess
+        component: PaySuccess,
+        //路由独享守卫
+        beforeEnter: (to, from, next) => {
+            if (from.path === '/pay') {
+                next()
+            } else {
+                next('/')
+            }
+        }
     },
     {
         path: '/center',
@@ -47,7 +63,14 @@ export default [
     },
     {
         path: '/trade',
-        component: Trade
+        component: Trade,
+        beforeEnter: (to, from, next) => {
+            if (from.path === '/shopcart') {
+                next()
+            } else {
+                next('/')
+            }
+        }
     },
     {
         path: '/shopcart',
@@ -55,7 +78,18 @@ export default [
     },
     {
         path: '/addcartsuccess',
-        component: AddCartSuccess
+        component: AddCartSuccess,
+        //路由独享守卫
+        beforeEnter: (to, from, next) => {
+            let skuNum = to.query.skuNum
+            let skuInfo = sessionStorage.getItem('USER_TEMP_ID_KEY')
+            if (skuNum && skuInfo) {
+                next()
+            } else {
+                alert('必须带够参数')
+                next('/')
+            }
+        }
     },
     {
         path: '/detail/:skuId',
@@ -84,6 +118,16 @@ export default [
         component: Login,
         meta: {
             isHideFooter: true
+        },
+        //路由独享守卫
+        beforeEnter: (to, from, next) => {
+            // 只有没登录才能看到登录的界面
+            let token = store.state.user.token
+            if (token) {
+                next('/')
+            } else {
+                next()
+            }
         }
     },
 ]
