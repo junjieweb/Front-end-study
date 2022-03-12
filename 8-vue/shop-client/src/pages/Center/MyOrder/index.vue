@@ -69,15 +69,26 @@
 
       </div>
       <div class="choose-order">
-        <el-pagination
+        <!--
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page="currentPage4"
             :page-sizes="[100, 200, 300, 400]"
-            :page-size="100"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="400">
+        -->
+        <!--
+          layout是用来调正顺序的
+        -->
+        <el-pagination
+            background
+            :current-page="page"
+            :page-size="limit"
+            :total="total"
+            :pager-count="7"
+            :page-sizes="[3, 5, 10, 20]"
+            @current-change="getMyOrderInfo"
+            @size-change="handleSizeChange"
+            layout="prev, pager, next, jumper, ->, sizes, total">
         </el-pagination>
+
         <!--<MyPagination
             :currentPage="page"
             :total="total"
@@ -191,6 +202,12 @@ export default {
         this.total = result.data.total
       }
     },
+    handleSizeChange(size) {
+      this.limit = size
+      this.getMyOrderInfo()
+    }
+
+
     /*currentChange(page) {
       this.page = page
       this.getMyOrderInfo()
