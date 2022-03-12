@@ -120,7 +120,7 @@ export default {
       try {
         const imgUrl = await QRCode.toDataURL(this.payInfo.codeUrl)
         //2、生成二维码图片url成功之后，再去弹出消息盒子
-        await this.$alert(`<img src="${imgUrl}">`, '请使用微信扫码支付', {
+        this.$alert(`<img src="${imgUrl}" >`, '请使用微信扫码支付', {
           dangerouslyUseHTMLString: true,
           showClose: false,
           showCancelButton: true,
@@ -128,12 +128,39 @@ export default {
           confirmButtonText: "我已成功支付",
           center: true,
           //5、处理按钮,可以自己选择关闭还是不关闭消息盒子
+          beforeClose: (action, instance, done) => {
+            //action  确认  还是取消  还是close
+            //instance 代表当前弹出的消息盒子实例
+            //done  就是给我们的开关   是一个函数
+            if (action === 'confirm') {
+              //点击确认按钮的逻辑
+              //开发人员：为了自己方便，这里判断先不要了
+              /*if (this.payStatus) {
+                clearInterval(this.timer)
+                this.timer = null
+                done()
+                this.$router.push('/paysuccess')
+              } else {
+                this.$message.success('请确保支付成功，支付成功会自动跳转')
+              }*/
+              clearInterval(this.timer)
+              this.timer = null
+              done()
+              this.$router.push('/paysuccess')
 
+            } else if (action === 'cancel') {
+              //点击取消按钮的逻辑
+              this.$message.warning('请联系管理员')
+              clearInterval(this.timer)
+              this.timer = null
+              done()
+            }
+          }
         })
             .then(() => {
             })  //对应的是点击确定按钮的逻辑，只要点击了按钮，就会强制关闭消息盒子，我们控制不了关闭不关闭
             .catch(() => {
-            }); //对应的是点击取消按钮的逻辑，只要点击了按钮，就会强制关闭消息盒子，我们控制不了关闭不关闭
+            }) //对应的是点击取消按钮的逻辑，只要点击了按钮，就会强制关闭消息盒子，我们控制不了关闭不关闭
 
         //3、设置循环定时器（轮询），发送请求看用户对于这个订单是否支付成功
         if (!this.timer) {
