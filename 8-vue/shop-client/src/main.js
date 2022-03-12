@@ -6,6 +6,7 @@ import Pagination from "@/components/Pagination";
 
 import store from "@/store";
 import "@/plugins/swiper"; // 加载swiper的配置
+import '@/plugins/element' //加载element UI配置
 import "./mock/mockServer"
 import * as API from '@/api'
 
