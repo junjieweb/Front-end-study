@@ -63,7 +63,7 @@
         <input
             placeholder="请输入确认密码"
             v-model="password2"
-            name="password1"
+            name="password2"
             v-validate="{ required: true, is: password }"
             :class="{ invalid: errors.has('password2') }"
         />
@@ -139,17 +139,23 @@ export default {
 
     //注册
     async register() {
-      //获取用户信息
-      let {phone, password, password2, code} = this
-      if (phone && code && password && password2 && password === password2) {
-        //发请求注册用户
-        try {
-          await this.$store.dispatch('userRegister', {phone, code, password})
-          alert('注册成功')
-          await this.$router.push('/login')
-        } catch (e) {
-          alert(e.message)
-        }
+      //对所有的表单项统一验证
+      const success = await this.$validator.validateAll();
+      //全部表单验证成功，在向服务器发请求，进行祖册
+      //只要有一个表单没有成功，不会发请求
+      if (success) {
+        //获取用户信息
+        let {phone, password, password2, code} = this
+        // if (phone && code && password && password2 && password === password2) {
+          //发请求注册用户
+          try {
+            await this.$store.dispatch('userRegister', {phone, code, password})
+            alert('注册成功')
+            await this.$router.push('/login')
+          } catch (e) {
+            alert(e.message)
+          }
+        // }
       }
 
     }
