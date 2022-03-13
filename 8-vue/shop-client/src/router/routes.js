@@ -1,6 +1,10 @@
 //所有路由配置的数组
-import Home from "@/pages/Home";
-import Search from "@/pages/Search";
+// import Home from "@/pages/Home";
+const Home = () => import("@/pages/Home")
+
+// import Search from "@/pages/Search";
+const Search = () => import('@/pages/Search')
+
 import Register from "@/pages/Register";
 import Login from "@/pages/Login";
 import Detail from "@/pages/Detail";
@@ -14,6 +18,18 @@ import MyOrder from "@/pages/Center/MyOrder";
 import GroupOrder from "@/pages/Center/GroupOrder";
 import store from "@/store";
 
+//import from 这样的写法
+//一个是同步引入，从上往下依次执行引入
+//它不能动态引入
+//它是把所有的组件全部引入完成才执行下面代码，webpack打包的时候会把所有的引入组件集体打包，打包成一个大文件
+//效率比较慢
+
+//import函数可以让路由组件单独打包   还支持动态引入
+//写法很简单，路由组件在注册的时候可以是一个组件也可以是一个函数
+//写成函数，当路由被访问的时候，对应的函数就会调用，然后对应的import函数才会执行 动态引入并打包成单独文件
+
+//浏览器在运行的时候  加载 解析  渲染
+
 export default [
     {
         path: '/',
@@ -22,10 +38,10 @@ export default [
     {
         path: '/pay',
         component: Pay,
-        beforeEnter:(to,from,next)=>{
-            if (from.path === '/trade'){
+        beforeEnter: (to, from, next) => {
+            if (from.path === '/trade') {
                 next()
-            }else{
+            } else {
                 next('/')
             }
         }
