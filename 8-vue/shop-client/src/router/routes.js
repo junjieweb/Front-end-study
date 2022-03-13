@@ -96,7 +96,7 @@ export default [
         path: '/addcartsuccess',
         component: AddCartSuccess,
         //路由独享守卫
-        beforeEnter: (to, from, next) => {
+        /*beforeEnter: (to, from, next) => {
             let skuNum = to.query.skuNum
             let skuInfo = sessionStorage.getItem('USER_TEMP_ID_KEY')
             if (skuNum && skuInfo) {
@@ -105,7 +105,7 @@ export default [
                 alert('必须带够参数')
                 next('/')
             }
-        }
+        }*/
     },
     {
         path: '/detail/:skuId',
