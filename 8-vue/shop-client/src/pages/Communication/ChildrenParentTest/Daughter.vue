@@ -1,16 +1,17 @@
 <template>
   <div style="background: #ccc; height: 50px;">
-    <h3>女儿小红: 有存款: {{money}}</h3>
+    <h3>女儿小红: 有存款: {{ money }}</h3>
     <button @click="giveMoney(100)">给BABA钱: 100</button>
   </div>
 </template>
 
 <script>
 import mymixin from '@/pages/Communication/ChildrenParentTest/mymixin'
+
 export default {
-  mixins:[mymixin],
-  name: 'Daughter',
-  data () {
+  mixins: [mymixin],
+  name: 'Daughter',
+  data() {
     return {
       money: 20000
     }
