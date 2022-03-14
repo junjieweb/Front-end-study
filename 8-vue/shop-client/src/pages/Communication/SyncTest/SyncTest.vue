@@ -10,6 +10,7 @@
     <Child :money="money" @update:money="money = $event"></Child>
     <br>
     <br>
+
     <!-- 2、 -->
     <h2>使用sync修改符其实是上面的简写</h2>
     <Child :money.sync="money"></Child>
@@ -19,13 +20,11 @@
     <Child2 v-model="money"></Child2>
     <!-- <Child2 :value="money" @input="money = $event"></Child2> -->
 
-
     <!-- v-model和.sync都可以实现父子组件数据同步
     约定成俗
     1、v-model是当子组件当中有表单类元素的时候使用
     2、.sync是当子组件当中不是表单类元素的时候使用
     -->
-
 
     <!-- element-ui button 添加click事件可以触发，但是添加dblclick不会触发 -->
     <!-- 虽然你用起来和html标签button添加原生com事件click感觉一样，但是本质不一样 -->

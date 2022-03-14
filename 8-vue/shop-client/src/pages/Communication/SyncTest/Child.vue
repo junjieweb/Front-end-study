@@ -14,7 +14,7 @@
     var arr = [1,2,3]
     var arr1 = arr
     arr1[0] = 11
-    arr?   [11,2,3]  
+    arr?   [11,2,3]
     -->
     <!-- <button @click="money -= 100">花钱</button> -->
     <!-- 触发的事件名称必须是update:XXX，.sync的要求就是它 -->
