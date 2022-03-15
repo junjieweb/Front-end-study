@@ -41,6 +41,12 @@ import API from '@/api'
 // 任意组件可以使用API相关的接口
 Vue.prototype.$API = API
 
+/**
+ * 三级联动全局组件
+ * */
+import CategorySelect from '@/components/CategorySelect'
+Vue.component(CategorySelect.name, CategorySelect)
+
 new Vue({
   el: '#app',
   router,
