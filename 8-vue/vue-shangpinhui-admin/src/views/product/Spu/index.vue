@@ -26,21 +26,20 @@
           <el-table-column prop="spuName" label="SPU名称" />
           <el-table-column prop="description" label="SPU描述" />
           <el-table-column prop="prop" label="操作">
-            <template v-slot="{ show }">
+            <template v-slot="{ row }">
               <hint-button
                 title="添加Sku"
                 type="success"
                 size="mini"
                 icon="el-icon-plus"
-                @click="addSpu(show)"
+                @click="addSpu(row)"
               />
               <hint-button
-                ref="spu"
                 title="修改Spu"
                 type="warning"
                 size="mini"
                 icon="el-icon-edit"
-                @click="updateSpu(show)"
+                @click="updateSpu(row)"
               />
               <hint-button
                 title="查看当前Spu所有Sku列表"
@@ -70,8 +69,8 @@
           @size-change="handleSizeChange"
         />
       </div>
-      <SpuForm v-show="scene === 1" @changeScene="changeScene" />
-      <SkuFrom v-show="scene === 2" />
+      <SpuForm v-show="scene === 1" @changeScene="changeScene" ref="spu"/>
+      <SkuForm v-show="scene === 2" />
     </el-card>
   </div>
 </template>
@@ -138,10 +137,11 @@ export default {
       this.scene = 1
     },
     // 修改某一个Spu
-    updateSpu(show) {
+    updateSpu(row) {
       this.scene = 1
       // 获取子组件SpuForm
-      this.$refs.spu.initSpuData
+      // 在父组件中可以通过$refs获取到子组件
+      this.$refs.spu.initSpuData(row)
     },
     // 自定义事件的回调（SpuForm）
     changeScene(scene) {

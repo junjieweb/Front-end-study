@@ -83,8 +83,8 @@ export default {
       this.dialogVisible = true
     },
     // 初始化SpuForm数据
-    initSpuData() {
-      console.log(123)
+    initSpuData(spu) {
+      console.log(spu)
     }
   }
 }
