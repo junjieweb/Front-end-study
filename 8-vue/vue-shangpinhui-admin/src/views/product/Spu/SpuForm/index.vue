@@ -56,7 +56,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary">保存</el-button>
-        <el-button>取消</el-button>
+        <el-button @click="$emit('changeScene',0)">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -69,6 +69,9 @@ export default {
     return {
       dialogImageUrl: '',
       dialogVisible: false
+      // spu属性初始化的时候是一个空的对象,在修改SPU的时候，会想服务器发请求，返回SPU信息（对象），
+      // 在修改的时候可以利用服务器返回的这个对象收集最新的数据提交给服务器
+      // 添加SPU，如果是添加SPU的时候并没有向服务器发请求，数据收集到哪里呀[SPU]，收集数据的时候有哪些字段呀，看文档
     }
   },
   methods: {
@@ -78,6 +81,10 @@ export default {
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url
       this.dialogVisible = true
+    },
+    // 初始化SpuForm数据
+    initSpuData() {
+      console.log(123)
     }
   }
 }

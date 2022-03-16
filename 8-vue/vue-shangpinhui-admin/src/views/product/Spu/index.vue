@@ -35,6 +35,7 @@
                 @click="addSpu(show)"
               />
               <hint-button
+                ref="spu"
                 title="修改Spu"
                 type="warning"
                 size="mini"
@@ -69,7 +70,7 @@
           @size-change="handleSizeChange"
         />
       </div>
-      <SpuForm v-show="scene === 1" />
+      <SpuForm v-show="scene === 1" @changeScene="changeScene" />
       <SkuFrom v-show="scene === 2" />
     </el-card>
   </div>
@@ -78,14 +79,12 @@
 <script>
 import SpuForm from '@/views/product/Spu/SpuForm'
 import SkuForm from '@/views/product/Spu/SkuForm'
-import SkuFrom from '@/views/product/Spu/SkuForm'
 export default {
   name: 'Spu',
-  comments: {
+  components: {
     SpuForm,
     SkuForm
   },
-  components: { SkuFrom, SpuForm },
   data() {
     return {
       category1Id: '',
@@ -141,6 +140,12 @@ export default {
     // 修改某一个Spu
     updateSpu(show) {
       this.scene = 1
+      // 获取子组件SpuForm
+      this.$refs.spu.initSpuData
+    },
+    // 自定义事件的回调（SpuForm）
+    changeScene(scene) {
+      this.scene = scene
     }
   }
 }
