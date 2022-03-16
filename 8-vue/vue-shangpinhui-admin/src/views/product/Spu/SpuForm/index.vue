@@ -6,11 +6,21 @@
       </el-form-item>
       <el-form-item label="品牌">
         <el-select v-model="spu.tmId" placeholder="请选择品牌">
-          <el-option v-for="tm in tradeMarkList" :key="tm.id" :label="tm.tmName" :value="tm.id" />
+          <el-option
+            v-for="tm in tradeMarkList"
+            :key="tm.id"
+            :label="tm.tmName"
+            :value="tm.id"
+          />
         </el-select>
       </el-form-item>
       <el-form-item label="SPU描述">
-        <el-input v-model="spu.description" type="textarea" placeholder="描述" rows="4" />
+        <el-input
+          v-model="spu.description"
+          type="textarea"
+          placeholder="描述"
+          rows="4"
+        />
       </el-form-item>
       <el-form-item label="SPU图片">
         <!--
@@ -39,21 +49,66 @@
         </el-dialog>
       </el-form-item>
       <el-form-item label="销售属性">
-        <el-select placeholder="还有3未选择" value="">
-          <el-option label="区域一" value="shanghai" />
-          <el-option label="区域二" value="beijing" />
+        <el-select
+          v-model="attrIdAndAttrName"
+          :placeholder="`还有${unSelectSaleAttr.length}未选择`"
+        >
+          <el-option
+            v-for="unselect in unSelectSaleAttr"
+            :key="unselect.id"
+            :label="unselect.name"
+            :value="`${unselect.id}:${unselect.name}`"
+          />
         </el-select>
-        <el-button type="primary" icon="el-icon-plus">添加销售属性</el-button>
-        <el-table border style="width: 100%">
-          <el-table-column type="index" align="center" label="序号" width="80" />
-          <el-table-column prop="prop" label="属性名" />
-          <el-table-column prop="prop" label="属性值名称列表" />
-          <el-table-column prop="prop" label="操作" />
+        <el-button type="primary" icon="el-icon-plus" :disabled="!attrIdAndAttrName">添加销售属性</el-button>
+        <!-- 展示的是当前SPU属于自己的销售属性 -->
+        <el-table border style="width: 100%" :data="spu.spuSaleAttrList">
+          <el-table-column
+            type="index"
+            align="center"
+            label="序号"
+            width="80"
+          />
+          <el-table-column prop="saleAttrName" label="属性名" />
+          <el-table-column prop="prop" label="属性值名称列表">
+            <template v-slot="{ row }">
+              <el-tag
+                v-for="(tag, index) in row.spuSaleAttrValueList"
+                :key="tag.id"
+                closable
+                :disable-transitions="false"
+                @close="row.spuSaleAttrValueList.splice(index, 1)"
+              >
+                {{ tag.saleAttrValueName }}
+              </el-tag>
+              <!--底下的解构可以当中咱们当年的span与input切换-->
+              <!--@keyup.enter.native="handleInputConfirm"
+                @blur="handleInputConfirm"-->
+              <el-input
+                v-if="row.inputVisible"
+                ref="saveTagInput"
+                v-model="row.inputValue"
+                class="input-new-tag"
+                size="small"
+              />
+              <!--@click="showInput"-->
+              <el-button
+                v-else
+                class="button-new-tag"
+                size="small"
+              >添加</el-button>
+            </template>
+          </el-table-column>
+          <el-table-column prop="prop" label="操作">
+            <template v-slot="{ row, $index }">
+              <el-button type="danger" icon="el-icon-delete" size="mini" />
+            </template>
+          </el-table-column>
         </el-table>
       </el-form-item>
       <el-form-item>
         <el-button type="primary">保存</el-button>
-        <el-button @click="$emit('changeScene',0)">取消</el-button>
+        <el-button @click="$emit('changeScene', 0)">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -83,6 +138,25 @@ export default {
       attrIdAndAttrName: '' // 收集未选择的销售属性的id-----
     }
   },
+  computed: {
+    // 计算出还未选择的销售属性
+    unSelectSaleAttr() {
+      // 整个平台的销售属性一共三个：尺寸、颜色、版本 ----saleAttrList
+      // 当前SPU拥有的属于自己的销售属性spu.spuSaleAttrList  ----颜色
+      // 数组的过滤方法，可以从已有的数组当中过滤出用户需要的元素，并未返回一个新的数据
+      /* return this.saleAttrList.filter(item => {
+        // every数组的方法，会返回一个布尔值【真，假的】
+        return this.spu.spuSaleAttrList.every(item1 => {
+          return item.name !== item1.saleAttrName
+        })
+      })*/
+      return this.saleAttrList.filter((item) =>
+        this.spu.spuSaleAttrList.every(
+          (item1) => item.name !== item1.saleAttrName
+        )
+      )
+    }
+  },
   methods: {
     handleRemove(file, fileList) {
       console.log(file, fileList)
@@ -110,7 +184,7 @@ export default {
         // 由于照片墙显示图片的数据需要数组，数组里面的元素需要有name与url字段
         // 需要把服务器返回的数据进行修改
         const listArr = spuImageResult.data
-        listArr.forEach(item => {
+        listArr.forEach((item) => {
           item.name = item.imgName
           item.url = item.imgUrl
         })
@@ -127,15 +201,22 @@ export default {
 }
 </script>
 
-<style scoped>
-.avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+<style>
+.el-tag + .el-tag {
+  margin-left: 10px;
 }
-.avatar-uploader .el-upload:hover {
-  border-color: #409EFF;
+
+.button-new-tag {
+  margin-left: 10px;
+  height: 32px;
+  line-height: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.input-new-tag {
+  width: 90px;
+  margin-left: 10px;
+  vertical-align: bottom;
 }
 </style>
