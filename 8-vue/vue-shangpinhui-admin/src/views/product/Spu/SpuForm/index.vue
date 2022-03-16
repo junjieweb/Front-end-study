@@ -1,39 +1,36 @@
 <template>
   <div>
-    <el-form label-width="80px">
+    <el-form label-width="80px" :model="spu">
       <el-form-item label="SPU名称">
-        <el-input placeholder="SPU名称" />
+        <el-input v-model="spu.spuName" placeholder="SPU名称" />
       </el-form-item>
       <el-form-item label="品牌">
-        <el-select placeholder="请选择品牌" value="">
-          <el-option label="区域一" value="shanghai" />
-          <el-option label="区域二" value="beijing" />
+        <el-select v-model="spu.tmId" placeholder="请选择品牌">
+          <el-option v-for="tm in tradeMarkList" :key="tm.id" :label="tm.tmName" :value="tm.id" />
         </el-select>
       </el-form-item>
       <el-form-item label="SPU描述">
-        <el-input type="textarea" placeholder="描述" rows="4" />
+        <el-input v-model="spu.description" type="textarea" placeholder="描述" rows="4" />
       </el-form-item>
       <el-form-item label="SPU图片">
         <!--
           上传图片：
           action图片上传的地址
           list-type: 文件列表的类型
-          on-preview:图片预览的时候会出发
-          on-remove:当删除图片的时候会出发
+          on-preview:图片预览的时候会触发
+          on-remove:当删除图片的时候会触发
           file-list：照片墙需要展示的数据【数组：数组里面的元素务必要有name、url属性】
           on-preview：图片预览功能
           on-remove:删除图片的时候会触发
 
-          :on-preview="handlePictureCardPreview"
-          :on-remove="handleRemove"
           :on-success="handlerSuccess"
-          :file-list="spuImageList"
         -->
         <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="/dev-api/admin/product/fileUpload"
           list-type="picture-card"
           :on-preview="handlePictureCardPreview"
           :on-remove="handleRemove"
+          :file-list="spuImageList"
         >
           <i class="el-icon-plus" />
         </el-upload>
@@ -73,12 +70,12 @@ export default {
       // 在修改的时候可以利用服务器返回的这个对象收集最新的数据提交给服务器
       // 添加SPU，如果是添加SPU的时候并没有向服务器发请求，数据收集到哪里呀[SPU]，收集数据的时候有哪些字段呀，看文档
       spu: {
-        // category3Id: 0, // 三级分类的id
-        // descriptions: '', // 描述
-        // spuName: '', // spu名称
-        // tmId: '', // 平台的id
-        // spuImageList: [], // 收集spu图片的信息
-        // spuSaleAttrList: [] // 平台属性与属性值收集
+        category3Id: 0, // 三级分类的id
+        descriptions: '', // 描述
+        spuName: '', // spu名称
+        tmId: '', // 平台的id
+        spuImageList: [], // 收集spu图片的信息
+        spuSaleAttrList: [] // 平台属性与属性值收集
       },
       tradeMarkList: [], // 存储品牌信息
       spuImageList: [], // 存储spu图片数据
@@ -112,7 +109,13 @@ export default {
       if (spuImageResult.code === 200) {
         // 由于照片墙显示图片的数据需要数组，数组里面的元素需要有name与url字段
         // 需要把服务器返回的数据进行修改
-        this.spuImageList = spuImageResult.data
+        const listArr = spuImageResult.data
+        listArr.forEach(item => {
+          item.name = item.imgName
+          item.url = item.imgUrl
+        })
+        // 把整理好的数据赋值给 spuImageList
+        this.spuImageList = listArr
       }
       // 获取平台全部的销售属性
       const saleResult = await this.$API.spu.reqBaseSaleAttrList()
