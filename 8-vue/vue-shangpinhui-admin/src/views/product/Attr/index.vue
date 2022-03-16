@@ -84,7 +84,7 @@
             </template>
           </el-table-column>
         </el-table>
-        <el-button type="primary" @click="addOrUpdateAttr">保存</el-button>
+        <el-button :disabled="attrInfo.attrValueList.length < 1" type="primary" @click="addOrUpdateAttr">保存</el-button>
         <el-button @click="isShowTable=true">取消</el-button>
       </div>
     </el-card>
@@ -244,12 +244,12 @@ export default {
         await this.$API.attr.reqAddOrUpdateAttr(this.attrInfo)
         // 展示平台属性的信号量进行切换
         this.isShowTable = true
-        // 提示消失
+        // 提示消息
         this.$message({ type: 'success', message: '保存成功' })
         // 保存成功以后需要再次获取平台属性进行展示
         await this.getAttrList()
       } catch (e) {
-        this.$message('保存失败')
+        // this.$message('保存失败')
       }
     }
   }
