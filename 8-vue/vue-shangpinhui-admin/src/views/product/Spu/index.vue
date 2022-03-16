@@ -16,16 +16,16 @@
           style="margin-bottom: 10px"
           >添加SPU</el-button
         >
-        <el-table border style="width: 100%">
+        <el-table border style="width: 100%" :data="records">
           <el-table-column
             label="序号"
             type="index"
             align="center"
             width="80"
           ></el-table-column>
-          <el-table-column prop="name" label="SPU名称"> </el-table-column>
-          <el-table-column prop="address" label="SPU描述"> </el-table-column>
-          <el-table-column prop="address" label="操作">
+          <el-table-column prop="spuName" label="SPU名称"> </el-table-column>
+          <el-table-column prop="description" label="SPU描述"> </el-table-column>
+          <el-table-column prop="prop" label="操作">
             <template v-slot="{ show, $index }">
               <el-button
                 type="success"
