@@ -3,7 +3,7 @@ module.exports = {
   /**
    * 网站的标题
    */
-  title: 'Vue Admin 后台管理系统',
+  title: 'Vue 后台管理系统',
 
   /**
    * @type {boolean} true | false
