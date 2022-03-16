@@ -68,10 +68,22 @@ export default {
   data() {
     return {
       dialogImageUrl: '',
-      dialogVisible: false
+      dialogVisible: false,
       // spu属性初始化的时候是一个空的对象,在修改SPU的时候，会想服务器发请求，返回SPU信息（对象），
       // 在修改的时候可以利用服务器返回的这个对象收集最新的数据提交给服务器
       // 添加SPU，如果是添加SPU的时候并没有向服务器发请求，数据收集到哪里呀[SPU]，收集数据的时候有哪些字段呀，看文档
+      spu: {
+        // category3Id: 0, // 三级分类的id
+        // descriptions: '', // 描述
+        // spuName: '', // spu名称
+        // tmId: '', // 平台的id
+        // spuImageList: [], // 收集spu图片的信息
+        // spuSaleAttrList: [] // 平台属性与属性值收集
+      },
+      tradeMarkList: [], // 存储品牌信息
+      spuImageList: [], // 存储spu图片数据
+      saleAttrList: [], // 销售属性的数据（项目全部的销售属性）
+      attrIdAndAttrName: '' // 收集未选择的销售属性的id-----
     }
   },
   methods: {
@@ -83,8 +95,30 @@ export default {
       this.dialogVisible = true
     },
     // 初始化SpuForm数据
-    initSpuData(spu) {
-      console.log(spu)
+    async initSpuData(spu) {
+      // 获取Spu信息的数据
+      const spuResult = await this.$API.spu.reqSpu(spu.id)
+      if (spuResult.code === 200) {
+        // 在修改spu的时候,需要向服务器发请求的，把服务器返回的数据（对象），赋值给spu属性
+        this.spu = spuResult.data
+      }
+      // 获取品牌的信息
+      const tradeMarkResult = await this.$API.spu.reqTradeMarkList()
+      if (tradeMarkResult.code === 200) {
+        this.tradeMarkList = tradeMarkResult.data
+      }
+      // 获取spu图片的数据
+      const spuImageResult = await this.$API.spu.reqSpuImageList(spu.id)
+      if (spuImageResult.code === 200) {
+        // 由于照片墙显示图片的数据需要数组，数组里面的元素需要有name与url字段
+        // 需要把服务器返回的数据进行修改
+        this.spuImageList = spuImageResult.data
+      }
+      // 获取平台全部的销售属性
+      const saleResult = await this.$API.spu.reqBaseSaleAttrList()
+      if (saleResult.code === 200) {
+        this.saleAttrList = saleResult.data
+      }
     }
   }
 }
