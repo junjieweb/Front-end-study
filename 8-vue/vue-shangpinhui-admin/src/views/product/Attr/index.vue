@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card style="margin: 20px 0">
-      <CategorySelect @getCategoryId="getCategoryId" />
+      <CategorySelect :show="!isShowTable" @getCategoryId="getCategoryId" />
     </el-card>
 
     <el-card>
@@ -14,6 +14,7 @@
           @click="addAttr"
         >添加属性
         </el-button>
+        <!--表格 展示商品属性-->
         <el-table border style="width: 100%" :data="attrList">
           <el-table-column
             type="index"
@@ -37,7 +38,7 @@
           </el-table-column>
           <el-table-column prop="prop" label="操作" width="150">
             <template v-slot="{row}">
-              <el-button type="warning" icon="el-icon-edit" size="mini" @click="isShowTable=false" />
+              <el-button type="warning" icon="el-icon-edit" size="mini" @click="updateAttr(row)" />
               <el-button type="danger" icon="el-icon-delete" size="mini" />
             </template>
           </el-table-column>
@@ -45,13 +46,12 @@
       </div>
       <!--添加属性|修改属性的结构-->
       <div v-show="!isShowTable">
-        <el-form :inline="true" label-width="80px" :model="attrInfo">
+        <el-form ref="form" :inline="true" label-width="80px" :model="attrInfo">
           <el-form-item label="属性名">
             <el-input v-model="attrInfo.attrName" placeholder="请输入属性名" />
           </el-form-item>
         </el-form>
-        <el-button type="primary" icon="el-icon-plus" :disabled="!attrInfo.attrName" @click="addAttrValue">添加属性值
-        </el-button>
+        <el-button type="primary" icon="el-icon-plus" :disabled="!attrInfo.attrName" @click="addAttrValue">添加属性值</el-button>
         <el-button @click="isShowTable=true">取消</el-button>
         <el-table border style="width: 100%;margin: 10px 0" :data="attrInfo.attrValueList">
           <el-table-column
@@ -61,12 +61,22 @@
             width="80"
           />
           <el-table-column prop="prop" label="属性值名称" width="width">
-            <template v-slot="{row}">
-              <el-input v-model="row.valueName" size="mini" placeholder="请输入属性值名称" />
+            <template v-slot="{row,$index}">
+              <!-- 这里结构需要用到span与input进行来回的切换 -->
+              <el-input
+                v-if="row.flag"
+                :ref="$index"
+                v-model="row.valueName"
+                size="mini"
+                placeholder="请输入属性值名称"
+                @blur="toLook(row)"
+                @keyup.native.enter="toLook(row)"
+              />
+              <span v-else style="display: block">{{ row.valueName }}</span>
             </template>
           </el-table-column>
           <el-table-column prop="prop" label="操作">
-            <template v-slot="{row}">
+            <template v-slot="{row,$index}">
               <el-button type="danger" icon="el-icon-delete" size="mini" />
             </template>
           </el-table-column>
@@ -79,6 +89,8 @@
 </template>
 
 <script>
+// 按需引入lodash中的深拷贝
+import cloneDeep from 'lodash/cloneDeep'
 export default {
   name: 'Attr',
   data() {
@@ -87,7 +99,7 @@ export default {
       category2Id: '',
       category3Id: '',
       attrList: [],
-      isShowTable: false, // 控制table表格显示与隐藏的
+      isShowTable: true, // 控制table表格显示与隐藏的
       attrInfo: { // 收集新增属性|修改属性使用的
         attrName: '', // 属性名
         attrValueList: [
@@ -130,11 +142,15 @@ export default {
     // 添加属性值回调
     addAttrValue() {
       // 向属性值的数组里面添加元素
+      // attrId 是相应的属性的id，目前而言是添加属性的操作，还没有相应的属性的id，目前带给服务器的id为undefined
       this.attrInfo.attrValueList.push({
-        // attrId 是相应的属性的id，目前而言是添加属性的操作，还没有相应的属性的id，目前带给服务器的id为undefined
-        attrId: undefined,
+        // 对于修改某一个属性的时候，可以在已有的属性值基础之上新增新的属性值（新增属性值的时候，需要把已有的属性的id带上）
+        attrId: this.attrInfo.id,
         // valueName 相应的属性值的名称
-        valueName: ''
+        valueName: '',
+        // flag属性：给每一个属性值添加一个标记flag，用户切换查看模式与编辑模式，好处，每一个属性值可以控制自己的模式切换
+        // 当前flag属性，响应式数据（数据变化视图跟着变化）
+        flag: true
       })
     },
     // 添加属性按钮的回调
@@ -148,6 +164,35 @@ export default {
         categoryId: this.category3Id, // 三级分类的id
         categoryLevel: 3 // 服务器需要区分几级id
       }
+    },
+    // 修改一个属性
+    updateAttr(row) {
+      this.isShowTable = false
+      // 将选中的属性赋值给attrInfo
+      // 由于数据结构当中存在对象里面套数组，数组里面有套对象，因此需要使用深拷贝解决这类问题
+      // 深拷贝，浅拷贝在面试的时候出现频率很高，切记达到手写深拷贝与浅拷贝
+      this.attrInfo = cloneDeep(row)
+    },
+    // 失去焦点的事件---切换为查看模式，展示span
+    toLook(row) {
+      // row：形参是当前用户添加的最新的属性值
+      // 如果属性值为空不能作为新的属性值，需要给用户提示，让他输入一个其他的属性值
+      if (row.valueName.trim() === '') {
+        this.$message('属性值不能为空')
+        return
+      }
+      // 新增的属性值不能与已有的属性值重复
+      const isRepeat = this.attrInfo.attrValueList.some(item => {
+        // 需要将row从数组里面判断的时候去除
+        // row最新新增的属性值【数组的最后一项元素】
+        // 判断的时候，需要把已有的数组当中新增的这个属性值去除
+        if (row !== item) {
+          return row.valueName === item.valueName
+        }
+      })
+      if (isRepeat) return
+      // 当前编辑模式变为查看模式【让input消失，显示span】
+      row.flag = false
     }
   }
 }
