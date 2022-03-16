@@ -6,47 +6,53 @@
     </el-card>
     <el-card>
       <!-- 底部这里将来是有三部分进行切换 -->
-      <div>
+      <div v-show="scene === 0">
         <!--展示SPU列表的结构-->
         <el-button
-          @click="addSpu"
           :disabled="!category3Id"
           type="primary"
           icon="el-icon-plus"
           style="margin-bottom: 10px"
-          >添加SPU</el-button
-        >
+          @click="addSpu"
+        >添加SPU
+        </el-button>
         <el-table border style="width: 100%" :data="records">
           <el-table-column
             label="序号"
             type="index"
             align="center"
             width="80"
-          ></el-table-column>
-          <el-table-column prop="spuName" label="SPU名称"> </el-table-column>
-          <el-table-column prop="description" label="SPU描述"> </el-table-column>
+          />
+          <el-table-column prop="spuName" label="SPU名称" />
+          <el-table-column prop="description" label="SPU描述" />
           <el-table-column prop="prop" label="操作">
-            <template v-slot="{ show, $index }">
-              <el-button
+            <template v-slot="{ show }">
+              <hint-button
+                title="添加Sku"
                 type="success"
                 size="mini"
                 icon="el-icon-plus"
-              ></el-button>
-              <el-button
+                @click="addSpu(show)"
+              />
+              <hint-button
+                title="修改Spu"
                 type="warning"
                 size="mini"
                 icon="el-icon-edit"
-              ></el-button>
-              <el-button
+                @click="updateSpu(show)"
+              />
+              <hint-button
+                title="查看当前Spu所有Sku列表"
                 type="info"
                 size="mini"
                 icon="el-icon-info"
-              ></el-button>
-              <el-button
+              />
+              <hint-button
+                title="删除Spu"
                 type="danger"
                 size="mini"
                 icon="el-icon-delete"
-              ></el-button>
+              />
             </template>
           </el-table-column>
         </el-table>
@@ -61,27 +67,37 @@
           layout="prev, pager, next, jumper, ->, sizes, total"
           @current-change="getSpuList"
           @size-change="handleSizeChange"
-        ></el-pagination>
+        />
       </div>
+      <SpuForm v-show="scene === 1" />
+      <SkuFrom v-show="scene === 2" />
     </el-card>
   </div>
 </template>
 
 <script>
+import SpuForm from '@/views/product/Spu/SpuForm'
+import SkuForm from '@/views/product/Spu/SkuForm'
+import SkuFrom from '@/views/product/Spu/SkuForm'
 export default {
-  name: "Spu",
+  name: 'Spu',
+  comments: {
+    SpuForm,
+    SkuForm
+  },
+  components: { SkuFrom, SpuForm },
   data() {
     return {
-      category1Id: "",
-      category2Id: "",
-      category3Id: "",
+      category1Id: '',
+      category2Id: '',
+      category3Id: '',
       page: 1, // 代表的分页器第几页
       limit: 5, // 当前页数展示数据条数
       total: 0, // 总共数据条数
-      records: [], //spu列表的数据
+      records: [], // spu列表的数据
       scene: 0, // 0代表展示SPU列表数据   1 添加SPU|修改SPU   2 添加SKU
-      show: true,
-    };
+      show: true
+    }
   },
   methods: {
     // 自定义事件的回调
@@ -89,39 +105,45 @@ export default {
       // categoryId:获取到一、二、三级分类的id  level：为了区分是几级id
       // 区分三级分类相应的id，以及父组件进行存储
       if (level === 1) {
-        this.category1Id = categoryId;
-        this.category2Id = "";
-        this.category3Id = "";
+        this.category1Id = categoryId
+        this.category2Id = ''
+        this.category3Id = ''
       } else if (level === 2) {
-        this.category2Id = categoryId;
-        this.category3Id = "";
+        this.category2Id = categoryId
+        this.category3Id = ''
       } else {
         // 代表三级分类的id有了
-        this.category3Id = categoryId;
+        this.category3Id = categoryId
         // 发请求获取SPU列表数据
-        this.getSpuList();
+        this.getSpuList()
       }
     },
     // 获取Spu列表数据的方法
     async getSpuList(pager = 1) {
-      this.page = pager;
-      const { page, limit, category3Id } = this;
+      this.page = pager
+      const { page, limit, category3Id } = this
       // 携带三个参数:page 第几页  limit 每一页需要展示多少条数据  三级分类id
-      const result = await this.$API.spu.reqSpuList(page, limit, category3Id);
+      const result = await this.$API.spu.reqSpuList(page, limit, category3Id)
       if (result.code === 200) {
-        this.total = result.data.total;
-        this.records = result.data.records;
+        this.total = result.data.total
+        this.records = result.data.records
       }
     },
-    //当分页器的某一个展示数据条数发生变化的回调
+    // 当分页器的某一个展示数据条数发生变化的回调
     handleSizeChange(limit) {
-      this.limit = limit;
-      this.getSpuList();
+      this.limit = limit
+      this.getSpuList()
     },
-    //添加SPU按钮的回调
-    addSpu() {},
-  },
-};
+    // 添加SPU按钮的回调
+    addSpu() {
+      this.scene = 1
+    },
+    // 修改某一个Spu
+    updateSpu(show) {
+      this.scene = 1
+    }
+  }
+}
 </script>
 
 <style scoped></style>
