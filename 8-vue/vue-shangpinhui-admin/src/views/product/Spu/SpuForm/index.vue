@@ -27,19 +27,16 @@
           上传图片：
           action图片上传的地址
           list-type: 文件列表的类型
-          on-preview:图片预览的时候会触发
-          on-remove:当删除图片的时候会触发
+          on-preview:图片预览的时候会触发  图片预览功能
+          on-remove:当删除图片的时候会触发  删除图片的时候会触发
           file-list：照片墙需要展示的数据【数组：数组里面的元素务必要有name、url属性】
-          on-preview：图片预览功能
-          on-remove:删除图片的时候会触发
-
-          :on-success="handlerSuccess"
         -->
         <el-upload
           action="/dev-api/admin/product/fileUpload"
           list-type="picture-card"
           :on-preview="handlePictureCardPreview"
           :on-remove="handleRemove"
+          :on-success="handlerSuccess"
           :file-list="spuImageList"
         >
           <i class="el-icon-plus" />
@@ -150,20 +147,31 @@ export default {
           return item.name !== item1.saleAttrName
         })
       })*/
-      return this.saleAttrList.filter((item) =>
-        this.spu.spuSaleAttrList.every(
-          (item1) => item.name !== item1.saleAttrName
-        )
-      )
+      return this.saleAttrList.filter((item) => this.spu.spuSaleAttrList.every((item1) => item.name !== item1.saleAttrName))
     }
   },
   methods: {
+    // 照片墙删除某一个图片的时候会触发
     handleRemove(file, fileList) {
-      console.log(file, fileList)
+      // file参数:代表的是删除的那个张图片
+      // fileList:照片墙删除某一张图片以后，剩余的其他的图片
+      // console.log(file, fileList)
+      // 收集照片墙图片的数据
+      // 对于已有的图片【照片钱中显示的图片：有name、url字段的】，因为照片墙显示数据务必要有这两个属性
+      // 对于服务器而言，不需要name、url字段，将来对于有的图片的数据在提交给服务器的时候，需要处理的
+      this.spuImageList = fileList
     },
+    // 照片墙图片预览的回调
     handlePictureCardPreview(file) {
+      // 将图片地址赋值给这个属性
       this.dialogImageUrl = file.url
+      // 对话框显示
       this.dialogVisible = true
+    },
+    // 照片墙上传成功的回调
+    handlerSuccess(response, file, fileList) {
+      // 收集图片的信息
+      this.spuImageList = fileList
     },
     // 初始化SpuForm数据
     async initSpuData(spu) {
