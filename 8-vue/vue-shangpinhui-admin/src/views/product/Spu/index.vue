@@ -47,12 +47,15 @@
                 size="mini"
                 icon="el-icon-info"
               />
-              <hint-button
-                title="删除Spu"
-                type="danger"
-                size="mini"
-                icon="el-icon-delete"
-              />
+              <el-popconfirm title="这是一段内容确定删除吗？" @onConfirm="deleteSpu(row)">
+                <hint-button
+                  slot="reference"
+                  title="删除Spu"
+                  type="danger"
+                  size="mini"
+                  icon="el-icon-delete"
+                />
+              </el-popconfirm>
             </template>
           </el-table-column>
         </el-table>
@@ -152,6 +155,15 @@ export default {
         this.getSpuList(this.page)
       } else {
         this.getSpuList()
+      }
+    },
+    // 删除spu的回调
+    async deleteSpu(row) {
+      const result = await this.$API.spu.reqDeleteSpu(row.id)
+      if (result.code === 200) {
+        this.$message({ type: 'success', message: '删除成功' })
+        // 代表SPU个数大于1删除的时候停留在当前页，如果SPU个数小于1 回到上一页
+        await this.getSpuList(this.records.length > 1 ? this.page : this.page - 1)
       }
     }
   }
