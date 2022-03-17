@@ -32,7 +32,7 @@
                 type="success"
                 size="mini"
                 icon="el-icon-plus"
-                @click="addSpu(row)"
+                @click="addSku(row)"
               />
               <hint-button
                 title="修改Spu"
@@ -165,6 +165,10 @@ export default {
         // 代表SPU个数大于1删除的时候停留在当前页，如果SPU个数小于1 回到上一页
         await this.getSpuList(this.records.length > 1 ? this.page : this.page - 1)
       }
+    },
+    // 添加Sku
+    addSku(row) {
+      this.scene = 2
     }
   }
 }
