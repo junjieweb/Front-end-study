@@ -2,7 +2,7 @@
   <div>
     <el-card style="margin: 20px 0">
       <!-- 三级联动已经是全局组件了 -->
-      <CategorySelect :show="!show" @getCategoryId="getCategoryId" />
+      <CategorySelect :show="scene !== 0" @getCategoryId="getCategoryId" />
     </el-card>
     <el-card>
       <!-- 底部这里将来是有三部分进行切换 -->
@@ -93,8 +93,7 @@ export default {
       limit: 5, // 当前页数展示数据条数
       total: 0, // 总共数据条数
       records: [], // spu列表的数据
-      scene: 0, // 0代表展示SPU列表数据   1 添加SPU|修改SPU   2 添加SKU
-      show: true
+      scene: 0 // 0代表展示SPU列表数据   1 添加SPU|修改SPU   2 添加SKU
     }
   },
   methods: {

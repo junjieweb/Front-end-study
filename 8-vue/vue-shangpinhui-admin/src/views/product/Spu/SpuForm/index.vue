@@ -57,7 +57,7 @@
             :value="`${unselect.id}:${unselect.name}`"
           />
         </el-select>
-        <el-button type="primary" icon="el-icon-plus" :disabled="!attrIdAndAttrName">添加销售属性</el-button>
+        <el-button type="primary" icon="el-icon-plus" :disabled="!attrIdAndAttrName" @click="addSaleAttr">添加销售属性</el-button>
         <!-- 展示的是当前SPU属于自己的销售属性 -->
         <el-table border style="width: 100%" :data="spu.spuSaleAttrList">
           <el-table-column
@@ -79,26 +79,27 @@
                 {{ tag.saleAttrValueName }}
               </el-tag>
               <!--底下的解构可以当中咱们当年的span与input切换-->
-              <!--@keyup.enter.native="handleInputConfirm"
-                @blur="handleInputConfirm"-->
+              <!--@keyup.enter.native="handleInputConfirm"-->
               <el-input
                 v-if="row.inputVisible"
                 ref="saveTagInput"
                 v-model="row.inputValue"
                 class="input-new-tag"
                 size="small"
+                @blur="handleInputConfirm(row)"
               />
               <!--@click="showInput"-->
               <el-button
                 v-else
                 class="button-new-tag"
                 size="small"
+                @click="addSaleAttrValue(row)"
               >添加</el-button>
             </template>
           </el-table-column>
           <el-table-column prop="prop" label="操作">
             <template v-slot="{ row, $index }">
-              <el-button type="danger" icon="el-icon-delete" size="mini" />
+              <el-button @click="spu.spuSaleAttrList.splice($index,1)" type="danger" icon="el-icon-delete" size="mini" />
             </template>
           </el-table-column>
         </el-table>
@@ -172,6 +173,47 @@ export default {
     handlerSuccess(response, file, fileList) {
       // 收集图片的信息
       this.spuImageList = fileList
+    },
+    // 添加新的销售属性
+    addSaleAttr() {
+      // 已经收集需要添加的销售属性的信息
+      // 把收集到的销售属性数据进行分割
+      const [baseSaleAttrId, saleAttrName] = this.attrIdAndAttrName.split(':')
+      // 向SPU对象的spuSaleAttrList属性里面添加新的销售属性
+      const newSaleAttr = { baseSaleAttrId, saleAttrName, spuSaleAttrValueList: [] }
+      // 添加新的销售属性
+      this.spu.spuSaleAttrList.push(newSaleAttr)
+      // 清空数据
+      this.attrIdAndAttrName = ''
+    },
+    // 添加按钮的回调
+    addSaleAttrValue(row) {
+      // 点击销售属性值当中添加按钮的时候，需要有button变为input,通过当前销售属性的inputVisible控制
+      // 挂载在销售属性身上的响应式数据inputVisible，控制button与input切换
+      this.$set(row, 'inputVisible', true)
+      // 通过响应式数据inputValue字段收集新增的销售属性值
+      this.$set(row, 'inputValue', '')
+    },
+    // el-input失去焦点的事件
+    handleInputConfirm(row) {
+      // 解构出销售属性当中收集数据
+      const { baseSaleAttrId, inputValue } = row
+      // 新增的销售属性值的名称不能为空
+      if (inputValue.trim() === '') {
+        this.$message('属性值不能为空')
+        return
+      }
+      // 属性值也不能重复，这里也可以用some
+      const result = row.spuSaleAttrValueList.every(item => item.saleAttrValueName !== inputValue)
+      if (!result) {
+        this.$message('属性值不能重复')
+        return
+      }
+      // 新增的销售属性值
+      const newSaleAttrValue = { baseSaleAttrId, saleAttrValueName: inputValue }
+      row.spuSaleAttrValueList.push(newSaleAttrValue)
+      // 修改inputVisible为false，不就显示button
+      row.inputVisible = false
     },
     // 初始化SpuForm数据
     async initSpuData(spu) {
