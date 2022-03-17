@@ -179,8 +179,42 @@ export default {
       Object.assign(this._data, this.$options.data())
     },
     // 保存按钮
-    save() {
+    async save() {
+      // 整理参数
+      // 整理平台属性
+      const { attrInfoList, skuInfo, spuSaleAttrList, imageList } = this
+      // 整理平台属性的数据
+      skuInfo.skuAttrValueList = attrInfoList.reduce((prev, item) => {
+        if (item.attrIdAndValueId) {
+          const [attrId, valueId] = item.attrIdAndValueId.splice(':')
+          prev.push({ attrId, valueId })
+        }
+        return prev
+      }, [])
+      // 整理销售属性
+      skuInfo.skuSaleAttrValueList = spuSaleAttrList.reduce((prev, item) => {
+        if (item.attrIdAndValueId) {
+          const [saleAttrId, saleAttrValueId] = item.attrIdAndValueId.split(':')
+          prev.push({ saleAttrId, saleAttrValueId })
+        }
+        return prev
+      }, [])
+      // 整理图片的数据
+      skuInfo.skuImageList = imageList.map(item => {
+        return {
+          imgName: item.imgName,
+          imgUrl: item.imgUrl,
+          isDefault: item.isDefault,
+          spuImgId: item.id
+        }
+      })
 
+      // 发请求
+      const result = await this.$API.spu.reqAddSku(skuInfo)
+      if (result.code === 200) {
+        this.$message({ type: 'success', message: '添加sku成功' })
+        this.$emit('changeScenes', 0)
+      }
     }
   }
 }
