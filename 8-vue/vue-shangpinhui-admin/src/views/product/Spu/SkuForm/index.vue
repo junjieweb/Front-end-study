@@ -207,13 +207,18 @@ export default {
           isDefault: item.isDefault,
           spuImgId: item.id
         }
-      })
+      }, [])
 
       // 发请求
-      const result = await this.$API.spu.reqAddSku(skuInfo)
-      if (result.code === 200) {
-        this.$message({ type: 'success', message: '添加sku成功' })
-        this.$emit('changeScenes', 0)
+      try {
+        const result = await this.$API.spu.reqAddSku(skuInfo)
+        console.log(result)
+        if (result.code === 200) {
+          this.$message({ type: 'success', message: '添加sku成功' })
+          this.$emit('changeScenes', 0)
+        }
+        // eslint-disable-next-line no-empty
+      } catch (e) {
       }
     }
   }
