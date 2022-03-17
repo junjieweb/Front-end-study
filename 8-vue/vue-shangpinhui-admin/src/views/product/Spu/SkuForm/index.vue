@@ -89,8 +89,8 @@
         </el-table>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary">保存</el-button>
-        <el-button>取消</el-button>
+        <el-button type="primary" @click="save">保存</el-button>
+        <el-button @click="cancel">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -135,19 +135,19 @@ export default {
       this.skuInfo.tmId = spu.tmId
       this.spu = spu
       // 获取图片的数据
-      const result = await this.$API.sku.reqSpuImageList(spu.id)
+      const result = await this.$API.spu.reqSpuImageList(spu.id)
       if (result.code === 200) {
         const list = result.data
         list.forEach(item => { item.isDefault = 0 })
         this.spuImageList = list
       }
       // 获取销售属性的数据
-      const result1 = await this.$API.sku.reqSpuSaleAttrList(spu.id)
+      const result1 = await this.$API.spu.reqSpuSaleAttrList(spu.id)
       if (result1.code === 200) {
         this.spuSaleAttrList = result1.data
       }
       // 获取平台属性的数据
-      const result2 = await this.$API.sku.reqAttrInfoList(
+      const result2 = await this.$API.spu.reqAttrInfoList(
         category1Id,
         category2Id,
         spu.category3Id
@@ -171,6 +171,16 @@ export default {
       row.isDefault = 1
       // 收集默认图片的地址
       this.skuInfo.skuDefaultImg = row.imgUrl
+    },
+    // 取消按钮
+    cancel() {
+      this.$emit('changeScenes', 0)
+      // 清除数据
+      Object.assign(this._data, this.$options.data())
+    },
+    // 保存按钮
+    save() {
+
     }
   }
 }
