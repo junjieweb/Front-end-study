@@ -46,6 +46,7 @@
                 type="info"
                 size="mini"
                 icon="el-icon-info"
+                @click="handler(row)"
               />
               <el-popconfirm title="这是一段内容确定删除吗？" @onConfirm="deleteSpu(row)">
                 <hint-button
@@ -75,6 +76,18 @@
       <SpuForm v-show="scene === 1" @changeScene="changeScene" ref="spu"/>
       <SkuForm v-show="scene === 2" ref="sku" @changeScenes="changeScenes"/>
     </el-card>
+    <el-dialog :title="`${spu.spuName}的sku列表`" :visible.sync="dialogTableVisible">
+      <el-table v-loading="loading" :data="skuList" width="100%">
+        <el-table-column prop="skuName" label="名称" ></el-table-column>
+        <el-table-column prop="price" label="价格" ></el-table-column>
+        <el-table-column prop="weight" label="重量"></el-table-column>
+        <el-table-column label="默认图片">
+          <template v-slot="{row}">
+            <img :src="row.skuDefaultImg" alt="" style="width: 100px">
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-dialog>
   </div>
 </template>
 
@@ -96,7 +109,11 @@ export default {
       limit: 5, // 当前页数展示数据条数
       total: 0, // 总共数据条数
       records: [], // spu列表的数据
-      scene: 0 // 0代表展示SPU列表数据   1 添加SPU|修改SPU   2 添加SKU
+      scene: 0, // 0代表展示SPU列表数据   1 添加SPU|修改SPU   2 添加SKU
+      dialogTableVisible: false, // 控制对话框的显示与隐藏
+      spu: {},
+      skuList: [], // 存储的是SKU列表的数据
+      loading: true
     }
   },
   methods: {
@@ -174,6 +191,23 @@ export default {
     },
     changeScenes(scene) {
       this.scene = scene
+    },
+    // 查看sku按钮的回调
+    async handler(spu) {
+      this.dialogTableVisible = true
+      this.spu = spu
+      // 获取sku列表数据进行展示
+      const result = await this.$API.spu.reqSkuList(spu.id)
+      if (result.code === 200) {
+        this.skuList = result.data
+        this.loading = false
+      }
+    },
+    // 关闭对话框的回调
+    close(done) {
+      this.loading = true
+      this.skuList = []
+      done()
     }
   }
 }
