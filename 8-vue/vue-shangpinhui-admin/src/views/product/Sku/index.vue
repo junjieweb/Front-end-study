@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sku-list">
     <el-card>
       <el-table :data="records" border style="width: 100%">
         <el-table-column type="index" label="序号" width="80" align="center" />
@@ -34,6 +34,39 @@
         @current-change="getSkuList"
         @size-change="handleSizeChange"
       />
+      <!--抽屉效果-->
+      <el-drawer :visible.sync="drawer" :with-header="false" size="50%">
+        <el-row>
+          <el-col :span="5">名称</el-col>
+          <el-col :span="16">{{ skuInfo.skuName }}</el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5">描述</el-col>
+          <el-col :span="16">{{ skuInfo.skuDesc }}</el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5">价格</el-col>
+          <el-col :span="16">{{ skuInfo.price }} 元</el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5">平台属性</el-col>
+          <el-col :span="16">
+            <el-tag v-for="value in skuInfo.skuAttrValueList" :key="value.id" type="success" style="margin: 0 5px">
+              {{ value.attrId }} - {{ value.valueId }}
+            </el-tag>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5">商品图片</el-col>
+          <el-col :span="16">
+            <el-carousel trigger="click" class="sku-carousel" height="400px">
+              <el-carousel-item v-for="item in skuInfo.skuImageList" :key="item.id">
+                <img :src="item.imgUrl" alt="">
+              </el-carousel-item>
+            </el-carousel>
+          </el-col>
+        </el-row>
+      </el-drawer>
     </el-card>
   </div>
 </template>
@@ -45,10 +78,10 @@ export default {
     return {
       page: 1, // 代表当前第几页
       limit: 10, // 代表当前页面有几条数据
-      records: [], // 存储SKU列表的数据
       total: 0, // 存储分页器一共展示的数据
+      records: [], // 存储SKU列表的数据
       skuInfo: {}, // 存储SKU信息
-      show: false
+      drawer: false
     }
   },
   mounted() {
@@ -74,6 +107,7 @@ export default {
     async sale(row) {
       const result = await this.$API.sku.reqSale(row.id)
       if (result.code === 200) {
+        // eslint-disable-next-line require-atomic-updates
         row.isSale = 1
         this.$message({ type: 'success', message: '上架成功' })
       }
@@ -82,6 +116,7 @@ export default {
     async cancel(row) {
       const result = await this.$API.sku.reqCancel(row.id)
       if (result.code === 200) {
+        // eslint-disable-next-line require-atomic-updates
         row.isSale = 0
         this.$message({ type: 'success', message: '下架成功' })
       }
@@ -92,7 +127,7 @@ export default {
     // 获取sku详情的方法
     async getSkuInfo(sku) {
       // 展示抽屉
-      this.show = true
+      this.drawer = true
       const result = await this.$API.sku.reqSkuById(sku.id)
       if (result.code === 200) {
         this.skuInfo = result.data
@@ -102,6 +137,57 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+// 一部分组件内的元素，我们使用类添加样式是生效的
+// 还有一部分组件内的元素，我们添加样式不生效
+// 原因？ 如何解决？
+// 第一种解决方案： 添加样式不生效的样式全部放到style标签当中，不加scoped,
+// 在跟标签添加一个类,目的是让这个样式不影响其它的组件
 
+// 第二种解决方案（添加scoped）： 使用深度作用选择器
+// 深度作用选择器的写法    ********************
+//   如果是原生css 深度作用选择器
+//       父元素 >>> 选中的元素
+//   如果是less  scss 预编译的css文件
+//       /deep/ 用于less
+//       ::v-deep  都行
+
+.sku-list {
+  .el-row {
+    height: 40px;
+    .el-col {
+      line-height: 40px;
+      &.el-col-5 {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .sku-carousel {
+    width: 400px;
+    border: 1px solid #ccc;
+    img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  ::v-deep .el-carousel__indicator{
+    button{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: hotpink;
+    }
+    &.is-active{
+      button{
+        background-color: purple;
+      }
+    }
+  }
+}
 </style>
