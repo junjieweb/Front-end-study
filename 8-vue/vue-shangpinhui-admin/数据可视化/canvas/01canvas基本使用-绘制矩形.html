@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas:HTML5新增的一个双闭合标签 -->
+    <!-- canvas标签默认宽度与高度:300 * 150 ,鼠标右键有图片另存为，浏览器把canvas标签当中图片，并非块元素 -->
+    <!-- 以后操作canvas标签:在JS当中操作画布，绘制图形、图标 -->
+    <canvas width="800" height="400">
+    
+    </canvas>
+</body>
+</html>
+<script>
+     //1:canvas标签你可以修改大小【w|h】切记通过canvas标签属性修改，别用样式
+     //2:canvas的操作，一定是在JS当中完成
+     //第一步:获取canvas的DOM节点
+     let canvas = document.querySelector('canvas');
+     //第二步：获取画布的上下文【画布的笔】
+     //以后想在画布当中显示任何东西，用笔去完成操作
+     let ctx  = canvas.getContext("2d");//上下文ctx->是一个JS对象【属性与方法】
+     //图形填充颜色的设置
+     ctx.fillStyle="yellowgreen";
+     //第三步:绘制矩形
+     //矩形的四个参数:x、y、w、h
+     ctx.fillRect(100,100,50,150);
+     ctx.fillStyle="pink";
+     ctx.fillRect(180,100,50,150);
+     ctx.fillStyle="cyan";
+     ctx.fillRect(260,100,50,150);
+     ctx.fillStyle="red";
+     ctx.fillRect(340,100,50,150);
+</script>

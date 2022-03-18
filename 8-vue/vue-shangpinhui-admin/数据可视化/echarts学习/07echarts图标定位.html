@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--第一步: 引入依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <!--第二步:准备具有大小容器  -->
+    <div style="width: 600px;height: 400px;"></div>
+</body>
+</html>
+<script>
+    //第三步:初始化echarts实例,init方法用来初始化echarts实例
+    let mycharts = echarts.init(document.querySelector('div'));
+    //第四步：书写配置项
+    let options = {
+        //调整图形图标位置
+        grid:{
+           left:20,
+           right:10,
+           top:10,
+           bottom:20
+        },
+        //标题的设置
+        title:{
+            //主标题设置
+            text:'echarts',
+            left:'center',
+            top:10,
+            //子标题
+            subtext:'我是子标题'
+        },
+        //x轴
+        xAxis:{
+            //设置x轴数据
+            data:['周一','周二','周三','周四','周五','周六','周日']
+        },
+        yAxis:{
+            //控制Y轴轴线的显示
+            axisLine:{
+                show:true
+            }
+        },
+        //系列的设置:可以决定显示什么样图形、图标、图形图标展示数据的设置
+        series:{
+            //图形、图标的类型
+            type:"bar",
+            //设置柱状图展示的数据的个数
+            data:[10,20,30,40,50,60,70]
+        }
+    }
+    //第五步:设置配置项目
+    mycharts.setOption(options);
+</script>

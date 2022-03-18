@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--第一步: 引入依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            /* border: 1px dashed red; */
+        }
+    </style>
+</head>
+<body>
+    <!--第二步:准备具有大小容器  -->
+    <div style="width: 600px;height: 400px;"></div>
+</body>
+</html>
+<script>
+    //第三步:初始化echarts实例,init方法用来初始化echarts实例
+    let mycharts = echarts.init(document.querySelector('div'));
+    
+    //数据集:就是把容器中图形图标数据进行整合（放在一起），务必二维数组
+    let arr = [
+        ["军事",44,32,"吃饭",55],
+        ["娱乐",33,11,'睡觉',33],
+        ["游戏",22,99],
+        ["直播",19,66]
+    ]
+
+
+    //第四步：书写配置项
+    let options = {
+       title:{
+           text:'多个图形图标'
+       },
+       xAxis:{
+           //均分
+           type:'category',
+       },
+       yAxis:{},
+       //设置数据集
+       dataset:{
+          source:arr
+       }
+       ,
+       //一个容器展示多个图形图标
+       series:[
+           {
+               type:'bar',
+               //柱状图：x,数组第零项
+               encode:{x:0,y:1}
+           },
+           {
+               type:'line',
+               encode:{x:0,y:2}
+           },
+           {
+               type:'pie',
+               encode:{itemName:3,value:4},
+               width:200,
+               height:200,
+               radius:20,
+               left:'20%'
+               
+           }
+       ]
+    }
+    //第五步:设置配置项目
+    mycharts.setOption(options);
+</script>

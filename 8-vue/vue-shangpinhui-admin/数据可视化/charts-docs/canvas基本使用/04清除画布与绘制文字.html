@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+     <!-- 画布的宽度与高度通过属性设置，千万别通过样式去设置 -->
+     <canvas width="600" height="400"></canvas>
+</body>
+</html>
+<script>
+     //获取节点
+     let canvas = document.querySelector('canvas');
+     //获取上下文-笔
+     let ctx = canvas.getContext('2d');
+     //绘制矩形
+     ctx.fillRect(100,200,100,200);
+     //清除画布-整个画布被清除
+    //ctx.clearRect(0,0,600,400);
+    //清除部分画布
+    ctx.clearRect(100,200,50,100);
+    //设置文字大小
+    ctx.font="20px 微软雅黑";
+    ctx.fillStyle ='red';
+    //绘制文字
+    ctx.fillText("数据可视化",50,20);
+</script>

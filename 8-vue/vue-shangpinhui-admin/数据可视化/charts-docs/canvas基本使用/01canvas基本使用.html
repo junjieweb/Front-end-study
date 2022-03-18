@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas画布:是HTML5中新增的一个特性，双闭合标签 -->
+    <!-- canvas标签默认宽度与高度 300 * 150 -->
+    <!-- 浏览器认为canvas标签是一张图片 -->
+    <!-- 给canvas画布添加文本内容没有任何意义 -->
+    <!-- 给canvas标签添加子节点没有任何意义的 -->
+    <!-- 你想操作canvas画布：画布当中绘制图形、显示一个文字，都必须通过JS完成 -->
+    <!-- canvas标签的w|h务必通过canvas标签属性width|height设置 -->
+    <!-- 切记不能通过样式去设置画布的宽度与高度 -->
+    <canvas width="600" height="400"></canvas>
+</body>
+
+</html>
+<script>
+    //canvas标签任何操作务必通过JS完成
+    //通过JS当中"笔"去完成
+    let canvas = document.querySelector('canvas');
+    //获取画布的笔【上下文】
+    let ctx = canvas.getContext('2d');
+    //绘制线段:绘制线段的起点的设置
+    ctx.moveTo(100,100);
+    //其他点的设置：可以有多个
+    ctx.lineTo(100,200);
+    ctx.lineTo(200,100);
+    //设置图形的填充的颜色
+    ctx.fillStyle = "red";
+    ctx.fill();
+    //设置线段的颜色与宽度
+    ctx.strokeStyle = "purple";
+    ctx.lineWidth="20"
+    //可以设置起点与最终的结束点连接在一起
+    ctx.closePath();
+    //stroke方法绘制线段
+    ctx.stroke();
+
+
+
+
+
+
+</script>

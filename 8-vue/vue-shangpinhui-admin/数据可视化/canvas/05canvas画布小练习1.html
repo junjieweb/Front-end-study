@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            position: absolute;
+            border: 1px solid black;
+            left: 30%;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas:HTML5新增的一个双闭合标签 -->
+    <!-- canvas标签默认宽度与高度:300 * 150 ,鼠标右键有图片另存为，浏览器把canvas标签当中图片，并非块元素 -->
+    <!-- 以后操作canvas标签:在JS当中操作画布，绘制图形、图标 -->
+    <canvas width="600" height="400">
+    
+    </canvas>
+</body>
+</html>
+<script>
+    //获取DOM|获取画笔
+    let canvas = document.querySelector('canvas');
+    //画笔
+    let ctx = canvas.getContext('2d');
+    //鼠标按下事件---【线段起点】
+    canvas.onmousedown = function(event){
+        //获取起点x、y
+        let x = event.offsetX;
+        let y = event.offsetY;
+        //绘制线段
+        ctx.beginPath();
+        //起点
+        ctx.moveTo(x,y);
+        //鼠标移动
+        canvas.onmousemove = function(event){
+            let x = event.offsetX;
+            let y = event.offsetY;
+            //设置其他点的位置
+            ctx.lineTo(x,y);
+            //开始绘制
+            ctx.stroke();
+        }
+    }
+    //鼠标抬起---鼠标移动事件移出
+    canvas.onmouseup = function(){
+        //移动DOM事件
+        canvas.onmousemove = null;
+    }
+</script>

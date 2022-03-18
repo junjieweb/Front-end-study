@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 400px;
+            /* border: 1px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+    <!--准备容器  -->
+    <div class="box"></div>
+</body>
+
+</html>
+<script>
+    //初始化echarts实例
+    //获取容器
+    let dom = document.querySelector('.box');
+    //初始化echarts实例
+    let mycharts = echarts.init(dom);
+    //配置数据
+    mycharts.setOption({
+        dataZoom: {},
+        //标题
+        title: {
+            text: "echarts组件"
+        },
+        xAxis: {
+            data: ['游戏', '电影', "直播", '娱乐']
+        },
+        yAxis: {},
+        series: [
+            {
+                name: "柱状图",
+                type: "bar",
+                data: [20, 30, 40, 50]
+            }
+            ,
+            {
+                name: "折线图",
+                type: 'line',
+                data: [30, 40, 50, 60]
+            }
+        ]
+        ,
+        //提示组件
+        tooltip: {
+            //提示框文字的颜色
+            textStyle: {
+                color: 'red'
+            }
+        },
+        //系列切换组件
+        legend: {
+            data: ['柱状图', '折线图']
+        },
+        //工具栏组件
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {},
+                dataZoom: {
+                    yAxisIndex: "none"
+                },
+                dataView: {
+                    readOnly: false
+                },
+                magicType: {
+                    type: ["line", "bar"]
+                },
+                restore: {},
+
+            }
+        },
+        //调整图标布局
+        grid: {
+            left: 30,
+            right: 0,
+        }
+    })
+</script>

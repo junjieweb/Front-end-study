@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas:HTML5新增的一个双闭合标签 -->
+    <!-- canvas标签默认宽度与高度:300 * 150 ,鼠标右键有图片另存为，浏览器把canvas标签当中图片，并非块元素 -->
+    <!-- 以后操作canvas标签:在JS当中操作画布，绘制图形、图标 -->
+    <canvas width="800" height="400">
+
+    </canvas>
+</body>
+
+</html>
+<script>
+    // let canvas = document.querySelector('canvas');
+    // let ctx = canvas.getContext("2d");
+    // //开始绘制图形
+    // ctx.beginPath();
+    // //圆形
+    // //arc:绘制圆
+    // //第一个参数:圆形的x
+    // //第二个参数:圆形的y
+    // //第三个参数:圆的半径
+    // //第四个参数与第五个参数:代表起始的弧度与结束的弧度！！！！
+    // //1弧度约等于57°
+    // //第六个参数:代表是否逆时针绘制图形 true->逆时针   false->顺时针
+    // ctx.arc(100,100,100,0,Math.PI*2,false);
+    // ctx.stroke();
+</script>
+<script>
+    //绘制同心圆
+    let canvas = document.querySelector('canvas');
+    let ctx = canvas.getContext("2d");
+    for (var i = 0; i < 50; i++) {
+       ctx.beginPath();
+       ctx.arc(400,200,i*4+4,0,Math.PI*2,false);
+       ctx.stroke();
+    }
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--引入依赖包-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 容器:需要W|H -->
+    <div id="box"></div>
+</body>
+
+</html>
+<script>
+    //初始化echarts实例
+    let mycharts = echarts.init(document.getElementById('box'));
+    //配置项
+    let options = {
+        //标题设置
+        title: {
+            //主标题
+            text: '我爱你们0826',
+            //主标题的超链接
+            link: 'http://82.156.11.187/#/home',
+            //主标题样式设置
+            textStyle: {
+                //主标题文字颜色
+                color: 'yellowgreen',
+                //主标题字体大小
+                fontSize: 16,
+                //描边框
+                textBorderColor: 'red',
+                textBorderWidth: 2
+            },
+            //副标题
+            subtext: '过年胖三斤',
+            //副标题的样式
+            subtextStyle: {
+                color: 'green'
+            },
+            //标题之间的间距设置
+            itemGap: 20,
+            //标题背景色
+            backgroundColor: 'cyan',
+            //调整标题位置
+            left: 'center',
+            top: 20
+        },
+        //x轴
+        xAxis: {
+            //是否显示X轴
+            show: true,
+            //x轴显示的数据
+            data: ['军事', '新闻', '娱乐'],
+            //x轴的名字
+            name: '冬奥会',
+            //轴名字位置
+            nameLocation: 'center',
+            //x轴名称的样式
+            nameTextStyle: {
+                color: 'yellow',
+            },
+            nameGap: 40,
+            //x轴名称旋转度数设置
+            nameRotate: 10,
+            //x轴的轴线的设置
+            axisLine: {
+                lineStyle: {
+                    color: 'cyan'
+                }
+            },
+            //刻度设置
+            axisTick:{
+                lineStyle:{
+                    color:'purple'
+                }
+            }
+        },
+        //y轴
+        yAxis: {
+            //轴线的设置
+            axisLine:{
+                show:true
+            },
+            //y轴刻度显示
+            axisTick:{
+                show:true
+            }
+        },
+        //系列的设置--决定显示什么类型的图形或者图标
+        series:{
+            //设置系列----柱状图bar 折线图line  饼图pie
+            type:'bar',
+            data:[{name:'军事',value:'30',itemStyle:{color:'red'},barWidth:10},{name:'新闻',value:'23',itemStyle:{color:'orange'},barWidth:20},{name:'娱乐',value:'11',itemStyle:{color:'yellow'},barWidth:30}],
+            //图形图标颜色
+            //设置全部的柱状图的颜色额
+            // color:'red'
+        }
+    };
+    //设置配置项
+    mycharts.setOption(options);
+</script>

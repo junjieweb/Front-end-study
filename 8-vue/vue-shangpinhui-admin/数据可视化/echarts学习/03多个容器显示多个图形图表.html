@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 600px;
+            height: 300px;
+            background-color: #ccc;
+            margin: 10px 0px;
+        }
+
+        #box1 {
+            width: 600px;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备图形图标容器 -->
+    <div id="box"></div>
+    <div id="box1"></div>
+</body>
+
+</html>
+<script>
+    //容器1:开发折线图
+    let mycharts = echarts.init(document.getElementById('box'));
+    //配置项
+    let options = {
+        //标题
+        title: {
+            text: "折线图"
+        },
+        //x轴
+        xAxis: {
+            data: ['冬奥会', '冰墩墩', '雪容融', '军事']
+        },
+        //y轴
+        yAxis: {},
+        //系列：可以设置图形图标类型
+        series: {
+            //决定图形图标类型
+            type: 'line',
+            //折线图数据
+            data: [110, 34, 66, 92],
+            //折线拐点样式
+            itemStyle: {
+                //拐点的颜色
+                color: 'yellowgreen',
+                //拐点的透明度【0:拐点消失】
+                opacity: 1
+            },
+            //线条的样式
+            lineStyle: {
+                //线条的颜色
+                color: 'red',
+                width: 2
+            },
+            //设置折线图，数据在图形展示
+            label: {
+                //显示标签
+                show: true,
+                //设置标签位置
+                position: 'top',
+                rotate: 20
+            },
+            //平滑曲线
+            smooth: true,
+            //填充区域
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: 'black' // 0% 处的颜色
+                    }, {
+                        offset: 1, color: 'yellowgreen' // 100% 处的颜色
+                    }],
+                    global: false // 缺省为 false
+                }
+            }
+        }
+    };
+    //设置配置项
+    mycharts.setOption(options);
+</script>
+
+<script>
+    //饼图
+    let mycharts1 = echarts.init(document.getElementById('box1'));
+    let option1 = {
+        title:{
+            text:'饼图'
+        },
+        xAxis:{},
+        yAxis:{
+            // show:false
+        },
+        //设置系列
+        series:{
+            type:'pie',
+            data:[{name:'军事',value:20,itemStyle:{color:'red'},label:{color:'hotpink',rotate:20}},{name:'娱乐',value:120,itemStyle:{color:'cyan'}},{name:'新闻',value:66},{name:'游戏',value:10}],
+            //饼图的宽度与高度
+            width:300,
+            height:300,
+            left:'center',
+            top:0,
+            radius:80
+        }
+    };
+    mycharts1.setOption(option1);
+</script>

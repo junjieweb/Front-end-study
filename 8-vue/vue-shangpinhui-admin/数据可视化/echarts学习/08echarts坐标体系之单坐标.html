@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--第一步: 引入依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--第二步:准备具有大小容器  -->
+    <div style="width: 600px;height: 400px;"></div>
+</body>
+
+</html>
+<script>
+    //第三步:初始化echarts实例,init方法用来初始化echarts实例
+    let mycharts = echarts.init(document.querySelector('div'));
+    let options = {
+        xAxis: {
+            //均分
+            type:'category'
+        },
+        yAxis: {},
+        series: [
+            {
+                type: 'scatter',
+                symbolSize: 10,
+                data: [
+                    [10,10],
+                    [60,90],
+                    [30,40],
+                    [11,9],
+                    [100,66]
+                ],
+               
+            }
+        ]
+    };
+    mycharts.setOption(options);
+</script>

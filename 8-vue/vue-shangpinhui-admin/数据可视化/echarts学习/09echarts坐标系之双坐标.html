@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--第一步: 引入依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.2.2/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            /* border: 1px dashed red; */
+        }
+    </style>
+</head>
+
+<body>
+    <!--第二步:准备具有大小容器  -->
+    <div style="width: 600px;height: 400px;"></div>
+</body>
+
+</html>
+<script>
+    //第三步:初始化echarts实例,init方法用来初始化echarts实例
+    let mycharts = echarts.init(document.querySelector('div'));
+    //第四步：书写配置项
+    let options = {
+        title: {
+            text: '多个图形图标'
+        },
+        xAxis: {
+            data: ['军事', '娱乐', '游戏', '直播']
+        },
+        yAxis: [
+            {
+                axisLine: {
+                    show: true
+                },
+                axisTick: {
+                    show: true
+                }
+            },
+            {
+                axisLine: {
+                    show: true
+                },
+                axisTick: {
+                    show: true
+                }
+            }
+        ],
+        //一个容器展示多个图形图标
+        series: [
+            {
+                type: 'bar',
+                data: [10, 20, 30, 40],
+                yAxisIndex: 0
+            },
+            {
+                type: 'line',
+                data: [17, 10, 60, 23],
+                smooth: true,
+                yAxisIndex: 1,
+                label: {
+                    show: true
+                },
+                itemStyle: {
+                    opacity: 0
+                }
+            },
+            {
+                type: 'pie',
+                data: [10, 20, 30, 40],
+                width: 50,
+                height: 50,
+                left: '30%',
+                top: '20%',
+                labelLine: {
+                    show: false
+                }
+            }
+        ]
+    }
+    //第五步:设置配置项目
+    mycharts.setOption(options);
+</script>

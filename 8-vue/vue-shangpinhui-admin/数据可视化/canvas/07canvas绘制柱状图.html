@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+</html>
+<script>
+    //获取canvasDOM节点
+    let canvas = document.querySelector('canvas');
+    //获取笔
+    let ctx = canvas.getContext('2d');
+    //画布绘制文字
+    //设置文字字体大小
+    ctx.font="12px 微软雅黑";
+    //三个参数:显示文字内容,x,y
+    ctx.fillText('数据可视化之canvas',200,14);
+
+    //绘制柱状图坐标体系
+    //Y轴
+    ctx.beginPath();
+    ctx.moveTo(20,20);
+    ctx.lineTo(20,380);
+    ctx.strokeStyle="black"
+    ctx.stroke();
+    //x轴
+    ctx.beginPath();
+    ctx.moveTo(20,380);
+    ctx.lineTo(580,380);
+    ctx.strokeStyle="black"
+    ctx.stroke();
+    //其他线段设置
+    ctx.beginPath();
+    ctx.moveTo(20,20);
+    ctx.lineTo(580,20);
+    ctx.strokeStyle='#ccc'
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(20,92);
+    ctx.lineTo(580,92);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(20,164);
+    ctx.lineTo(580,164);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(20,236);
+    ctx.lineTo(580,236);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(20,308);
+    ctx.lineTo(580,308);
+    ctx.stroke();
+
+    //绘制矩形---零零点左上角
+    ctx.fillStyle = "red";
+    ctx.fillRect(40,100,100,280);
+    ctx.fillRect(180,251,100,129);
+    ctx.fillRect(320,150,100,230);    
+</script>
