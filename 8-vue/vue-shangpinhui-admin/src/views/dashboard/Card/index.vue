@@ -151,6 +151,9 @@
         <!--第2个card-->
         <el-card>
           <Detail title="访问量" count="88460">
+            <template #charts>
+              <LineCharts></LineCharts>
+            </template>
             <template #footer>
               <span>日访问量 1234</span>
             </template>
@@ -161,6 +164,9 @@
         <!--第3个card-->
         <el-card>
           <Detail title="支付笔数" count="88460">
+            <template #charts>
+              <BarCharts></BarCharts>
+            </template>
             <template #footer>
               <span>转换率64%</span>
             </template>
@@ -171,6 +177,9 @@
         <!--第4个card-->
         <el-card>
           <Detail title="运营活动效果" count="78%">
+            <template #charts>
+              <ProgressCharts></ProgressCharts>
+            </template>
             <template #footer>
               <span>周同比&nbsp;&nbsp;56.67%
                 <svg
@@ -316,10 +325,16 @@
 
 <script>
 import Detail from '@/views/dashboard/Card/Detail'
+import BarCharts from '@/views/dashboard/Card/BarCharts'
+import LineCharts from '@/views/dashboard/Card/LineCharts'
+import ProgressCharts from '@/views/dashboard/Card/ProgressCharts'
 export default {
   name: 'Card',
   components: {
-    Detail
+    Detail,
+    BarCharts,
+    LineCharts,
+    ProgressCharts
   }
 }
 </script>

@@ -24,7 +24,7 @@
       <slot name="charts">123</slot>
     </div>
     <div class="card-footer">
-      <slot name="footer">123</slot>
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
@@ -47,7 +47,9 @@ export default {
   padding: 10px 0;
 }
 .card-charts{
-  line-height: 40px;
+  width: 100%;
+  height: 60px;
+  line-height: 50px;
 }
 .card-footer{
   border-top: 1px solid #ddd;
