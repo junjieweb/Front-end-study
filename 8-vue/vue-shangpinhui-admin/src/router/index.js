@@ -1,9 +1,10 @@
+// 引入vue和vue-router
 import Vue from 'vue'
 import Router from 'vue-router'
-
+// 使用vue-router
 Vue.use(Router)
 
-/* Layout */
+/* 引入最外层骨架的一级路由组件Layout */
 import Layout from '@/layout'
 
 /**
@@ -30,6 +31,8 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+// 路由配置信息--放置在数组里面
+// 常量路由:任何角色（身份都拥有路由）都可以看见的路由
 export const constantRoutes = [
   {
     path: '/login',
@@ -53,7 +56,14 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: '首页', icon: 'dashboard' }
     }]
-  },
+  }
+  // 404 page must be placed at the end !!!
+]
+
+// 异步理由:不同的用户（角色），需要过滤筛选出的路由，称之为异步路由
+// 有的用户可以看见测试管理、有的看不见
+export const asyncRoutes = [
+  // 权限管理的路由
   {
     name: 'Acl',
     path: '/acl',
@@ -100,6 +110,7 @@ export const constantRoutes = [
       }
     ]
   },
+  // 商品管理的路由
   {
     path: '/product',
     component: Layout,
@@ -131,14 +142,17 @@ export const constantRoutes = [
         meta: { title: 'Sku管理' }
       }
     ]
-  },
-  // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  }
+  // 测试管理模块异步路由
 ]
+
+// 任意路由 当路径出现错误的时候重定向404
+export const anyRoutes = { path: '*', redirect: '/404', hidden: true }
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
+  // 因为注册的路由是‘死的’，‘活的’路由如果根据不同用户（角色）可以展示不同菜单
   routes: constantRoutes
 })
 
