@@ -12,6 +12,7 @@
         :collapse-transition="false"
         mode="vertical"
       >
+        <!-- 左侧侧边栏:现在遍历路由器默认常量路由 -->
         <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
@@ -31,7 +32,8 @@ export default {
       'sidebar'
     ]),
     routes() {
-      return this.$store.state.user.resultAllRoutes
+      // 侧边栏遍历的数据应该仓库中计算完毕的全部的路由
+      return this.$store.state.user.routes
     },
     activeMenu() {
       const route = this.$route

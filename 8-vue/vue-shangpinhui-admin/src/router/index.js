@@ -142,8 +142,28 @@ export const asyncRoutes = [
         meta: { title: 'Sku管理' }
       }
     ]
-  }
+  },
   // 测试管理模块异步路由
+  {
+    path: '/test',
+    component: Layout,
+    name: 'Test',
+    meta: { title: '测试管理', icon: 'el-icon-goods' },
+    children: [
+      {
+        path: 'test1',
+        name: 'Test1',
+        component: () => import('@/views/Test/Test1'),
+        meta: { title: '测试管理1' }
+      },
+      {
+        path: 'test2',
+        name: 'Test2',
+        component: () => import('@/views/Test/Test2'),
+        meta: { title: '测试管理2' }
+      }
+    ]
+  }
 ]
 
 // 任意路由 当路径出现错误的时候重定向404

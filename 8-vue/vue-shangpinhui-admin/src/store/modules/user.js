@@ -1,18 +1,20 @@
-import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getInfo, login, logout } from '@/api/user'
+import { getToken, removeToken, setToken } from '@/utils/auth'
 import router, { anyRoutes, asyncRoutes, constantRoutes, resetRouter } from '@/router'
-import cloneDeep from 'lodash/cloneDeep'
 
 const getDefaultState = () => {
   return {
     token: getToken(), // 获取token
     name: '', // 存储用户名
     avatar: '', // 存储用户头像
-    routes: [], // 服务器返回的菜单信息【根据不同的角色：返回的标记信息，数组里面的元素是字符串】
-    roles: [], // 角色信息
-    buttons: [], // 按钮权限信息
-    resultAsyncRoutes: [], // 对比之后【项目中已有的异步路由，与服务器返回的标记信息进行对比最终需要展示的理由】
-    resultAllRoutes: [] // 用户最终需要展示的全部路由
+    // 保存服务器返回的异步路由标记
+    serveAsyncRouteFlag: [],
+    // 按钮
+    buttons: [],
+    // 角色
+    roles: [],
+    // 将来要存储当前用户（角色），需要展示的全部路由
+    routes: []
   }
 }
 
@@ -31,30 +33,32 @@ const mutations = {
   SET_USER_INFO: (state, userInfo) => {
     state.name = userInfo.name
     state.avatar = userInfo.avatar
-    state.routes = userInfo.routes
     state.buttons = userInfo.buttons
     state.roles = userInfo.roles
+    // 保存服务器返回的异步路由标记【数组:元素字符串】
+    state.serveAsyncRouteFlag = userInfo.routes
   },
   // 计算出的异步路由
-  SET_RESULT_ASYNC_ROUTES: (state, asyncRoutes) => {
-    // vuex保存当前用户的异步路由，注意，一个用户需要展示完成路由：常量、异步、任意路由
-    state.resultAsyncRoutes = asyncRoutes
-    // 计算出当前用户需要展示所有路由
-    state.resultAllRoutes = constantRoutes.concat(state.resultAsyncRoutes, anyRoutes)
-    // 给路由器添加新的路由
-    router.addRoutes(state.resultAllRoutes)
+  SET_ROUTES: (state, params) => {
+    // 保存用户需要展示全部路由
+    // params:计算完毕异步路由
+    // 计算出即为当前用户需要展示全部路由
+    state.routes = constantRoutes.concat(params, anyRoutes)
+    // 需要给路由器动态添加路由
+    router.addRoutes([...params, anyRoutes])
   }
 }
 
-// 定义一个函数：两个数组进行对比，对比出当前用户到底显示哪些异步路由
-const computedAsyncRoutes = (asyncRoutes, routes) => {
-  // 过滤出当前用户【超级管理|普通员工】需要展示的异步路由
+// 定义一个函数:计算出当前用户需要展示异步路由
+function findUserAsyncRoutes(asyncRoutes, serveFlag) {
+  // 用户需要展示的异步路由
   return asyncRoutes.filter(item => {
-    // 数组当中没有这个元素返回索引值-1，如果有这个元素返回的索引值一定不是-1
-    if (routes.indexOf(item.name) !== -1) {
-      // 递归:别忘记还有2、3、4、5、6级路由
-      if (item.children && item.children.length) {
-        item.children = computedAsyncRoutes(item.children, routes)
+    // 判断路由曾经起的名字在serveFlag中是否出现，如果出现->要
+    if (serveFlag.indexOf(item.name) !== -1) {
+      // 内层判断：判断子集路由
+      if (item.children && item.children.length > 0) {
+        // 递归判断子路由的名字是否在serveFlag数组当中出现
+        item.children = findUserAsyncRoutes(item.children, serveFlag)
       }
       return true
     }
@@ -84,8 +88,11 @@ const actions = {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
+        if (!data) {
+          return reject('Verification failed, please Login again.')
+        }
         commit('SET_USER_INFO', data)
-        commit('SET_RESULT_ASYNC_ROUTES', computedAsyncRoutes(cloneDeep(asyncRoutes), data.routes))
+        commit('SET_ROUTES', findUserAsyncRoutes(asyncRoutes, data.routes))
         resolve(data)
       }).catch(error => {
         reject(error)
