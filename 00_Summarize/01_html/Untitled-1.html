@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- 设置网页字符集 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  以下都是块元素，块元素在页面中会独占一行，在网页中一般通过块元素来对页面进行布局
+  <header>表示网页的头部，头部可以包含logo、导航、搜索框、广告条 </header>
+  <main>表示网页的主体，一个网页中只有一个main标签 </main>
+  <footer>表示网页的底部，底部可以包含版权声明</footer>
+  <nav>表示导航</nav>
+  <article>表示网页中一块内容（一般是一些文字的信息）</article>
+  <aside>表示侧边栏（辅助信息）</aside>
+  <section>表示一个区块</section>
+  <hgroup>表示一个标题组</hgroup>
+  <div>表示一个区块</div>
+
+  行内元素：在页面中不会独占一行，主要用来包裹文字
+  <em>强调（语气）</em>
+  <strong>强调重要性</strong>
+  <i>斜体</i>
+  <b>加粗</b>
+  <q>短引用</q>
+  <blockquote>长引用</blockquote>
+
+  <br>
+
+  <a href="https://www.baidu.com" target="_blank">百度</a>
+
+  <br>
+
+  <audio src="" controls autoplay loop></audio>
+  <br>
+  <video src="" controls autoplay loop></video>
+  <br>
+
+  <ul>
+    <li>无序列表</li>
+    <li>无序列表</li>
+    <li>无序列表</li>
+  </ul>
+
+  <ol>
+    <li>有序列表</li>
+    <li>有序列表</li>
+    <li>有序列表</li>
+  </ol>
+
+  <dl>
+    <dt>结构</dt>
+    <dd>结构表示网页的结构，用来规定网页中哪里是标签，哪里是段落</dd>
+    <dd>结构表示网页的结构，用来规定网页中哪里是标签，哪里是段落</dd>
+  </dl>
+
+  <!-- 用来创建一个表格 -->
+  <table border="1px">
+    <!-- tr表示表格中的一行 -->
+    <tr>
+      <td>td表示一个单元格</td>
+      <td>表格的列数，由td最多的那行决定</td>
+      <td>如果创建表格时，没有指定tbody，则所有的td会自动添加到一个tbody</td>
+    </tr>
+  </table>
+
+  <!-- action 请求提交的路径 -->
+  <form action="">
+    <!-- 文本框 -->
+    <input type="text"><br>
+    <!-- 密码框 -->
+    <input type="password" name="" id=""><br>
+    <!-- 提交按钮 -->
+    <input type="submit" value="提交"><br>
+    <!-- 重置按钮 -->
+    <input type="reset" value="重置"><br>
+    <!-- 单选按钮 -->
+    性别：<input type="radio" name="gender" id="male">男
+    <input type="radio" name="gender" id="female" checked="checked">女<br>
+    <!-- 多选框 -->
+    爱好<input type="checkbox" name="hobby" value="lq">篮球
+    <input type="checkbox" name="hobby" value="ymq" checked>羽毛球
+    <input type="checkbox" name="hobby" value="ppq">乒乓球
+    <input type="checkbox" name="hobby" value="zq" checked>足球<br>
+    <!-- 下拉列表 -->
+    你最喜欢的明星
+    <select name="star" id="">
+      <optgroup label="男明星">
+        <option value="zbs">赵本山</option>
+        <option value="ldh">刘德华</option>
+        <option value="wyz" selected>吴彦祖</option>
+      </optgroup>
+      <optgroup label="女明星">
+        <option value="fbb">范冰冰</option>
+        <option value="zw">赵薇</option>
+        <option value="lxr">林心如</option>
+      </optgroup>
+    </select><br>
+    <!-- 文本域 -->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </form>
+
+</body>
+
+</html>
