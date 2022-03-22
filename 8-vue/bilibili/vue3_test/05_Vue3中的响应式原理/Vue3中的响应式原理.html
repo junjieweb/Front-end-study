@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue3中的响应式原理</title>
+</head>
+
+<body>
+  <script>
+    // 源数据
+    let person = {
+      name: '张三',
+      age: 18
+    }
+    // 模拟Vue2中实现响应式
+    /* let p = {}
+    Object.defineProperty(p,'name',{
+      // 有人读取name的时候调用
+      get(){
+        return person.name;
+      },
+      // 有人修改name时调用
+      set(value){
+        person.name = value
+      }
+    })
+    Object.defineProperty(p,'age',{
+      // 有人读取age的时候调用
+      get(){
+        return person.age;
+      },
+      // 有人修改age时调用
+      set(value){
+        person.age = value
+      }
+    }) */
+
+    // 模拟Vue3中实现响应式
+    const p = new Proxy(person, {
+      // 读取
+      get(target, propName) {
+        console.log(`有人读取了p身上的${propName}属性`, target, propName)
+        return Reflect.get(target, propName)
+      },
+      // 修改会增加
+      set(target, propName, value) {
+        console.log(`有人修改了p身上的${propName}属性`, target, propName, value)
+        Reflect.set(target, propName, value)
+      },
+      // 删除
+      deleteProperty(target, propName) {
+        console.log(`有人删除了p身上的${propName}属性`, target, propName)
+        return Reflect.deleteProperty(target, propName)
+      }
+    })
+
+  </script>
+</body>
+
+</html>
