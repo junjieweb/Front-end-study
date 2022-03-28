@@ -1,10 +1,16 @@
 // 注册路由
-import Home from "@/pages/Home/Home";
-import Category from "@/pages/Category/Category";
-import Cart from "@/pages/Cart/Cart";
-import Buy from "@/pages/Buy/Buy";
-import Login from "@/pages/Login/Login";
+// import Home from "@/pages/Home/Home";
+// import Category from "@/pages/Category/Category";
+// import Cart from "@/pages/Cart/Cart";
+// import Buy from "@/pages/Buy/Buy";
+// import Login from "@/pages/Login/Login";
 
+// 动态引入，按需加载，提高首屏渲染效率
+const Home = () => import('@/pages/Home/Home')
+const Category = () => import('@/pages/Category/Category')
+const Cart = () => import('@/pages/Cart/Cart')
+const Buy = () => import('@/pages/Buy/Buy')
+const Login = () => import('@/pages/Login/Login')
 /*
 * meta: 路由元信息
 *   描述信息本身的信息
