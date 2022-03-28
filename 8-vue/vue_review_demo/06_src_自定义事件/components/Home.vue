@@ -16,7 +16,6 @@ export default {
   methods: {
     handleClick() {
       this.$emit('myEvent', this.message)
-      this.$bus.$emit('myBus', this.message)
     }
   }
 }
