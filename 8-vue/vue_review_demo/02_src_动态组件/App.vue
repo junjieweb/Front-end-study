@@ -12,15 +12,14 @@
     </div>
     <!--内容区-->
     <!--动态组件-->
-    <keep-alive :exclude="['Personal']">
-      <component :is="comName"></component>
-    </keep-alive>
+    <component :is="comName"></component>
+
   </div>
 </template>
 
 <script>
 import Home from "@/components/Home";
-// import Personal from "@/components/Personal";
+import Personal from "@/components/Personal";
 
 export default {
   name: 'App',
@@ -31,8 +30,7 @@ export default {
   },
   components: {
     Home,
-    Personal: () => import('@/components/Personal') // 异步加载
-    // Personal // 同步加载
+    Personal
   },
   methods: {
     changeTab(comName) {

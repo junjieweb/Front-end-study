@@ -12,9 +12,8 @@
     </div>
     <!--内容区-->
     <!--动态组件-->
-    <keep-alive :exclude="['Personal']">
-      <component :is="comName"></component>
-    </keep-alive>
+    <component :is="comName"></component>
+
   </div>
 </template>
 

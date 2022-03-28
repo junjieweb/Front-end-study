@@ -4,10 +4,7 @@
 
 <script>
 export default {
-  name: "Personal",
-  mounted() {
-    console.log('Personal mounted')
-  }
+  name: "Personal"
 }
 </script>
 
