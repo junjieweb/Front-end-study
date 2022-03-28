@@ -15,6 +15,7 @@ const routes = [
     {
         path: '/home/:id/:a',
         component: Home,
+        name: 'Home',
         meta: {
             isShowFooter: true
         }
@@ -22,6 +23,7 @@ const routes = [
     {
         path: '/category',
         component: Category,
+        name: 'Category',
         meta: {
             isShowFooter: true
         }
