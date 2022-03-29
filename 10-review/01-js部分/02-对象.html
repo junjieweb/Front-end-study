@@ -2,14 +2,14 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
 
     // 谈谈你对面向对象的理解?
     // 面向过程还是面向对象都是编程思想
@@ -41,15 +41,10 @@
     // var phone = new Phone('黑色','2kg')
     // phone.call1()
 
-   
 
     // 原型
     // 引用变量
     // 闭包,作用域,预解析,执行上下文环境....
-
-
-
-
 
 
     // // 通过字面量创建对象
@@ -80,7 +75,7 @@
     // class Student{
     //   // 构造器,构造器中的属性,最终都是在实例对象上的
     //   constructor(name,age,gender){
-    //     this.name = name 
+    //     this.name = name
     //     this.age =age
     //     this.gender = gender
     //   }
@@ -120,29 +115,25 @@
     // // true还是false?----false,两个对象都有自己的sayHi方法,如果有多个对象,那么就会出现多个对象占用多块空间,用来存储自己的方法,浪费内存,既然方法中的内容都是一样的,那么方法就应该放在原型上,占用一块空间,节省内存空间,实现数据共享
     // console.log(p1.sayHi===p2.sayHi)
 
-    
 
-
-      // 单例模式:不管该对象创建多少次,实际上,最终对象只有一个
-
-
-
+    // 单例模式:不管该对象创建多少次,实际上,最终对象只有一个
 
 
     // 简单的单例模式创建对象
     function createObj() {
-      var instance = null
-      return function (name) {
-        if (!instance) {
-          // 创建对象
-          instance = new Object()
-          // 初始化对象的属性值
-          instance.name =name
+        var instance = null
+        return function (name) {
+            if (!instance) {
+                // 创建对象
+                instance = new Object()
+                // 初始化对象的属性值
+                instance.name = name
+            }
+            // instance 对象 已经创建完毕了, 此时是存在的
+            return instance
         }
-        // instance 对象 已经创建完毕了, 此时是存在的
-        return instance
-      }
     }
+
     var getObj = createObj()
     var obj3 = getObj('小明')
     var obj4 = getObj('小红')
@@ -151,17 +142,11 @@
     var obj7 = getObj('小红')
     var obj8 = getObj('小红')
     var obj9 = getObj('小红')
-    console.log(obj3,obj4)
-    console.log(obj3===obj4)
+    console.log(obj3, obj4)
+    console.log(obj3 === obj4)
     // 一个页面中有多个轮播图的效果,如果说此时为了实现轮播图的效果,那么就会创建对应的多个swiper的对象,
     // 此时可以使用单例模式的创建只创建一个对象,节省空间,
     // better-scroll的插件----单例模式
-
-
-
-
-
-
 
 
     // // 通过构造函数的方式创建对象
@@ -172,7 +157,7 @@
       3: 初始化属性或者方法的值
       4: 返回this这个实例对象
       5: 把当前的对象所在的内存的空间的地址给per1变量
-    
+
     */
     // function Person1(name,age){
     //   // 属性
@@ -189,8 +174,7 @@
     // console.dir(per1.eat===per2.eat)
 
 
-  
-  </script>
+</script>
 </body>
 
 </html>

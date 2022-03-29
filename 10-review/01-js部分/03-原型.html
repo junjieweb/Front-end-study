@@ -2,17 +2,17 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
     // 原型的理解: 原型什么时候产生,原型有哪些,原型的作用,继承的实现,面向的编程思想,面向过程,有了数据的共享,还有数据的缓存--->闭包---->预解析--->作用域--->执行上下文环境---
     // 原型的应用---->Vue中的事件总线----->Vue中的组件的通信的各种方式---
-    // Vue.prototype.$bus = new Vue() 
+    // Vue.prototype.$bus = new Vue()
     // Vue.prototype.$API = API ----->任意的组件中都可以直接调用api方法,调用接口,发送请求
 
 
@@ -25,7 +25,7 @@
     // function f1(){
     //   console.log('f1函数')
     // }
-    // // f1 
+    // // f1
     // // console.log(f1) // f1这个函数的代码
     // // 代码的解释? 函数的调用---执行函数
     // // f1()
@@ -35,9 +35,6 @@
     // }
 
     // console.dir(f1)
-
-
-
 
 
     // 原型什么时候产生的?
@@ -104,7 +101,7 @@
     // // obj.key 这么书写,可以,不会报错,但是意义不大,此时的key是当成属性来使用的,
     // console.log(obj.key) // 结果:undefined,应用:Vue中可以使用v-if或者v-show来显示或者隐藏一个数据的效果
 
-    // 
+    //
 
     // function Fn(){}
     // console.dir(Fn)
@@ -136,10 +133,6 @@
     // stu.sayHi()
     // 原型的作用之一:节省内存空间,实现数据共享
     // 原型的作用之二: 改变原型指向,实现继承
-
-
-
-
 
 
     // 执行函数定义和执行函数
@@ -177,7 +170,7 @@
     // ;(function(){
     //   var num =100
     // })();
-    // var num =200  
+    // var num =200
 
     // 函数声明, 是函数定义中的其中一种
     // function f1() {
@@ -203,8 +196,6 @@
     // console.log(obj.age)
 
 
-
-
     // 原型测试
     // function Foo() { }
     // const f1 = new Foo()
@@ -223,7 +214,7 @@
 
     // 通过原型+借用构造函数的方式实现继承
     // function Person(name,age,gender){
-    //   this.name = name 
+    //   this.name = name
     //   this.age =age
     //   this.gender = gender
     // }
@@ -249,8 +240,6 @@
     // stu.sayHi()
     // stu.eat()
     // console.log(stu)
-
-
 
 
     // ES6的方式实现继承
@@ -287,10 +276,6 @@
     // }
     // var stu = new Student('小明',20,'男')
     // console.log(stu)
-
-
-
-
 
 
     // // 构造函数,函数,函数对象
@@ -341,15 +326,11 @@
     // a.b这个表达式中,总结知识点: 数据类型(null/undefined,string/number/boolean) 作用域链(局部作用域/全局作用域),预解析,执行上下文环境,原型/原型链---->及原型的相关应用(事件总线)----Vue技术点
 
 
-
     // function f1(){
     //  // var a = 20
     //   console.log(a.b)
     // }
     // f1()
-
-
-
 
 
     // 构造函数
@@ -366,7 +347,7 @@
     // 对于 A instanceof B   A是实例对象, B是构造函数
     // 如果B的prototype属性所指向的原型对象是A实例对象的原型链接上的某个对象, 返回true, 否则返回false
     // 下面的结果
-    // console.log(Foo instanceof Object) // true 
+    // console.log(Foo instanceof Object) // true
     // console.log(Foo instanceof Function) // true
     // console.log(Object instanceof Object) // true
     // console.log(Function instanceof Function) // true
@@ -376,35 +357,31 @@
     // console.log(f1 instanceof Object) //  true
 
 
-
-
-
-
-
-
     // ES6的方式实现继承
     class Person {
-      // 构造器，为了初始化对象中的属性
-      constructor(name, age) {
-        // 这里有属性
-        this.name = name
-        this.age = age
-      }
+        // 构造器，为了初始化对象中的属性
+        constructor(name, age) {
+            // 这里有属性
+            this.name = name
+            this.age = age
+        }
 
-      // 原型上的方法
-      sayHi() {
-        console.log('您好')
-      }
-      // 赋值的写法就是给实例添加属性或者方法--------
-      // sex 也是一个属性，属于谁的? 属于实例对象
-      sex = '男'
-      // 实例上的方法 run =function(){}
-      eat = () => {
-        console.log('好吃啊')
-      }
-      // 静态属性---构造函数对象使用的---Person引用变量来使用的
-      static gender = '男'
+        // 原型上的方法
+        sayHi() {
+            console.log('您好')
+        }
+
+        // 赋值的写法就是给实例添加属性或者方法--------
+        // sex 也是一个属性，属于谁的? 属于实例对象
+        sex = '男'
+        // 实例上的方法 run =function(){}
+        eat = () => {
+            console.log('好吃啊')
+        }
+        // 静态属性---构造函数对象使用的---Person引用变量来使用的
+        static gender = '男'
     }
+
     var per = new Person('小明明', 30)
     // 学生类,和Person类是继承关系,es6中
     // console.dir(per)
@@ -415,16 +392,18 @@
     // console.dir(Person)
 
     class Student extends Person {
-      constructor(name, age, gender) {
-        // 相当于.call结构构造函数实现属性的继承
-        super(name, age)
-        this.gender = gender
-      }
-      // 父类中有sayHi,子类的实例对象可以直接使用,如果子类的实例对象调用该方法的时候,需要显示自己的的结果，此时可以重写父类中的方法
-      sayHi() {
-        console.log('我很好')
-      }
+        constructor(name, age, gender) {
+            // 相当于.call结构构造函数实现属性的继承
+            super(name, age)
+            this.gender = gender
+        }
+
+        // 父类中有sayHi,子类的实例对象可以直接使用,如果子类的实例对象调用该方法的时候,需要显示自己的的结果，此时可以重写父类中的方法
+        sayHi() {
+            console.log('我很好')
+        }
     }
+
     var stu = new Student('小明', 20, '男')
     console.log(stu)
     stu.sayHi()
@@ -432,7 +411,7 @@
     // Person类 和 Student类 有继承关系
     // Person--->基类---父类, Student类--->派生类--->子类
 
-  </script>
+</script>
 </body>
 
 </html>
