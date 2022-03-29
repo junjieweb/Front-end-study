@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 原型的理解: 原型什么时候产生,原型有哪些,原型的作用,继承的实现,面向的编程思想,面向过程,有了数据的共享,还有数据的缓存--->闭包---->预解析--->作用域--->执行上下文环境---
+    // 原型的应用---->Vue中的事件总线----->Vue中的组件的通信的各种方式---
+    // Vue.prototype.$bus = new Vue() 
+    // Vue.prototype.$API = API ----->任意的组件中都可以直接调用api方法,调用接口,发送请求
+
+
+    // 执行函数定义和执行函数区别
+    // f1 是什么? f1是函数, f1也可以叫函数名,还可以叫引用变量
+    // 函数定义   (函数声明和函数表达式)
+
+    // 执行函数定义
+    // f1的这个函数是函数声明的写法
+    // function f1(){
+    //   console.log('f1函数')
+    // }
+    // // f1 
+    // // console.log(f1) // f1这个函数的代码
+    // // 代码的解释? 函数的调用---执行函数
+    // // f1()
+    // // 函数表达式
+    // var f2 = function(){
+    //   console.log('f2函数')
+    // }
+
+    // console.dir(f1)
+
+
+
+
+
+    // 原型什么时候产生的?
+    // 执行函数定义的时候,prototype显示原型就创建出来了,由于函数本身也是对象(实例对象),里面的隐式原型__proto__也产生了
+    // 原型的理解:
+    // 原型的作用:实现数据共享,节省内存空间
+    // 原型的作用: 实现继承
+
+    // 构造函数
+    // function Person(name){
+    //   this.name = name
+    //   this.eat=function(){
+    //     console.log('我喜欢吃榴莲沾臭豆腐汁')
+    //   }
+    // }
+    // // 通过原型的方式实现数据的共享
+    // Person.prototype.play = function(){
+    //   console.log('玩的好开心')
+    // }
+    // // 实例化对象并初始化
+    // var p1 = new Person('小明')
+    // var p2 = new Person('小红')
+    // console.log(p1.eat===p2.eat)
+    // p1.eat()
+    // p2.eat()
+    // console.log('===========')
+    // p1.play()
+    // p2.play()
+    // console.log(p1.play===p2.play)
+
+    // // 通过改变原型执行实现继承
+    // function Person(name){
+    //   this.name = name
+    // }
+    // Person.prototype.sayHi=function(){
+    //   console.log('您好啊')
+    // }
+    // function Student(name,age){
+    //   // this.name = name
+    //   // 借用构造函数的方式来实现属性的继承
+    //   Person.call(this,name)
+    //   this.age = age
+    // }
+    // // 改变原型实现继承,可以使用父级类别中的方法(方法的继承)
+    // Student.prototype = new Person()
+
+    // var stu = new Student('小明',20)
+    // stu.sayHi()
+    // console.log(stu.name,stu.age)
+    // 通过改变原型指向实现的是方法的继承,通过借用构造函数的方式实现的是属性的继承,二者结合在一起称为:组合继承----常用的
+
+    // var obj = {
+    //   name:'小明', // 值是字符串类型
+    //   age:10, // 值是数字类型
+    //   // sayHi属性中存储的是一个函数,所以,sayHi也叫方法
+    //   sayHi:function(){} // 值是函数类型
+
+    // }
+    // // obj对象中都是属性,属性调用
+    // console.log(obj.name)
+    // console.log(obj['name'])
+    // var key = 'name'
+    // console.log(obj[key])
+    // // obj.key 这么书写,可以,不会报错,但是意义不大,此时的key是当成属性来使用的,
+    // console.log(obj.key) // 结果:undefined,应用:Vue中可以使用v-if或者v-show来显示或者隐藏一个数据的效果
+
+    // 
+
+    // function Fn(){}
+    // console.dir(Fn)
+    // var fn = new Fn()
+    // console.log(fn.__proto__===Fn.prototype)
+    // console.log(Fn.prototype instanceof Object)
+    // console.log(Fn.prototype.__proto__===Object.prototype)
+
+
+    // function Person(name){
+    //   this.name = name
+    //   // 实例的方法
+    //   // sayHi引用变量,存储的是当前函数对象的引用(地址)
+    //   // this.sayHi=function(){
+    //   //   console.log('萨瓦迪卡')
+    //   // }
+    // }
+    // Person.prototype.sayHi= function(){
+    //   console.log('萨瓦迪卡')
+    // }
+    // var per1 = new Person('小甜甜')
+    // var per2 = new Person('小甜甜')
+    // console.log(per1.sayHi===per2.sayHi)
+    // function Student(){
+
+    // }
+    // Student.prototype = new Person()
+    // var stu = new Student()
+    // stu.sayHi()
+    // 原型的作用之一:节省内存空间,实现数据共享
+    // 原型的作用之二: 改变原型指向,实现继承
+
+
+
+
+
+
+    // 执行函数定义和执行函数
+    // function Fn() { }
+    // console.dir(Fn)
+    // var obj = {}
+    // console.log(obj.__proto__ === Object.prototype)
+    // console.log(Fn.prototype.__proto__ === Object.prototype)
+
+
+    // 简单的原型链
+    // function F1() { }
+    // F1.prototype.number = 100
+    // function F2() { }
+    // F2.prototype = new F1()
+    // F2.prototype.number = 200
+    // function F3() { }
+    // F3.prototype = new F2()
+    // F3.prototype.number = 300
+    // var f3 = new F3()
+    // console.log(f3.number) // 300
+
+    // function f1(){
+    //   var num =10
+    // }
+    // function f2(){
+    //   var num =20
+    //   console.log(num) // 10 还是20?
+    // }
+    // f1()
+    // f2()
+
+    // 函数的自调用
+    // ()() // js 代码中是有可能会调用别人的js文件的,该文件中有可能有这种自动用的函数()()
+    // ;(function(){
+    //   var num =100
+    // })();
+    // var num =200  
+
+    // 函数声明, 是函数定义中的其中一种
+    // function f1() {
+    //   console.log('f1函数')
+    // }
+    // var f1
+
+    // f1()
+    // f1 = 100
+
+
+    // function Fn() { }
+    // console.dir(Fn)
+    // var obj = {}
+    // console.log(obj.__proto__ === Object.prototype) // true
+    // console.log(Fn.prototype.__proto__ === Object.prototype)
+
+    // 原型链: 隐式原型和显示原型之间的关系
+
+    // var obj = {
+    //   name:'小明'
+    // }
+    // console.log(obj.age)
+
+
+
+
+    // 原型测试
+    // function Foo() { }
+    // const f1 = new Foo()
+    // const f2 = new Foo()
+
+    // const o1 = new Object()
+    // const o2 = {}
+    // console.log(Foo instanceof Object)
+    // console.log(Foo instanceof Function)
+    // console.log(Object instanceof Object)
+    // console.log(Function instanceof Function)
+    // console.log(Function instanceof Object)
+    // console.log(Object instanceof Foo)
+    // console.log(f1 instanceof Function)
+    // console.log(f1 instanceof Object)
+
+    // 通过原型+借用构造函数的方式实现继承
+    // function Person(name,age,gender){
+    //   this.name = name 
+    //   this.age =age
+    //   this.gender = gender
+    // }
+    // Person.prototype.sayHi=function(){
+    //   console.log('您好')
+    // }
+    // Person.prototype.eat=function(){
+    //   console.log('好吃')
+    // }
+    // function Student(name,age,gender,score){
+    //   // 借用构造函数实现属性的继承
+    //   Person.call(this,name,age,gender)
+    //   this.score = score
+    // }
+    // // 原型实现方法的继承
+    // Student.prototype=new Person()
+    // Student.prototype.constructor = Student
+    // // 重写方法
+    // Student.prototype.eat=function(){
+    //   console.log('学生吃')
+    // }
+    // var stu = new Student('小明',20,'男',100)
+    // stu.sayHi()
+    // stu.eat()
+    // console.log(stu)
+
+
+
+
+    // ES6的方式实现继承
+    // class Person{
+    //   constructor(name,age){
+    //     this.name = name
+    //     this.age = age
+    //   }
+    //   gender ='男'
+    //   // 原型上的方法
+    //   sayHi(){
+    //     console.log('您好')
+    //   }
+    //   // 实例上的方法
+    //   eat=()=>{
+    //     console.log('好吃啊')
+    //   }
+    //   // 静态属性
+    //   static gender='男'
+    // }
+    // var per = new Person('小明明',30)
+    // console.log(per)
+    // console.dir(Person)
+
+    // class Student extends Person{
+    //   constructor(name,age,gender){
+    //     super(name,age)
+    //     this.gender = gender
+    //   }
+    //   // 重写父类中的方法
+    //   sayHi(){
+    //     console.log('我很好')
+    //   }
+    // }
+    // var stu = new Student('小明',20,'男')
+    // console.log(stu)
+
+
+
+
+
+
+    // // 构造函数,函数,函数对象
+    // function Fn(){}
+    // // Fn 是引用变量,存储的是Fn函数对象的空间的地址
+    // var fn = new Fn()
+    // // fn 是引用变量,存储的是new Fn()实例对象的空间的地址
+    // console.log(fn)
+    // console.log(fn.__proto__===Fn.prototype)
+    // console.log(Fn.prototype.__proto__===Object.prototype)
+
+
+    // 函数:具有特定功能的代码块,代码的重用
+
+    // 执行函数定义
+    // 函数的定义
+    // 1.函数的声明,
+    // function f1(){
+    //   console.log('f1哈哈哈')
+    // }
+    // // 2.函数表达式
+    // var f2 = function(){
+    //   console.log('f2')
+    // }
+
+    // // 函数的调用,执行函数:执行函数中的代码
+    // f1()
+    // f2()
+
+    // var obj = {name:'小明'}
+    // console.log(obj.name)
+
+    // var num =10
+    // console.log(num)
+
+
+    // function Person(){
+
+    // }
+
+    // // var per = new Person()
+
+    // var a  // a 是一个变量, 值 是数字类型的, 引用类型的对象可以点属性或者方法,然后使用
+    // a 是数字类型,但是由于a.b了,此时a就变成了 基本包装类型----引用类型了
+    // a 是一个对象了, b就是一个属性,但是属性没有赋值,所以,结果就是undefined
+    // console.log(a.b) // undefined 没有报错
+
+    // a.b这个表达式中,总结知识点: 数据类型(null/undefined,string/number/boolean) 作用域链(局部作用域/全局作用域),预解析,执行上下文环境,原型/原型链---->及原型的相关应用(事件总线)----Vue技术点
+
+
+
+    // function f1(){
+    //  // var a = 20
+    //   console.log(a.b)
+    // }
+    // f1()
+
+
+
+
+
+    // 构造函数
+    // function Foo() { }
+    // // console.log(Foo.__proto__===Function.prototype)
+    // // f1 是实例对象----引用变量,存储的是当前的这个对象所在的空间的地址
+    // const f1 = new Foo()
+    // // f2 是实例对象
+    // const f2 = new Foo()
+    // // o1 是实例对象
+    // const o1 = new Object()
+    // // o2 是实例对象
+    // const o2 = {}
+    // 对于 A instanceof B   A是实例对象, B是构造函数
+    // 如果B的prototype属性所指向的原型对象是A实例对象的原型链接上的某个对象, 返回true, 否则返回false
+    // 下面的结果
+    // console.log(Foo instanceof Object) // true 
+    // console.log(Foo instanceof Function) // true
+    // console.log(Object instanceof Object) // true
+    // console.log(Function instanceof Function) // true
+    // console.log(Function instanceof Object) // true
+    // console.log(Object instanceof Foo) // false
+    // console.log(f1 instanceof Function) // false
+    // console.log(f1 instanceof Object) //  true
+
+
+
+
+
+
+
+
+    // ES6的方式实现继承
+    class Person {
+      // 构造器，为了初始化对象中的属性
+      constructor(name, age) {
+        // 这里有属性
+        this.name = name
+        this.age = age
+      }
+
+      // 原型上的方法
+      sayHi() {
+        console.log('您好')
+      }
+      // 赋值的写法就是给实例添加属性或者方法--------
+      // sex 也是一个属性，属于谁的? 属于实例对象
+      sex = '男'
+      // 实例上的方法 run =function(){}
+      eat = () => {
+        console.log('好吃啊')
+      }
+      // 静态属性---构造函数对象使用的---Person引用变量来使用的
+      static gender = '男'
+    }
+    var per = new Person('小明明', 30)
+    // 学生类,和Person类是继承关系,es6中
+    // console.dir(per)
+    // console.dir(Person)
+    // console.log(per.gender) // undefined
+    // console.log(Person.gender) // 男
+    // console.log(per)
+    // console.dir(Person)
+
+    class Student extends Person {
+      constructor(name, age, gender) {
+        // 相当于.call结构构造函数实现属性的继承
+        super(name, age)
+        this.gender = gender
+      }
+      // 父类中有sayHi,子类的实例对象可以直接使用,如果子类的实例对象调用该方法的时候,需要显示自己的的结果，此时可以重写父类中的方法
+      sayHi() {
+        console.log('我很好')
+      }
+    }
+    var stu = new Student('小明', 20, '男')
+    console.log(stu)
+    stu.sayHi()
+
+    // Person类 和 Student类 有继承关系
+    // Person--->基类---父类, Student类--->派生类--->子类
+
+  </script>
+</body>
+
+</html>

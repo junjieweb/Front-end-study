@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    // 谈谈你对面向对象的理解?
+    // 面向过程还是面向对象都是编程思想
+    // 面向过程:凡事都是亲力亲为,注重的是过程
+    // 面向对象:提出需求,抽取出对象,调用对象相关的属性或者方法,获取结果
+    // 面向对象的特性:封装,继承,多态,(抽象性)
+    // 对象:手机是对象? 电脑是对象? 都不是
+    // 看得见,摸得到,具体特指的某个东西, 我现在手里正在拿着的鼠标,确切的一个对象
+    // 对象: 具有特征或者行为的特指的某个事物
+    // 特征------> 属性
+    // 行为------> 方法
+    // 对象:具有属性或者方法,特指的某个事物
+    // 面向对象,需求:通过手机打电话,分析,分析出里面的对象,具有什么样的特征和一些行为,对象是什么类型的,此时这些都属于分析的(过程)结果,----抽取出对象及特征和行为
+    // 通过代码实现对象调用对应的属性和方法
+    // 特征---->属性,行为--->方法,对象的类型---->类(类别)
+    // 先定义手机对象的类型(通过构造函数来定义,通过new构造函数,来实例化对象)
+    // 构造函数
+    // function Phone(color,weight){
+    //   // 手机的对象的特征---->属性
+    //   this.color=color
+    //   this.weight=weight
+    //   // 手机的对象的行为---->方法
+    //   this.call1=function(){
+    //     console.log('您好,我是杨先生')
+    //   }
+    // }
+    // // 通过构造函数创建对应的一个具体的对象(实例化对象)
+    // // 实例化对象的同时进行属性的初始化
+    // var phone = new Phone('黑色','2kg')
+    // phone.call1()
+
+   
+
+    // 原型
+    // 引用变量
+    // 闭包,作用域,预解析,执行上下文环境....
+
+
+
+
+
+
+    // // 通过字面量创建对象
+    // var obj ={}
+    // // 通过工厂模式创建对象
+    // function createObject(name,age){
+    //   var obj = new Object()
+    //   obj.name = name
+    //   obj.age = age
+    //   return obj
+    // }
+    // var obj1 =createObject('小明',10)
+    // var obj2 =createObject('小红',20)
+    // console.log(obj1,obj2)
+    // // 构造函数的方式创建对象
+    // function Person(name,gender){
+    //   this.name = name
+    //   this.gender = gender
+    //   this.sayHi=function(){
+    //     console.log('您好,我是:'+this.name)
+    //   }
+    // }
+    // var per = new Person('小明','男')
+    // per.sayHi()
+    // console.log(per)
+
+    // 类的方式
+    // class Student{
+    //   // 构造器,构造器中的属性,最终都是在实例对象上的
+    //   constructor(name,age,gender){
+    //     this.name = name 
+    //     this.age =age
+    //     this.gender = gender
+    //   }
+    //   // 在原型上
+    //   sayHi(){
+    //     console.log(`您好,我是${this.name},今年${this.age}岁了,是${this.gender}生`)
+    //   }
+    //   // class 中书写方法的时候,如果方法使用的是 = 赋值符号的方式来定义的,那么方法在实例上
+
+    //   // 在实例上
+    //   eat=()=>{
+    //     console.log('吃东西啊')
+    //   }
+    //   // play 方法在原型上还是在实例上? 实例上的
+    //   play=function(){
+    //     console.log('一起玩游戏啊')
+    //   }
+    // }
+    // // 实例化对象
+    // var stu = new Student('小白',20,'男')
+    // stu.sayHi()
+    // stu.eat()
+    // console.dir(stu)
+
+    // function Person(name,age){
+    //   this.name = name
+    //   this.age = age
+    //   this.sayHi=function(){
+    //     console.log('您好啊')
+    //   }
+    // }
+    // Person.prototype.eat=function(){
+
+    // }
+    // var p1 = new Person('小明',20)
+    // var p2 = new Person('小明',20)
+    // // true还是false?----false,两个对象都有自己的sayHi方法,如果有多个对象,那么就会出现多个对象占用多块空间,用来存储自己的方法,浪费内存,既然方法中的内容都是一样的,那么方法就应该放在原型上,占用一块空间,节省内存空间,实现数据共享
+    // console.log(p1.sayHi===p2.sayHi)
+
+    
+
+
+      // 单例模式:不管该对象创建多少次,实际上,最终对象只有一个
+
+
+
+
+
+    // 简单的单例模式创建对象
+    function createObj() {
+      var instance = null
+      return function (name) {
+        if (!instance) {
+          // 创建对象
+          instance = new Object()
+          // 初始化对象的属性值
+          instance.name =name
+        }
+        // instance 对象 已经创建完毕了, 此时是存在的
+        return instance
+      }
+    }
+    var getObj = createObj()
+    var obj3 = getObj('小明')
+    var obj4 = getObj('小红')
+    var obj5 = getObj('小红')
+    var obj6 = getObj('小红')
+    var obj7 = getObj('小红')
+    var obj8 = getObj('小红')
+    var obj9 = getObj('小红')
+    console.log(obj3,obj4)
+    console.log(obj3===obj4)
+    // 一个页面中有多个轮播图的效果,如果说此时为了实现轮播图的效果,那么就会创建对应的多个swiper的对象,
+    // 此时可以使用单例模式的创建只创建一个对象,节省空间,
+    // better-scroll的插件----单例模式
+
+
+
+
+
+
+
+
+    // // 通过构造函数的方式创建对象
+    /*
+      做了4件事
+      1: 开辟新的内存空间(申请一块空闲空间),用来存储实例化的对象
+      2: 设置this为当前对象(改变this的指向)
+      3: 初始化属性或者方法的值
+      4: 返回this这个实例对象
+      5: 把当前的对象所在的内存的空间的地址给per1变量
+    
+    */
+    // function Person1(name,age){
+    //   // 属性
+    //   this.name = name
+    //   this.age = age
+    //   // 方法
+    //   this.eat=function(){
+    //     console.log('我最喜欢吃榴莲浇臭豆腐汁,渊哥说')
+    //   }
+    // }
+    // // 实例化对象
+    // var per1 = new Person1('渊哥',49)
+    // var per2 = new Person1('渊哥',49)
+    // console.dir(per1.eat===per2.eat)
+
+
+  
+  </script>
+</body>
+
+</html>

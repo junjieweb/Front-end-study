@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 14行代码,在执行的时候,说明num 肯定是存在的,只是没有值而已
+    // console.log(num) // 报错的
+    // var num = 10
+    // js中是有预解析的
+    // 此时说明f1函数在调用之前,f1函数定义已经执行了,f1是存在的
+
+    // js中的预解析,变量的声明提升了,函数的声明也提升了(函数的表达式赋值的形式是没有提升的)
+    // f1()
+    // function f1(){
+    //   console.log('哈哈,我又变帅了')
+    // }
+
+    // 不行的
+    // f2()
+    // var f2 = function(){
+    //   console.log('勇哥很帅')
+    // }
+
+    // js中的预解析:全局的预解析,局部的预解析
+
+    // function f3(){
+    //   console.log(number)
+    //   var number = 100
+    // }
+    // f3()
+
+    // a变量和函数a都提升了,
+
+    // a()
+    // var a = 100
+    // function a() {
+    //   console.log('函数')
+    // }
+    
+    // console.log(a)
+
+
+    // f2() 
+    // var f2=function(){};
+
+
+    // var a = 10
+    // function f1(){
+    //   console.log('f1函数',a)
+    // }
+    // f1()
+
+    // 谈谈你对执行上下文环境的理解
+    // 谈谈预解析
+    // 谈谈作用域
+    // 闭包:
+
+
+
+
+      // function f1(){
+      //   function f2(){
+      //     console.log('f2函数')
+      //   }
+      //   return f2
+      // }
+      // function f3(){
+      //   f2()
+      // }
+
+
+      // var num = 10
+      // if(10<100){
+      //   var num2 = 100
+      // }
+      // console.log(num2) // 有结果
+
+      // var a = 10
+      // function f1(){
+      //   // var a =100 // 作用域链
+      //   console.log(a)
+      // }
+
+      // f1()
+      // console.log(a)
+
+        // 当代码书写完毕后，全局作用域就已经确定好了,然后代码执行之前,预解析出现了,然后全局的执行上下文就出现了,调用函数的之前,局部作用域就出现了,局部作用域中的预解析出现了,然后局部的执行上下文环境出现了
+      var num = 100
+      function f1(){
+        console.log(num)
+      }
+      f1()
+
+
+
+
+
+
+
+    // f1()
+    // console.log(num)
+    // var num =10
+
+    // function f1(){
+    //   console.log('哈哈,我又变帅了')
+    // }
+    // f2()
+    // var f2 = function(){
+    //   console.log('渊哥好帅哦')
+    // }
+
+    // 预解析
+    // var num = 100
+    // function f1(){
+    //   var n = 10
+    //   console.log(n)
+    //   console.log(num)
+    // }
+    // f1()
+
+    // 先提升的谁?
+    // a()
+    // var a = 100
+    // function a(){
+    //   console.log('函数')
+    // }
+    // console.log(a)
+
+
+    // f2() 
+    // var f2=function(){}
+
+    // var num = 100
+    // function f1() {
+    //   console.log('f1函数')
+    // }
+    // f1()
+  </script>
+</body>
+
+</html>

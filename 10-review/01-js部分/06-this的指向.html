@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+
+    // function f1(){
+    //   console.log(this) // window
+    // }
+    // f1()
+    // function F1(){
+    //   console.log(this) // 当前的实例对象
+    // }
+    // var ff = new F1()
+
+    // var m = 1
+    // function f1() {
+    //   console.log(this.m)
+    //   return 3
+    // }
+    // var obj = { m: 2 }
+    // // var ff = f1.bind(obj)
+    // // ff()
+    // // f1.bind(obj)
+    // // 结果?
+    // //f1()
+    // // // 结果??
+    // // f1.bind(obj)()
+    // // // 结果???
+    // console.log(f1.bind(obj)())
+
+
+    // 自己实现bind
+    // function f1(){}
+    // console.dir(f1)
+    // 能够调用bind方法,通过函数对象来调用的bind方法,相当于通过f1函数对象来调用的bind方法,找到了Function的prototype,bind方法在这里
+    // bind方法是通过函数对象来调用,所有的函数对象都可以调用bind
+    // Function.prototype.bind = function(){} // 方法的封装----->所有的函数对象都可以直接调用
+    // function bind(){} // 函数的封装  ----调用函数实现相关的功能
+    // function f1(){}
+    // var ff =f1.bind(obj)
+    // var result = ff()
+
+
+    // Function.prototype.bind = function (obj) {
+    //   console.log('myBind')
+    //   return () => {
+    //     return this.call(obj)
+    //   }
+    // }
+   
+
+
+    var obj2= {
+      test(){
+        
+        const f1=()=>{
+          console.log('+++',this) // 当前的实例对象obj2
+        }
+        f1()
+        const f2 = function(){
+          console.log('----',this) // window
+        }
+        f2()
+      }
+    }
+    obj2.test()
+
+
+
+  </script>
+</body>
+
+</html>

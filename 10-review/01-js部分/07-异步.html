@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 同步回调
+    [1, 2, 3].forEach(item => {
+      console.log(item)
+    })
+    console.log('forEach()之后')
+
+    new Promise((resolve, reject) => { // excutor  执行器函数
+      console.log('执行excutor')
+      // 执行异步任务
+    })
+    console.log('new Promise()之后')
+
+    // // 异步回调
+    setTimeout(() => {
+      console.log('执行timout回调')  // 27
+    }, 0);
+    console.log('setTimeout()之后') // 29 
+
+    Promise.resolve(1).then(() => {
+      console.log('promise成功的回调') // 32
+    })
+    console.log('.then之后')  // 43 
+  </script>
+</body>
+
+</html>
