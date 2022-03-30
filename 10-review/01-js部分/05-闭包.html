@@ -2,14 +2,14 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
 
     // 1. 一个问题:谈谈你对闭包的理解？ 闭包什么时候产生的,闭包是啥,为什么有闭包,闭包的优缺点,应用
     // 2. 三连问,或者是:五连问:  什么是闭包? 为什么要有闭包? 闭包有什么作用,有什么优缺点?
@@ -43,8 +43,8 @@
     // 此时fn2中存储的是一个地址,整个地址给了f,f是一个引用变量,存储的就是fn2函数对象所在的空间的地址
     // 此时的f 和fn2中存储的函数对象,还有着引用关系, 既然有引用关系,那么就说明fn1函数调用后,内部的数据被缓存起来了,没有被释放掉,所以,f函数调用后,可以再次进入到fn2函数中(不是此时形成的闭包,而是再用这个闭包,闭包之前就已经形成了)
 
-      // 函数有嵌套,外部函数调用了,内部函数使用了外部函数中的变量,但是内部函数是函数表达式的方式,只有内部函数定义执行了,那么此时才会形成闭包,如果fn2引用变量中还是undefined,此时没有执行,那么闭包就没有产生
-      // 闭包也是对象
+    // 函数有嵌套,外部函数调用了,内部函数使用了外部函数中的变量,但是内部函数是函数表达式的方式,只有内部函数定义执行了,那么此时才会形成闭包,如果fn2引用变量中还是undefined,此时没有执行,那么闭包就没有产生
+    // 闭包也是对象
 
     // 情况2
 
@@ -61,16 +61,12 @@
     // var f = fn1();
     //   // 此时还有没有释放
     // f();
-  
+
     // var ff = f
     // // 此时依然没有释放
     // ff = null // 就释放了
     // ff()
     // f=null // 那么此时就释放了
-
-
-
-
 
 
     // function fn1() {
@@ -98,9 +94,7 @@
     // clearTimeout()
 
 
-    
-
-  </script>
+</script>
 </body>
 
 </html>
