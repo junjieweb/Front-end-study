@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <style>
+    canvas {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <!--画布的宽度和高度,一定是通过width和height来设置,不能通过css来设置-->
+  <canvas id="myCanvas" width="200" height="100"></canvas>
+  <script type="text/javascript">
+  // 画验证码
+  // 获取画布对象
+    var c = document.getElementById("myCanvas");
+    // 以2D的方式来绘制
+    var cxt = c.getContext("2d");
+    // 颜色
+    cxt.fillStyle = "green";
+    // 矩形    参数:   x:横坐标起点,y:纵坐标起点   150 矩形的宽   75 矩形的高
+    cxt.fillRect(0, 0, 150, 75);
+  </script>
+</body>
+
+</html>

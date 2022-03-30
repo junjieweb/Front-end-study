@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 方式1: forEach()+indexOf(),本质:双重遍历,效率差一些
+    function unique1(array) {
+      var arr = []
+      array.forEach(item => {
+        if (arr.indexOf(item) === -1) {
+          arr.push(item)
+        }
+      })
+      return arr
+    }
+    // 测试
+    console.log(unique1([10, 20, 30, 40, 20, 10, 40]))
+    // 方式2:forEach+对象容器,本质:只需要遍历一次,效率高一些
+    function unique2(array) {
+      const arr = []
+      const obj = {}
+      array.forEach(item => {
+        if (!obj.hasOwnProperty(item)) {
+          obj[item] = true
+          arr.push(item)
+        }
+      })
+      return arr
+    }
+    // 测试
+    console.log(unique2([10, 20, 30, 40, 20, 10, 40]))
+    // 方式3:ES6语法,from+Set/...+Set
+    function unique3(array) {
+      // return Array.from(new Set(Array))
+      return [...new Set(array)]
+    }
+    // 测试
+    console.log(unique3([10, 20, 30, 40, 20, 10, 40]))
+
+
+
+
+
+    // [10,20,30,20,30]   [10,20,30]
+    // [10,20,30]
+  </script>
+</body>
+
+</html>

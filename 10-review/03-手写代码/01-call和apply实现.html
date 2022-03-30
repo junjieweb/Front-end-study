@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+
+    // 现在的
+    // 手写call 和手写apply ,bind 之前实现过
+    // call 方法是谁的?作用是什么?
+    // 
+
+    function f1(x, y) {
+      // console.log(x + y)
+      console.log('f1函数', this)
+      return x+y
+    }
+    // var num= 10 // 变量
+    // f1() // 函数调用
+    // console.log(winddow.num)
+    // window.f1()
+    var obj = { name: '小明' }
+    // f1 是函数对象,f1是 引用变量,f1---->实例对象,是Function的实例 对象
+    // f1对象中是没有call 方法的,通过隐式原型链找到Function的prototype原型对象,该原型对象中有call方法
+    // console.dir(Function)
+    // f1.call(obj, 10, 20)
+    // f1.call(null,1,2)
+    // 自己封装的一个函数-----第一个思路
+    // function call(fn,obj, ...args) {
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   // fn 中存储的是外部传入进来的f1函数对象,
+    //   obj.tempFn = fn
+    //   // obj.tempFn(...args) 就相当于f1(10,20) 的返回值 给了result
+    //   const result = obj.tempFn(...args)
+    //   // 把上面使用完毕的函数删除了(清理使用后的缓存数据了)
+    //   delete obj.tempFn
+    //   // 把f1函数调用后的结果返回
+    //   return result
+    // }
+    // var result1 = call(f1,obj,10,20)
+    // console.log(result1)
+    // 如果希望自己封装的call方法针对任意的一个函数对象都可以使用,那么应该把call方法封装到Function的prototype中
+    // 干掉了Function的prototype原型对象中原有的call方法了
+    // 自己封装的一个方法----第二个思路
+    // Function.prototype.call = function (obj, ...args) {
+    //   // 判断是否传了obj的对象
+    //   if(obj===null||obj===undefined){
+    //     obj = obj||window
+    //   }
+    //   // 此时代码能够执行到这里,说明式一个对象调用了这个call方法,所以,this就是当前对象,又由于该对象一定是一个函数对象
+    //   // 所以,this是一个函数对象(this是个函数)
+    //   // 把当前的this存储起来(把这个函数存储起来)
+
+    //   // window.tempFn = f1
+    //   obj.tempFn = this
+    //   // 调用这个函数
+    //   obj.tempFn(...args)
+
+    // }
+    // f1.call(obj,10,20)
+
+
+    // apply
+   
+    // function apply(fn,obj, args) {
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   // fn 中存储的是外部传入进来的f1函数对象,
+    //   obj.tempFn = fn
+    //   // obj.tempFn(...args) 就相当于f1(10,20) 的返回值 给了result
+    //   const result = obj.tempFn(...args)
+    //   // 把上面使用完毕的函数删除了(清理使用后的缓存数据了)
+    //   delete obj.tempFn
+    //   // 把f1函数调用后的结果返回
+    //   return result
+    // }
+    // var result2 = apply(f1,obj,[1,2])
+    // console.log(result2)
+
+
+
+    // 手写一个数组的forEach的方法---能不能写出来?
+    Array.prototype.forEach=function(cb){
+      // 此时的this就是数组的实例对象
+      for(var i=0;i<this.length;i++){
+        cb(this[i],i)
+      }
+    }
+
+    // 所有的数组实际上都是对象,都是Array的实例对象的
+    var arr= [10,20,30]
+    arr.forEach((item,index)=>{
+      console.log(item,index)
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //  以前的
+
+    // call()/apply/bind 方法属于Function的prototype原型上的方法
+    // 所有的Function的实例对象都可以调用call方法,把Function的prototype上的call进行重写
+    // Function.prototype.call=function(obj,...args){}
+    // 添加新方法
+    // Array.prototype.sayHi=function(){}
+
+    // 调用call
+    // function f1(x, y) {
+    //   console.log('我是f1函数', x, y, this)
+    //   return x + y
+    // }
+    // // 原型的方式实现
+    // Function.prototype.call = function (obj, ...args) {
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   obj.tempFn  = this
+    //   obj.tempFn(...args)
+    // }
+
+    // // // 实现call自定义
+    // function call(fn, obj, ...args) {
+    //   // 如果传入的是null或者是undefined,this指定为window
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   // 把fn以属性的方式存储起来
+    //   obj.tempFn = fn
+    //   // 通过
+    //   const result = obj.tempFn(...args)
+    //   // 删除新添加的方法
+    //   delete obj.tempFn
+    //   // 返回函数调用的结果
+    //   return result
+    // }
+    // // 测试
+    // function f1(x, y) {
+    //   console.log(x, y, this)
+    // }
+    // var obj = { name: '小明' }
+    // call(f1, null, 10, 20)
+
+
+    // // 实现apply
+    // function apply(fn, obj, args) {
+    //   // 判断传入的是null/undefined,this指定为window
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   obj.tempFn = fn
+    //   // 通过obj调用这个方法
+    //   const result = obj.tempFn(...args)
+    //   // 删除新添加的方法
+    //   delete obj.tempFn
+    //   // 返回函数调用
+    //   return result
+    // }
+    // // 测试
+    // function f2(x, y) {
+    //   console.log(x, y, this)
+    // }
+    // var obj = { age: 20 }
+    // apply(f2, obj, [10, 20])
+
+    // // 自定义bind
+    // function bind(fn, obj, ...args) {
+    //   if (obj === null || obj === undefined) {
+    //     obj = obj || window
+    //   }
+    //   return function (...args2) {
+    //     return call(fn, obj, ...args, ...args2)
+    //   }
+    // }
+    // function f5(x,y){
+    //   console.log(x,y,this)
+    // }
+    // var obj ={name:'小明'}
+    // var ff = bind(f5,obj)
+    // ff(10,20)
+
+
+
+    // // 手写forEach
+    // Array.prototype.forEach=function(cb){
+    //   for(var i= 0;i<this.length;i++){
+    //     cb(this[i],i)
+    //   }
+    // }
+    // var arr = [10,20,30]
+    // arr.forEach((item,index)=>{
+    //   console.log(item,index)
+    // })
+  </script>
+</body>
+
+</html>

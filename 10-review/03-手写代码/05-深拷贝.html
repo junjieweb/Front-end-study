@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    // // 对象
+    // const obj = {
+    //   // a是属性, 该属性的值也是一个对象
+    //   a: {
+       
+    //   },
+    //   // b是属性, 该属性的值是一个数组
+    //   b: [],
+    //   // fn是属性, 该属性的值是一个函数----函数属性
+    //   fn: function () { }
+    // }
+    // // obj.b---数组  赋值给了 obj.a.c----由于js是动态类型的语言, obj.a对象,a对象.c 添加了c这个属性 
+    // // obj.a.c 存储的就是b这个数组
+    // obj.a.c = obj.b
+    // // 此时obj.a 实时对象, 该对象中 a:{ obj.b数组}
+    // obj.b[0] = obj.a
+    //  console.log(obj)
+    // 我中 有你,你中有我,循环引用
+
+    // 两个引用变量指向的地址是相同的,浅拷贝中的问题,某个数据变化了,其他的引用变量所指向的这个对象中的数据也会随之变化
+    // var obj2=obj
+    // console.log(obj2)
+    // obj2.a=10
+    // console.log(obj.a)
+
+    // 应用:初次看到的页面是一个平台属性界面,
+    // 点击某一行的平台属性后面的修改按钮,弹出一个对话框,用来修改平台属性的值,此时对话框中如果修改了平台属性的值,但是没有做保存的操作,
+    // 而是直接关闭了对话框,此时首页中的平台属性的值竟然变化了,那么应该使用深拷贝的方式来解决该问题
+
+
+    // 乞丐版的深拷贝,如果出现了对象中的属性的循环引用,那么无法拷贝,直接报错,如果对象中有函数属性,那么直接丢失
+    // function deepClone1(target) {
+    //   return JSON.parse(JSON.stringify(target))
+    // }
+    // var obj2 = deepClone1(obj)
+    // console.log(obj2)
+    // console.log(obj)
+
+  </script>
+  <script type="text/javascript">
+    /*
+  深度克隆
+  1). 大众乞丐版
+      问题1: 函数属性会丢失
+      问题2: 循环引用会出错
+  2). 面试基础版本
+      解决问题1: 函数属性还没丢失
+  3). 面试加强版本
+      解决问题2: 循环引用正常
+  4). 面试加强版本2(优化遍历性能)
+      数组: while | for | forEach() 优于 for-in | keys()&forEach()
+      对象: for-in 与 keys()&forEach() 差不多
+  */
+    // // 循环引用
+    const obj = {
+      a: {
+        name: '小明'
+      },
+      b: [10,20],
+      fn: function () {
+        console.log('这是函数')
+      }
+    }
+    // obj对象的a属性中添加了一个c属性,并且c属性就是obj对象中的b数组
+   // obj.a.c = obj.b
+    // obj对象的a属性给了,obj对象b数组索引为0的位置
+   //  obj.b[0] = obj.a
+    // console.log(obj)
+
+
+
+    // /* 
+    // 1). 大众乞丐版
+    //   问题1: 函数属性会丢失
+    //   问题2: 循环引用会出错
+    // */
+    // function deepClone1(target) {
+    //   return JSON.parse(JSON.stringify(target))
+    // }
+    // // 测试
+    // var obj2 = deepClone1(obj)
+    // console.log(obj2)
+
+    // /* 
+    // 获取数据的类型字符串名
+    // */
+    function getType(data) {
+      return Object.prototype.toString.call(data).slice(8, -1)  // -1代表最后一位
+      // [object Array]  ===> Array  [object Object] ==> Object
+    }
+
+    // /*
+    // 2). 面试基础版本
+    //   解决问题1: 函数属性还没丢失,但是,询函引用还是有问题的
+    // */
+    function deepClone2(target) {
+      // 获取数据的类型
+      const type = getType(target)
+
+      if (type === 'Object' || type === 'Array') {
+        const cloneTarget = type === 'Array' ? [] : {}
+        for (const key in target) {
+          if (target.hasOwnProperty(key)) {
+            cloneTarget[key] = deepClone2(target[key])
+          }
+        }
+        return cloneTarget
+      } else {
+        return target
+      }
+    }
+    // 测试
+    var obj3 = deepClone2(obj)
+    console.log(obj3)
+
+    // /* 
+    // 3). 面试加强版本
+    //   解决问题2: 循环引用正常
+    // */
+    // function deepClone3(target, map = new Map()) {
+    //   const type = getType(target)
+    //   if (type === 'Object' || type === 'Array') {
+    //     // 从map容器取对应的clone对象
+    //     let cloneTarget = map.get(target)
+    //     // 如果有, 直接返回这个clone对象
+    //     if (cloneTarget) {
+    //       return cloneTarget
+    //     }
+    //     cloneTarget = type === 'Array' ? [] : {}
+    //     // 将clone产生的对象保存到map容器
+    //     map.set(target, cloneTarget)
+    //     for (const key in target) {
+    //       if (target.hasOwnProperty(key)) {
+    //         cloneTarget[key] = deepClone3(target[key], map)
+    //       }
+    //     }
+    //     return cloneTarget
+    //   } else {
+    //     return target
+    //   }
+    // }
+
+    // /* 
+    // 4). 面试加强版本2(优化遍历性能)
+    //     数组: while | for | forEach() 优于 for-in | keys()&forEach() 
+    //     对象: for-in 与 keys()&forEach() 差不多
+    // */
+    // function deepClone4(target, map = new Map()) {
+    //   const type = getType(target)
+    //   if (type === 'Object' || type === 'Array') {
+    //     let cloneTarget = map.get(target)
+    //     if (cloneTarget) {
+    //       return cloneTarget
+    //     }
+
+    //     if (type === 'Array') {
+    //       cloneTarget = []
+    //       map.set(target, cloneTarget)
+    //       target.forEach((item, index) => {
+    //         cloneTarget[index] = deepClone4(item, map)
+    //       })
+    //     } else {
+    //       cloneTarget = {}
+    //       map.set(target, cloneTarget)
+    //       Object.keys(target).forEach(key => {
+    //         cloneTarget[key] = deepClone4(target[key], map)
+    //       })
+    //     }
+
+    //     return cloneTarget
+    //   } else {
+    //     return target
+    //   }
+    // }
+  </script>
+</body>
+
+</html>
