@@ -14,32 +14,32 @@
 
     // 1
     // 异步回调----宏任务
-    setTimeout(() => {
+    /*setTimeout(() => {
         console.log('执行timout回调')
     }, 1000)
     // 2
     // 需要1S  ===> 定时器回调只能在1S之后才执行
     for (let index = 0; index < 10000; index++) {
         console.log('测试')
-    }
+    }*/
 
 
-    // new Promise((resolve, reject) => {
-    //   // 成功的回调
-    //   // resolve(100)
-    //   // 失败的回调
-    //   reject(200)
-    // }).then(value => {
-    //   // A
-    //   console.log(value)
-    // }, reson => {
-    //   // B
-    //   console.log(reson)
-    // }).then(resoved => {
-    //   console.log('A')
-    // }, rejected => {
-    //   console.log('B')
-    // })
+    /*new Promise((resolve, reject) => {
+        // 成功的回调
+        // resolve(100)
+        // 失败的回调
+        reject(200)
+    }).then(value => {
+        // A
+        console.log(value)
+    }, reson => {
+        // B
+        console.log(reson)
+    }).then(resolve => {
+        console.log('A')
+    }, reject => {
+        console.log('B')
+    })*/
 
 
     /*
