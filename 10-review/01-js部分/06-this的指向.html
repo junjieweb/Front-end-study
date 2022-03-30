@@ -2,14 +2,14 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
 
 
     // function f1(){
@@ -56,27 +56,24 @@
     //     return this.call(obj)
     //   }
     // }
-   
 
 
-    var obj2= {
-      test(){
-        
-        const f1=()=>{
-          console.log('+++',this) // 当前的实例对象obj2
+    var obj2 = {
+        test() {
+            const f1 = () => {
+                console.log('+++', this) // 当前的实例对象obj2
+            }
+            f1()
+            const f2 = function () {
+                console.log('----', this) // window
+            }
+            f2()
         }
-        f1()
-        const f2 = function(){
-          console.log('----',this) // window
-        }
-        f2()
-      }
     }
     obj2.test()
 
 
-
-  </script>
+</script>
 </body>
 
 </html>
