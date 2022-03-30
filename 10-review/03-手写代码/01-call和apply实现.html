@@ -2,31 +2,31 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
 
 
     // 现在的
     // 手写call 和手写apply ,bind 之前实现过
     // call 方法是谁的?作用是什么?
-    // 
 
     function f1(x, y) {
-      // console.log(x + y)
-      console.log('f1函数', this)
-      return x+y
+        // console.log(x + y)
+        console.log('f1函数', this)
+        return x + y
     }
+
     // var num= 10 // 变量
     // f1() // 函数调用
     // console.log(winddow.num)
     // window.f1()
-    var obj = { name: '小明' }
+    var obj = {name: '小明'}
     // f1 是函数对象,f1是 引用变量,f1---->实例对象,是Function的实例 对象
     // f1对象中是没有call 方法的,通过隐式原型链找到Function的prototype原型对象,该原型对象中有call方法
     // console.dir(Function)
@@ -70,7 +70,7 @@
 
 
     // apply
-   
+
     // function apply(fn,obj, args) {
     //   if (obj === null || obj === undefined) {
     //     obj = obj || window
@@ -88,34 +88,19 @@
     // console.log(result2)
 
 
-
     // 手写一个数组的forEach的方法---能不能写出来?
-    Array.prototype.forEach=function(cb){
-      // 此时的this就是数组的实例对象
-      for(var i=0;i<this.length;i++){
-        cb(this[i],i)
-      }
+    Array.prototype.forEach = function (cb) {
+        // 此时的this就是数组的实例对象
+        for (var i = 0; i < this.length; i++) {
+            cb(this[i], i)
+        }
     }
 
     // 所有的数组实际上都是对象,都是Array的实例对象的
-    var arr= [10,20,30]
-    arr.forEach((item,index)=>{
-      console.log(item,index)
+    var arr = [10, 20, 30]
+    arr.forEach((item, index) => {
+        console.log(item, index)
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //  以前的
@@ -201,7 +186,6 @@
     // ff(10,20)
 
 
-
     // // 手写forEach
     // Array.prototype.forEach=function(cb){
     //   for(var i= 0;i<this.length;i++){
@@ -212,7 +196,7 @@
     // arr.forEach((item,index)=>{
     //   console.log(item,index)
     // })
-  </script>
+</script>
 </body>
 
 </html>
