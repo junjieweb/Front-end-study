@@ -2,48 +2,48 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <ul>
+<ul>
     <li>aaa</li>
     <li>bbb</li>
     <li>ccc</li>
-  </ul>
-  <button id="test">test</button>
-  <div id="content">
+</ul>
+<button id="test">test</button>
+<div id="content">
     aaaaaaa
-  </div>
-  <script>
+</div>
+<script>
     Promise.resolve().then(() => { // 微任务
-      alert('promise1') // 页面渲染了吗?
+        alert('promise1') // 页面渲染了吗?
     })
     Promise.resolve().then(() => { // 微任务
-      alert('promise2') // 页面渲染了吗?
+        alert('promise2') // 页面渲染了吗?
     })
     setTimeout(() => {// 宏任务
-      alert(document.getElementById('content').innerHTML)  // 页面渲染了吗?
+        alert(document.getElementById('content').innerHTML)  // 页面渲染了吗?
     }, 0)
     document.getElementById('test').onclick = () => {// 宏任务
-      document.getElementById('content').innerHTML = 'xxxx'  // dom渲染 
-      setTimeout(() => {// 宏任务  
-        alert(document.getElementById('content').innerHTML) // 页面更新渲染了吗?
-      }, 0);
-      Promise.resolve().then(() => { // 微任务 
-        alert('promise3') //页面更新渲染了吗?
-      })
-      Promise.resolve().then(() => { // 微任务 
-        alert('promise4') //页面更新渲染了吗?
-      })
+        document.getElementById('content').innerHTML = 'xxxx'  // dom渲染
+        setTimeout(() => {// 宏任务
+            alert(document.getElementById('content').innerHTML) // 页面更新渲染了吗?
+        }, 0);
+        Promise.resolve().then(() => { // 微任务
+            alert('promise3') //页面更新渲染了吗?
+        })
+        Promise.resolve().then(() => { // 微任务
+            alert('promise4') //页面更新渲染了吗?
+        })
     }
     // 初始化同步代码
-    alert('1111') // 页面渲染了吗?  
+    alert('1111') // 页面渲染了吗?
 
-  </script>
+</script>
 </body>
 
 </html>
