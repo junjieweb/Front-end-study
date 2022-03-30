@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+      ## Array的方法扩展
+      1. Array.prototype.indexOf(value):得到数组中的某个数据的第一个下标,用来找数据的
+      2. Array.prototype.lastIndexOf(value):得到数组中某个数据的最后一个小标
+      3. Array.prototype.forEach(function(item,index){}):遍历数组
+      4. Array.prototype.map(function(item,index){}):遍历数组,返回新数组
+      5. Array.prototype.filter(function(item,index){}):遍历数组,过滤后的数组
+
+    Ctrl+ [  向左缩进
+    Ctrl+ ]  向右缩进
+    */
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    //indexOf
+    console.log([1, 2, 3, 4, 5].indexOf(30));
+    //lastIndexOf
+    console.log([1, 2, 5, 3, 4, 10, 5, 6].lastIndexOf(5));
+    //forEach
+    [1, 2, 3, 4, 5].forEach(function (item, index) {
+      console.log(item + '==========' + index)
+    })
+
+    // function f1(){
+    //   // console.log(arguments.length)
+    //   // arguments是个伪数组对象
+    //   // console.dir(arguments)
+    //   // arguments.forEach(function(item,index){
+    //   //   console.log('华哥好帅哦')
+    //   // })
+    // }
+    // f1(1,2,3,4,5)
+    //map
+    console.log([1, 2, 3, 4, 5].map(function (item, index) {
+      return item * 2
+    }))
+    //filter
+    console.log([1, 2, 3, 4, 5].filter(function (item, index) {
+      return item > 4
+    }))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // console.log([1, 2, 3, 4, 5].indexOf(3));
+    // console.log([1, 2, 3, 4, 5].lastIndexOf(4));
+    // [1, 2, 3, 4, 5].forEach(function (item, index) {
+    //   console.log(item + '===========' + index)
+    // });
+    // var newArr=[1, 2, 3, 4, 5].map(function (item, index) {
+    //   return item * 2
+    // });
+    // console.log(newArr)
+    // var newArr2=[1,2,3,4,5].filter(function(item,index){
+    //   return item>3
+    // });
+    // console.log(newArr2)
+  </script>
+</body>
+
+</html>

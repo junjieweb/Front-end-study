@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+        ## Generator函数
+      1. 概念:
+        - ES6提供的解决异步编程的方案之一
+        - Generator函数是一个状态,内部封装了不同状态数据
+        - 用来生成遍历对象
+        - 可暂停函数(惰性求值),yield可暂停,next方法可启动,每次返回的是yield后的表达式结果
+      2. 特点:
+        - function 与函数名之间有一个星号
+        - 内部用yield表达式来定义不同的状态
+        - 例如:
+          function * generatorExample(){
+            let result = yield 'hello'; // 状态值为hello
+            yield 'generator'; // 状态值为generator
+          }
+        - generator函数返回的是指针对象(接iterator),而不会执行函数内部逻辑
+        - 调用next方法函数内部逻辑开始执行,遇到yield表达式停止,返回{value:yield后的表达式结果/undefined,done:true}
+        - 再次调用next方法会从上一次停止时的yield处开始,直到最后
+        - yield语句返回结果通常为undefine,当调用next方法时传参内容会作为启动时yield语句的返回值
+    
+    */
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+  function* generator(){
+    console.log('执行了')
+    // yield 语句返回的就是undefined结果,next('bbb')这里传入的值可以直接给result,并输出
+    let result=yield 'hello'; // 遇到这玩意就会暂停
+    console.log(result)
+    console.log('暂停了')
+    yield '真好';
+    console.log('遍历完毕了')
+    return '真的结束了'; // 最终返回的结果
+  }
+  // 调用的目的是生成指针对象，然后调用next方法才能执行
+  var iteratorObj=generator()
+  console.log(iteratorObj.next())
+  console.log(iteratorObj.next('bbbb'))
+  console.log(iteratorObj.next())
+  </script>
+</body>
+</html>

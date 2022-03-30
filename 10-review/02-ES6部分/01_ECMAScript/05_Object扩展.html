@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // var person = {
+    //   name: '卡卡西',
+    //   age: 20
+    // }
+
+    // // 作用:为当前的person对象添加一个新的属性,gender
+    // Object.defineProperties(person, {
+    //   gender: {
+    //     get: function () { // 提供扩展属性值的,获取扩展属性值的时候就调用
+    //       console.log('啊,调用了')
+    //       return '男' // 默认值
+    //     },
+    //     set: function (str) { // 设置扩展属性值
+    //     // 当前设置该属性值的时候,会进入到当前的这个方法中,
+    //       console.log('执行了:'+str)
+    //     }
+    //   }
+    // })
+    // // 访问该属性的时候,此时就会进入到该属性的get方法中
+    // console.log(person.gender)
+    // person.gender = '女'
+    // console.log(person.gender)
+
+
+
+
+    // 克隆数据,修改第二个对象的数据,第一个对象的数据也要被修改
+
+    // var obj = {
+    //   name: '小明',
+    //   age: 30
+    // }
+    // var obj2 = {}
+    // // 克隆对象1给对象2---继承
+    // for (var key in obj) {
+    //   obj2[key] = obj[key]
+    // }
+    // console.log(obj2.name)
+    // obj2.name = '小红'
+    // console.log(obj.name)
+
+
+    var obj = {
+      name: '小明',
+      age: 30
+    }
+    var obj2 = {}
+    // key--->"name" 和"age"
+    for (var key in obj) {
+      // 函数的自调用
+      (function (key) {
+        Object.defineProperties(obj2, {
+          [key]: {
+            get: function () {
+              return obj[key]   // ----当前这个属性值 obj["name"] 或者是obj["age"]
+            },
+            set: function (msg) {
+              console.log(msg)
+              obj[key] = msg
+            }
+          }
+        })
+      })(key)
+    }
+    console.log(obj2)
+    obj.name = '大明'
+    console.log(obj.name)
+    obj2.name = '小红'
+    console.log(obj2.name)
+    console.log(obj.name)
+
+
+    var obj3={}
+    var obj4=obj3
+  </script>
+</body>
+
+</html>

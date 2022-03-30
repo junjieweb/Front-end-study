@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    /*
+     如何实现深度克隆
+      拷贝的数据里如果有对象或者数组,那么要继续遍历进行拷贝,除非该数据是数值类型,否则一直遍历进行拷贝
+
+      1. 先判断数据类型
+    */
+
+
+    let result = 'hello';
+    // 可以获取任意数据的真正的类型
+    result = null
+    result = []
+    console.log(Object.prototype.toString.call(result))
+    // 截取获取的真正的数据类型
+    console.log(Object.prototype.toString.call(result).slice(8, -1))
+
+    // 遍历对象--属性名
+    let obj = { name: '小强' }
+    for (let i in obj) {
+      console.log(i)
+    }
+    // 遍历数组---索引
+    let arr = [1, 3, 'abc']
+    for (let i in arr) {
+      console.log(i)
+    }
+
+
+
+    // 定义检测数据类型的功能函数
+    function checkType(target) {
+      return Object.prototype.toString.call(target).slice(8, -1)
+    }
+    // 实现深度克隆
+    function clone(target) {
+      // 初始化result  最终克隆的数据
+      let result, targetType = checkType(target)
+      // 判断数据类型
+      if (targetType === 'Object') {
+        result = {}
+      } else if (targetType === 'Array') {
+        result = []
+      } else {
+        return target
+      }
+      // 遍历目标数据
+      for (let i in target) {
+        let value = target[i]
+        // 判断目标结构里的每一个值是否存在对象/数组
+        if (checkType(value) === 'Object' || checkType(value) === 'Array') { // 对象/数组中又嵌套了对象/数组
+          // 继续遍历,获取到的value值
+          result[i] = clone(value)
+        } else {
+          result[i] = value
+        }
+
+      }
+      return result // 返回最终克隆的数据
+    }
+
+    let arr5 = [1, 2, { name: '小明啊', age: 90 }]
+    let arr6 = clone(arr5)
+    arr6[2]['name'] = '大明啊'
+    console.log(arr5)
+    console.log(arr6)
+  </script>
+</body>
+
+</html>

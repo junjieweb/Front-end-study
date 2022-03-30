@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+
+        ## async 函数是generator函数的语法糖
+      1. 概念: 真正意义上去解决异步回调问题,同步流程表达异步操作
+      2. 本质: Generator的语法糖
+      3. 语法:
+        - async function foo(){
+            await 异步操作;
+            await 异步操作;
+        }
+      4. 特点:
+        - 不需要像Generator去调用next方法,遇到await等待,当恰你的异步操作完成就往下执行
+        - 返回的总是Promise对象,可以用then方法进行下一步操作
+        - async 取代Generator函数的星号*,await 取代Generator的yield
+        - 语义上更为明确,使用简单,经临床验证,暂时没有副作用及不良反应
+      1. await 是暂停,但是必须跟着promise对象才会暂停,其他的都不暂停
+
+    */
+
+
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    // async function f1(){await 123;} 根本不会暂停
+    // async function f2(){await setTimeut(function(){console.log('执行了')},1000)} 也不会暂停
+
+    // // async 函数
+    // async function f1() {
+    //   console.log('函数开始执行')
+    //   await setTimeout(function(){
+    //     console.log('定时器')
+    //   },2000);
+    //   console.log('函数执行中')
+    //   await 456;
+    //   console.log('函数执行结束')
+    // }
+    // f1()
+    // // 只有在await后面有promise才会暂停,如果要继续执行,修改promise对象的状态(暂停到promise对象状态为成功的情况,如果是失败状态,则直接报错)
+    // // resolve(value) value就会作为await的返回值返回
+    // // async 函数调用返回的是Promise对象
+    // // 默认是peding状态
+    // // 当async 函数所有代码全部执行完毕,并且没有出错,此时就会变成成功状态
+    // // 当async 函数代码出错了,就会变成失败状态
+    async function f1() {
+      console.log('开始执行');
+      let result = await new Promise((resolve, reject) => {
+        console.log('promise中代码')
+        setTimeout(function () {
+          resolve(222) // 成功,修改状态
+        }, 2000)
+      })
+      console.log(result)
+      console.log('结束执行');
+      return 1000
+    }
+    let promise = f1();
+    console.log(promise)
+    promise
+      .then((data)=>{
+        // 是async 函数最终return 的值
+        console.log(data)
+      })
+      .catch((error)=>{
+        // 是reject(这里的数据)
+        console.log(error)
+      })
+
+
+    // async function foo(){
+    //   return Promise((resolve)=>{
+    //     setTimeout(function(){
+    //       resolve()
+    //     },2000)
+    //   })
+    // }
+    // 上面代码的简写
+    // async function foo(){
+    //   return Promise((resolve)=>{
+    //     setTimeout(resolve,2000)
+    //   })
+    // }
+  </script>
+</body>
+
+</html>

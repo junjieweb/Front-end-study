@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+    
+       ## Function的扩展
+      1. Function.prototype.bind(obj)
+        - 作用:讲函数内的this绑定为obj,并将函数返回
+      2. 面试题:区别:bind()与call和applay()?
+        - call()/apply()是立刻调用函数
+        - bind()是将函数返回
+        bind()可以改变this的指向
+
+    
+    */
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+  // console.dir(Function.prototype)
+    // function f1(x,y){
+    //   console.log(this,x,y)
+    // }
+    var obj={
+      name:'小名'
+    }
+    // // 相当于复制了一个
+    // var ff=f1.bind(obj)
+    // ff(10,20)
+
+    // 修改定时器中的this
+    // setTimeout(function(){
+    //   console.log(this) // window
+    // },1000);
+
+    // setTimeout(function(){
+    //   console.log(this) // obj
+    // }.bind(obj),1000)
+
+
+
+
+    var obj={
+      name:'卡卡西'
+    }
+    function f1(msg) {
+      console.log(this,msg)
+    }
+    setTimeout(f1.bind(obj,'真好'),2000)
+    // setTimeout(function(){
+    //   console.log(this)
+    // }.bind(obj),3000)
+
+
+
+  </script>
+</body>
+</html>

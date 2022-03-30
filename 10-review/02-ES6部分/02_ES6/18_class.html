@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+        ## class
+      1. 通过class定义类/实现类的继承
+      2. 在类中通过constructor定义构造方法
+      3. 通过new 来创建类的实例
+      4. 通过extends来实现类的继承
+      5. 通过super调用父类的构造函数
+      6. 重写从父类继承的一般方法
+    
+    */
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+  // 父类
+   class Person{
+     constructor(name,age){
+       // 定义属性
+      this.name=name;
+      this.age=age;
+     }
+     // 定义方法
+     sayHi(name){
+       console.log('您好,我叫:'+this.name)
+     }
+   }
+   // 子类
+   class Student extends Person{
+     constructor(name,age,gender){
+      super(name,age);
+      this.gender=gender
+     }
+     eat(){
+       console.log('真香')
+     }
+   }
+   let person = new Person('卡卡西',20)
+   console.log(person)
+   person.sayHi()
+   let stu = new Student('佐助',18,'男')
+   console.log(stu)
+   stu.sayHi()
+   stu.eat()
+  </script>
+</body>
+</html>

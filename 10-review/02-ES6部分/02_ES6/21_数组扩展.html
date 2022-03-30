@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+        ## 数组扩展
+      1. Array.form(伪数组) 伪数组转真数组
+      2. Array.of(val1,val2,val3)将一些列数值转换为数组
+      3. find(回调) 找出第一个满足条件的元素
+      4. findIndex(回调) 找出第一个满足条件的元素的下标
+
+    */
+  </script>
+</head>
+
+<body>
+  <button>按钮1</button>
+  <button>按钮1</button>
+  <button>按钮1</button>
+  <script type="text/javascript">
+    let btnObjs = document.getElementsByTagName('button')
+    // 伪数组转真数组
+    let arr = Array.from(btnObjs)
+    console.log(arr)
+    // 数值转数组---没啥用
+    console.log(Array.of(1, 2, 3, 4, 5))
+
+    var arr2 = [
+      {
+        age: 10
+      }, {
+        age: 20
+      }, {
+        age: 10
+      }
+    ]
+    // 找对象
+    let person = arr2.find(function (item, index) {
+      return item.age === 10
+    })
+    console.log(person)
+
+    // 找索引
+
+    let index=arr2.findIndex(function (item, index) {
+      return item.age === 10
+    })
+    console.log(index)
+  </script>
+</body>
+
+</html>

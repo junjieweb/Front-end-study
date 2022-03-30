@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+    ## ES5给Object扩展了一些静态方法,常用的2个:
+      1. Object.create(prototype,[descriptors]) 创建对象并实现继承
+        - 作用: 以指定对象为原型创建新的对象
+        - 为新的对象指定新的属性,并对属性进行描述
+        - value: 指定的值
+        - writable:标识当前属性值是否是可修改的,默认为false
+        - configurable:标识当前属性是否可以被删除,默认是false
+        - enumberable: 标识当前属性是否能用for in 枚举,默认为false
+        - for-in(性能问题)不仅枚举自身属性,也可以枚举原型对象上的属性,一般配合对象.hasOwnProperty()方法
+    */
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var person = {
+      name: '小明',
+      sayHi: function () {
+        console.log('您好')
+      }
+    }
+    // 新创建的stu对象和person对象是继承关系
+    // var stu = Object.create(person)  // stu.__proto__---->person
+    // console.log(stu.name)
+    // stu.sayHi()
+    var stu = Object.create(person, {
+      age: {
+        value: 10,
+        writable: true,// 可修改
+        configurable: false, // 是否可以干掉这个属性
+        enumerable:true, // 默认是false,不可被枚举(遍历)
+      },
+      gender: {
+        value: '男'
+      }
+    })
+    console.log(stu.age)
+    for(var key in stu){
+      // stu这个对象中是否有key的这个属性-----key是变量,里面存储的是键的值(属性的名字)
+      if(stu.hasOwnProperty(key)){
+        console.log(key)
+      }
+    }
+    // console.log(stu.name)
+    // console.log(stu.age, stu.gender)
+    // stu.age = 100
+    // delete stu.age
+    // // 本身delete stu.age已经删除了,但是由于JS是一门动态类型的语言,所以,对象没有什么,但是点了,此时对象就有了,但是没有赋值,所以,结果为undefined
+    // // 动态类型语言:1.是对象没有什么,点了之后就有了,2.变量只有在使用的时候才能确定该变量的类型
+    // console.log(stu.age)
+    // stu.sayHi()
+
+
+    // var stu={}
+    // for(var key in person){
+    //   stu[key]=person[key]
+    // }
+
+
+
+
+
+
+
+    // // 创建对象,并继承
+    // var stu = Object.create(person)
+    // console.log(stu.name)
+    // stu.sayHi()
+
+
+    // var person = {
+    //   name: '小明',
+    //   sayHi: function () {
+    //     console.log('您好')
+    //   }
+    // }
+    // // 创建对象,并继承
+    // var stu = Object.create(person, {
+    //   age: {
+    //     value: 18, // 默认的值
+    //     writable: true, // 是否可以被修改
+    //     configurable: false, // 是否可以被删除
+    //     enumerable: true // 是否可以被枚举
+    //   },
+    //   gender: {
+    //     value: '男'
+    //   }
+    // })
+
+    // console.log(stu.name, stu.gender, stu.age)
+    // stu.age = 20 // 修改值
+    // console.log(stu.name, stu.gender, stu.age)
+    // delete stu.age // 删除值
+    // console.log(stu.name, stu.gender, stu.age)
+    // // 遍历属性
+    // for (var key in stu) {
+    //   // 判断是否是自身上的属性
+    //   if(stu.hasOwnProperty(key)){
+    //     console.log(key)
+    //   }
+
+    // }
+    // stu.sayHi()
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+<body>
+  <script type="text/javascript">
+      var person = {
+      name: '小明',
+      sayHi: function () {
+        console.log('您好')
+      }
+    }
+    // 新创建的stu对象和person对象是继承关系
+    var stu = Object.create(person)  // stu.__proto__---->person
+    console.log(stu.name)
+    stu.sayHi()
+
+
+    // 命名函数----函数的名字是f1
+    function f1(){}
+    // 没有名字的函数---匿名函数
+   var f2 = function (){}
+   // 匿名函数
+   var f3 = ()=>{}
+  </script>
+</body>
+</html>

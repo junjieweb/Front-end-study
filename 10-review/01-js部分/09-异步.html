@@ -2,26 +2,26 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
-  <script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+<script>
 
 
     // 1
     // 异步回调----宏任务
-    // setTimeout(() => {
-    //   console.log('执行timout回调')
-    // }, 1000)
-    // // 2
-    // // 需要2S  ===> 定时器回调只能在2S之后才执行
-    // for (let index = 0; index < 10000; index++) {
-    //   console.log('测试')
-    // }
+    setTimeout(() => {
+        console.log('执行timout回调')
+    }, 1000)
+    // 2
+    // 需要1S  ===> 定时器回调只能在1S之后才执行
+    for (let index = 0; index < 10000; index++) {
+        console.log('测试')
+    }
 
 
     // new Promise((resolve, reject) => {
@@ -34,7 +34,7 @@
     //   console.log(value)
     // }, reson => {
     //   // B
-    //   console.log(reson) 
+    //   console.log(reson)
     // }).then(resoved => {
     //   console.log('A')
     // }, rejected => {
@@ -73,7 +73,7 @@
     //     // 返回一个其他的值
     //     // return 1000
     //     Promise.resolve(2000)
-         
+
     //   }
     // ).then(value=>{
     //   console.log('onResolved1', value)
@@ -93,23 +93,6 @@
     // async function f1(){}
     // var p = f1()
     // console.log(p)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // Promise.all()
@@ -171,7 +154,6 @@
     // }
 
 
-
     // function test() {
     //   getProduct().then(value => {
     //     console.log(value)
@@ -181,7 +163,7 @@
     // }
     // test()
 
-  </script>
+</script>
 </body>
 
 </html>

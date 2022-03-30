@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+  <script type="text/javascript">
+    /*
+
+    严格模式下,变量必须用var
+    函数中的this为undefined
+    创建eval作用,传入字符串,解析代码---几乎不用,不安全
+    有严格模式,结果是20，没有严格模式是123
+      var a = 20;
+      eval("var a=123; alert(a)")
+      console.log(a)
+
+    */
+  </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    // 开启严格模式:在所有的js代码的最上面
+    // 一旦开启严格模式,变量声明的时候必须使用var
+    // 开启严格模式的情况下,普通函数中的this已经不是window了
+    // 'use strict';
+    // 问题3:eval作用域
+    // alert("这是eval解码出来的")
+    // eval('alert("这是eval解码出来的")')
+    // var a=100;
+    // eval('var a=123; alert(a)')
+    // console.log(a)
+
+    // 问题2:函数中this的问题
+    // function f1(){
+    //   console.log(this)
+    // }
+    // window.f1()
+
+    // 问题1:变量的问题
+    // var num = 10;
+    // var num = 20;
+    // console.log(num);
+
+
+   
+
+
+
+    // 'use strict'
+    // var userName = '卡卡西'
+    // age = 18 // 报错
+    // console.log(userName)
+    // console.log(age)
+
+    // function f1(name) {
+    //   this.name = name
+    //   console.log(this)
+    // }
+    // new f1('自来也')
+
+    //  eval('alert("这好啊")')
+
+
+    // var a = 20;
+    // eval("var a=123; alert(a)")
+    // console.log(a)
+
+
+    // var obj={
+    //   name:'小明',
+    //   name:'小红'
+    // }
+    // console.log(obj.name)
+  </script>
+</body>
+
+</html>

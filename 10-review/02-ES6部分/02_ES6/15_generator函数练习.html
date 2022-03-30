@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+<body>
+  <script type="text/javascript">
+  // 需求,先做第一件事,然后做第二件事,最后最第三件事
+    function* generator(){
+      setTimeout(function(){
+        console.log('第一件是做完了')
+        iterator.next('aaaa')
+      },1000);
+      let result=yield;
+      console.log(result)
+      setTimeout(function(){
+        console.log('第二件是做完了')
+        iterator.next('bbbb')
+      },2000);
+     let result2=yield;
+     console.log(result2)
+      setTimeout(function(){
+        console.log('第三件是做完了')
+      },3000);
+    }
+    let iterator = generator()
+    iterator.next()
+
+
+
+// 另一种写法
+    // function* generator(){
+    //   yield setTimeout(function(){
+    //     console.log('第一件是做完了')
+    //     iterator.next()
+    //   },1000);
+  
+    //   yield setTimeout(function(){
+    //     console.log('第二件是做完了')
+    //     iterator.next()
+    //   },2000);
+    //   yield setTimeout(function(){
+    //     console.log('第三件是做完了')
+    //     iterator.next()
+    //   },3000);
+    //   console.log('全部执行完毕了')
+
+    // }
+    // let iterator = generator()
+    // iterator.next()
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function getNews(url) {
+      let promise = new Promise((resolve, reject) => {
+        // 此时状态是初始化,执行异步任务,创建XMLHttpRequest
+        let xmlHttp = new XMLHttpRequest();
+        // 绑定监听 readyState
+        xmlHttp.onreadystatechange = function () {
+          // 如果状态为4并且status为200,就是成功了
+          if (xmlHttp.readyState === 4) {
+            if (xmlHttp.status === 200) {
+              // console.log(xmlHttp.responseText)
+              // 修改状态为成功
+              resolve(xmlHttp.responseText);
+            } else {
+              reject('暂时没有请求到'); //失败
+            }
+          }
+        }
+        // open 设置请求的方式及url
+        xmlHttp.open('GET', url)
+        xmlHttp.send()
+        //  xmlHttp.open('GET',url,false) 同步发送请求
+      })
+      return promise
+    }
+
+    let url = `http://localhost:3000/news?id=2`;
+    getNews(url).then((data) => {
+      // console.log(data)
+      var url = JSON.parse(data)
+      url = 'http://localhost:3000' + url.commentsUrl
+      return getNews(url)
+    }, (error) => {
+      console.log(error)
+    })
+    .then((data)=>{
+      console.log(data)
+    },()=>{
+
+    })
+  </script>
+</body>
+
+</html>

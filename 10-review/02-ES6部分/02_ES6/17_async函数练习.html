@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+</head>
+<body>
+  <script type="text/javascript">
+    async function f1(){
+      let result1= await new Promise((resolve)=>{
+        setTimeout(function(){
+          console.log('第一件事做完了')
+          resolve('1111')
+        },1000)
+      });
+      let result2= await new Promise((resolve)=>{
+        setTimeout(function(){
+          console.log('第二件事做完了')
+          resolve('2222')
+        },2000)
+      });
+      let result3= await new Promise((resolve)=>{
+        setTimeout(function(){
+          console.log('第三件事做完了')
+          resolve('3333')
+        },3000)
+      })
+      console.log(result1,result2,result3)
+      console.log('全部做完了')
+    }
+    f1()
+  </script>
+</body>
+</html>
