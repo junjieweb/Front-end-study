@@ -1,6 +1,7 @@
 # TypeScript
 
 ## 初体验
+
 > 全局安装TypeScript
 
 ```shell
@@ -18,6 +19,7 @@ npm install -g typescript
 ## webpack打包ts配置
 
 > build文件夹 > webpack.config.js
+
 ```javascript
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -73,7 +75,9 @@ module.exports = {
 }
 
 ```
+
 > public文件夹 > index.html
+
 ```html
 <!doctype html>
 <html lang="zh">
@@ -90,8 +94,10 @@ module.exports = {
 </html>
 
 ```
+
 > src文件夹 main.ts
 > package.json
+
 ```json
 {
   "name": "2-webpack-ts",
@@ -126,9 +132,24 @@ module.exports = {
 
 ## 基本类型
 
+- ts中定义变量的语法：let/const 变量名:类型 = 值
+- 变量是什么类型，就应该赋什么类型的值
+
 1. boolean
 
+```typescript
+let flag: boolean = true
+flag = false
+```
+
 2. number
+
+```typescript
+let num: number = 10 // 十进制
+let num1: number = 0b1010 // 二进制
+let num2: number = 0o12 // 八进制
+let num3: number = 0xa // 十六进制
+```
 
 3. string
 
