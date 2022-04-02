@@ -159,7 +159,7 @@ module.exports = {
 
 4. undefined 和 null
 
-    可以把null或undefined赋值给number类型的变量，但是需要关闭`tsconfig.json`文件的严格模式
+    可以把`null`或`undefined`赋值给number类型的变量，但是需要关闭`tsconfig.json`文件的严格模式
 
     ```typescript
     let u: undefined = undefined
@@ -192,15 +192,133 @@ module.exports = {
 
     `enum` 类型是对 JavaScript 标准数据类型的一个补充。 使用枚举类型可以`为一组数值赋予友好的名字`
 
+    - 把具有特定个数，且值是固定的情况的数据，使用枚举类型的方式定义出来，
+    - 枚举类型中的数据，可以是中文
+    - 枚举类型中的值是从0开始的，依次+1
+    - 枚举的值对应的数字值是可以改变的
+    - 枚举的值是可以通过索引（像数组中索引的方式来使用，但不是索引）的方式来访问的
+
     ```typescript
-    enum Gender {
-        女,
-        男
+    enum Color {
+        red,
+        green,
+        blue
     }
     
-    let g: Gender = Gender.男
-    let g1: Gender = Gender.女
+    let c: Color = Color.red // 0
+    console.log(Color[0]) // red
     ```
 
+8. any
+
+    `any`类型代表任意类型
+
+    ```typescript
+    let s1: any = 10
+    s1 = 'hello'
+    // 数组中的数据可以是任意类型
+    let arr2: any = [10, 'tom', true]
+    ```
+
+9. void
+
+    某种程度上来说，`void` 类型像是与 `any` 类型相反，它`表示没有任何类型`。 当一个函数没有返回值时，你通常会见到其返回值类型是 `void`
+
+    可以赋值为`null`或者`undefined`，但是需要关闭`tsconfig.json`文件的严格模式
+
+    ```typescript
+    let v: void = undefined
+    let v1: void = null
+    ```
+
+    通常用在函数的返回值中，标识该函数没有返回值，或者说该函数的返回值可以是null或undefined
+
+    ```typescript
+    function showTime(): void {
+        console.log(Date.now())
+        // 以下都可以
+        // return
+        // return undefined
+        // return null // 需要关闭`tsconfig.json`文件的严格模式
+    }
     
+    console.log(showTime()) // undefined
+    ```
+
+10. object
+
+    `object` 表示非原始类型，也就是除 `number`，`string`，`boolean`之外的类型。
+
+    ```typescript
+    let obj: object = {name: 'tom', age: 23}
+    ```
+
+    使用 `object` 类型，就可以更好的表示像 `Object.create` 这样的 `API`。例如：
+
+    ```typescript
+    function fn2(obj: object): object {
+        console.log('fn2()', obj)
+        return {}
+        // return undefined
+        // return null
+    }
+    
+    console.log(fn2(new String('abc')))
+    console.log(fn2(String))
+    ```
+
+11. 联合类型
+
+    联合类型（Union Types）表示取值可以为多种类型中的一种
+
+    ```typescript
+    let t: number | string = 100
+    t = 'hello'
+    ```
+
+12. 类型断言
+
+    通过类型断言这种方式可以告诉编译器，“相信我，我知道自己在干什么”。 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript 会假设你，程序员，已经进行了必须的检查。
+
+    语法：方式一：`<类型>值`；方式二：`值 as 类型`
+
+    > 例：定义一个一个函数得到一个数字或字符串值的长度
+
+    ```typescript
+    function getLength(str: string | number): number {
+        // 如果str是string类型的，那么久str就会自动的转成对象的方式来调用length属性使用（基本包装类型）
+        // 如果str是number类型的，那么number是不能直接调用length属性使用
+        // 写法一：<string> str 把str变量的类型强制的转成string类型的数据
+        // 写法二：(str as string) 转换类型
+        if ((<string>str).length) { // 字符串类型的数据
+            // return (<string>str).length
+            return (str as string).length
+        } else { // number类型的数据
+            return str.toString().length
+        }
+    }
+    console.log(getLength(100))
+    console.log(getLength('hello'))
+    ```
+
+13. 类型推断
+
+    TS会在没有明确的指定类型的时候推测出一个类型
+
+    有下面2种情况: 1. 定义变量时赋值了, 推断为对应的类型. 2. 定义变量时没有赋值, 推断为any类型
+
+    ```typescript
+    // 情况一：定义变量时赋值了, 推断为对应的类型
+    let num = 10 // number
+    // 情况二： 定义变量时没有赋值, 推断为any类型
+    let a // any类型
+    a = 100
+    a = 'hello'
+    ```
+
+## 接口
+
+TypeScript 的核心原则之一是对值所具有的结构进行类型检查。我们使用接口（Interfaces）来定义对象的类型。`接口是对象的状态(属性)和行为(方法)的抽象(描述)`
+
+
 
