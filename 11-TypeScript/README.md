@@ -132,30 +132,75 @@ module.exports = {
 
 ## 基本类型
 
-- ts中定义变量的语法：let/const 变量名:类型 = 值
+- ts中定义变量的语法：`let/const 变量名:类型 = 值`
 - 变量是什么类型，就应该赋什么类型的值
 
 1. boolean
 
-```typescript
-let flag: boolean = true
-flag = false
-```
+    ```typescript
+    let flag: boolean = true
+    flag = false
+    ```
 
 2. number
 
-```typescript
-let num: number = 10 // 十进制
-let num1: number = 0b1010 // 二进制
-let num2: number = 0o12 // 八进制
-let num3: number = 0xa // 十六进制
-```
+    ```typescript
+    let num: number = 10 // 十进制
+    let num1: number = 0b1010 // 二进制
+    let num2: number = 0o12 // 八进制
+    let num3: number = 0xa // 十六进制
+    ```
 
 3. string
 
-4. undefined
+    ```typescript
+    let str: string = 'hello'
+    ```
 
-5. null
+4. undefined 和 null
 
-6. array
+    可以把null或undefined赋值给number类型的变量，但是需要关闭`tsconfig.json`文件的严格模式
+
+    ```typescript
+    let u: undefined = undefined
+    let n: null = null
+    ```
+
+5. 数组
+
+    方式一：`let/const 变量名: 类型[] = [值1,值2,...]`
+
+    ```typescript
+    let arr: number[] = [1, 2, 3]
+    ```
+
+    方式二：使用数组泛型 `let/const 变量名: Array<类型> = [值1,值2,...]`
+
+    ```typescript
+    let arr1: Array<number> = [10, 20, 30]
+    ```
+
+6. 元组（Tuple）
+
+    元组类型允许表示一个已知元素数量和类型的数组，`各元素的类型不必相同`。 比如，你可以定义一对值分别为 `number` 和 `string` 类型的元组。
+
+    ```typescript
+    let t1: [number, string] = [1, 'a']
+    ```
+
+7. 枚举
+
+    `enum` 类型是对 JavaScript 标准数据类型的一个补充。 使用枚举类型可以`为一组数值赋予友好的名字`
+
+    ```typescript
+    enum Gender {
+        女,
+        男
+    }
+    
+    let g: Gender = Gender.男
+    let g1: Gender = Gender.女
+    ```
+
+    
 
