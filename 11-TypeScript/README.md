@@ -305,7 +305,7 @@ module.exports = {
 
     TS会在没有明确的指定类型的时候推测出一个类型
 
-    有下面2种情况: 1. 定义变量时赋值了, 推断为对应的类型. 2. 定义变量时没有赋值, 推断为any类型
+    有下面两种情况：
 
     ```typescript
     // 情况一：定义变量时赋值了, 推断为对应的类型
@@ -320,5 +320,169 @@ module.exports = {
 
 TypeScript 的核心原则之一是对值所具有的结构进行类型检查。我们使用接口（Interfaces）来定义对象的类型。`接口是对象的状态(属性)和行为(方法)的抽象(描述)`
 
+在 TypeScript 中，我们使用接口（Interfaces）来定义对象的类型
 
+### 接口类型的对象
 
+- 多了或者少了属性是不允许的
+
+- 可选属性:：?
+
+- 只读属性： readonly
+
+例子：
+
+> 需求：创建人的对象, 需要对人的属性进行一定的约束
+>
+> > id是number类型, 必须有, 只读的
+>
+> > name是string类型, 必须有
+>
+> > age是number类型, 必须有
+>
+> > gender是string类型, 可以没有
+
+```typescript
+// 定义一个接口
+interface Person {
+    readonly id: number, // readonly 只读
+    name: string,
+    age: number,
+    gender?: string // ? 可选属性
+}
+// 定义一个对象
+// 类型检查器会查看对象内部的属性是否与Person接口描述一致, 如果不一致就会提示类型错误
+let person: Person = {
+    id: 1,
+    name: 'tom',
+    age: 23,
+    // gender: '男'
+}
+```
+
+### 函数类型
+
+接口能够描述 JavaScript 中对象拥有的各种各样的外形。 除了描述带有属性的普通对象外，接口也可以描述函数类型。
+
+为了使用接口表示函数类型，我们需要给接口定义一个调用签名。它就像是一个只有参数列表和返回值类型的函数定义。参数列表里的每个参数都需要名字和类型。
+
+```typescript
+// 接口可以描述函数类型(参数的类型与返回的类型)
+interface Search {
+    // 限制某个函数的类型
+    (x: number, y: string): string
+}
+// 定义一个函数
+let fn: Search = function (x: number, y: string): string {
+    return x + y
+}
+fn(1, 'a')
+```
+
+### 类类型
+
+#### 类实现接口
+
+与 C# 或 Java 里接口的基本作用一样，TypeScript 也能够用它来明确的强制一个类去符合某种契约。
+
+```typescript
+// 定义一个接口
+interface Fly {
+    fly(str: string): void
+}
+
+// 定义一个类
+// 理解：当前User类的类型是Fly类型的/接口限定了当前这个类中必须要有接口中定义的内容
+class User implements Fly {
+    // 定义属性
+    name: string
+    age: number
+
+    // 构造方法（构造函数/构造器）
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age
+    }
+
+    // 定义方法
+    sayHi() {
+        console.log(`我是${this.name}，今年${this.age}岁了`)
+    }
+
+    // 实现接口中定义的方法
+    fly(str: string): void {
+        console.log(str)
+    }
+}
+
+// 实例化对象
+let u: User = new User('tom', 34)
+u.sayHi()
+u.fly('起飞')
+```
+
+#### 类可以实现多个接口
+
+```typescript
+// 定义接口
+interface Fly {
+    fly(str: string): void
+}
+interface Swim {
+    swim(str: string): void
+}
+
+// 定义一个类
+class User2 implements Fly, Swim {
+    name: string
+    constructor(name: string) {
+        this.name = name
+    }
+    // 实现的Fly接口中的方法
+    fly(str: string): void {
+        console.log('起飞了', str)
+    }
+    // 实现的Swim接口中的方法
+    swim(str: string): void {
+        console.log('游泳去了', str)
+    }
+}
+// 实例化对象
+let u2: User2 = new User2('user')
+u2.fly('真好')
+u2.swim('一起啊')
+```
+
+#### 接口继承接口
+
+和类一样，接口也可以相互继承。 这让我们能够从一个接口里复制成员到另一个接口里，可以更灵活地将接口分割到可重用的模块里。
+
+```typescript
+// 定义接口
+interface Fly1 {
+    fly(): void
+}
+interface Swim1 {
+    swim(): void
+}
+// 新的接口，继承上面两个接口
+interface FlyAndSwim extends Fly1, Swim1 {
+}
+// 定义一个类，可以同时实现多个接口
+class User3 implements FlyAndSwim {
+    name: string
+    constructor(name: string) {
+        this.name = name
+    }
+    fly(): void {
+        console.log('起飞')
+    }
+    swim(): void {
+        console.log('游泳')
+    }
+}
+// 实例化对象
+let u3: User3 = new User3('tom')
+u3.fly()
+u3.swim()
+```
