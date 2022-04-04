@@ -23,6 +23,6 @@
     // 实例化对象
     let pro: Product = new Product('手机', 'red', 1999)
     pro.showProduct()
-
+    console.dir(pro)
 
 })();

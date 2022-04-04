@@ -335,12 +335,13 @@ TypeScript 的核心原则之一是对值所具有的结构进行类型检查。
 > 需求：创建人的对象, 需要对人的属性进行一定的约束
 >
 > > id是number类型, 必须有, 只读的
->
+> >
 > > name是string类型, 必须有
->
+> >
 > > age是number类型, 必须有
->
+> >
 > > gender是string类型, 可以没有
+>
 
 ```typescript
 // 定义一个接口
