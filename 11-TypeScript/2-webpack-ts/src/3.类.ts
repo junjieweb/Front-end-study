@@ -155,8 +155,9 @@
     pig.eat()
     horse.run()
     horse.eat()*/
+
     // 重新定义对象
-    const ani: Animal = new Animal('动物')
+    // const ani: Animal = new Animal('动物')
     const dog: Animal = new Dog('小黑')
     const pig: Animal = new Pig('佩奇')
     const horse: Animal = new Horse('小白龙')
@@ -178,5 +179,55 @@
     for (let i = 0; i < arr.length; i++) {
         showEat(arr[i])
     }
+
+    // 类中成员的修饰符（属性和方法）
+    class Animal2 {
+        // 声明的属性，默认为public，所以任何地方都可以访问这个属性
+        // public name: string // public 任何地方都可以以访问
+        // private name: string // private 子类中和外部不可以访问，只能在本类中使用
+        // protected name: string // protected 子类中可以访问，外部不能访问
+        readonly name: string // readonly 表示属性是只读的，不能修改
+
+        constructor(name: string) {
+            this.name = name
+        }
+
+        sayHi(msg: string) {
+            console.log(msg)
+        }
+    }
+
+    class Dog2 extends Animal2 {
+        constructor(name: string) {
+            super(name);
+        }
+
+        eat(msg: string) {
+            console.log(msg, this.name)
+        }
+    }
+
+    // 子类的子类
+    class Husky extends Dog2 {
+        constructor(name: string) {
+            super(name);
+        }
+
+        play(msg: string) {
+            console.log(msg, this.name)
+        }
+    }
+
+    const ani2: Animal2 = new Animal2('动物2')
+    console.log(ani2.name)
+
+    const dog2: Dog2 = new Dog2('阿黄')
+    dog2.eat('骨头')
+
+    const husky: Husky = new Husky('大白')
+    husky.eat('沙发')
+
+    // 存取器
+
 
 })();

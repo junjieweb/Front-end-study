@@ -664,3 +664,70 @@ for (let i = 0; i < arr.length; i++) {
 // 我喜欢吃泥巴
 // 我喜欢吃小草
 ```
+
+### 权限修饰符
+
+#### public
+
+在 TypeScript 里，成员都默认为 `public`。也可以明确的将一个成员标记成 `public`。 
+
+#### private
+
+当成员被标记成 `private` 时，它就不能在声明它的类的外部访问。
+
+#### protected
+
+`protected` 修饰符与 `private` 修饰符的行为很相似，但有一点不同，`protected`成员在派生类中仍然可以访问。
+
+#### readonly
+
+你可以使用 `readonly` 关键字将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。
+
+```typescript
+// 类中成员的修饰符（属性和方法）
+class Animal2 {
+    // 声明的属性，默认为public，所以任何地方都可以访问这个属性
+    // public name: string // public 任何地方都可以以访问
+    // private name: string // private 子类中和外部不可以访问，只能在本类中使用
+    // protected name: string // protected 子类中可以访问，外部不能访问
+    readonly name: string // readonly 表示属性是只读的，不能修改
+
+    constructor(name: string) {
+        this.name = name
+    }
+
+    sayHi(msg: string) {
+        console.log(msg)
+    }
+}
+
+class Dog2 extends Animal2 {
+    constructor(name: string) {
+        super(name);
+    }
+
+    eat(msg: string) {
+        console.log(msg, this.name)
+    }
+}
+
+// 子类的子类
+class Husky extends Dog2 {
+    constructor(name: string) {
+        super(name);
+    }
+
+    play(msg: string) {
+        console.log(msg, this.name)
+    }
+}
+
+const ani2: Animal2 = new Animal2('动物2')
+console.log(ani2.name)
+
+const dog2: Dog2 = new Dog2('阿黄')
+dog2.eat('骨头')
+
+const husky: Husky = new Husky('大白')
+husky.eat('沙发')
+```
