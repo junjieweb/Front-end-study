@@ -731,3 +731,45 @@ dog2.eat('骨头')
 const husky: Husky = new Husky('大白')
 husky.eat('沙发')
 ```
+
+### 存取器
+
+`TypeScript` 支持通过 `getters/setters` 来截取对对象成员的访问。 它能帮助你有效的控制对对象成员的访问。
+
+如果某个属性成员只有get方法，则只能读取，不能修改。
+
+如果某个属性成员只有set方法，则只能修改，读取不报错，结果为undefined。
+
+```typescript
+class User {
+    firstName: string
+    lastName: string
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+    // 存取器--针对姓名
+    get fullName() {
+        console.log('get方法执行了')
+        return this.firstName + '-' + this.lastName
+    }
+
+    set fullName(value: string) {
+        console.log('set方法执行了')
+        const names = value.split('-')
+        this.firstName = names[0]
+        this.lastName = names[1]
+    }
+}
+
+const user: User = new User('东方', '不败')
+// 显示姓名
+console.log(user.fullName)
+// 设置姓名
+user.fullName = '诸葛-孔明'
+console.log(user.firstName)
+console.log(user.lastName)
+```
+

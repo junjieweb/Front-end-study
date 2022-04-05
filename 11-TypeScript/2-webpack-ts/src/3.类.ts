@@ -228,6 +228,34 @@
     husky.eat('沙发')
 
     // 存取器
+    class User {
+        firstName: string
+        lastName: string
 
+        constructor(firstName: string, lastName: string) {
+            this.firstName = firstName
+            this.lastName = lastName
+        }
+
+        // 存取器--针对姓名
+        get fullName() {
+            console.log('get方法执行了')
+            return this.firstName + '-' + this.lastName
+        }
+
+        set fullName(value: string) {
+            console.log('set方法执行了')
+            const names = value.split('-')
+            this.firstName = names[0]
+            this.lastName = names[1]
+        }
+    }
+
+    const user: User = new User('东方', '不败')
+    // 显示姓名
+    console.log(user.fullName)
+    user.fullName = '诸葛-孔明'
+    console.log(user.firstName)
+    console.log(user.lastName)
 
 })();
