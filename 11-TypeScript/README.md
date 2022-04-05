@@ -253,7 +253,7 @@ module.exports = {
     let obj: object = {name: 'tom', age: 23}
     ```
 
-    使用 `object` 类型，就可以更好的表示像 `Object.create` 这样的 `API`。例如：
+    使用 `object` 类型，就可以更好地表示像 `Object.create` 这样的 `API`。例如：
 
     ```typescript
     function fn2(obj: object): object {
@@ -492,3 +492,82 @@ u3.swim()
 
 对于传统的 JavaScript 程序我们会使用`函数`和`基于原型的继承`来创建可重用的组件，但对于熟悉使用面向对象方式的程序员使用这些语法就有些棘手，因为他们用的是`基于类的继承`并且对象是由类构建出来的。 从 ECMAScript 2015，也就是 ES6 开始， JavaScript 程序员将能够使用基于类的面向对象的方式。 使用 TypeScript，我们允许开发者现在就使用这些特性，并且编译后的 JavaScript 可以在所有主流浏览器和平台上运行，而不需要等到下个 JavaScript 版本
 
+### 基本示例
+
+```typescript
+// 定义一个普通的类
+class Product {
+    // 定义属性
+    name: string
+    color: string
+    price: number
+
+    // 构造函数/构造器：为了实例化对象的时候，可以直接把对象中的属性进行初始化的操作
+    constructor(name: string, color: string, price: number) {
+        this.name = name
+        this.color = color
+        this.price = price
+    }
+
+    //定义方法
+    showProduct(): void {
+        console.log(`当前的商品是${this.name}，颜色是${this.color}，价格是${this.price}`)
+    }
+}
+
+// 实例化对象
+let pro: Product = new Product('手机', 'red', 1999)
+pro.showProduct()
+```
+
+### 继承
+
+在 TypeScript 里，我们可以使用常用的面向对象模式。 基于类的程序设计中一种最基本的模式是允许使用继承来扩展现有的类。
+
+```typescript
+// 定义一个父类（基类）
+class Person {
+    // 属性
+    name: string
+    age: number
+
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age
+    }
+
+    // 方法
+    sayHi(): void {
+        console.log('你好啊')
+    }
+}
+
+// 定义一个学生类（派生类）
+class Student extends Person {
+    // 属性
+    score: number
+
+    constructor(name: string, age: number, score: number) {
+        // 使用父类中的构造函数来进行属性的初始化操作
+        super(name, age)
+        this.score = score
+    }
+
+    // 子类中可以定义和父类中的方法同名的方法，内部可以重写父类方法中内容
+    sayHi() {
+        // 子类的方法中调用父类的方法
+        super.sayHi();
+        console.log('我是学生')
+    }
+
+    // 自己的方法
+    study() {
+        console.log('好好学习，天天向上！')
+    }
+}
+
+// 实例化对象
+const stu: Student = new Student('tom', 23, 100)
+stu.sayHi()
+stu.study()
+```
