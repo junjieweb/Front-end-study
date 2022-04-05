@@ -78,4 +78,105 @@
     stu.sayHi()
     stu.study()
 
+    // 多态：同一个行为针对不同的对象，产生的结果是不同的，
+    // 父类型引用指向子类型的实例 ==> 多态
+    // 父类 Animal
+    class Animal {
+        name: string
+
+        constructor(name: string) {
+            this.name = name
+        }
+
+        eat() {
+            console.log('我喜欢吃好吃的')
+        }
+    }
+
+    // 子类 Dog
+    class Dog extends Animal {
+        constructor(name: string) {
+            super(name);
+        }
+
+        // 自己的方法
+        play() {
+            console.log('玩去了')
+        }
+
+        // 重写父类中的方法
+        eat() {
+            console.log('我喜欢吃大骨头')
+        }
+    }
+
+    // 子类 Pig
+    class Pig extends Animal {
+        constructor(name: string) {
+            super(name);
+        }
+
+        // 自己的方法
+        sleep() {
+            console.log('睡觉了')
+        }
+
+        eat() {
+            console.log('我喜欢吃泥巴')
+        }
+    }
+
+    // 子类 Horse
+    class Horse extends Animal {
+        constructor(name: string) {
+            super(name);
+        }
+
+        // 自己的方法
+        run() {
+            console.log('奔跑吧')
+        }
+
+        eat() {
+            console.log('我喜欢吃小草')
+        }
+    }
+
+    // Animal父类，Dog/Pig/Horse（子类）
+    /*const ani: Animal = new Animal('动物')
+    const dog: Dog = new Dog('小黑')
+    const pig: Pig = new Pig('佩奇')
+    const horse: Horse = new Horse('小白龙')*/
+    // 调用方法
+    /*ani.eat()
+    dog.play()
+    dog.eat()
+    pig.sleep()
+    pig.eat()
+    horse.run()
+    horse.eat()*/
+    // 重新定义对象
+    const ani: Animal = new Animal('动物')
+    const dog: Animal = new Dog('小黑')
+    const pig: Animal = new Pig('佩奇')
+    const horse: Animal = new Horse('小白龙')
+
+    // dog.eat()
+    // pig.eat()
+    // horse.eat()
+
+    // 工厂的设计模式的体现
+    // 多态展示的效果
+    // 定义一个数组，里面用来存储Animal类型的对象数据
+    const arr: Animal[] = [dog, pig, horse]
+
+    function showEat(ani: Animal) {
+        ani.eat()
+    }
+
+    // 循环遍历数组
+    for (let i = 0; i < arr.length; i++) {
+        showEat(arr[i])
+    }
+
 })();
