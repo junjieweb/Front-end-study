@@ -231,6 +231,9 @@
     class User {
         firstName: string
         lastName: string
+        // 属性可以设置默认值
+        // 属性前面使用了static进行修饰，就是静态属性
+        static gender: string = '男'
 
         constructor(firstName: string, lastName: string) {
             this.firstName = firstName
@@ -249,6 +252,7 @@
             this.firstName = names[0]
             this.lastName = names[1]
         }
+
     }
 
     const user: User = new User('东方', '不败')
@@ -257,5 +261,9 @@
     user.fullName = '诸葛-孔明'
     console.log(user.firstName)
     console.log(user.lastName)
+
+    // 静态属性
+    console.log(user)
+    console.log(User.gender)
 
 })();

@@ -773,3 +773,34 @@ console.log(user.firstName)
 console.log(user.lastName)
 ```
 
+### 静态属性
+
+静态属性，是类对象的属性。
+
+非静态属性，是类的实例化对象的属性。
+
+```typescript
+class User {
+    firstName: string
+    lastName: string
+    // 属性可以设置默认值
+    // 属性前面使用了static进行修饰，就是静态属性
+    static gender: string = '男'
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+}
+
+const user: User = new User('诸葛', '孔明')
+
+console.log(user)
+console.log(User.gender)
+```
+
+![](./images/img.png)
+
+### 抽象类
+
+抽象类做为其它派生类的基类使用。 它们不能被实例化。不同于接口，抽象类可以包含成员的实现细节。 `abstract` 关键字是用于定义抽象类和在抽象类内部定义抽象方法。
