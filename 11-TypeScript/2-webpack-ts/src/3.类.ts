@@ -266,4 +266,40 @@
     console.log(user)
     console.log(User.gender)
 
+    // 抽象类：抽取出来的一个类，是为了子类服务的，该类中可以有实例的成员，也可以有抽象的成员
+    // 抽象是一个概念，无法描述具体的一个事务
+    // 抽象类不能实例化
+    // 抽象类中可以有抽象方法，目的是为了让子类去实现
+    // 子类是一个抽象类，继承自一个抽象类的父类，那么该子类可以不用实现这个父类中的抽象成员
+    /*abstract class Animal {
+        color: string = 'black'
+        // 抽象属性
+        abstract gender: string
+
+        // 抽象方法
+        abstract eat(): void
+
+        // 方法中有具体的代码，或者方法体，那么该方法就有了具体的实现
+        run(): void {
+            console.log('跑')
+        }
+    }
+
+    class Dog extends Animal {
+        eat(): void {
+            console.log('吃骨头')
+        }
+
+        gender: string = '雄'
+    }
+
+    const dog: Dog = new Dog()
+    dog.run()
+    dog.eat()
+    console.log(dog.color);
+
+    abstract class Pig extends Animal {
+
+    }*/
+
 })();
