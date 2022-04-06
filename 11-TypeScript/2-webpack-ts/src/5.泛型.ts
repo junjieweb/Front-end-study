@@ -70,4 +70,46 @@
     const user = userCRUD.getById(userId)
     console.log(user)
 
+    // 泛型类
+    class ChangeNum<T> {
+        defaultValue: T | undefined
+
+        add(x: T, y: T): string {
+            return '' + x + y
+        }
+    }
+
+    const c = new ChangeNum<number>()
+    c.defaultValue = 10
+    c.add(1, 2)
+
+    const c1 = new ChangeNum<string>()
+    c1.add('a', 'b')
+
+    class Person<T> {
+        name: T
+
+        constructor(name: T) {
+            this.name = name
+        }
+    }
+
+    const p = new Person('tom')
+    console.log(p)
+    const p1 = new Person<number>(123)
+    console.log(p1)
+
+    //泛型约束
+    interface Length {
+        length: number
+    }
+
+    // 指定泛型约束
+    function getLength<T extends Length>(t: T): void {
+        console.log(t.length)
+    }
+
+    getLength('abc')
+    // getLength(123) // error number没有length属性
+
 })();

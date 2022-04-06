@@ -572,7 +572,7 @@ stu.sayHi()
 stu.study()
 ```
 
-#### 多态
+### 多态
 
 同一个行为针对不同的对象，产生的结果是不同的
 
@@ -995,4 +995,36 @@ console.log(user)
 ### 泛型类
 
 在定义类时，为类中的属性或方法定义泛型类型，在创建类的实例时，再指定特定的泛型类型
+
+```typescript
+class Person<T> {
+    name: T
+    constructor(name: T) {
+        this.name = name
+    }
+}
+
+const p = new Person('tom')
+console.log(p)
+const p1 = new Person<number>(123)
+console.log(p1)
+```
+
+### 泛型约束
+
+如果我们直接对一个泛型参数取 `length` 属性，会报错，因为这个泛型根本就不知道它有这个属性，我们可以使用泛型约束来实现
+
+```typescript
+interface Length {
+    length: number
+}
+
+// 指定泛型约束
+function getLength<T extends Length>(t: T): void {
+    console.log(t.length)
+}
+
+getLength('abc')
+// getLength(123) // error number没有length属性
+```
 
