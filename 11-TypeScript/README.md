@@ -885,7 +885,7 @@ function info(x: string, ...args: string[]) {
 info('abc', 'c', 'b', 'a')
 ```
 
-## 函数重载
+### 函数重载
 
 函数重载：函数名相同，而形参不同的多个函数
 在JS中，由于弱类型的特点和形参与实参可以不匹配，是没有函数重载这一说的。但在TS中，与其它面向对象的语言(如Java)就存在此语法
@@ -908,3 +908,24 @@ function add(x: number | string, y: number | string): number | string {
 console.log(add(1, 2));
 console.log(add('a', 'b'));
 ```
+
+## 泛型
+
+指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定具体类型的一种特性。
+
+```typescript
+// 在定义函数或类时，如果遇到类型不明确就可以使用泛型
+function fn<T>(a: T): T {
+    return a
+}
+
+// 直接调用具有泛型的函数
+fn(10) // 不指定泛型，TS可以自动对类型进行推断
+fn<string>('hello') // 指定泛型
+```
+
+### 泛型接口
+
+在定义接口时，为接口中的属性或方法定义泛型类型
+
+在使用接口时，再指定具体的泛型类型
