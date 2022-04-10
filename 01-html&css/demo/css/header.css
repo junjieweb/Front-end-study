@@ -1,0 +1,88 @@
+/* header样式 */
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+}
+
+.wrap {
+  padding: 40px 40px 0;
+}
+
+.nav ul li {
+  position: relative;
+  float: left;
+}
+
+.nav ul li+li {
+  margin-left: 30px;
+}
+
+.nav ul li.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  width: 80%;
+  height: 0;
+  margin: 0 auto;
+  border-top: 2px solid #838384;
+}
+
+.nav ul li a {
+  font-size: 18px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+
+.header-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+.card-content {
+  padding-left: 80px;
+}
+
+.card-content h2 {
+  color: #fff;
+  font-size: 25px;
+  line-height: 200px;
+}
+
+.card-content ul li {
+  float: left;
+  width: 338px;
+  height: 200px;
+}
+
+.card-content ul li+li {
+  margin-left: 50px;
+}
+
+.card-content ul li img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 297px;
+  background: url('../images/mask.png') no-repeat;
+  background-size: 100% 100%;
+}
