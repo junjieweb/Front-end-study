@@ -4,7 +4,7 @@
 
 包括最基础的html，css，JavaScript
 
-以及Less，jQuery，Bootstrap，git，ES6，Node，Ajax，promise，axios，webpack
+以及Less，jQuery，Bootstrap，git，ES6，Node，Ajax，promise，axios，webpack，TypeScript
 
 react和vue框架，手机端适配
 
