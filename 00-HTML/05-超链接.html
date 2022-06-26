@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接</title>
+</head>
+<body>
+<!--
+ 超链接的特点：
+    有下划线
+    鼠标停留在超链接上面显示小手形状
+    点击超链接之后还能跳转页面
+
+超链接的作用：
+        通过超链接可以从浏览器向服务器发送请求。
+        浏览器向服务器发送数据（请求：request）
+        服务器向浏览器发送数据（响应：response）
+
+        B/S结构的系统，每一个请求都会对应一个响应。
+        B ---请求----→ S
+        S ---响应----→ B
+
+    用户点击超链接和用户在地址栏上直接输入URL有什么区别？
+        本质上没有区别，都是向服务器发送请求。
+
+        从操作上来讲，超链接使用更方便
+
+从链接可以让我们从一个页面跳转到其他页面，或者是当前页面的其他位置
+
+    使用 a 标签来定义超链接
+        属性：
+            href 指到跳转的目标路径
+                值可以时一个外部的地址
+                也可以是写一个内部页面的地址
+
+    超链接a标签也是行内元素，在a标签中可以嵌套除了它自身以外的任何元素
+
+    当我们需要跳转一个服务器内部的页面时，一般会使用相对路径
+        相对路径都会使用.或..开头
+            ./
+            ../
+        ./可以省略不写，不过不写./也不写../就相当于写了./
+
+        ./表示当前文件所在的目录
+        ../表示当前所在目录的上一级目录
+ -->
+<!--
+ href:hot references 热引用
+ href属性后面一定是一个资源的地址
+ href后面的路径可以是绝对路径，也可以是相对路径。可以是网络中某个资源的路径，也可以是本地资源的路径
+
+ 超链接有一个target属性：
+    可取值：
+        _blank：新窗口
+        _self：当前窗口（默认就是这种方式）
+        _top：顶级窗口
+        _parent：父窗口
+ -->
+<a href="https://www.baidu.com">百度</a>
+<a href="04-列表.html">列表</a>
+
+
+<a href="#bottom">去底部</a>
+<section>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloribus officia perspiciatis sit! Aperiam
+        cumque dolore ea eos eveniet libero magnam minus, nesciunt nihil, non quasi quod rem sed similique.</p>
+</section>
+<a href="#bottom">去底部</a>
+<!--
+    可以直接将超链接的href属性设置为#，这样点就超链接以后
+    页面不会发生跳转，而是转到当前页面的顶部的位置
+
+    也可以跳转到页面的知道位置，只需将href属性设置设置 #目标元素的id属性值
+
+    id属性（唯一 不重复的）
+        每一个标签都可以添加一个id属性
+        id属性就是元素的唯一表示，同一个页面中不能出现重复的id属性
+        id属性不能重复
+ -->
+<a id="bottom" href="#">回到顶部</a>
+
+<!-- 在开发中可以将#作为超链接的路径的占位符使用 -->
+<a href="#">这是一个超链接</a>
+
+<!-- 可以使用javascript:; 来作为href的属性，此时点击这个超链接什么也不会发生 -->
+<a href="javascript:;">什么也不会发生</a>
+</body>
+</html>
