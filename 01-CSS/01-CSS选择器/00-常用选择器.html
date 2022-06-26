@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用选择器</title>
+    <style>
+        /* 
+            需求：
+                将所有的段落设置为红色
+
+            元素选择器
+                作用：根据标签名来选中指定的元素
+                语法：标签名{}
+                例子：p{}   h1{}    div{}
+        */
+        /* p {
+            color: red;
+        }
+
+        h1 {
+            color: green;
+        } */
+
+        /* 
+            将儿童相见不相识设置为红色
+            id选择器
+                作用：根据元素的id属性值选中一个元素
+                语法：#id属性值{}
+                例子：#box{}    #red{}
+        */
+        #red {
+            color: red;
+        }
+
+        /* 
+            将海内存知己和天涯若比邻设置为蓝色
+            
+            类选择器
+                根据元素的class属性选中一组元素
+                语法：.class属性值{}
+        */
+        .blue {
+            color: blue;
+        }
+
+        .abc {
+            font-size: 30px;
+        }
+
+        /* 
+            通配选择器
+                作用：选中页面中的所有元素
+                语法：*{}
+        */
+        * {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="blue abc">我是标题</h1>
+    <p>少小离家老大回，</p>
+    <p>乡音无改鬓毛衰。</p>
+    <p id="red">儿童相见不相识，</p>
+    <p>笑问客从何处来。</p>
+    <!-- 
+        class 是一个标签的属性，它和id类似
+            不同的是class可以重复使用
+            可以通过class属性来为元素分类
+            可以同时为一个元素指定多个class
+     -->
+    <p class="blue">海内存知己</p>
+    <p class="blue">天涯若比邻</p>
+
+</body>
+
+</html>
