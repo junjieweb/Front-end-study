@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001-HTML中嵌入JavaScript代码的第一种方式</title>
+</head>
+
+<body>
+
+    <!-- 
+        1、要实现的功能：
+            用户点击以下的按钮，弹出消息框
+
+        2、JS是一门事件驱动型的编程语言，依靠事件去驱动，然后执行对应的程序
+        在JS中有很多事件，其中有一个事件叫做：鼠标单击，单词click。并且任何
+        事件都会对应一个事件句柄叫做：onclick。
+        【注意】事件句柄和事件的区别是：事件句柄是在事件单词前添加一个on。
+        而事件句柄是以HTML标签的属性存在的，
+
+        3、onclick="js代码"，执行的原理是什么？
+            页面打开的时候，js代码并不会执行，只是把这段js代码注册到按钮的click事件上了
+            等这个按钮发生click事件之后，注册在onclick后面的js代码会被浏览器自动调用。
+        
+        4、怎么使用js代码弹出消息框？
+            在js中有一个内置的对象叫做window，全部小写，可以直接拿来使用，window代表的是浏览器对象。
+            window对象有一个函数叫做：alert，用法是：window.alert("消息");这样就可以弹窗了
+
+        5、js中的字符串可以使用双引号，也可以使用单引号。
+
+        6、js中的一条语句结束之后可以使用";"，也可以不用。
+     -->
+    <input type="button" value="hello" onclick="window.alert('hello js')">
+
+    <input type="button" value="hello" onclick='window.alert("hello jscode")'>
+
+    <input type="button" value="hello" onclick="window.alert('hello zhangsan')
+                                                window.alert('hello lisi')
+                                                window.alert('hello wangwu')">
+
+    <!-- window.可以省略 -->
+    <input type="button" value="hello" onclick="alert('hello zhangsan')
+                                                alert('hello lisi')
+                                                alert('hello wangwu')">
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于js中的变量</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*
+            JavaScript中的变量
+                怎么声明变量？
+                    var 变量名;
+                怎么给变量赋值？
+                    变量名 = 值;
+                JavaScript是一种弱类型语言，没有编译阶段，一个变量可以随意赋值，赋什么类型的值都行
+
+                重点：JavaScript是一种弱类型编程语言
+        */
+        // 在js中，当一个变量没有手动赋值的时候，系统默认赋值undefined
+        var i;
+        // undefined 在js中是一个具体存在的值
+        alert("i = " + i);//i = undefined
+
+        alert(undefined);
+        var k = undefined;
+        alert("k = " + k);
+
+        // 一个变量没有声明/定义，直接访问会出什么问题？
+        // alert(age);//语法错误：age is not defined
+
+        var a, b, c = 200;
+        alert("a = " + a);
+        alert("b = " + b);
+        alert("c = " + c);
+
+        a = false;
+        alert(a);
+
+        a = "abc";
+        alert(a);
+
+        a = 1.2;
+        alert(a);
+    </script>
+</body>
+
+</html>
