@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table表格</title>
+</head>
+<body>
+<div>
+    <h2>基本表格</h2>
+    <table align="center" border="1px" width="60%" height="150">
+        <!--align对齐方式-->
+        <tr align="center">
+            <td>a</td>
+            <td>b</td>
+            <td>c</td>
+        </tr>
+        <tr>
+            <td>d</td>
+            <td>e</td>
+            <td>f</td>
+        </tr>
+        <tr>
+            <td>x</td>
+            <td>y</td>
+            <td align="center">z</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>单元格合并</h2>
+    <!--
+    注意事项：
+    1、row合并的时候，删除“下面的”单元格
+    2、col合并的时候，对删除哪个没有要求
+-->
+    <table border="1px" width="50%">
+        <tr>
+            <!--
+            <td>员工编号</td>
+            <td>部门薪资</td>
+            <td>部门名称</td>
+            -->
+            <!-- th 标签也是单元格标签，比td多的是居中、加粗-->
+            <th>员工编号</th>
+            <th>部门薪资</th>
+            <th>部门名称</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">cf</td>
+        </tr>
+        <tr>
+            <td colspan="2">de</td>
+
+            <!--
+            <td>e</td>
+            <td>f</td>
+            -->
+        </tr>
+    </table>
+</div>
+<div>
+    <h2>语义化表格标签</h2>
+    <table border="1px" width="50%">
+        <!--头-->
+        <thead>
+        <tr>
+            <th>员工编号</th>
+            <th>部门薪资</th>
+            <th>部门名称</th>
+        </tr>
+        </thead>
+
+        <!--体-->
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+            <td rowspan="2">cf</td>
+        </tr>
+        <tr>
+            <td colspan="2">de</td>
+        </tr>
+        </tbody>
+
+        <!--脚-->
+        <tfoot>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>

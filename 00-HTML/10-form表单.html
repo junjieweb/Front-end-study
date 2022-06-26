@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单</title>
+</head>
+<body>
+<div>
+    <h2>基本表单</h2>
+    <!--
+            1、表单有什么用？
+                收集用户信息
+                表单展现之后，用户填写表单，点击提交按钮提交数据给服务器
+            2、怎么画一个表单？
+                使用form标签画表单
+            3、一个网页当中可以有多个表单form
+            4、表单最终是需要提交数据给服务器的，form标签有一个action属性，这个属性用来指定服务器地址
+                action属性用来指定数据提交给哪个服务器
+                action属性和超链接中的href属性一样，都可以向服务器发送请求（request）
+            5、192.168.111.3:8080/oa/save 这是请求路径，表单提交数据最终提交给
+                192.168.111.3机器上的8080端口对应的软件
+        -->
+    <form action="192.168.111.3:8080/oa/save">
+        <!--画一个提交按钮，这个按钮可以提交表单-->
+        <!--画按钮可以使用input输入域，type="submit"的时候表示该按钮是一个提交按钮，具有提交表单的能力-->
+        <!--对于按钮来说，按钮的value属性用来指定按钮上显示的文本信息-->
+        <input type="submit" value="注册">
+
+        <!--这是一个普通按钮，不具备提交表单的能力-->
+        <input type="button" value="设置按钮上显示的文本">
+    </form>
+    <br>
+    <!--
+        这个按钮和普通的超链接没什么区别。
+        （超链接和表单都可以向服务器发送请求，只不过表单发送请求的同时可以携带数据）
+    -->
+    <form action="https://www.baidu.com">
+        <input type="submit" value="百度">
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/jd/login">
+        用户名<input type="text"><br>
+        密码<input type="password"><br>
+        <input type="submit" value="登录">
+    </form>
+
+    <!--
+        表单是以什么格式提交给服务器的？
+            http://localhost:8080/jd/login?usename=abc&usepwd=111
+            格式：action?name=value&name=value&name=value...
+            W3C的HTTP协议规定的，必须以这种格式提交给服务器
+
+        重点强调：表单填写了name属性的，一律会提交给服务器，不想提交这一项，就不要写name属性
+
+        文本框和密码框的value不需要程序员指定，用户输入什么value就是什么
+
+        当name没有写的时候，该项不会提交给服务器
+        但是当value没有写的时候，value的默认值是空字符串""，会将空字符串提交给服务器。
+        java代码得到的是String usename = "";
+    -->
+    <form action="http://localhost:8080/jd/login">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="usename"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password" name="usepwd"></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <!--submit必须放到form标签内部-->
+                    <input type="submit" value="登录">
+                    <!--reset必须放到form标签内部-->
+                    <input type="reset" value="清空">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <h2>用户注册表单</h2>
+    <!--
+            用户注册：
+                用户名
+                密码
+                确认密码
+                性别
+                兴趣爱好
+                学历
+                简介
+
+            form表单method属性：
+                get：采用get方式提交的时候，用户信息会显示在浏览器的地址栏上
+                post：采用post方式提交的时候，用户提交的信息不会显示在浏览器地址栏上
+                当用户提交的信息中含有敏感信息，例如：密码，建议采用post方式提交
+
+            method属性不指定，或者指定get，这种情况下都是get
+            只有当method属性指定为post的时候才是post请求
+            剩下所有的请求都是get请求
+
+            post提交的时候提交的数据格式和get还是一样的，只不过不在浏览器地址栏上显示出来
+            post提交的数据还是：name=value&name=value...
+        -->
+    <form action="http://localhost:8080/jd/register" method="post">
+        用户名
+        <input type="text" name="usename">
+        <br>
+        密码
+        <input type="password" name="usepassword">
+        <br>
+        确认密码
+        <input type="password">
+        <br>
+        性别
+        <!--单选按钮的value必须手动指定-->
+        <input type="radio" name="gender" value="1" checked>男
+        <input type="radio" name="gender" value="0">女
+        <br>
+        兴趣爱好
+        <input type="checkbox" name="interest" value="smoke">抽烟
+        <input type="checkbox" name="interest" value="drink" checked>喝酒
+        <input type="checkbox" name="interest" value="fireHair">烫头
+        <br>
+        学历
+        <select name="grade">
+            <option value="gz">高中</option>
+            <option value="dz">大专</option>
+            <option value="bk" selected>本科</option><!--默认选中-->
+            <option value="ss">硕士</option>
+        </select>
+        <br>
+        简介<!--文本域，文本域没有value属性，用户填写的内容就是value-->
+        <textarea rows="10" cols="60" name="introduce"></textarea>
+        <br>
+        <input type="submit" value="注册">
+        <input type="reset" value="清空">
+    </form>
+    <!--
+        超链接也可以提交数据给服务器，但是提交的数据都是固定不变的
+        超链接是get请求，不是post请求
+    -->
+    <a href="http://localhost:8080/oa/save?usename=zhangsan&password=123">提交</a>
+</div>
+
+<div>
+    <h2>下拉框支持多选</h2>
+    <!--multiple="multiple"支持多选-->
+    <select multiple="multiple" size="5">
+        <option>河北省</option>
+        <option>河南省</option>
+        <option>山东省</option>
+        <option>山西省</option>
+    </select>
+
+
+    <h2>file控件</h2>
+    <!--file控件，文件上传专用-->
+    <input type="file">
+    <form action="http://localhost:8080/oa/saee">
+        <!--隐藏域：网页上看不到，但是表单提交的时候会自动提交给服务器-->
+        <input type="hidden" name="useid" value="111">
+
+        用户代码<input type="text" name="usecode">
+
+        <input type="submit" value="提交">
+    </form>
+
+    <h2>readonly disabled</h2>
+    <!--
+        readonly和disabled相同点都是只读，不能修改
+        但是readonly可以提交数据给服务器，disabled数据不会提交（即使有name属性也不会提交）
+    -->
+    <form action="http://localhost:8080/taobao/oa/save">
+        用户代码<input type="text" name="usercode" value="110" readonly>
+        <br>
+        用户姓名<input type="text" name="username" value="zhangsan" disabled>
+        <br>
+        <input type="submit" value="提交数据">
+    </form>
+
+    <h2>maxlength设置文本框中可输入的字符数量</h2>
+    <input type="text" maxlength="3">
+</div>
+
+</body>
+</html>
