@@ -10,12 +10,12 @@ module.exports = {
    * @description Whether fix the header
    * 是否固定 Nav
    */
-  fixedHeader: false,
+  fixedHeader: true,
 
   /**
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    * 是否显示网站logo
    */
-  sidebarLogo: false
+  sidebarLogo: true
 }

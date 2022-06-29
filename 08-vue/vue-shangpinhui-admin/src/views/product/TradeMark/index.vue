@@ -22,12 +22,12 @@
       />
       <el-table-column prop="tmName" label="品牌名称" />
       <el-table-column prop="address" label="品牌logo">
-        <template v-slot="{row,$index}">
+        <template v-slot="{row}">
           <img :src="row.logoUrl" alt="" style="width: 100px;height: 30px;">
         </template>
       </el-table-column>
       <el-table-column prop="prop" label="操作">
-        <template v-slot="{row,$index}">
+        <template v-slot="{row}">
           <el-button type="warning" icon="el-icon-edit" size="mini" @click="updateTradeMark(row)">修改</el-button>
           <el-button type="danger" icon="el-icon-delete" size="mini" @click="deleteTradeMark(row)">删除</el-button>
         </template>

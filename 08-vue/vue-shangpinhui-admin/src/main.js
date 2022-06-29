@@ -1,19 +1,19 @@
-import Vue from "vue";
+import Vue from 'vue'
 
-import "normalize.css/normalize.css"; // A modern alternative to CSS resets
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets CSS 重置的现代替代方案
 
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-import locale from "element-ui/lib/locale/lang/en"; // lang i18n
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+// import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
-import "@/styles/index.scss"; // global css
+import '@/styles/index.scss' // global css
 
-import App from "./App";
-import store from "./store";
-import router from "./router";
+import App from './App'
+import store from './store'
+import router from './router'
 
-import "@/icons"; // icon
-import "@/permission"; // permission control
+import '@/icons' // icon
+import '@/permission' // permission control
 
 /**
  * If you don't want to use mock-server
@@ -23,38 +23,40 @@ import "@/permission"; // permission control
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
-if (process.env.NODE_ENV === "production") {
-  const { mockXHR } = require("../mock");
-  mockXHR();
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
 }
 
-// set ElementUI lang to EN
-Vue.use(ElementUI, { locale });
+// 将 ElementUI 语言设置为 EN
+// Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
-// Vue.use(ElementUI)
+Vue.use(ElementUI)
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 // 引入接口相关API请求接口
-import API from "@/api";
+import API from '@/api'
 // 组件实例的原型的原型指向的是Vue.prototype
 // 任意组件可以使用API相关的接口
-Vue.prototype.$API = API;
+Vue.prototype.$API = API
 
 /**
  * 三级联动全局组件
  * */
-import CategorySelect from "@/components/CategorySelect";
-Vue.component(CategorySelect.name, CategorySelect);
+import CategorySelect from '@/components/CategorySelect'
+
+Vue.component(CategorySelect.name, CategorySelect)
 /**
  * 自定义button组件
  */
-import HintButton from "@/components/HintButton";
-Vue.component(HintButton.name, HintButton);
+import HintButton from '@/components/HintButton'
+
+Vue.component(HintButton.name, HintButton)
 
 new Vue({
-  el: "#app",
+  el: '#app',
   router,
   store,
-  render: (h) => h(App),
-});
+  render: (h) => h(App)
+})
