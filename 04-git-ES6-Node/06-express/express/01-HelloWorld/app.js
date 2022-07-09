@@ -6,6 +6,22 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+//在根路由 (/) 上（应用程序的主页）对 POST 请求进行响应：
+app.post('/', function (req, res) {
+    res.send('Got a POST request');
+});
+
+//对 /user 路由的 PUT 请求进行响应：
+app.put('/user', function (req, res) {
+    res.send('Got a PUT request at /user');
+});
+
+// 对 /user 路由的 DELETE 请求进行响应：
+app.delete('/user', function (req, res) {
+    res.send('Got a DELETE request at /user');
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
