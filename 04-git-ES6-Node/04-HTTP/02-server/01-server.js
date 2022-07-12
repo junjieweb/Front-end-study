@@ -12,7 +12,7 @@ const server = http.createServer(function (request, response) {
 
 // 3、监听端口，启动服务
 /*
-    端口号：计算机的服务窗口，总共65536端口
+    端口号：计算机的服务窗口，总共65536个端口
     默认端口 80
     ctrl + c 停止服务
     127.0.0.1 本机的回环地址
