@@ -1,10 +1,12 @@
 ## HTTP 报文
 
 ### 请求报文
+
 * 请求行
-* 请求头    格式:  『请求头的名字: 请求头的值』
+* 请求头 格式:  『请求头的名字: 请求头的值』
 * 请求空行
 * 请求体
+
 ```
 请求行      GET https://www.baidu.com/?tn=80035161_1_dg HTTP/1.1
 请求头       Accept: text/html, application/xhtml+xml, image/jxr, */*         表明客户端所能接受的数据的类型     
@@ -21,24 +23,29 @@
 ```
 
 #### 请求行
+
 ```
 GET https://www.baidu.com/?tn=80035161_1_dg HTTP/1.1
 ```
-* GET                                       请求方式  常见的 HTTP 的请求方法: GET 和 POST  (PUT DELETE PATCH)
+
+* GET 请求方式 常见的 HTTP 的请求方法: GET 和 POST  (PUT DELETE PATCH)
 * https://www.baidu.com/?tn=80035161_1_dg   请求的 URL
-* HTTP/1.1                                  HTTP协议的版本
+* HTTP/1.1 HTTP协议的版本
 
 ##### URL
+
 ```
 https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1#logo
 ```
-* https/http/mongodb/ftp/ssh        协议
+
+* https/http/mongodb/ftp/ssh 协议
 * www.baidu.com                     域名(IP地址)
-* /s                                路径
-* ie=utf-8&f=8&rsv_bp=1&rsv_idx=1   查询字符串(query string)    name=煎饼果子&is_lajiao=0&conghua=1&xiangcai=0
+* /s 路径
+* ie=utf-8&f=8&rsv_bp=1&rsv_idx=1 查询字符串(query string)    name=煎饼果子&is_lajiao=0&conghua=1&xiangcai=0
 * `#logo`                             锚点
 
 #### 请求体
+
 ```
 POST https://processon.com/login HTTP/1.1
 Accept: text/html, application/xhtml+xml, image/jxr, */*
@@ -54,11 +61,15 @@ Cache-Control: no-cache
 
 login_email=779498590@qq.com&login_password=GREM9pus.fek-soos
 ```
+
 请求体内容
+
 ```
 login_email=779498590@qq.com&login_password=GREM9pus.fek-soos
 ```
+
 form 表单
+
 ```html
 <form method="post">
     <input name="login_email">
@@ -66,7 +77,8 @@ form 表单
     <input type="submit" value="登录"/>
 </form>
 ```
-> 请求体的格式是非常灵活的, 不限于为 url的查询字符串形式,  『任意格式都可以』. 
+
+> 请求体的格式是非常灵活的, 不限于为 url的查询字符串形式, 『任意格式都可以』.
 > 『JSON』与『URL查询字符串』两种形式用的较多
 
 ### 响应报文
@@ -109,17 +121,17 @@ Content-Length: 289603
 HTTP/1.1 200 OK
 ```
 
-* HTTP/1.1          协议的版本
-* 200                    响应的状态码
-* OK                     响应的状态字符串
+* HTTP/1.1 协议的版本
+* 200 响应的状态码
+* OK 响应的状态字符串
 
 常见的响应状态码:
 
-* 200      成功
-* 302      跳转
-* 404      找不到资源
-* 403      禁止的
-* 500      服务器内部错误
+* 200 成功
+* 302 跳转
+* 404 找不到资源
+* 403 禁止的
+* 500 服务器内部错误
 
 响应状态码 MDN地址 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
 
@@ -133,7 +145,7 @@ HTTP/1.1 200 OK
 
 #### 响应头
 
-响应头格式与请求头格式一致  『名字: 值』
+响应头格式与请求头格式一致 『名字: 值』
 
 ```
 Bdpagetype: 1
@@ -153,22 +165,22 @@ Content-Length: 289603
 
 Bdpagetype 和 Bdqid 为百度自定义的响应头
 
-* Cache-Control     缓存控制  private 只允许客户端缓存数据  public
-* Connection         连接设置
-* <span style="color:red;font-weight: bold">Content-Type</span>      『响应体』内容的类型   
-  * https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-  * text/html 表明响应体为 HTML 内容
-  * text/css   表明响应体为 CSS 内容
-  * application/javascript  表明响应体为 JavaScript
-  * image/png  表明响应体为 png 的图片
-* Date      响应时间
-* Expires   过期时间
-* Server    服务器信息
-* Set-Cookie   设置 cookie
-* Strict-Transport-Security    响应头与Upgrade-Insecure-Requests结合使用
-* Traceid   跟踪 id
-* X-Ua-Compatible      IE=Edge,chrome=1 强制IE浏览器使用最新的解析器解析网页, 使用 chrome 的内核解析网页
-* Content-Length   响应体的长度
+* Cache-Control 缓存控制 private 只允许客户端缓存数据 public
+* Connection 连接设置
+* <span style="color:red;font-weight: bold">Content-Type</span>      『响应体』内容的类型
+    * https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+    * text/html 表明响应体为 HTML 内容
+    * text/css 表明响应体为 CSS 内容
+    * application/javascript 表明响应体为 JavaScript
+    * image/png 表明响应体为 png 的图片
+* Date 响应时间
+* Expires 过期时间
+* Server 服务器信息
+* Set-Cookie 设置 cookie
+* Strict-Transport-Security 响应头与Upgrade-Insecure-Requests结合使用
+* Traceid 跟踪 id
+* X-Ua-Compatible IE=Edge,chrome=1 强制IE浏览器使用最新的解析器解析网页, 使用 chrome 的内核解析网页
+* Content-Length 响应体的长度
 
 #### 响应体
 

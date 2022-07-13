@@ -16,7 +16,7 @@ const server = http.createServer(function (request, response) {
     //二、调用方法获取参数
     console.log(url.parse(request.url).pathname);
     //5、获取查询字符串
-    console.log(url.parse(request.url,true).query);
+    console.log(url.parse(request.url, true).query);
     //6、获取请求头信息
     console.log(request.headers);
 

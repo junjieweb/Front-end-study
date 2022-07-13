@@ -17,7 +17,6 @@ const server = http.createServer(function (request, response) {
     console.log(url.parse(request.url, true).query);//查询字符串 {wd:'关键字',charset: 'utf-8',a:100}
 
 
-
     response.end('HELLO NODEJS SERVER');
 });
 
