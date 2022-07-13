@@ -13,4 +13,4 @@ const fs = require('fs');
 // });
 
 //同步API
-fs.renameSync('./app.css','test/index.css');
+fs.renameSync('./app.css', 'test/index.css');
