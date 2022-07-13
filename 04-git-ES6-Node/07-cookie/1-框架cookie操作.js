@@ -22,14 +22,14 @@ app.get('/set-cookie', (request, response) => {
 })
 
 //获取cookie
-app.get('/get-cookie',(request,response)=>{
+app.get('/get-cookie', (request, response) => {
     //读取cookie
     console.log(request.cookies);
 
     response.send('cookie的读取');
 })
 //清空 cookie
-app.get('/clear-cookie',(request,response)=>{
+app.get('/clear-cookie', (request, response) => {
     response.clearCookie('email');
     response.send('清空cookie');
 })

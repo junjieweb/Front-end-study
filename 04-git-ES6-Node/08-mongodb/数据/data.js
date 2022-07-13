@@ -8,7 +8,7 @@
 var mongoose = require('mongoose');
 //
 // //连接服务器
-mongoose.connect('code://127.0.0.1/data', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('code://127.0.0.1/data', {useNewUrlParser: true, useUnifiedTopology: true});
 //
 // //监听连接事件
 mongoose.connection.on('open', function (err, data) {
