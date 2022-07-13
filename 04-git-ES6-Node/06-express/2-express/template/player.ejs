@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>选手列表</title>
     <style>
-        table,td{
+        table, td {
             border-collapse: collapse;
         }
-        td{
+
+        td {
             padding: 10px 20px;
         }
     </style>
@@ -18,14 +19,20 @@
 <body>
 <h2>职业选手</h2>
 <!--<ul>
-    <% for (let i = 0; i < player.length; i++) {%>
+    <% for (let i = 0; i < player.length; i++) { %>
     <li><%= player[i] %></li>
     <% } %>
 </ul>-->
 <table border="1">
-    <tr><td>id</td><td>name</td></tr>
-    <% for (let i = 0; i < player.length; i++) {%>
-        <tr><td><%= player[i].id %></td><td><%=player[i].name%></td></tr>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+    </tr>
+    <% for (let i = 0; i < player.length; i++) { %>
+        <tr>
+            <td><%= player[i].id %></td>
+            <td><%= player[i].name %></td>
+        </tr>
     <% } %>
 </table>
 </body>
