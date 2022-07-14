@@ -43,23 +43,23 @@
     // 1. ul标签的第2个span子标签
     //children() 这个方法是获取子元素集合，如果传入选择器的话，还会使用选择器过滤这个子元素集合
     //find() 这个方法是获取后代元素集合，如果传入选择器的话，还会使用选择器过滤这个后代元素集合
-    $ul.children('span:eq(1)').css('background','pink');
+    $ul.children('span:eq(1)').css('background', 'pink');
 
     // 2. ul标签的第2个span后代标签
-    $ul.find('span:eq(1)').css('background','red');
+    $ul.find('span:eq(1)').css('background', 'red');
 
     // 3. ul标签的父标签
-    $ul.parent().css('background','green');
+    $ul.parent().css('background', 'green');
 
     // 4. id为cc的li标签的前面的所有li标签
     //prevAll() 前边所有兄弟元素    prev 前边一个兄弟元素
     //nextAll() 后边所有兄弟元素    next 后边一个兄弟元素
     //带All的可以使用选择器，不带All的不能使用
-    $('#cc').prevAll('li').css('background','blue');
-    $('#cc').nextAll('li').css('background','yellow');
+    $('#cc').prevAll('li').css('background', 'blue');
+    $('#cc').nextAll('li').css('background', 'yellow');
 
     // 5. id为cc的li标签的所有兄弟li标签
-    $('#cc').siblings('li').css('background','skyblue');
+    $('#cc').siblings('li').css('background', 'skyblue');
 
 
 </script>
