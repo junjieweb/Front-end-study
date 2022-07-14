@@ -94,10 +94,10 @@
     }, 3000);
 
     //为banner绑定事件
-    banner.addEventListener('mouseenter',function () {
+    banner.addEventListener('mouseenter', function () {
         autoPlay = false;
     });
-    banner.addEventListener('mouseleave',function () {
+    banner.addEventListener('mouseleave', function () {
         autoPlay = true;
     });
 

@@ -1,10 +1,10 @@
-<!-- 
+<!--
     JavaScript的脚本块在一个页面当中可以出现多次，没有要求
     JavaScript的脚本块出现位置也没有要求
  -->
 <script type="text/javascript">
-//alert有阻塞当前页面加载的作用（阻挡，直到用户点击确定按钮）
-window.alert("first......");
+    //alert有阻塞当前页面加载的作用（阻挡，直到用户点击确定按钮）
+    window.alert("first......");
 </script>
 
 <!DOCTYPE html>
@@ -19,22 +19,22 @@ window.alert("first......");
 
 <body>
 
-    <!-- 第二种方式：脚本块的方式 -->
-    <script type="text/javascript">
+<!-- 第二种方式：脚本块的方式 -->
+<script type="text/javascript">
 
-        /*
-            暴露在脚本块当中的程序，在页面打开的时候执行
-            并且遵守自上而下的顺序依次逐行执行。（这个代码的执行不需要事件）
-        */
-        window.alert("Hello World");// alert函数会阻塞整个HTML页面的加载
+    /*
+        暴露在脚本块当中的程序，在页面打开的时候执行
+        并且遵守自上而下的顺序依次逐行执行。（这个代码的执行不需要事件）
+    */
+    window.alert("Hello World");// alert函数会阻塞整个HTML页面的加载
 
-        // JS代码的单行注释
-        /*
-            JS的多行注释
-        */
-        window.alert("Hello JavaScript");
+    // JS代码的单行注释
+    /*
+        JS的多行注释
+    */
+    window.alert("Hello JavaScript");
 
-    </script>
+</script>
 
 </body>
 
