@@ -8,7 +8,7 @@ html {
     background-color: #00539F;
 }
 
-body{
+body {
     /* 强制页面永远保持 600 像素宽。 */
     width: 600px;
     margin: 0 auto;
@@ -34,7 +34,7 @@ li {
     letter-spacing: 1px;
 }
 
-img{
+img {
     display: block;
     margin: 0 auto;
 }

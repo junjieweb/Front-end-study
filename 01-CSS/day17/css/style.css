@@ -1,129 +1,158 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 html {
-  font-size: 5.33333333vw;
-  font-family: "Microsoft YaHei", sans-serif;
+    font-size: 5.33333333vw;
+    font-family: "Microsoft YaHei", sans-serif;
 }
+
 body {
-  background-color: #eff0f4;
+    background-color: #eff0f4;
 }
+
 a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
+
 .outer {
-  margin: 0 0.675rem;
+    margin: 0 0.675rem;
 }
+
 .top-bar {
-  height: 4.35rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    height: 4.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .top-bar i {
-  color: #656565;
+    color: #656565;
 }
+
 .banner {
-  border-radius: 5px;
-  overflow: hidden;
+    border-radius: 5px;
+    overflow: hidden;
 }
+
 .banner img {
-  width: 100%;
-  vertical-align: top;
+    width: 100%;
+    vertical-align: top;
 }
+
 .btn-wrapper {
-  height: 6.1rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  margin-top: 1rem;
+    height: 6.1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-top: 1rem;
 }
+
 .btn-wrapper a {
-  width: 8.175rem;
-  height: 2.6rem;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 2.6rem;
+    width: 8.175rem;
+    height: 2.6rem;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 2.6rem;
 }
+
 .btn-wrapper a:nth-child(1) {
-  background-color: #f97053;
+    background-color: #f97053;
 }
+
 .btn-wrapper a:nth-child(2) {
-  background-color: #c657ff;
+    background-color: #c657ff;
 }
+
 .btn-wrapper a:nth-child(3) {
-  background-color: #ff3971;
+    background-color: #ff3971;
 }
+
 .btn-wrapper a:nth-child(4) {
-  background-color: #1d92ff;
+    background-color: #1d92ff;
 }
+
 .course-list {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .list-head {
-  height: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .list-head h2 {
-  color: #24253d;
-  font-size: 0.825rem;
-  font-weight: normal;
-  border-left: 3px solid #3a84ff;
-  padding-left: 0.5em;
+    color: #24253d;
+    font-size: 0.825rem;
+    font-weight: normal;
+    border-left: 3px solid #3a84ff;
+    padding-left: 0.5em;
 }
+
 .list-head a {
-  color: #656565;
-  font-size: 0.7rem;
+    color: #656565;
+    font-size: 0.7rem;
 }
+
 .list-item {
-  width: 8.175rem;
-  height: 8.075rem;
-  padding: 0.55rem 0.5rem;
-  background-color: white;
-  border-radius: 5px;
+    width: 8.175rem;
+    height: 8.075rem;
+    padding: 0.55rem 0.5rem;
+    background-color: white;
+    border-radius: 5px;
 }
+
 .list-item .course-img {
-  width: 7.125rem;
+    width: 7.125rem;
 }
+
 .list-item .course-img img {
-  width: 100%;
+    width: 100%;
 }
+
 .list-item .course-title {
-  color: #24253d;
-  font-size: 0.825rem;
-  margin: 0.35rem 0;
+    color: #24253d;
+    font-size: 0.825rem;
+    margin: 0.35rem 0;
 }
+
 .list-content {
-  display: flex;
-  width: 18rem;
-  overflow: auto;
+    display: flex;
+    width: 18rem;
+    overflow: auto;
 }
+
 .list-content .list-item {
-  margin-right: 0.6rem;
-  flex: none;
+    margin-right: 0.6rem;
+    flex: none;
 }
+
 .course-author {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .course-author .avatar {
-  width: 1.05rem;
-  height: 1.05rem;
-  border-radius: 50%;
-  overflow: hidden;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 50%;
+    overflow: hidden;
 }
+
 .course-author .avatar img {
-  width: 100%;
+    width: 100%;
 }
+
 .course-author .author {
-  color: #969393;
-  font-size: 0.6rem;
-  margin-left: 5px;
+    color: #969393;
+    font-size: 0.6rem;
+    margin-left: 5px;
 }
+
 /*# sourceMappingURL=style.css.map */

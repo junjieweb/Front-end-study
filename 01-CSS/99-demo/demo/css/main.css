@@ -1,35 +1,35 @@
 /* 公共样式 */
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
     font-family: 'SourceHanSerifSC Medium', serif;
-  background: #272729;
-  color: #fff;
+    background: #272729;
+    color: #fff;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: #fff;
+    text-decoration: none;
+    color: #fff;
 }
 
 .u-l {
-  float: left;
+    float: left;
 }
 
 .u-r {
-  float: right;
+    float: right;
 }
 
 .u-clearfix::after {
-  content: '';
-  clear: both;
-  display: block;
+    content: '';
+    clear: both;
+    display: block;
 }

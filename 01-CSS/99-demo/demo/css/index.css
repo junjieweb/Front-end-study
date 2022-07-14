@@ -2,259 +2,268 @@
 
 /* 内容区 */
 .container {
-  background: url('../images/pic_background.png');
-  width: 100%;
-  height: 2200px;
-  background-size: 100% 100%;
+    background: url('../images/pic_background.png');
+    width: 100%;
+    height: 2200px;
+    background-size: 100% 100%;
 }
 
 /* 开班计划 */
 .content-wrap {
-  margin-top: 80px;
-  /* margin-right: 40px; */
-  /* color: #fff; */
+    margin-top: 80px;
+    /* margin-right: 40px; */
+    /* color: #fff; */
 }
 
 .plan-card {
-  width: 280px;
-  height: 200px;
-  background: #333335;
-  color: #fff;
-  overflow: hidden;
-  padding-left: 80px;
-  box-sizing: border-box;
+    width: 280px;
+    height: 200px;
+    background: #333335;
+    color: #fff;
+    overflow: hidden;
+    padding-left: 80px;
+    box-sizing: border-box;
 }
 
 .plan-card h3 {
-  font-size: 36px;
-  margin-top: 50px;
+    font-size: 36px;
+    margin-top: 50px;
 }
 
 .plan-card p {
-  font-size: 18px;
-  margin-top: 20px;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 .line {
-  position: relative;
-  height: 23px;
-  margin-top: 108px;
-  margin-left: 80px;
+    position: relative;
+    height: 23px;
+    margin-top: 108px;
+    margin-left: 80px;
 }
 
 .line::before {
-  content: '';
-  position: absolute;
-  top: 9px;
-  width: 110px;
-  height: 4px;
-  background: #fff;
-  border-radius: 4px;
+    content: '';
+    position: absolute;
+    top: 9px;
+    width: 110px;
+    height: 4px;
+    background: #fff;
+    border-radius: 4px;
 }
 
 .line span {
-  position: absolute;
-  left: 124px;
+    position: absolute;
+    left: 124px;
 }
 
 
 .plan-right {
-  margin-top: 60px;
-  margin-right: 40px;
+    margin-top: 60px;
+    margin-right: 40px;
 }
 
 .plan-list li {
-  float: left;
-  overflow: hidden;
+    float: left;
+    overflow: hidden;
 }
 
-.plan-list li+li {
-  margin-left: 33px;
+.plan-list li + li {
+    margin-left: 33px;
 }
 
 .plan-list li img {
-  width: 280px;
-  height: 150px;
-  margin-bottom: 40px;
+    width: 280px;
+    height: 150px;
+    margin-bottom: 40px;
 }
 
 .plan-list li h3 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .plan-list li .crowd {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  font-size: 18px;
-  opacity: .5;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    opacity: .5;
 }
 
 .plan-list li .time {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .plan-list li .map {
-  font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .plan-list li .consultation a {
-  background: #027bfb;
-  padding: 0 18px;
-  border-radius: 12px;
-  font-size: 18px;
+    background: #027bfb;
+    padding: 0 18px;
+    border-radius: 12px;
+    font-size: 18px;
 
 }
-
-
 
 
 .course-list {
-  margin-top: 120px;
+    margin-top: 120px;
 }
 
 .course-list li {
-  padding: 30px 0;
-  border-bottom: 1px solid #838384;
+    padding: 30px 0;
+    border-bottom: 1px solid #838384;
 }
 
 
 .course-left {
-  position: relative;
+    position: relative;
 }
 
 .course-title {
-  width: 460px;
+    width: 460px;
 }
 
 .course-title h3 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .course-title p {
-  font-size: 14px;
-  margin-top: 30px;
-  line-height: 21px;
+    font-size: 14px;
+    margin-top: 30px;
+    line-height: 21px;
 }
 
 .course-stage {
-  position: absolute;
-  bottom: -130px;
+    position: absolute;
+    bottom: -130px;
 }
 
 .course-stage p {
-  position: relative;
-  font-size: 14px;
+    position: relative;
+    font-size: 14px;
 }
 
 .course-stage p::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 56px;
-  width: 30px;
-  height: 4px;
-  margin-left: 10px;
-  background: #027bfb;
-  border-radius: 4px;
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 56px;
+    width: 30px;
+    height: 4px;
+    margin-left: 10px;
+    background: #027bfb;
+    border-radius: 4px;
 }
 
 .course-right img {
-  width: 282px;
-  height: 282px;
+    width: 282px;
+    height: 282px;
 }
 
 
 /* 企业项目 */
 .plan-original {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .original {
-  padding: 0 9px;
-  background: #027bfb;
-  border-radius: 12px;
+    padding: 0 9px;
+    background: #027bfb;
+    border-radius: 12px;
 }
 
 .icon {
-  display: inline-block;
-  width: 18px;
-  height: 15px;
-  margin-left: 12px;
+    display: inline-block;
+    width: 18px;
+    height: 15px;
+    margin-left: 12px;
 }
 
 .i0 {
-  background: url('../images/icon_Browse.png') no-repeat;
+    background: url('../images/icon_Browse.png') no-repeat;
 }
 
 .i1 {
-  width: 18px;
-  height: 13px;
-  background: url('../images/icon_Comment.png') no-repeat;
+    width: 18px;
+    height: 13px;
+    background: url('../images/icon_Comment.png') no-repeat;
 }
 
 .i2 {
-  width: 14px;
-  height: 14px;
-  background: url('../images/icon_like.png') no-repeat;
+    width: 14px;
+    height: 14px;
+    background: url('../images/icon_like.png') no-repeat;
 }
-.plan-author p{
-  width: 30px;
-  height: 30px;
-  background: url('../images/icon_weixin.png') no-repeat center;
-  border-radius: 50%;
+
+.plan-author p {
+    width: 30px;
+    height: 30px;
+    background: url('../images/icon_weixin.png') no-repeat center;
+    border-radius: 50%;
 }
-.plan-author span{
-  line-height: 30px;
-  margin-left: 36px;
+
+.plan-author span {
+    line-height: 30px;
+    margin-left: 36px;
 }
-.plan-line{
-  width: 100%;
-  margin: 30px 0;
-  border-bottom: 1px solid #838384;
+
+.plan-line {
+    width: 100%;
+    margin: 30px 0;
+    border-bottom: 1px solid #838384;
 }
 
 /* 底部 */
-.footer{
-  height: 200px;
-  width: 100%;
-  margin-top: 30px;
+.footer {
+    height: 200px;
+    width: 100%;
+    margin-top: 30px;
 }
-.footer-wrap{
-  position: relative;
-  margin: 0 40px;
-  border-top: 1px solid #838384;
+
+.footer-wrap {
+    position: relative;
+    margin: 0 40px;
+    border-top: 1px solid #838384;
 }
-.footer-logo{
-  margin-top: 70px;
-  margin-left: 40px;
+
+.footer-logo {
+    margin-top: 70px;
+    margin-left: 40px;
 }
-.footer-txt{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 70px;
-  margin: 0 auto;
-  width: 500px;
+
+.footer-txt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    margin: 0 auto;
+    width: 500px;
 }
-.footer-txt ul li{
-  float: left;
+
+.footer-txt ul li {
+    float: left;
 }
-.footer-txt ul li+li{
-  margin-left: 20px;
+
+.footer-txt ul li + li {
+    margin-left: 20px;
 }
-.footer-txt p{
-  margin-top: 10px;
-  opacity: .5;
+
+.footer-txt p {
+    margin-top: 10px;
+    opacity: .5;
 }
-.qr-code li{
-  float: left;
-  margin-top: 30px;
-  text-align: center;
-  line-height: 200px;
+
+.qr-code li {
+    float: left;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 200px;
 }
-.qr-code img{
-  width: 150px;
-  height: 150px;
+
+.qr-code img {
+    width: 150px;
+    height: 150px;
 }

@@ -205,15 +205,15 @@
     position: absolute;
     height: 440px;
     width: 234px;
-    padding-top: 20px  ;
-    background-color: rgba(105,101,101,.6);
+    padding-top: 20px;
+    background-color: rgba(105, 101, 101, .6);
     top: 100px;
     margin-left: -121px;
     z-index: 99;
 }
 
 /*链接的样式*/
-.left-nav li{
+.left-nav li {
     height: 42px;
     line-height: 42px;
 }
@@ -241,12 +241,12 @@
 }
 
 /*搜索框*/
-.header .search{
+.header .search {
     float: right;
     margin-top: 25px;
 }
 
-.header .search input[type='text']{
+.header .search input[type='text'] {
     float: left;
     width: 223px;
     height: 48px;
@@ -279,27 +279,28 @@
     color: white;
     background-color: #ff6700;
 }
-.banner{
+
+.banner {
     height: 460px;
     position: relative;
 }
 
-.banner .img-list li{
+.banner .img-list li {
     position: absolute;
 }
 
-.banner img{
+.banner img {
     width: 100%;
 }
 
 /*导航小点*/
-.banner .point{
+.banner .point {
     position: absolute;
     bottom: 26px;
     right: 34px;
 }
 
-.banner .point a{
+.banner .point a {
     float: left;
     width: 6px;
     height: 6px;

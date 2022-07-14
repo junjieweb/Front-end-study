@@ -1,15 +1,18 @@
 .box1,
 .box2 {
-  width: 100px;
-  height: 100px;
-  color: red;
-  background-color: #bfa;
+    width: 100px;
+    height: 100px;
+    color: red;
+    background-color: #bfa;
 }
+
 .box1 .box4,
 .box2 .box4 {
-  border-radius: 50%;
+    border-radius: 50%;
 }
+
 .box3 {
-  border: 1px solid red;
+    border: 1px solid red;
 }
+
 /*# sourceMappingURL=demo01.css.map */
