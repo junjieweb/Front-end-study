@@ -30,14 +30,15 @@
         console.log(this);//此处的this是undefined，因为经过babel编译后，开启了严格模式
         return <h2>我是用函数定义的组件（适用于【简单组件】的定义）</h2>
     }
+
     function MyComponent2() {
         console.log(this);//此处的this是undefined，因为经过babel编译后，开启了严格模式
         return <h2>我是用函数定义的组件（适用于【简单组件】的定义）</h2>
     }
 
     //2.渲染组件到页面
-    ReactDOM.render(<MyComponent/>,document.getElementById('test'));
-    ReactDOM.render(<MyComponent2/>,document.getElementById('test2'));
+    ReactDOM.render(<MyComponent/>, document.getElementById('test'));
+    ReactDOM.render(<MyComponent2/>, document.getElementById('test2'));
 
 </script>
 </body>

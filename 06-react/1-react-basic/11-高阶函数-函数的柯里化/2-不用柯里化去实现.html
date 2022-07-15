@@ -40,8 +40,10 @@
         render() {
             return (
                 <form onSubmit={this.handleSubmit}>
-                    用户名：<input onChange={event => this.saveFormData('username', event.target.value)} type="text" placeholder="用户名"/>
-                    密码：<input onChange={event => this.saveFormData('password', event.target.value)} type="password" placeholder="密码"/>
+                    用户名：<input onChange={event => this.saveFormData('username', event.target.value)} type="text"
+                                  placeholder="用户名"/>
+                    密码：<input onChange={event => this.saveFormData('password', event.target.value)} type="password"
+                                placeholder="密码"/>
                     <button>登录</button>
                 </form>
             )

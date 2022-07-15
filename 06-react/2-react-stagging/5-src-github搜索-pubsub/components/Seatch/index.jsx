@@ -8,20 +8,20 @@ class Search extends Component {
         const {keyWord} = this
         //请求之前要：将List组件的isLoading变为true，将isFirst变为false
         // this.props.updateAppState({isLoading: true, isFirst: false})
-        PubSub.publish('update_list_state',{isLoading: true, isFirst: false})
+        PubSub.publish('update_list_state', {isLoading: true, isFirst: false})
 
         axios.get(`http://localhost:3000/search/users2?q=${keyWord.value}`).then(
             response => {
                 console.log('成功了', response.data)
                 //请求成功了要：存储用户信息，将将List组件isLoading变为false
                 // this.props.updateAppState({isLoading: false, users: response.data.items})
-                PubSub.publish('update_list_state',{isLoading:false,users:response.data.items})
+                PubSub.publish('update_list_state', {isLoading: false, users: response.data.items})
             },
             error => {
                 console.log('失败了', error)
                 //请求失败了要：存储错误信息，将将List组件isLoading变为false
                 // this.props.updateAppState({isLoading: false, errorMsg: error.message})
-                PubSub.publish('update_list_state',{isLoading:false,errorMsg:error.message})
+                PubSub.publish('update_list_state', {isLoading: false, errorMsg: error.message})
             }
         )
     }

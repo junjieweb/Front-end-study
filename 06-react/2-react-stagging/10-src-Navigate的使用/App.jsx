@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Home from "./pages/Hmoe";
 import About from "./pages/About";
 import Header from "./components/Header";
-import {NavLink, Routes, Route,Navigate} from 'react-router-dom'
+import {NavLink, Routes, Route, Navigate} from 'react-router-dom'
 
 class App extends Component {
     render() {
@@ -29,7 +29,7 @@ class App extends Component {
                                 <Routes>
                                     <Route path="/about" element={<About/>}/>
                                     <Route path="/home" element={<Home/>}/>
-                                    <Route path="*" element={<Navigate to="/about" />} />
+                                    <Route path="*" element={<Navigate to="/about"/>}/>
                                 </Routes>
                             </div>
                         </div>

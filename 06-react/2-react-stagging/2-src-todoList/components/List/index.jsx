@@ -4,7 +4,7 @@ import './index.css'
 
 class List extends Component {
     render() {
-        const {todos, checkTodo,deleteTodo} = this.props
+        const {todos, checkTodo, deleteTodo} = this.props
         return (
             <ul className="todo-main">
                 {

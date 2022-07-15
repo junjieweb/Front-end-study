@@ -20,11 +20,7 @@
 					要在第二个callback函数中读取
 ```
 
-
-
 ------
-
-
 
 ## 2. lazyLoad
 
@@ -43,11 +39,7 @@
     </Suspense>
 ```
 
-
-
 ------
-
-
 
 ## 3. Hooks
 
@@ -109,11 +101,7 @@
 (3). 作用:保存标签对象,功能与React.createRef()一样
 ```
 
-
-
 ------
-
-
 
 ## 4. Fragment
 
@@ -167,14 +155,11 @@
 
 	在应用开发中一般不用context, 一般都用它的封装react插件
 
-
-
 <hr/>
-
 
 ## 6. 组件优化
 
-### Component的2个问题 
+### Component的2个问题
 
 > 1. 只要执行setState(),即使不改变状态数据, 组件也会重新render() ==> 效率低
 >
@@ -182,11 +167,11 @@
 
 ### 效率高的做法
 
->  只有当组件的state或props数据发生改变时才重新render()
+> 只有当组件的state或props数据发生改变时才重新render()
 
 ### 原因
 
->  Component中的shouldComponentUpdate()总是返回true
+> Component中的shouldComponentUpdate()总是返回true
 
 ### 解决
 
@@ -201,10 +186,7 @@
 			不要直接修改state数据, 而是要产生新数据
 	项目中一般使用PureComponent来优化
 
-
-
 <hr/>
-
 
 ## 7. render props
 
@@ -229,8 +211,6 @@
 	<A render={(data) => <C data={data}></C>}></A>
 	A组件: {this.props.render(内部state数据)}
 	C组件: 读取A组件传入的数据显示 {this.props.data} 
-
-
 
 <hr/>
 
@@ -264,6 +244,7 @@ componentDidCatch(error, info) {
     console.log(error, info);
 }
 ```
+
 ## 9. 组件通信方式总结
 
 #### 组件间的关系：
@@ -285,6 +266,7 @@ componentDidCatch(error, info) {
 			生产者-消费者模式
 
 #### 比较好的搭配方式：
+
 		父子组件：props
 		兄弟组件：消息订阅-发布、集中式管理
 		祖孙组件(跨级组件)：消息订阅-发布、集中式管理、conText(开发用的少，封装插件用的多)

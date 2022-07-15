@@ -46,7 +46,8 @@
         //render调用几次？---1+n次（n是更新状态的次数）
         render() {
             console.log(this);
-            return <h1 onClick={this.changeWeather}>今天天气很{this.state.isHot ? '炎热' : '凉爽'}，{this.state.wind}</h1>
+            return <h1
+                onClick={this.changeWeather}>今天天气很{this.state.isHot ? '炎热' : '凉爽'}，{this.state.wind}</h1>
         }
     }
 

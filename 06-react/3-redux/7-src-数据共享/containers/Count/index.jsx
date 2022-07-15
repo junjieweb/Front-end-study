@@ -67,8 +67,8 @@ export default connect(
     //映射状态
     state => {
         return {
-            sum:state.sum,
-            renCount:state.yiduiren.length
+            sum: state.sum,
+            renCount: state.yiduiren.length
         }
     },
 

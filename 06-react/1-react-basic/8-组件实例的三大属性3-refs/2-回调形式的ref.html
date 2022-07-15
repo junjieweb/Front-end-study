@@ -40,7 +40,8 @@
                 <div>
                     <input ref={c => this.input1 = c} type="text" placeholder="点击按钮提示输入"/>&nbsp;
                     <button onClick={this.showData}>点我提示数据</button>
-                    <input ref={c => this.input2 = c} onBlur={this.showData2} type="text" placeholder="失去焦点提示输入"/>
+                    <input ref={c => this.input2 = c} onBlur={this.showData2} type="text"
+                           placeholder="失去焦点提示输入"/>
                 </div>
             )
         }

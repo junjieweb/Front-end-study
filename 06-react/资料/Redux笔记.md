@@ -1,4 +1,5 @@
 ## 1.求和案例_redux迷你版
+
 		(1).去除Count组件自身的状态
 		(2).src下建立:
 					-src
@@ -17,11 +18,13 @@
 				备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，要靠我们自己写。
 
 ## 2.求和案例_redux完整版
+
 		新增文件：
 			1.count_action.js 专门用于创建action对象
 			2.constant.js 放置编码容易疏忽写错action中的type
 
 ## 3.求和案例_redux异步action版
+
 		 (1).明确：延迟的动作不想交给组件自身，想交给action
 		 (2).何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回。
 		 (3).具体编码：
@@ -38,12 +41,13 @@
 		 (4).备注：异步action不是必须要写的，完全可以自己等待异步任务的结果了再去分发同步action。
 
 ## 4. 琳-补充
+
 1.src文件
-	1.index.jsx  入口文件  需要引入 
-		react  react-dom  App  渲染App store--自创键的store.js文件
-		import {Provider} from 'react-redux'
-	注意:渲染App组件时 使用如下方法之后 不需要传递store 默认所有组件间都有store 
-			原来传递是<App store={store}/> 需要每个组件单独传递  推荐下面的
+1.index.jsx 入口文件 需要引入
+react react-dom App 渲染App store--自创键的store.js文件
+import {Provider} from 'react-redux'
+注意:渲染App组件时 使用如下方法之后 不需要传递store 默认所有组件间都有store
+原来传递是<App store={store}/> 需要每个组件单独传递 推荐下面的
 
 		ReactDOM.render(
 			<Provider store={store}>

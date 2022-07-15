@@ -23,7 +23,8 @@ class Message extends Component {
                                     {/*<Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}`}>{msgObj.title}</Link>&nbsp;&nbsp;*/}
 
                                     {/* 跳转路由时携带search参数 */}
-                                    <Link to={`/home/message/detail?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link>&nbsp;&nbsp;
+                                    <Link
+                                        to={`/home/message/detail?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link>&nbsp;&nbsp;
                                 </li>
                             )
                         })

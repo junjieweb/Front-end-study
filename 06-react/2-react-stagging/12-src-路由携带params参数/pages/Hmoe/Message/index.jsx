@@ -20,7 +20,8 @@ class Message extends Component {
                             return (
                                 <li key={msgObj.id}>
                                     {/* 跳转路由时携带params参数 */}
-                                    <Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}`}>{msgObj.title}</Link>&nbsp;&nbsp;
+                                    <Link
+                                        to={`/home/message/detail/${msgObj.id}/${msgObj.title}`}>{msgObj.title}</Link>&nbsp;&nbsp;
                                 </li>
                             )
                         })

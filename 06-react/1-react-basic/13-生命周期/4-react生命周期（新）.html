@@ -64,13 +64,13 @@
             return props
         }*/
 
-        getSnapshotBeforeUpdate(){
+        getSnapshotBeforeUpdate() {
             console.log('---getSnapshotBeforeUpdate')
             return 'hello'
         }
 
-        componentDidUpdate(preProps, preState,x) {
-            console.log('---componentDidUpdate', preProps, preState,x)
+        componentDidUpdate(preProps, preState, x) {
+            console.log('---componentDidUpdate', preProps, preState, x)
         }
 
         /*//组件将要挂载---调1次

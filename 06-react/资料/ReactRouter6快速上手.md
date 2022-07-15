@@ -6,21 +6,22 @@
 
 1. React Router 以三个不同的包发布到 npm 上，它们分别为：
 
-   1. react-router: 路由的核心库，提供了很多的：组件、钩子。
-   2. <strong style="color:#dd4d40">**react-router-dom:**</strong > <strong style="color:#dd4d40">包含react-router所有内容，并添加一些专门用于 DOM 的组件，例如 `<BrowserRouter>`等 </strong>。
-   3. react-router-native: 包括react-router所有内容，并添加一些专门用于ReactNative的API，例如:`<NativeRouter>`等。
+    1. react-router: 路由的核心库，提供了很多的：组件、钩子。
+    2. <strong style="color:#dd4d40">**react-router-dom:**</strong > <strong style="color:#dd4d40">
+       包含react-router所有内容，并添加一些专门用于 DOM 的组件，例如 `<BrowserRouter>`等 </strong>。
+    3. react-router-native: 包括react-router所有内容，并添加一些专门用于ReactNative的API，例如:`<NativeRouter>`等。
 
 2. 与React Router 5.x 版本相比，改变了什么？
 
-   1. 内置组件的变化：移除`<Switch/>` ，新增 `<Routes/>`等。
+    1. 内置组件的变化：移除`<Switch/>` ，新增 `<Routes/>`等。
 
-   2. 语法的变化：`component={About}` 变为 `element={<About/>}`等。
+    2. 语法的变化：`component={About}` 变为 `element={<About/>}`等。
 
-   5. 新增多个hook：`useParams`、`useNavigate`、`useMatch`等。
+    5. 新增多个hook：`useParams`、`useNavigate`、`useMatch`等。
 
-   7. <strong style="color:#dd4d40">官方明确推荐函数式组件了！！！</strong>
+    7. <strong style="color:#dd4d40">官方明确推荐函数式组件了！！！</strong>
 
-      ......
+       ......
 
 ## 2.Component
 
@@ -55,11 +56,11 @@
 
 3. `<Route>` 相当于一个 if 语句，如果其路径与当前 URL 匹配，则呈现其对应的组件。
 
-4.  `<Route caseSensitive>` 属性用于指定：匹配时是否区分大小写（默认为 false）。
+4. `<Route caseSensitive>` 属性用于指定：匹配时是否区分大小写（默认为 false）。
 
 5. 当URL发生变化时，`<Routes> `都会查看其所有子` <Route>` 元素以找到最佳匹配并呈现组件 。
 
-6.  `<Route>` 也可以嵌套使用，且可配合`useRoutes()`配置 “路由表” ，但需要通过 `<Outlet>` 组件来渲染其子路由。
+6. `<Route>` 也可以嵌套使用，且可配合`useRoutes()`配置 “路由表” ，但需要通过 `<Outlet>` 组件来渲染其子路由。
 
 7. 示例代码：
 
@@ -415,7 +416,7 @@
 
 ### 7. useInRouterContext()
 
-​			作用：如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 true，否则返回 false。
+​ 作用：如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 true，否则返回 false。
 
 ### 8. useNavigationType()
 
