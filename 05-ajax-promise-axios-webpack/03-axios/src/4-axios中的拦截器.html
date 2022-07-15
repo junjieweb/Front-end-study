@@ -50,7 +50,8 @@
         error => {
             console.log('响应拦截器失败的回调执行了');
             alert(error);
-            return new Promise(() => {});
+            return new Promise(() => {
+            });
         }
     );
 

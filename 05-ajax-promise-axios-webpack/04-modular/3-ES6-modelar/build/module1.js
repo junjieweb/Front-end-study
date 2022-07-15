@@ -12,6 +12,7 @@ var msg = exports.msg = 'hello';
 function showData() {
     console.log(data);
 }
+
 function showMsg() {
     console.log(msg);
 }

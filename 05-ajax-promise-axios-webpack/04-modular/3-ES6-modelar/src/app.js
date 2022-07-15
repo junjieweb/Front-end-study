@@ -13,7 +13,7 @@ import * as module3 from './module3';
 import module4 from "./module4";
 
 //引入多种暴露方式的模块
-import module5,{teacher1,teacher2,stu1,stu2} from "./module5";
+import module5, {teacher1, teacher2, stu1, stu2} from "./module5";
 import * as module55 from './module5';
 
 console.log(module1)
@@ -23,5 +23,5 @@ console.log(module3);
 console.log(person);
 console.log(module4);
 console.log(module5);
-console.log(teacher1,teacher2,stu1,stu2);
+console.log(teacher1, teacher2, stu1, stu2);
 console.log(module55);

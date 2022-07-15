@@ -2,4 +2,4 @@
 const data = 'atm';
 const msg = 'hello';
 
-export { data, msg };
+export {data, msg};

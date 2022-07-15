@@ -32,7 +32,7 @@
         //xhr 内部有5种状态，值分别为0、1、2、3、4
         //xhr实例对象，在示例出来的那一刻状态就是0
         xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4){
+            if (xhr.readyState === 4) {
                 console.log(xhr.response);
                 content.innerHTML = `<h3>${xhr.response}</h3>`;
             }

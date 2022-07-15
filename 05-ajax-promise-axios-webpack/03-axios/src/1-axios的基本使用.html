@@ -168,8 +168,8 @@
     btn5.onclick = () => {
         //完整版
         axios({
-            url:`http://localhost:5000/person/${personDeleteId.value}`,
-            method:'DELETE'
+            url: `http://localhost:5000/person/${personDeleteId.value}`,
+            method: 'DELETE'
         }).then(
             response => {
                 console.log('请求成功了', response.data)

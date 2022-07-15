@@ -5,6 +5,7 @@ export const msg = 'hello';
 export function showData() {
     console.log(data);
 }
+
 export function showMsg() {
     console.log(msg);
 }

@@ -1,6 +1,6 @@
 // app.js是webpack的入口，所有外部文件(js、json、css、less等等)都需要在这里引入使用
-import { sub, sum } from './module1';
-import { data as d, msg } from './module2';
+import {sub, sum} from './module1';
+import {data as d, msg} from './module2';
 import school from './module3';
 import data from '../json/test.json';
 import '../css/demo.css';
@@ -16,15 +16,15 @@ console.log(school);
 console.log(data);
 
 const p = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(100);
-  }, 1000);
+    setTimeout(() => {
+        resolve(100);
+    }, 1000);
 });
 p.then(
-  (value) => {
-    console.log('成功了', value);
-  },
-  (reason) => {
-    console.log('失败了', reason);
-  },
+    (value) => {
+        console.log('成功了', value);
+    },
+    (reason) => {
+        console.log('失败了', reason);
+    },
 );

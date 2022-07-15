@@ -37,7 +37,9 @@ define(['lodash'], function (_) {
             if (result[key] && (paramType[key].endsWith('[]') || paramType[key] === 'Object')) {
                 try {
                     result[key] = JSON.parse(result[key]);
-                } catch (e) {;}
+                } catch (e) {
+                    ;
+                }
             }
         });
         return result
@@ -85,7 +87,7 @@ define(['lodash'], function (_) {
     }
 
     function setLogger(logger) {
-      log = logger;
+        log = logger;
     }
 
     return {
