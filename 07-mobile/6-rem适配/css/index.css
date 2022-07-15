@@ -1,11 +1,13 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+
 #demo {
-  width: 9.2rem;
-  height: 4rem;
-  margin: 0.4rem auto 0;
-  background: skyblue;
+    width: 9.2rem;
+    height: 4rem;
+    margin: 0.4rem auto 0;
+    background: skyblue;
 }
+
 /*# sourceMappingURL=index.css.map */
