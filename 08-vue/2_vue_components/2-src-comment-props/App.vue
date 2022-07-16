@@ -29,12 +29,12 @@ export default {
       ]
     }
   },
-  methods:{
-    addComment(comment){
+  methods: {
+    addComment(comment) {
       this.comments.unshift(comment)
     },
-    deleteComment(index){
-      this.comments.splice(index,1)
+    deleteComment(index) {
+      this.comments.splice(index, 1)
     }
   }
 }

@@ -19,7 +19,7 @@ import Item from "./Item";
 
 export default {
   name: "List",
-  props: ['comments','deleteComment'],
+  props: ['comments', 'deleteComment'],
   components: {Item}
 }
 </script>

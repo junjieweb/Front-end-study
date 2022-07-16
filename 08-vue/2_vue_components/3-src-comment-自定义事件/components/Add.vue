@@ -27,10 +27,10 @@ export default {
       content: ''
     }
   },
-  methods:{
-    addC(){
-      let {username,content} = this
-      if (username.trim() && content.trim()){
+  methods: {
+    addC() {
+      let {username, content} = this
+      if (username.trim() && content.trim()) {
         let id = Date.now()
         let obj = {
           id,
@@ -41,9 +41,9 @@ export default {
         // this.addComment(obj)
 
         //自定义事件的触发，分发  调用回调
-        this.$emit('addComment',obj)
+        this.$emit('addComment', obj)
 
-      }else{
+      } else {
         alert('请输入合法内容')
       }
       this.username = ''

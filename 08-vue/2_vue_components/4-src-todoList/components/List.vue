@@ -1,12 +1,12 @@
 <template>
   <ul class="todo-main">
     <Item
-      v-for="(todo,index) in todos"
-      :key="todo.id"
-      :todo="todo"
-      :updateOne="updateOne"
-      :index="index"
-      :deleteOne="deleteOne"
+        v-for="(todo,index) in todos"
+        :key="todo.id"
+        :todo="todo"
+        :updateOne="updateOne"
+        :index="index"
+        :deleteOne="deleteOne"
     ></Item>
   </ul>
 </template>
@@ -16,7 +16,7 @@ import Item from "./Item";
 
 export default {
   name: "List",
-  props:['todos','updateOne','deleteOne'],
+  props: ['todos', 'updateOne', 'deleteOne'],
   components: {
     Item
   }

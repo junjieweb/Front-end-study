@@ -11,10 +11,10 @@
 <script>
 export default {
   name: "Item",
-  props: ['comment','deleteComment','index'],
-  methods:{
-    deleteC(){
-      if (confirm('确定删除吗？')){
+  props: ['comment', 'deleteComment', 'index'],
+  methods: {
+    deleteC() {
+      if (confirm('确定删除吗？')) {
         this.deleteComment(this.index)
       }
     }

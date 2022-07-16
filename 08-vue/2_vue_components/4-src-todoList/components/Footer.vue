@@ -16,10 +16,10 @@ export default {
   props: {
     todos: Array,
     updateAll: Function,
-    deleteAll:Function
+    deleteAll: Function
   },
-  methods:{
-    deleteA(){
+  methods: {
+    deleteA() {
       this.deleteAll()
     }
   },

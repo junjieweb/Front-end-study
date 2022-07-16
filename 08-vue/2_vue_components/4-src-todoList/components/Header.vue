@@ -44,7 +44,7 @@ export default {
         // this.addTodo(obj)
 
         //自定义事件使用
-        this.$emit('addTodo',obj)
+        this.$emit('addTodo', obj)
       } else {
         alert('请输入合法数据')
       }
