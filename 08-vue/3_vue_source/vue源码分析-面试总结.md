@@ -70,7 +70,8 @@
 
 - 使用2个技术
 
-    - 数据劫持/监视: 使用defineProperty给data中所有层次属性都添加getter/setter, 一旦data中的数据改了, setter就会自动调用, 准备去更新界面
+    - 数据劫持/监视: 使用defineProperty给data中所有层次属性都添加getter/setter, 一旦data中的数据改了, setter就会自动调用,
+      准备去更新界面
 
     - 订阅者-发布者: 通过订阅器(dep)通知所有相关的订阅者(watcher)去更新相应的节点
 

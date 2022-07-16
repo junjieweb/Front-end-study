@@ -15,7 +15,7 @@ function Compile(el, vm) {
 }
 
 Compile.prototype = {
-    node2Fragment: function(el) {
+    node2Fragment: function (el) {
         var fragment = document.createDocumentFragment(),
             child;
 
@@ -27,19 +27,19 @@ Compile.prototype = {
         return fragment;
     },
 
-    init: function() {
+    init: function () {
         this.compileElement(this.$fragment);
     },
 
-    /* 
+    /*
     编译指定element/fragment的子节点
     */
-    compileElement: function(el) {
+    compileElement: function (el) {
         // 得到所有子节点
         var childNodes = el.childNodes,
             me = this;
         // 遍历所有子节点
-        [].slice.call(childNodes).forEach(function(node) {
+        [].slice.call(childNodes).forEach(function (node) {
             // 得到子节点的文本内容
             var text = node.textContent;
             // 定义用来匹配插值语法的正则对象
@@ -48,7 +48,7 @@ Compile.prototype = {
             if (me.isElementNode(node)) {
                 // 编译元素节点中所有指令属性
                 me.compile(node);
-            // 如果是插值语法格式的文本节点
+                // 如果是插值语法格式的文本节点
             } else if (me.isTextNode(node) && reg.test(text)) {
                 // 编译文本节点
                 me.compileText(node, RegExp.$1);
@@ -61,12 +61,12 @@ Compile.prototype = {
         });
     },
 
-    compile: function(node) {
+    compile: function (node) {
         // 得到当前元素的所有属性节点
         var nodeAttrs = node.attributes,
             me = this;
         // 遍历属性节点
-        [].slice.call(nodeAttrs).forEach(function(attr) {
+        [].slice.call(nodeAttrs).forEach(function (attr) {
             // 得到属性名: v-on:click
             var attrName = attr.name;
             // 如果是指令属性
@@ -79,7 +79,7 @@ Compile.prototype = {
                 if (me.isEventDirective(dir)) {
                     // 编译处理这个事件指令
                     compileUtil.eventHandler(node, me.$vm, exp, dir);
-                // 普通指令
+                    // 普通指令
                 } else {
                     // 编译处理一般指令
                     compileUtil[dir] && compileUtil[dir](node, me.$vm, exp);
@@ -90,45 +90,45 @@ Compile.prototype = {
         });
     },
 
-    compileText: function(node, exp) {
+    compileText: function (node, exp) {
         // 让编译工具对象处理文本节点的编译
         compileUtil.text(node, this.$vm, exp);
     },
 
-    isDirective: function(attr) {
+    isDirective: function (attr) {
         return attr.indexOf('v-') == 0;
     },
 
-    isEventDirective: function(dir) {
+    isEventDirective: function (dir) {
         return dir.indexOf('on') === 0;
     },
 
-    isElementNode: function(node) {
+    isElementNode: function (node) {
         return node.nodeType == 1;
     },
 
-    isTextNode: function(node) {
+    isTextNode: function (node) {
         return node.nodeType == 3;
     }
 };
 
-/* 
+/*
 编译模板语法的工具对象
 */
 var compileUtil = {
     /* 编译v-text和{{}} */
-    text: function(node, vm, exp) {
+    text: function (node, vm, exp) {
         this.bind(node, vm, exp, 'text');
     },
 
     /* 编译v-html */
-    html: function(node, vm, exp) {
+    html: function (node, vm, exp) {
         this.bind(node, vm, exp, 'html');
     },
 
     /* 编译v-model */
-    model: function(node, vm, exp) {
-        /* 
+    model: function (node, vm, exp) {
+        /*
         1. 在内存初始更新节点
         2. 创建watcher, 用于input的更新
         */
@@ -137,7 +137,7 @@ var compileUtil = {
         var me = this,
             val = this._getVMVal(vm, exp);
         // 给当前元素绑定input事件监听
-        node.addEventListener('input', function(e) {
+        node.addEventListener('input', function (e) {
             // 得到输入的最新值
             var newValue = e.target.value;
             // 将最新值保存到表达式在data中对应的属性上  ===> 触发数据绑定的流程
@@ -147,33 +147,33 @@ var compileUtil = {
     },
 
     /* 编译v-class*/
-    class: function(node, vm, exp) {
+    class: function (node, vm, exp) {
         this.bind(node, vm, exp, 'class');
     },
 
-    /* 
-    真正用于编译模板语法的方法 
+    /*
+    真正用于编译模板语法的方法
     exp: 表达式   name
     dir: 指令名  text/html/class/model
     */
-    bind: function(node, vm, exp, dir) {
+    bind: function (node, vm, exp, dir) {
         // 根据指令名得到对应的更新函数
         var updaterFn = updater[dir + 'Updater'];
         // 执行更新函数第一次更新节点 ==> 初始化显示
         updaterFn && updaterFn(node, this._getVMVal(vm, exp));
 
         // 为当前表达式创建一个对应的watcher ==> 用于更新当前节点
-        new Watcher(vm, exp, function(value, oldValue) { // 绑定用于更新的函数
+        new Watcher(vm, exp, function (value, oldValue) { // 绑定用于更新的函数
             // 更新节点
             updaterFn && updaterFn(node, value, oldValue);
         });
     },
 
     // 事件指令处理
-    eventHandler: function(node, vm, exp, dir) {
+    eventHandler: function (node, vm, exp, dir) {
         // 根据指令名得到事件名/类型
         var eventType = dir.split(':')[1],  // click
-        // 根据表达式从methods中取出对应的事件回调函数
+            // 根据表达式从methods中取出对应的事件回调函数
             fn = vm.$options.methods && vm.$options.methods[exp]; // test函数
         // 给当前节点绑定指定事件名和回调函数的DOM事件监听  回调函数指定this为vm
         if (eventType && fn) {
@@ -182,19 +182,19 @@ var compileUtil = {
     },
 
     /* 得到指定表达式在data中对应的属性值 */
-    _getVMVal: function(vm, exp) {
+    _getVMVal: function (vm, exp) {
         var val = vm._data;
         exp = exp.split('.');
-        exp.forEach(function(k) {
+        exp.forEach(function (k) {
             val = val[k];
         });
         return val;
     },
 
-    _setVMVal: function(vm, exp, value) {
+    _setVMVal: function (vm, exp, value) {
         var val = vm._data;
         exp = exp.split('.');
-        exp.forEach(function(k, i) {
+        exp.forEach(function (k, i) {
             // 非最后一个key，更新val的值
             if (i < exp.length - 1) {
                 val = val[k];
@@ -205,22 +205,22 @@ var compileUtil = {
     }
 };
 
-/* 
+/*
 包含n个用于更新真实DOM的方法的工具对象
 */
 var updater = {
     /* 更新节点(元素/文本)的textContent属性 */
-    textUpdater: function(node, value) {
+    textUpdater: function (node, value) {
         node.textContent = typeof value == 'undefined' ? '' : value;
     },
 
     /* 更新元素节点的innerHTML属性 */
-    htmlUpdater: function(node, value) {
+    htmlUpdater: function (node, value) {
         node.innerHTML = typeof value == 'undefined' ? '' : value;
     },
 
     /* 更新元素节点的className属性 */
-    classUpdater: function(node, value, oldValue) {
+    classUpdater: function (node, value, oldValue) {
         // 得到静态类名
         var className = node.className;
         // 指定className
@@ -228,7 +228,7 @@ var updater = {
     },
 
     /* 更新元素节点的value属性 */
-    modelUpdater: function(node, value, oldValue) {
+    modelUpdater: function (node, value, oldValue) {
         node.value = typeof value == 'undefined' ? '' : value;
     }
 };

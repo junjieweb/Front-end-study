@@ -1,4 +1,4 @@
-/* 
+/*
 相当于Vue的构造函数
 */
 function MVVM(options) {
@@ -10,7 +10,7 @@ function MVVM(options) {
     var me = this;
 
     // 遍历data中所有属性
-    Object.keys(data).forEach(function(key) { // 某个属性: name
+    Object.keys(data).forEach(function (key) { // 某个属性: name
         // 对当前属性实现数据代理
         me._proxy(key);
     });
@@ -23,11 +23,11 @@ function MVVM(options) {
 }
 
 MVVM.prototype = {
-    $watch: function(key, cb, options) {
+    $watch: function (key, cb, options) {
         new Watcher(this, key, cb);
     },
 
-    _proxy: function(key) {// name
+    _proxy: function (key) {// name
         var me = this;
         // 给vm添加指定的属性
         Object.defineProperty(me, key, {

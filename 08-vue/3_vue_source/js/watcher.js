@@ -8,10 +8,10 @@ function Watcher(vm, exp, cb) {
 }
 
 Watcher.prototype = {
-    update: function() {
+    update: function () {
         this.run();
     },
-    run: function() {
+    run: function () {
         var value = this.get();
         var oldVal = this.value;
         if (value !== oldVal) {
@@ -20,7 +20,7 @@ Watcher.prototype = {
             this.cb.call(this.vm, value, oldVal);
         }
     },
-    addDep: function(dep) {
+    addDep: function (dep) {
         // 判断watcher与dep的关系是否已经建立过
         if (!this.depIds.hasOwnProperty(dep.id)) {
             // 将watcher添加dep中, 建立dep到watcher的关系
@@ -29,7 +29,7 @@ Watcher.prototype = {
             this.depIds[dep.id] = dep;
         }
     },
-    get: function() {
+    get: function () {
         // 将当前watcher对象挂到Dep上
         Dep.target = this;
         // 读取表达式对应的属性值 ==> 调用对应的getter
@@ -38,10 +38,10 @@ Watcher.prototype = {
         return value;
     },
 
-    getVMVal: function() {
+    getVMVal: function () {
         var exp = this.exp.split('.');
         var val = this.vm._data;
-        exp.forEach(function(k) {
+        exp.forEach(function (k) {
             val = val[k];
         });
         return val;
