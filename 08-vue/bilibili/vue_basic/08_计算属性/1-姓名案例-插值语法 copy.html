@@ -9,21 +9,21 @@
 </head>
 
 <body>
-    <div id="root">
-        姓：<input type="text" v-model="firstName"><br>
-        名：<input type="text" v-model="lastName"><br>
-        全名：<span>{{firstName}}{{lastName}}</span>
-    </div>
-    <script src="../js/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#root',
-            data: {
-                firstName: '张',
-                lastName: '三'
-            }
-        })
-    </script>
+<div id="root">
+    姓：<input type="text" v-model="firstName"><br>
+    名：<input type="text" v-model="lastName"><br>
+    全名：<span>{{firstName}}{{lastName}}</span>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#root',
+        data: {
+            firstName: '张',
+            lastName: '三'
+        }
+    })
+</script>
 </body>
 
 </html>

@@ -2,35 +2,35 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-	<style>
-		.demo {
-			background-color: orange;
-		}
-	</style>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <style>
+        .demo {
+            background-color: orange;
+        }
+    </style>
 </head>
 
 <body>
-	<button id="btn">点我创建一个输入框</button>
+<button id="btn">点我创建一个输入框</button>
 
-	<script>
-		const btn = document.getElementById('btn')
-		btn.onclick = () => {
-			const input = document.createElement('input')
+<script>
+    const btn = document.getElementById('btn')
+    btn.onclick = () => {
+        const input = document.createElement('input')
 
-			input.className = 'demo'
-			input.value = 99
-			input.onclick = () => alert(1)
+        input.className = 'demo'
+        input.value = 99
+        input.onclick = () => alert(1)
 
-			document.body.appendChild(input)
+        document.body.appendChild(input)
 
-			input.focus()
-			input.parentElement.style.backgroundColor = 'skyblue'
-			console.log(input.parentElement)
+        input.focus()
+        input.parentElement.style.backgroundColor = 'skyblue'
+        console.log(input.parentElement)
 
-		}
-	</script>
+    }
+</script>
 </body>
 
 </html>
