@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import {reactive} from "vue";
+
 export default {
   name: "App",
 
@@ -30,6 +31,7 @@ export default {
       },
       hobby: ["抽烟", "喝酒", "烫头"],
     });
+
     // 方法
     function changeInfo() {
       person.name = "张三";

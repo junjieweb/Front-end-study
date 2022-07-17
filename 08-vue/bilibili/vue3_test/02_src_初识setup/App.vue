@@ -3,12 +3,18 @@
   <h2>姓名：{{ name }}</h2>
   <h2>年龄：{{ age }}</h2>
   <h2>性别：{{ sex }}</h2>
-  <button @click="sayHello">说话（vue3配置的--sayHello）</button><br />
-  <button @click="sayWelcome">欢迎（vue2配置的--sayWelcome）</button><br />
-  <button @click="test1">测试一下在vue2的配置中读取vue3中的数据、方法</button
-  ><br />
-  <button @click="test2">测试一下在vue3的配置中读取vue2中的数据、方法</button
-  ><br />
+  <button @click="sayHello">说话（vue3配置的--sayHello）</button>
+  <br/>
+  <button @click="sayWelcome">欢迎（vue2配置的--sayWelcome）</button>
+  <br/>
+  <button @click="test1">测试一下在vue2的配置中读取vue3中的数据、方法
+  </button
+  >
+  <br/>
+  <button @click="test2">测试一下在vue3的配置中读取vue2中的数据、方法
+  </button
+  >
+  <br/>
 </template>
 
 <script>
@@ -42,6 +48,7 @@ export default {
     function sayHello() {
       alert(`我叫${name}，我${age}岁了，你好啊！`);
     }
+
     function test2() {
       console.log(name);
       console.log(age);

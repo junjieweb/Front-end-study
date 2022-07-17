@@ -8,7 +8,8 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import {reactive} from "vue";
+
 export default {
   name: "Demo",
   props: ["message", "school"],
@@ -25,6 +26,7 @@ export default {
       name: "张三",
       age: 18,
     });
+
     // 方法
     function test() {
       context.emit("hello", 999);

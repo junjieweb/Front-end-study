@@ -8,10 +8,11 @@
 <script>
 import Son from "@/components/Son";
 import {inject} from "vue";
+
 export default {
   name: "Child",
-  components:{Son},
-  setup(){
+  components: {Son},
+  setup() {
     let car = inject('car')
     return {car}
   }
@@ -19,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.child{
+.child {
   background: #42b983;
   padding: 10px;
 }

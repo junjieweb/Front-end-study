@@ -17,19 +17,19 @@ export default {
     onBeforeMount(() => {
       console.log('onBeforeMount')
     })
-    onMounted(()=>{
+    onMounted(() => {
       console.log('onMounted')
     })
-    onBeforeUpdate(()=>{
+    onBeforeUpdate(() => {
       console.log('onBeforeUpdate')
     })
-    onUpdated(()=>{
+    onUpdated(() => {
       console.log('onUpdated')
     })
-    onBeforeUnmount(()=>{
+    onBeforeUnmount(() => {
       console.log('onBeforeUnmount')
     })
-    onUnmounted(()=>{
+    onUnmounted(() => {
       console.log('onUnmounted')
     })
 

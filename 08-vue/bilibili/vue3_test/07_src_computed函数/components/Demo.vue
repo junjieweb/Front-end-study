@@ -1,13 +1,14 @@
 <template>
   <h1>一个人的信息</h1>
-  姓：<input type="text" v-model="person.firstName" /><br />
-  名：<input type="text" v-model="person.lastName" /><br />
+  姓：<input type="text" v-model="person.firstName"/><br/>
+  名：<input type="text" v-model="person.lastName"/><br/>
   <span>全名：{{ person.fullName }}</span><br>
   全名：<input type="text" v-model="person.fullName">
 </template>
 
 <script>
-import { computed, reactive } from "vue";
+import {computed, reactive} from "vue";
+
 export default {
   name: "Demo",
   setup() {
@@ -22,7 +23,7 @@ export default {
       return person.firstName + "-" + person.lastName;
     });
      */
-    
+
     // 计算属性--完整写法（考虑读写）
     person.fullName = computed({
       get() {

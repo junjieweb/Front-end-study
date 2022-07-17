@@ -11,14 +11,16 @@
 
 <script>
 import Demo from "./components/Demo.vue";
+
 export default {
   name: "App",
-  components: { Demo },
+  components: {Demo},
   setup() {
     function showHelloMessage(value) {
       alert(`你好啊，你触发了自定义事件，我收到的参数是：${value}`);
     }
-    return { showHelloMessage };
+
+    return {showHelloMessage};
   },
 };
 </script>

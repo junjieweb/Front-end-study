@@ -7,9 +7,10 @@
 
 <script>
 import Dialog from "@/components/Dialog";
+
 export default {
   name: "Son",
-  components:{Dialog}
+  components: {Dialog}
 }
 </script>
 
