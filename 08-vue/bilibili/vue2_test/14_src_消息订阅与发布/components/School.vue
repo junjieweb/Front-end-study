@@ -7,6 +7,7 @@
 
 <script>
 import pubsub from "pubsub-js";
+
 export default {
   name: "School",
   data() {
@@ -21,7 +22,7 @@ export default {
     // });
     this.pubId = pubsub.subscribe("hello", (messageName, data) => {
       console.log(this)
-      console.log("有人发布了hello消息，hello消息的回调执行了",messageName,data);
+      console.log("有人发布了hello消息，hello消息的回调执行了", messageName, data);
     });
   },
   beforeDestroy() {

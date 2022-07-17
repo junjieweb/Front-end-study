@@ -3,9 +3,9 @@
     <li>
       <label>
         <input
-          type="checkbox"
-          :checked="todo.done"
-          @click="handleCheck(todo.id)"
+            type="checkbox"
+            :checked="todo.done"
+            @click="handleCheck(todo.id)"
         />
         <!-- 如下代码也能实现功能，但是不太推荐，因为有点违反原则，因为修改了props -->
         <!-- <input type="checkbox" v-model="todo.done"/> -->
@@ -20,6 +20,7 @@
 
 <script>
 import pubsub from "pubsub-js";
+
 export default {
   name: "Item",
   props: ["todo"],
@@ -76,9 +77,11 @@ li:before {
 li:last-child {
   border-bottom: none;
 }
+
 li:hover {
   background-color: #ddd;
 }
+
 li:hover button {
   display: block;
 }

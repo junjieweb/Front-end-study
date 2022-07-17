@@ -23,13 +23,16 @@ export default {
   width: 200px;
   height: 300px;
 }
+
 h3 {
   text-align: center;
   background-color: orange;
 }
+
 img {
   width: 100%;
 }
+
 video {
   width: 100%;
 }

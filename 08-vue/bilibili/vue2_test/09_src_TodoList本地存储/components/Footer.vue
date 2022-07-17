@@ -2,7 +2,7 @@
   <div>
     <div class="todo-footer" v-show="total">
       <label>
-        <input type="checkbox" v-model="isAll" />
+        <input type="checkbox" v-model="isAll"/>
       </label>
       <span>
         <span>已完成{{ doneTotal }}</span> / 全部{{ total }}

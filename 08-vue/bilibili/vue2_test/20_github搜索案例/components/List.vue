@@ -3,13 +3,13 @@
     <div class="row">
       <!-- 展示用户列表 -->
       <div
-        class="card"
-        v-show="info.users.length"
-        v-for="user in info.users"
-        :key="user.login"
+          class="card"
+          v-show="info.users.length"
+          v-for="user in info.users"
+          :key="user.login"
       >
         <a :href="user.html_url" target="_blank">
-          <img :src="user.avatar_url" style="width: 100px" />
+          <img :src="user.avatar_url" style="width: 100px"/>
         </a>
         <p class="card-text">{{ user.login }}</p>
       </div>
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     updateListData(data) {
-      this.info = { ...this.info, ...data };
+      this.info = {...this.info, ...data};
     },
   },
   mounted() {

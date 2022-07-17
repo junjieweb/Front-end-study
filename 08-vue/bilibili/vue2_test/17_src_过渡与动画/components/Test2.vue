@@ -30,10 +30,12 @@ h1 {
 .hello-leave-to {
   transform: translateX(-100%);
 }
+
 .hello-enter-active,
 .hello-leave-active {
   transition: 0.5s linear;
 }
+
 /* 进入的终点、离开的起点 */
 .hello-enter-to,
 .hello-leave {

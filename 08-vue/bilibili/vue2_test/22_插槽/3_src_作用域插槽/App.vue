@@ -39,12 +39,15 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+
 .foot {
   text-align: center;
 }
+
 a {
   padding: 5px;
 }
+
 h4 {
   text-align: center;
 }

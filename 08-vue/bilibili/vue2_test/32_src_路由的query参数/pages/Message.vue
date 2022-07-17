@@ -7,7 +7,7 @@
 
         <!-- 跳转路由并携带query参数，to的对象写法 -->
         <router-link
-          :to="{
+            :to="{
             path: '/home/message/detail',
             query: {
               id: message.id,
@@ -19,7 +19,7 @@
         </router-link>
       </li>
     </ul>
-    <hr />
+    <hr/>
     <router-view></router-view>
   </div>
 </template>
@@ -30,9 +30,9 @@ export default {
   data() {
     return {
       messageList: [
-        { id: "001", title: "消息001" },
-        { id: "002", title: "消息002" },
-        { id: "003", title: "消息003" },
+        {id: "001", title: "消息001"},
+        {id: "002", title: "消息002"},
+        {id: "003", title: "消息003"},
       ],
     };
   },

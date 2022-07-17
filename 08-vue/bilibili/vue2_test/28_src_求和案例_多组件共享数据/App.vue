@@ -1,7 +1,7 @@
 <template>
   <div>
     <Count></Count>
-    <hr />
+    <hr/>
     <Person></Person>
   </div>
 </template>
@@ -12,7 +12,7 @@ import Person from "@/components/Person";
 
 export default {
   name: "App",
-  components: { Count, Person },
+  components: {Count, Person},
 };
 </script>
 <style>

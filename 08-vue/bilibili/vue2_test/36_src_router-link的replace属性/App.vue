@@ -30,9 +30,10 @@
 
 <script>
 import Banner from './components/Banner.vue'
+
 export default {
   name: "App",
-  components:{Banner}
+  components: {Banner}
 };
 </script>
 <style>

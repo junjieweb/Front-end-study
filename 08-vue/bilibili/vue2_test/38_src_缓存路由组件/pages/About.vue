@@ -9,18 +9,14 @@ export default {
   name: 'About',
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
   mounted() {
-    
+
   },
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 

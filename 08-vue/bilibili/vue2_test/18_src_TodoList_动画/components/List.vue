@@ -10,6 +10,7 @@
 
 <script>
 import Item from "@/components/Item";
+
 export default {
   name: "List",
   components: {
@@ -37,6 +38,7 @@ export default {
   padding-left: 5px;
   margin-top: 10px;
 }
+
 .todo-enter-active {
   animation: atguigu 0.5s linear;
 }

@@ -2,9 +2,9 @@
   <div class="container">
     <Category title="美食">
       <img
-        slot="center"
-        src="https://cdn.pixabay.com/photo/2016/10/23/09/37/fried-rice-1762493_1280.jpg"
-        alt="美食"
+          slot="center"
+          src="https://cdn.pixabay.com/photo/2016/10/23/09/37/fried-rice-1762493_1280.jpg"
+          alt="美食"
       />
       <div class="foot" slot="footer">
         <a href="https://www.baidu.com">更多美食</a>
@@ -23,9 +23,9 @@
 
     <Category title="电影">
       <video
-        slot="center"
-        controls
-        src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+          slot="center"
+          controls
+          src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
       ></video>
       <template v-slot:footer>
         <div class="foot">
@@ -61,12 +61,15 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+
 .foot {
   text-align: center;
 }
+
 a {
   padding: 5px;
 }
+
 h4 {
   text-align: center;
 }

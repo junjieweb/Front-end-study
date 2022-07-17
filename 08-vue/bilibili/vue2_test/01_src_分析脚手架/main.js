@@ -7,7 +7,7 @@ import App from './App.vue'
 
 //关闭Vue生产提示
 Vue.config.productionTip = false
-/* 
+/*
   关于不同版本的Vue：
     1.vue.js与vue.runtime.xxx.js的区别：
       (1).vue.js是完整版的Vue，包含：核心功能+模板解析器。
@@ -18,6 +18,6 @@ Vue.config.productionTip = false
 */
 //创建Vue实例对象
 new Vue({
-  //render函数，将App组件放进容器中
-  render: h => h(App),
+    //render函数，将App组件放进容器中
+    render: h => h(App),
 }).$mount('#app')

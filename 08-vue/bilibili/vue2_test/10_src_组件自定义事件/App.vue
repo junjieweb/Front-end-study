@@ -7,7 +7,7 @@
     <!-- 通过父组件给子组件绑定一个自定义事件实现：子给父传递数据（第一种写法，使用@或v-on） -->
     <!-- <Student @hello="getStudentName" @demo="m1"></Student> -->
     <!-- 通过父组件给子组件绑定一个自定义事件实现：子给父传递数据（第二种写法，使用ref） -->
-    <Student ref="student" @click.native="show" />
+    <Student ref="student" @click.native="show"/>
   </div>
 </template>
 

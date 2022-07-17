@@ -2,11 +2,11 @@
   <div>
     <ul class="todo-main">
       <Item
-        v-for="todo in todos"
-        :key="todo.id"
-        :todo="todo"
-        :checkTodo="checkTodo"
-        :deleteTodo="deleteTodo"
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
+          :checkTodo="checkTodo"
+          :deleteTodo="deleteTodo"
       ></Item>
     </ul>
   </div>
@@ -14,13 +14,14 @@
 
 <script>
 import Item from "@/components/Item";
+
 export default {
   name: "List",
   components: {
     Item,
   },
   //声明接收App传递过来的数据，其中todos是自己用的，checkTodo和deleteTodo是给子组件Item用的
-  props: ["todos", "checkTodo","deleteTodo"],
+  props: ["todos", "checkTodo", "deleteTodo"],
 };
 </script>
 

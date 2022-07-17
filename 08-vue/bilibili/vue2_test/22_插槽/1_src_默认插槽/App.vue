@@ -2,8 +2,8 @@
   <div class="container">
     <Category title="美食">
       <img
-        src="https://cdn.pixabay.com/photo/2016/10/23/09/37/fried-rice-1762493_1280.jpg"
-        alt="美食"
+          src="https://cdn.pixabay.com/photo/2016/10/23/09/37/fried-rice-1762493_1280.jpg"
+          alt="美食"
       />
     </Category>
 
@@ -12,11 +12,11 @@
         <li v-for="(game, index) in games" :key="index">{{ game }}</li>
       </ul>
     </Category>
-    
+
     <Category title="电影">
       <video
-        controls
-        src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+          controls
+          src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
       ></video>
     </Category>
   </div>

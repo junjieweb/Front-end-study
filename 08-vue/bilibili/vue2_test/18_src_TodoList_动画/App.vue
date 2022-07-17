@@ -5,9 +5,9 @@
         <Header @addTodo="addTodo"></Header>
         <List :todos="todos"></List>
         <Footer
-          :todos="todos"
-          @checkAllTodo="checkAllTodo"
-          @clearAllTodo="clearAllTodo"
+            :todos="todos"
+            @checkAllTodo="checkAllTodo"
+            @clearAllTodo="clearAllTodo"
         ></Footer>
       </div>
     </div>
@@ -107,7 +107,7 @@ body {
   vertical-align: middle;
   cursor: pointer;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 1px 2px rgba(0, 0, 0, 0.05);
+  0 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 }
 
@@ -116,6 +116,7 @@ body {
   background-color: #da4f49;
   border: 1px solid #bd362f;
 }
+
 .btn-edit {
   color: #fff;
   background-color: skyblue;
@@ -136,6 +137,7 @@ body {
   width: 600px;
   margin: 0 auto;
 }
+
 .todo-container .todo-wrap {
   padding: 10px;
   border: 1px solid #ddd;
