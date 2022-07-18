@@ -2,7 +2,7 @@
   <div>
     <el-card style="margin: 20px 0">
       <!-- 三级联动已经是全局组件了 -->
-      <CategorySelect :show="scene !== 0" @getCategoryId="getCategoryId" />
+      <CategorySelect :show="scene !== 0" @getCategoryId="getCategoryId"/>
     </el-card>
     <el-card>
       <!-- 底部这里将来是有三部分进行切换 -->
@@ -23,8 +23,8 @@
             align="center"
             width="80"
           />
-          <el-table-column prop="spuName" label="SPU名称" />
-          <el-table-column prop="description" label="SPU描述" />
+          <el-table-column prop="spuName" label="SPU名称"/>
+          <el-table-column prop="description" label="SPU描述"/>
           <el-table-column prop="prop" label="操作">
             <template v-slot="{ row }">
               <hint-button
@@ -78,8 +78,8 @@
     </el-card>
     <el-dialog :title="`${spu.spuName}的sku列表`" :visible.sync="dialogTableVisible">
       <el-table v-loading="loading" :data="skuList" width="100%">
-        <el-table-column prop="skuName" label="名称" ></el-table-column>
-        <el-table-column prop="price" label="价格" ></el-table-column>
+        <el-table-column prop="skuName" label="名称"></el-table-column>
+        <el-table-column prop="price" label="价格"></el-table-column>
         <el-table-column prop="weight" label="重量"></el-table-column>
         <el-table-column label="默认图片">
           <template v-slot="{row}">
@@ -94,6 +94,7 @@
 <script>
 import SpuForm from '@/views/product/Spu/SpuForm'
 import SkuForm from '@/views/product/Spu/SkuForm'
+
 export default {
   name: 'Spu',
   components: {
@@ -118,7 +119,7 @@ export default {
   },
   methods: {
     // 自定义事件的回调
-    getCategoryId({ categoryId, level }) {
+    getCategoryId({categoryId, level}) {
       // categoryId:获取到一、二、三级分类的id  level：为了区分是几级id
       // 区分三级分类相应的id，以及父组件进行存储
       if (level === 1) {
@@ -138,7 +139,7 @@ export default {
     // 获取Spu列表数据的方法
     async getSpuList(pager = 1) {
       this.page = pager
-      const { page, limit, category3Id } = this
+      const {page, limit, category3Id} = this
       // 携带三个参数:page 第几页  limit 每一页需要展示多少条数据  三级分类id
       const result = await this.$API.spu.reqSpuList(page, limit, category3Id)
       if (result.code === 200) {
@@ -165,7 +166,7 @@ export default {
       this.$refs.spu.initSpuData(row)
     },
     // 自定义事件的回调（SpuForm）
-    changeScene({ scene, flag }) {
+    changeScene({scene, flag}) {
       this.scene = scene
       // 子组件通知父组件切换场景，需要再次获取SPU列表的数据进行展示
       if (flag === '修改') {
@@ -178,7 +179,7 @@ export default {
     async deleteSpu(row) {
       const result = await this.$API.spu.reqDeleteSpu(row.id)
       if (result.code === 200) {
-        this.$message({ type: 'success', message: '删除成功' })
+        this.$message({type: 'success', message: '删除成功'})
         // 代表SPU个数大于1删除的时候停留在当前页，如果SPU个数小于1 回到上一页
         await this.getSpuList(this.records.length > 1 ? this.page : this.page - 1)
       }

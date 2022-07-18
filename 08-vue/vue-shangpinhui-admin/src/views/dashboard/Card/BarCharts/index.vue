@@ -1,9 +1,10 @@
 <template>
-  <div ref="charts" class="charts" />
+  <div ref="charts" class="charts"/>
 </template>
 
 <script>
 import * as echarts from 'echarts'
+
 export default {
   name: 'BarCharts',
   mounted() {
@@ -13,9 +14,9 @@ export default {
     // 配置项
     const option = {
       // x轴
-      xAxis: { show: false, type: 'category' },
+      xAxis: {show: false, type: 'category'},
       // y轴
-      yAxis: { show: false },
+      yAxis: {show: false},
       // 系列的设置
       series: {
         type: 'bar',
@@ -49,7 +50,7 @@ export default {
 </script>
 
 <style scoped>
-.charts{
+.charts {
   width: 100%;
   height: 100%;
 }

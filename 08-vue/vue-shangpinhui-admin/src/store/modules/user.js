@@ -1,6 +1,6 @@
-import { getInfo, login, logout } from '@/api/user'
-import { getToken, removeToken, setToken } from '@/utils/auth'
-import router, { anyRoutes, asyncRoutes, constantRoutes, resetRouter } from '@/router'
+import {getInfo, login, logout} from '@/api/user'
+import {getToken, removeToken, setToken} from '@/utils/auth'
+import router, {anyRoutes, asyncRoutes, constantRoutes, resetRouter} from '@/router'
 
 const getDefaultState = () => {
   return {
@@ -67,10 +67,10 @@ function findUserAsyncRoutes(asyncRoutes, serveFlag) {
 
 const actions = {
   // user login 处理登录业务
-  async login({ commit }, userInfo) {
+  async login({commit}, userInfo) {
     // 解构出用户名和密码
-    const { username, password } = userInfo
-    const result = await login({ username: username.trim(), password: password })
+    const {username, password} = userInfo
+    const result = await login({username: username.trim(), password: password})
     // 注意：当前登录请求现在使用mock数据，mock数据code是20000
     if (result.code === 20000) {
       // vuex存储token
@@ -84,10 +84,10 @@ const actions = {
   },
 
   // get user info 获取用户信息
-  getInfo({ commit, state }) {
+  getInfo({commit, state}) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        const { data } = response
+        const {data} = response
         if (!data) {
           return reject('Verification failed, please Login again.')
         }
@@ -101,7 +101,7 @@ const actions = {
   },
 
   // user logout
-  logout({ commit, state }) {
+  logout({commit, state}) {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
         removeToken() // must remove  token  first
@@ -115,7 +115,7 @@ const actions = {
   },
 
   // remove token
-  resetToken({ commit }) {
+  resetToken({commit}) {
     return new Promise(resolve => {
       removeToken() // must remove  token  first
       commit('RESET_STATE')

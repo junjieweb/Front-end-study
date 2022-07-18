@@ -66,7 +66,7 @@ export default {
     return request({
       url: `${api_name}/doAssign`,
       method: 'post',
-      params: { roleId, permissionId }
+      params: {roleId, permissionId}
     })
   }
 }

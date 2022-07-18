@@ -5,6 +5,7 @@ tagline:  基于 Vue 2.6 + EChart 4.0 开发
 actionText: 快速上手 →
 actionLink: /guide/
 features:
+
 - title: Vue 2.6
   details: 基于最新的 Vue 2.6 开发，充分利用 Vue 2.6 的先进特性开发企业级实战项目
 - title: ECharts 4.0
@@ -15,6 +16,7 @@ features:
 ---
 
 # 前置学习
+
 - 具备javascript、html、css的基础
 - 具备Vue的使用基础
 

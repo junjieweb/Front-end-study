@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card style="margin: 20px 0">
-      <CategorySelect :show="!isShowTable" @getCategoryId="getCategoryId" />
+      <CategorySelect :show="!isShowTable" @getCategoryId="getCategoryId"/>
     </el-card>
 
     <el-card>
@@ -22,7 +22,7 @@
             label="序号"
             width="80"
           />
-          <el-table-column prop="attrName" label="属性名称" width="150" />
+          <el-table-column prop="attrName" label="属性名称" width="150"/>
           <el-table-column prop="prop" label="属性值列表" width="width">
             <template v-slot="{row}">
               <el-tag
@@ -38,8 +38,8 @@
           </el-table-column>
           <el-table-column prop="prop" label="操作" width="150">
             <template v-slot="{row}">
-              <el-button type="warning" icon="el-icon-edit" size="mini" @click="updateAttr(row)" />
-              <el-button type="danger" icon="el-icon-delete" size="mini" />
+              <el-button type="warning" icon="el-icon-edit" size="mini" @click="updateAttr(row)"/>
+              <el-button type="danger" icon="el-icon-delete" size="mini"/>
             </template>
           </el-table-column>
         </el-table>
@@ -48,10 +48,11 @@
       <div v-show="!isShowTable">
         <el-form ref="form" :inline="true" label-width="80px" :model="attrInfo">
           <el-form-item label="属性名">
-            <el-input v-model="attrInfo.attrName" placeholder="请输入属性名" />
+            <el-input v-model="attrInfo.attrName" placeholder="请输入属性名"/>
           </el-form-item>
         </el-form>
-        <el-button type="primary" icon="el-icon-plus" :disabled="!attrInfo.attrName" @click="addAttrValue">添加属性值</el-button>
+        <el-button type="primary" icon="el-icon-plus" :disabled="!attrInfo.attrName" @click="addAttrValue">添加属性值
+        </el-button>
         <el-button @click="isShowTable=true">取消</el-button>
         <el-table border style="width: 100%;margin: 10px 0" :data="attrInfo.attrValueList">
           <el-table-column
@@ -79,12 +80,13 @@
             <template v-slot="{row,$index}">
               <!--气泡确认框-->
               <el-popconfirm :title="`确定删除${row.valueName}?`" @onConfirm="deleteAttrValue($index)">
-                <el-button slot="reference" type="danger" icon="el-icon-delete" size="mini" />
+                <el-button slot="reference" type="danger" icon="el-icon-delete" size="mini"/>
               </el-popconfirm>
             </template>
           </el-table-column>
         </el-table>
-        <el-button :disabled="attrInfo.attrValueList.length < 1" type="primary" @click="addOrUpdateAttr">保存</el-button>
+        <el-button :disabled="attrInfo.attrValueList.length < 1" type="primary" @click="addOrUpdateAttr">保存
+        </el-button>
         <el-button @click="isShowTable=true">取消</el-button>
       </div>
     </el-card>
@@ -94,6 +96,7 @@
 <script>
 // 按需引入lodash中的深拷贝
 import cloneDeep from 'lodash/cloneDeep'
+
 export default {
   name: 'Attr',
   data() {
@@ -115,7 +118,7 @@ export default {
   },
   methods: {
     // 自定义事件的回调
-    getCategoryId({ categoryId, level }) {
+    getCategoryId({categoryId, level}) {
       // 区分三级分类相应的id，以及父组件进行存储
       if (level === 1) {
         this.category1Id = categoryId
@@ -135,7 +138,7 @@ export default {
     // 当用户确定三级分类的数据时候，可以向服务器发请求获取平台属性进行展示
     async getAttrList() {
       // 获取相关的分类id
-      const { category1Id, category2Id, category3Id } = this
+      const {category1Id, category2Id, category3Id} = this
       // 获取商品属性列表
       const result = await this.$API.attr.reqAttrList(category1Id, category2Id, category3Id)
       if (result.code === 200) {
@@ -245,7 +248,7 @@ export default {
         // 展示平台属性的信号量进行切换
         this.isShowTable = true
         // 提示消息
-        this.$message({ type: 'success', message: '保存成功' })
+        this.$message({type: 'success', message: '保存成功'})
         // 保存成功以后需要再次获取平台属性进行展示
         await this.getAttrList()
       } catch (e) {

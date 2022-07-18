@@ -20,7 +20,7 @@
         width="80"
         align="center"
       />
-      <el-table-column prop="tmName" label="品牌名称" />
+      <el-table-column prop="tmName" label="品牌名称"/>
       <el-table-column prop="address" label="品牌logo">
         <template v-slot="{row}">
           <img :src="row.logoUrl" alt="" style="width: 100px;height: 30px;">
@@ -68,7 +68,7 @@
       <!--form表单 :model属性，这个属性的作用是,把表单的数据收集到那个对象的身上 ，将来表单验证，也需要这个属性-->
       <el-form ref="ruleForm" style="width: 80%" :model="tmForm" :rules="rules">
         <el-form-item label="品牌名称" label-width="100px" prop="tmName">
-          <el-input v-model="tmForm.tmName" autocomplete="off" />
+          <el-input v-model="tmForm.tmName" autocomplete="off"/>
         </el-form-item>
         <el-form-item label="品牌Logo" label-width="100px" prop="logoUrl">
           <!--
@@ -85,7 +85,7 @@
             :before-upload="beforeAvatarUpload"
           >
             <img v-if="tmForm.logoUrl" :src="tmForm.logoUrl" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon" />
+            <i v-else class="el-icon-plus avatar-uploader-icon"/>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
           </el-upload>
         </el-form-item>
@@ -126,13 +126,13 @@ export default {
         // 品牌名称的验证规则
         // require:必须要校验字段（前面五角星有关系）  message 提示信息    trigger:用户行为设置（事件的设置:blur、change）
         tmName: [
-          { required: true, message: '请输入品牌名称', trigger: 'blur' },
+          {required: true, message: '请输入品牌名称', trigger: 'blur'},
           // 自定义校验规则
-          { validator: validateTmName, trigger: 'change' }
+          {validator: validateTmName, trigger: 'change'}
         ],
         // 品牌logo验证规则
         logoUrl: [
-          { required: true, message: '请选择品牌的图片' }
+          {required: true, message: '请选择品牌的图片'}
         ]
       }
     }
@@ -147,7 +147,7 @@ export default {
     async getPageList(pager = 1) {
       this.page = pager
       // 解构出参数
-      const { page, limit } = this
+      const {page, limit} = this
       // 获取品牌列表的接口
       // 当你向服务器发请求的时候，这个函数需要带参数，因此在data当中初始化两个字段，代表给服务器传递参数
       const result = await this.$API.tradeMark.reqTradeMarkList(page, limit)
@@ -167,7 +167,7 @@ export default {
       // 显示对话框
       this.dialogFormVisible = true
       // 清除数据
-      this.tmForm = { tmName: '', logoUrl: '' }
+      this.tmForm = {tmName: '', logoUrl: ''}
     },
     // 点击修改品牌的按钮
     updateTradeMark(row) {
@@ -176,7 +176,7 @@ export default {
       // 将已有的品牌信息赋值给tmForm进行展示
       // 将服务器返回品牌的信息，直接赋值给了tmForm进行展示。
       // 也就是tmForm存储即为服务器返回品牌信息
-      this.tmForm = { ...row }
+      this.tmForm = {...row}
     },
     // 上传图片成功
     handleAvatarSuccess(res, file) {
@@ -201,7 +201,7 @@ export default {
     // 添加按钮（添加品牌|修改品牌）
     addOrUpdateTradeMark() {
       // 当全部验证字段通过，再去书写业务逻辑
-      this.$refs.ruleForm.validate(async(success) => {
+      this.$refs.ruleForm.validate(async (success) => {
         // 如果全部验证通过
         if (success) {
           this.dialogFormVisible = false
@@ -229,7 +229,7 @@ export default {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
-      }).then(async() => {
+      }).then(async () => {
         // 向服务器发请求
         const result = await this.$API.tradeMark.reqDeleteTradeMark(row.id)
         if (result.code === 200) {

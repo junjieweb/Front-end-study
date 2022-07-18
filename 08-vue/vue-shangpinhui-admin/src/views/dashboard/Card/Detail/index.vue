@@ -37,21 +37,24 @@ export default {
 </script>
 
 <style scoped>
-.cart-header{
+.cart-header {
   display: flex;
   justify-content: space-between;
   color: #ddd;
 }
-.card-content{
+
+.card-content {
   font-size: 30px;
   padding: 10px 0;
 }
-.card-charts{
+
+.card-charts {
   width: 100%;
   height: 60px;
   line-height: 50px;
 }
-.card-footer{
+
+.card-footer {
   border-top: 1px solid #ddd;
   padding-top: 10px;
 }

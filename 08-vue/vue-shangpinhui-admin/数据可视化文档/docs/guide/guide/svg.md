@@ -2,14 +2,14 @@
 
 SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vector Graphics，意思为可缩放的矢量图形
 
-
 ## 基本的 SVG 元素
+
 你可以深入 SVG 复杂的细节，但这对我们即将创建的图标不是必须的。以下列表涵盖了我们将用到的构建块。
 
 - `<svg>` 包裹并定义整个矢量图。`<svg>` 标签之于矢量图就如同 `<html>` 标签之于一个 web 页面。
 - `<line>` 创建一条直线。
 - `<polyline>` 创建折线。
-  
+
 - `<rect>` 创建矩形。
 - `<circle>` 创建圆。
 - `<ellipse>` 创建圆和椭圆。
@@ -17,6 +17,7 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
 - `<path>` 通过指定点以及点和点之间的线来创建任意形状。
 
 ## 详细使用
+
 所有标签都要包裹在 `<svg>` 中使用
 
 1. `<line>`
@@ -30,6 +31,7 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
 ```
 
 2. `<polyline>`
+
 ```html
 <!-- 
   依次传入点坐标，即可绘制
@@ -45,7 +47,9 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
 <!-- 或 -->
 <polyline points="x1 y1 x2 y2 x3 y3"></polyline>
 ```
+
 3. `<rect>`
+
 ```html
 <!-- 
   x y 左上角点坐标
@@ -54,7 +58,9 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
  -->
 <rect x="" y="" width="" height=""></rect>
 ```
+
 4. `<circle>`
+
 ```html
 <!--  
   cx cy 圆心点坐标
@@ -63,7 +69,9 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
 -->
 <circle cx='70' cy='95' r='50' style='stroke:black; fill:none'></circle>
 ```
+
 5. `<ellipse>`
+
 ```html
 <!-- 
   cx cy 圆心点坐标
@@ -72,11 +80,15 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
  -->
 <ellipse cx="" cy="" rx="" ry="" style="fill:black;"></ellipse>
 ```
+
 6. `<polygon>`
+
 ```html
 <polygon points="x1 y1, x2 y2, x3 y3" />
 ```
+
 7. `<path>`
+
 ```html
 <!--
   M 移动到初始位置
@@ -171,6 +183,7 @@ SVG是一种基于 XML 的图像文件格式，它的英文全称为Scalable Vec
 ```
 
 ::: tip
+
 - [SVG入门—如何手写SVG](https://juejin.cn/post/6844903589807128590)
 - [SVG 入门指南](https://juejin.cn/post/6844904017273815048)
-:::
+  :::

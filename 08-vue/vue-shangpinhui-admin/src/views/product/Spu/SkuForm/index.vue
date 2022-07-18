@@ -5,13 +5,13 @@
         {{ spu.spuName }}
       </el-form-item>
       <el-form-item label="SKU名称" size="normal">
-        <el-input v-model="skuInfo.skuName" placeholder="sku名称" />
+        <el-input v-model="skuInfo.skuName" placeholder="sku名称"/>
       </el-form-item>
       <el-form-item label="价格(元)">
-        <el-input v-model="skuInfo.price" placeholder="0" type="number" />
+        <el-input v-model="skuInfo.price" placeholder="0" type="number"/>
       </el-form-item>
       <el-form-item label="重量(千克)">
-        <el-input v-model="skuInfo.weight" placeholder="重量(千克)" />
+        <el-input v-model="skuInfo.weight" placeholder="重量(千克)"/>
       </el-form-item>
       <el-form-item label="规格描述">
         <el-input
@@ -64,26 +64,28 @@
           :data="spuImageList"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="80" />
+          <el-table-column type="selection" width="80"/>
           <el-table-column prop="prop" label="图片">
             <template v-slot="{ row }">
               <img :src="row.imgUrl" alt="" style="height: 100px">
             </template>
           </el-table-column>
-          <el-table-column prop="imgName" label="名称" />
+          <el-table-column prop="imgName" label="名称"/>
           <el-table-column prop="prop" label="操作">
             <template v-slot="{ row }">
               <el-button
                 v-if="row.isDefault === 0"
                 type="primary"
                 @click="changeDefault(row)"
-              >设为默认</el-button>
+              >设为默认
+              </el-button>
               <el-button
                 v-else
                 size="mini"
                 type="success"
                 plain
-              >默认</el-button>
+              >默认
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -138,7 +140,9 @@ export default {
       const result = await this.$API.spu.reqSpuImageList(spu.id)
       if (result.code === 200) {
         const list = result.data
-        list.forEach(item => { item.isDefault = 0 })
+        list.forEach(item => {
+          item.isDefault = 0
+        })
         this.spuImageList = list
       }
       // 获取销售属性的数据
@@ -182,12 +186,12 @@ export default {
     async save() {
       // 整理参数
       // 整理平台属性
-      const { attrInfoList, skuInfo, spuSaleAttrList, imageList } = this
+      const {attrInfoList, skuInfo, spuSaleAttrList, imageList} = this
       // 整理平台属性的数据
       skuInfo.skuAttrValueList = attrInfoList.reduce((prev, item) => {
         if (item.attrIdAndValueId) {
           const [attrId, valueId] = item.attrIdAndValueId.splice(':')
-          prev.push({ attrId, valueId })
+          prev.push({attrId, valueId})
         }
         return prev
       }, [])
@@ -195,7 +199,7 @@ export default {
       skuInfo.skuSaleAttrValueList = spuSaleAttrList.reduce((prev, item) => {
         if (item.attrIdAndValueId) {
           const [saleAttrId, saleAttrValueId] = item.attrIdAndValueId.split(':')
-          prev.push({ saleAttrId, saleAttrValueId })
+          prev.push({saleAttrId, saleAttrValueId})
         }
         return prev
       }, [])
@@ -214,7 +218,7 @@ export default {
         const result = await this.$API.spu.reqAddSku(skuInfo)
         console.log(result)
         if (result.code === 200) {
-          this.$message({ type: 'success', message: '添加sku成功' })
+          this.$message({type: 'success', message: '添加sku成功'})
           this.$emit('changeScenes', 0)
         }
         // eslint-disable-next-line no-empty

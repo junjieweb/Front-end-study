@@ -2,23 +2,24 @@
   <div class="sku-list">
     <el-card>
       <el-table :data="records" border style="width: 100%">
-        <el-table-column type="index" label="序号" width="80" align="center" />
-        <el-table-column prop="skuName" label="名称" />
-        <el-table-column prop="skuDesc" label="描述" />
+        <el-table-column type="index" label="序号" width="80" align="center"/>
+        <el-table-column prop="skuName" label="名称"/>
+        <el-table-column prop="skuDesc" label="描述"/>
         <el-table-column width="150" prop="prop" label="默认图片" align="center">
           <template v-slot="{row}">
             <img :src="row.skuDefaultImg" alt="" style="width: 100px;">
           </template>
         </el-table-column>
-        <el-table-column prop="weight" label="重量(KG)" />
-        <el-table-column width="80" prop="price" label="价格(元)" />
+        <el-table-column prop="weight" label="重量(KG)"/>
+        <el-table-column width="80" prop="price" label="价格(元)"/>
         <el-table-column prop="prop" label="操作" align="center">
           <template v-slot="{row}">
-            <el-button v-if="row.isSale===0" title="上架" type="info" icon="el-icon-top" size="mini" @click="sale(row)" />
-            <el-button v-else title="下架" type="success" icon="el-icon-bottom" size="mini" @click="cancel(row)" />
-            <el-button title="修改" type="primary" icon="el-icon-edit" size="mini" @click="edit" />
-            <el-button title="查看详情" type="info" icon="el-icon-info" size="mini" @click="getSkuInfo(row)" />
-            <el-button title="删除" type="danger" icon="el-icon-delete" size="mini" />
+            <el-button v-if="row.isSale===0" title="上架" type="info" icon="el-icon-top" size="mini"
+                       @click="sale(row)"/>
+            <el-button v-else title="下架" type="success" icon="el-icon-bottom" size="mini" @click="cancel(row)"/>
+            <el-button title="修改" type="primary" icon="el-icon-edit" size="mini" @click="edit"/>
+            <el-button title="查看详情" type="info" icon="el-icon-info" size="mini" @click="getSkuInfo(row)"/>
+            <el-button title="删除" type="danger" icon="el-icon-delete" size="mini"/>
           </template>
         </el-table-column>
       </el-table>
@@ -92,7 +93,7 @@ export default {
     async getSkuList(pager = 1) {
       this.page = pager
       // 解构出默认的参数
-      const { page, limit } = this
+      const {page, limit} = this
       const result = await this.$API.sku.reqSkuList(page, limit)
       if (result.code === 200) {
         this.total = result.data.total
@@ -109,7 +110,7 @@ export default {
       if (result.code === 200) {
         // eslint-disable-next-line require-atomic-updates
         row.isSale = 1
-        this.$message({ type: 'success', message: '上架成功' })
+        this.$message({type: 'success', message: '上架成功'})
       }
     },
     // 下架
@@ -118,7 +119,7 @@ export default {
       if (result.code === 200) {
         // eslint-disable-next-line require-atomic-updates
         row.isSale = 0
-        this.$message({ type: 'success', message: '下架成功' })
+        this.$message({type: 'success', message: '下架成功'})
       }
     },
     edit() {
@@ -155,8 +156,10 @@ export default {
 .sku-list {
   .el-row {
     height: 40px;
+
     .el-col {
       line-height: 40px;
+
       &.el-col-5 {
         font-size: 18px;
         font-weight: bold;
@@ -169,22 +172,24 @@ export default {
   .sku-carousel {
     width: 400px;
     border: 1px solid #ccc;
+
     img {
       width: 400px;
       height: 400px;
     }
   }
 
-  ::v-deep .el-carousel__indicator{
-    button{
+  ::v-deep .el-carousel__indicator {
+    button {
       display: inline-block;
       width: 30px;
       height: 30px;
       border-radius: 50%;
       background-color: hotpink;
     }
-    &.is-active{
-      button{
+
+    &.is-active {
+      button {
         background-color: purple;
       }
     }

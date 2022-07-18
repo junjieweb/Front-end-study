@@ -2,7 +2,7 @@
   <div>
     <el-form label-width="80px" :model="spu">
       <el-form-item label="SPU名称">
-        <el-input v-model="spu.spuName" placeholder="SPU名称" />
+        <el-input v-model="spu.spuName" placeholder="SPU名称"/>
       </el-form-item>
       <el-form-item label="品牌">
         <el-select v-model="spu.tmId" placeholder="请选择品牌">
@@ -39,7 +39,7 @@
           :on-success="handlerSuccess"
           :file-list="spuImageList"
         >
-          <i class="el-icon-plus" />
+          <i class="el-icon-plus"/>
         </el-upload>
         <el-dialog :visible.sync="dialogVisible">
           <img width="100%" :src="dialogImageUrl" alt="">
@@ -57,7 +57,8 @@
             :value="`${unselect.id}:${unselect.name}`"
           />
         </el-select>
-        <el-button type="primary" icon="el-icon-plus" :disabled="!attrIdAndAttrName" @click="addSaleAttr">添加销售属性</el-button>
+        <el-button type="primary" icon="el-icon-plus" :disabled="!attrIdAndAttrName" @click="addSaleAttr">添加销售属性
+        </el-button>
         <!-- 展示的是当前SPU属于自己的销售属性 -->
         <el-table border style="width: 100%" :data="spu.spuSaleAttrList">
           <el-table-column
@@ -66,7 +67,7 @@
             label="序号"
             width="80"
           />
-          <el-table-column prop="saleAttrName" label="属性名" />
+          <el-table-column prop="saleAttrName" label="属性名"/>
           <el-table-column prop="prop" label="属性值名称列表">
             <template v-slot="{ row }">
               <el-tag
@@ -94,12 +95,13 @@
                 class="button-new-tag"
                 size="small"
                 @click="addSaleAttrValue(row)"
-              >添加</el-button>
+              >添加
+              </el-button>
             </template>
           </el-table-column>
           <el-table-column prop="prop" label="操作">
             <template v-slot="{ row, $index }">
-              <el-button @click="spu.spuSaleAttrList.splice($index,1)" type="danger" icon="el-icon-delete" size="mini" />
+              <el-button @click="spu.spuSaleAttrList.splice($index,1)" type="danger" icon="el-icon-delete" size="mini"/>
             </template>
           </el-table-column>
         </el-table>
@@ -180,7 +182,7 @@ export default {
       // 把收集到的销售属性数据进行分割
       const [baseSaleAttrId, saleAttrName] = this.attrIdAndAttrName.split(':')
       // 向SPU对象的spuSaleAttrList属性里面添加新的销售属性
-      const newSaleAttr = { baseSaleAttrId, saleAttrName, spuSaleAttrValueList: [] }
+      const newSaleAttr = {baseSaleAttrId, saleAttrName, spuSaleAttrValueList: []}
       // 添加新的销售属性
       this.spu.spuSaleAttrList.push(newSaleAttr)
       // 清空数据
@@ -197,7 +199,7 @@ export default {
     // el-input失去焦点的事件
     handleInputConfirm(row) {
       // 解构出销售属性当中收集数据
-      const { baseSaleAttrId, inputValue } = row
+      const {baseSaleAttrId, inputValue} = row
       // 新增的销售属性值的名称不能为空
       if (inputValue.trim() === '') {
         this.$message('属性值不能为空')
@@ -210,7 +212,7 @@ export default {
         return
       }
       // 新增的销售属性值
-      const newSaleAttrValue = { baseSaleAttrId, saleAttrValueName: inputValue }
+      const newSaleAttrValue = {baseSaleAttrId, saleAttrValueName: inputValue}
       row.spuSaleAttrValueList.push(newSaleAttrValue)
       // 修改inputVisible为false，不就显示button
       row.inputVisible = false
@@ -229,7 +231,7 @@ export default {
       const result = await this.$API.spu.reqAddOrUpdateSpu(this.spu)
       if (result.code === 200) {
         // 提示
-        this.$message({ type: 'success', message: '保存成功' })
+        this.$message({type: 'success', message: '保存成功'})
         // 通知父组件回到场景0
         this.$emit('changeScene', {
           scene: 0,
@@ -257,7 +259,7 @@ export default {
     // 点击取消按钮的回调
     cancel() {
       // 取消按钮的回调，通知父组件切换场景为0
-      this.$emit('changeScene', { scene: 0, flag: '' })
+      this.$emit('changeScene', {scene: 0, flag: ''})
       // 清理数据
       // Object.assign:es6中新增的方法可以合并对象
       // 组件实例this._data,可以操作data当中响应式数据

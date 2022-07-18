@@ -3,9 +3,11 @@
 ## Vue
 
 ### mixins
+
 用于抽取公共代码
 
 - 定义 mixins
+
 ```js
 import CommonCard from '../components/CommonCard/index'
 
@@ -17,6 +19,7 @@ export default {
 ```
 
 - 消费 mixins
+
 ```html
 <script>
   import commonCardMixin from '../../mixins/commonCardMixin'
@@ -28,9 +31,11 @@ export default {
 ```
 
 ### slot
+
 用于定义资源位，允许父组件动态修改资源位
 
 - 定义插槽
+
 ```html
 <div class="common-card">
   <div class="title">{{title}}</div>
@@ -46,6 +51,7 @@ export default {
 ```
 
 - 使用插槽
+
 ```html
 <common-card
     title="累计销售额"
@@ -75,11 +81,13 @@ export default {
 ### 按需引用
 
 安装 element-ui
+
 ```bash
 vue add element
 ```
 
 按需引用
+
 ```js
 import Vue from 'vue'
 import { Card, Row, Col } from 'element-ui'
@@ -94,6 +102,7 @@ Vue.use(Col)
 ### Vue 引用 ECharts
 
 - 定义
+
 ```js
 import ECharts from 'echarts'
 
@@ -101,6 +110,7 @@ Vue.prototype.$echarts = ECharts
 ```
 
 - 消费
+
 ```js
 const chartDom = document.getElementById('today-users-chart')
 const chart = this.$echarts.init(chartDom)
@@ -111,7 +121,8 @@ chart.setOption({
 
 ### series
 
-- 隐藏线条 
+- 隐藏线条
+
 ```js
 lineStyle: {
   width: 0
@@ -119,6 +130,7 @@ lineStyle: {
 ```
 
 - 隐藏数据点
+
 ```js
 itemStyle: {
   opacity: 0
@@ -126,6 +138,7 @@ itemStyle: {
 ```
 
 - 折线图填充面积区域颜色
+
 ```js
 areaStyle: {
   color: 'purple'
@@ -133,6 +146,7 @@ areaStyle: {
 ```
 
 - 将折线图平滑显示
+
 ```js
 smooth: true
 ```
@@ -200,6 +214,7 @@ series: [{
 ### xAxis
 
 - 消除 x 轴两侧边距
+
 ```js
 boundaryGap: false
 ```

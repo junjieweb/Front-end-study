@@ -2,13 +2,14 @@
 
 ## 入门案例：销售柱状图
 
-<iframe 
-  src="https://book.youbaobao.xyz/datav-res/examples/test-echarts.html"
-  width="100%"
-  height="400"
+<iframe
+src="https://book.youbaobao.xyz/datav-res/examples/test-echarts.html"
+width="100%"
+height="400"
 />
 
 ::: details
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -43,28 +44,31 @@
   </body>
 </html>
 ```
+
 :::
 
 > 思考：ECharts 的绘图流程是怎样的？
 
 ::: details
+
 1. 引入 js 库
 2. 编写渲染容器 DOM，添加 width 和 height 样式属性
 3. 获取渲染 DOM 对象
 4. 初始化 ECharts 对象
 5. 编写 option 参数
 6. 调用 setOption 完成渲染
-:::
+   :::
 
 ## 进阶案例：多 ECharts 实例
 
-<iframe 
-  src="https://book.youbaobao.xyz/datav-res/examples/test-echarts-multi.html"
-  width="100%"
-  height="700"
+<iframe
+src="https://book.youbaobao.xyz/datav-res/examples/test-echarts-multi.html"
+width="100%"
+height="700"
 />
 
 ::: details
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -155,4 +159,5 @@
   </body>
 </html>
 ```
+
 :::

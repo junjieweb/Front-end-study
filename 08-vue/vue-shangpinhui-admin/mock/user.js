@@ -1,4 +1,3 @@
-
 const tokens = {
   admin: {
     token: 'admin-token'
@@ -29,7 +28,7 @@ module.exports = [
     url: '/vue-admin-template/user/login',
     type: 'post',
     response: config => {
-      const { username } = config.body
+      const {username} = config.body
       const token = tokens[username]
 
       // mock error
@@ -52,7 +51,7 @@ module.exports = [
     url: '/vue-admin-template/user/info\.*',
     type: 'get',
     response: config => {
-      const { token } = config.query
+      const {token} = config.query
       const info = users[token]
 
       // mock error

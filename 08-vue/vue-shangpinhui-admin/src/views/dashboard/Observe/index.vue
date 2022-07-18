@@ -4,8 +4,8 @@
     <div slot="header" class="header">
       <!-- 选项卡:tab -->
       <el-tabs v-model="activeName">
-        <el-tab-pane label="销售额" name="sale" />
-        <el-tab-pane label="访问量" name="visit" />
+        <el-tab-pane label="销售额" name="sale"/>
+        <el-tab-pane label="访问量" name="visit"/>
       </el-tabs>
       <div class="right">
         <span @click="setTodady">今日</span>
@@ -35,7 +35,7 @@
       <el-row :gutter="10">
         <el-col :span="18">
           <!--展示柱状图  -->
-          <div ref="charts" class="charts" />
+          <div ref="charts" class="charts"/>
         </el-col>
         <el-col :span="6" class="right">
           <h3>门店销售额排名</h3>
@@ -87,6 +87,7 @@
 import dayjs from 'dayjs'
 // 第一步:引入ehcarts
 import * as echarts from 'echarts'
+
 export default {
   name: 'Observe',
   data() {
@@ -274,15 +275,18 @@ export default {
 <style scoped lang="scss">
 .header {
   position: relative;
+
   .right {
     position: absolute;
     right: 0;
     top: 10px;
+
     span {
       margin: 0px 5px;
     }
   }
 }
+
 //   >>> 原生CSS深度选择器
 //  /deep/ less深度选择器
 //  ::v-deep scss深度选择器
@@ -293,10 +297,12 @@ export default {
 .charts {
   height: 300px;
 }
+
 .right {
   position: absolute;
   right: 0px;
 }
+
 .rindex {
   float: left;
   width: 20px;
@@ -306,19 +312,23 @@ export default {
   color: white;
   text-align: center;
 }
+
 .rvalue {
   float: right;
 }
+
 ul {
   list-style: none;
   width: 100%;
   height: 300px;
   padding: 0px;
 }
+
 ul li {
   height: 8%;
   margin: 10px 0px;
 }
+
 .right span {
   margin: 0px 10px;
 }

@@ -6,7 +6,7 @@
           <span>线上搜索</span>
           <el-dropdown>
             <span class="el-dropdown-link">
-              <i class="el-icon-more" />
+              <i class="el-icon-more"/>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>黄金糕</el-dropdown-item>
@@ -21,27 +21,27 @@
           <el-row :gutter="10">
             <el-col :span="12">
               <div style="width: 100%; height: 150px">
-                <LineCharts />
+                <LineCharts/>
               </div>
             </el-col>
             <el-col :span="12">
               <div style="width: 100%; height: 150px">
-                <LineCharts />
+                <LineCharts/>
               </div>
             </el-col>
           </el-row>
           <!-- 表格 -->
           <el-table style="width: 100%" border @sort-change="handler">
-            <el-table-column prop="prop" label="排名" width="width" />
-            <el-table-column prop="prop" label="关键字" width="width" />
-            <el-table-column prop="prop" label="用户数" sortable width="width" />
-            <el-table-column prop="prop" label="周涨幅" sortable width="width" />
+            <el-table-column prop="prop" label="排名" width="width"/>
+            <el-table-column prop="prop" label="关键字" width="width"/>
+            <el-table-column prop="prop" label="用户数" sortable width="width"/>
+            <el-table-column prop="prop" label="周涨幅" sortable width="width"/>
           </el-table>
           <!-- 分页器
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
            -->
-          <el-pagination layout="prev, pager, next" :total="50" class="right" />
+          <el-pagination layout="prev, pager, next" :total="50" class="right"/>
         </div>
       </el-card>
     </el-col>
@@ -51,13 +51,13 @@
           <div class="left">销售额占比</div>
           <div>
             <el-radio-group v-model="radio">
-              <el-radio-button label="全部渠道" />
-              <el-radio-button label="线上" />
-              <el-radio-button label="门店" />
+              <el-radio-button label="全部渠道"/>
+              <el-radio-button label="线上"/>
+              <el-radio-button label="门店"/>
             </el-radio-group>
           </div>
         </div>
-        <div ref="chart1" class="chart1" />
+        <div ref="chart1" class="chart1"/>
       </el-card>
     </el-col>
   </el-row>
@@ -66,6 +66,7 @@
 <script>
 import LineCharts from '@/views/dashboard/Card/LineCharts'
 import * as echarts from 'echarts'
+
 export default {
   name: 'Sale',
   components: {
@@ -85,12 +86,11 @@ export default {
         subtext: '1048',
         left: 'center',
         top: 'center',
-        textStyle: { color: 'yellowgreen' },
-        subtextStyle: { color: 'yellowgreen' }
+        textStyle: {color: 'yellowgreen'},
+        subtextStyle: {color: 'yellowgreen'}
       },
       // 提示框
-      tooltip: {
-      },
+      tooltip: {},
       series: [
         {
           name: 'Access From',
@@ -117,11 +117,11 @@ export default {
             show: true
           },
           data: [
-            { value: 1048, name: '军事' },
-            { value: 735, name: '娱乐' },
-            { value: 580, name: '游戏' },
-            { value: 484, name: '学习' },
-            { value: 300, name: '好工作' }
+            {value: 1048, name: '军事'},
+            {value: 735, name: '娱乐'},
+            {value: 580, name: '游戏'},
+            {value: 484, name: '学习'},
+            {value: 300, name: '好工作'}
           ]
         }
       ]
@@ -130,7 +130,7 @@ export default {
     mycharts.setOption(option)
 
     // echarts实例绑定事件
-    mycharts.on('mouseover', function(params) {
+    mycharts.on('mouseover', function (params) {
       console.log(params)
 
       mycharts.setOption({
@@ -154,6 +154,7 @@ export default {
   cursor: pointer;
   color: black;
 }
+
 .el-icon-arrow-down {
   font-size: 12px;
 }
@@ -163,12 +164,15 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
 .right {
   float: right;
 }
+
 .right-header {
   display: flex;
   justify-content: space-between;
+
   .left {
     width: 100px;
     height: 50px;
@@ -179,6 +183,7 @@ export default {
     font-weight: 900;
     animation: donghua 2s linear 0s infinite;
   }
+
   .left:hover {
     //动画播放状态
     animation-play-state: paused;
@@ -193,6 +198,7 @@ export default {
     transform: rotate(360deg) scale(1.2);
   }
 }
+
 .chart1 {
   height: 250px;
 }

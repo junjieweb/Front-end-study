@@ -54,7 +54,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'dashboard' }
+      meta: {title: '首页', icon: 'dashboard'}
     }]
   }
   // 404 page must be placed at the end !!!
@@ -115,31 +115,31 @@ export const asyncRoutes = [
     path: '/product',
     component: Layout,
     name: 'Product',
-    meta: { title: '商品管理', icon: 'el-icon-goods' },
+    meta: {title: '商品管理', icon: 'el-icon-goods'},
     children: [
       {
         path: '/trademark',
         name: 'TradeMark',
         component: () => import('@/views/product/TradeMark'),
-        meta: { title: '品牌管理' }
+        meta: {title: '品牌管理'}
       },
       {
         path: '/attr',
         name: 'Attr',
         component: () => import('@/views/product/Attr'),
-        meta: { title: '平台属性管理' }
+        meta: {title: '平台属性管理'}
       },
       {
         path: '/spu',
         name: 'Spu',
         component: () => import('@/views/product/Spu'),
-        meta: { title: 'Spu管理' }
+        meta: {title: 'Spu管理'}
       },
       {
         path: '/sku',
         name: 'Sku',
         component: () => import('@/views/product/Sku'),
-        meta: { title: 'Sku管理' }
+        meta: {title: 'Sku管理'}
       }
     ]
   },
@@ -148,30 +148,30 @@ export const asyncRoutes = [
     path: '/test',
     component: Layout,
     name: 'Test',
-    meta: { title: '测试管理', icon: 'el-icon-goods' },
+    meta: {title: '测试管理', icon: 'el-icon-goods'},
     children: [
       {
         path: 'test1',
         name: 'Test1',
         component: () => import('@/views/Test/Test1'),
-        meta: { title: '测试管理1' }
+        meta: {title: '测试管理1'}
       },
       {
         path: 'test2',
         name: 'Test2',
         component: () => import('@/views/Test/Test2'),
-        meta: { title: '测试管理2' }
+        meta: {title: '测试管理2'}
       }
     ]
   }
 ]
 
 // 任意路由 当路径出现错误的时候重定向404
-export const anyRoutes = { path: '*', redirect: '/404', hidden: true }
+export const anyRoutes = {path: '*', redirect: '/404', hidden: true}
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({y: 0}),
   // 因为注册的路由是‘死的’，‘活的’路由如果根据不同用户（角色）可以展示不同菜单
   routes: constantRoutes
 })

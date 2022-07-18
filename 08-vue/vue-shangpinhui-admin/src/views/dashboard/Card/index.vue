@@ -328,6 +328,7 @@ import Detail from '@/views/dashboard/Card/Detail'
 import BarCharts from '@/views/dashboard/Card/BarCharts'
 import LineCharts from '@/views/dashboard/Card/LineCharts'
 import ProgressCharts from '@/views/dashboard/Card/ProgressCharts'
+
 export default {
   name: 'Card',
   components: {

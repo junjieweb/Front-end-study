@@ -10,7 +10,7 @@
     </el-form>
 
     <div style="margin-bottom: 20px">
-      <el-button type="primary"  @click="addRole">添加</el-button>
+      <el-button type="primary" @click="addRole">添加</el-button>
       <el-button type="danger" @click="removeRoles()" :disabled="selectedRoles.length === 0">批量删除</el-button>
     </div>
 
@@ -24,7 +24,7 @@
 
       <el-table-column
         type="selection"
-        width="55" />
+        width="55"/>
 
       <el-table-column
         type="index"
@@ -36,7 +36,7 @@
       <el-table-column label="角色名称">
         <template slot-scope="{row}">
           <template v-if="row.edit">
-            <el-input v-model="row.roleName" class="edit-input" size="small" />
+            <el-input v-model="row.roleName" class="edit-input" size="small"/>
             <el-button
               class="cancel-btn"
               size="small"
@@ -50,20 +50,20 @@
           <span v-else>{{ row.roleName }}</span>
         </template>
       </el-table-column>
-      
+
       <el-table-column label="操作" width="300" align="center">
         <template slot-scope="{row}">
           <HintButton size="mini" type="info" icon="el-icon-info" title="分配权限"
-            @click="$router.push(`/acl/role/auth/${row.id}?roleName=${row.roleName}`)"/>
+                      @click="$router.push(`/acl/role/auth/${row.id}?roleName=${row.roleName}`)"/>
 
-          <HintButton size="mini" type="primary" icon="el-icon-check" title="确定" 
-            @click="updateRole(row)" v-if="row.edit"/>
-          <HintButton size="mini" type="primary" icon="el-icon-edit" title="修改角色" 
-            @click="row.edit= true" v-if="!row.edit"/>
+          <HintButton size="mini" type="primary" icon="el-icon-check" title="确定"
+                      @click="updateRole(row)" v-if="row.edit"/>
+          <HintButton size="mini" type="primary" icon="el-icon-edit" title="修改角色"
+                      @click="row.edit= true" v-if="!row.edit"/>
 
-            
+
           <HintButton size="mini" type="danger" icon="el-icon-delete" title="删除角色"
-            @click="removeRole(row)"/>
+                      @click="removeRole(row)"/>
         </template>
       </el-table-column>
     </el-table>
@@ -111,7 +111,7 @@ export default {
 
   methods: {
 
-    /* 
+    /*
     取消修改
     */
     cancelEdit(role) {
@@ -120,18 +120,18 @@ export default {
       this.$message.warning('取消角色修改')
     },
 
-    /* 
+    /*
     更新角色
     */
-    updateRole (role) {
+    updateRole(role) {
       this.$API.role.updateById({id: role.id, roleName: role.roleName})
         .then(result => {
-          this.$message.success(result.message|| '更新角色成功!')
+          this.$message.success(result.message || '更新角色成功!')
           this.getRoles(this.page)
         })
     },
 
-    /* 
+    /*
     每页数量发生改变的监听
     */
     handleSizeChange(pageSize) {
@@ -139,15 +139,15 @@ export default {
       this.getRoles()
     },
 
-    /* 
+    /*
     添加角色
     */
-    addRole(){
+    addRole() {
       // 显示添加界面
       this.$prompt('请输入新名称', '添加角色', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-      }).then(({ value }) => {
+      }).then(({value}) => {
         this.$API.role.save({roleName: value}).then(result => {
           this.$message.success(result.message || '添加角色成功')
           this.getRoles()
@@ -157,7 +157,7 @@ export default {
       })
     },
 
-    /* 
+    /*
     异步获取角色分页列表
     */
     getRoles(page = 1) {
@@ -179,15 +179,15 @@ export default {
       })
     },
 
-    /* 
+    /*
     根据搜索条件进行搜索
     */
-    search () {
+    search() {
       this.searchObj = {...this.tempSearchObj}
       this.getRoles()
     },
 
-    /* 
+    /*
     重置查询表单搜索列表
     */
     resetSearch() {
@@ -200,32 +200,32 @@ export default {
       this.getRoles()
     },
 
-    /* 
+    /*
     删除指定的角色
     */
-    removeRole ({id, roleName}) {
+    removeRole({id, roleName}) {
       this.$confirm(`确定删除 '${roleName}' 吗?`, '提示', {
         type: 'warning'
       }).then(async () => {
         const result = await this.$API.role.removeById(id)
-        this.getRoles(this.roles.length===1 ? this.page-1 : this.page)
+        this.getRoles(this.roles.length === 1 ? this.page - 1 : this.page)
         this.$message.success(result.message || '删除成功!')
       }).catch(() => {
         this.$message.info('已取消删除')
       })
     },
 
-    /* 
+    /*
     当表格复选框选项发生变化的时候触发
     */
     handleSelectionChange(selection) {
       this.selectedRoles = selection
     },
 
-    /* 
+    /*
     批量删除
     */
-    removeRoles () {
+    removeRoles() {
       this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {
         type: 'warning'
       }).then(async () => {
@@ -237,7 +237,7 @@ export default {
           message: '批量删除成功!'
         })
       }).then((result) => {
-        
+
       }).catch(() => {
         this.$message({
           type: 'info',
@@ -253,6 +253,7 @@ export default {
 .edit-input {
   padding-right: 100px;
 }
+
 .cancel-btn {
   position: absolute;
   right: 15px;

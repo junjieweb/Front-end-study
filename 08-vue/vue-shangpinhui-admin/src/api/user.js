@@ -15,7 +15,7 @@ export function getInfo(token) {
   return request({
     url: '/admin/acl/index/info',
     method: 'get',
-    params: { token }
+    params: {token}
   })
 }
 

@@ -1,9 +1,10 @@
 <template>
-  <div ref="charts" class="charts" />
+  <div ref="charts" class="charts"/>
 </template>
 
 <script>
 import * as echarts from 'echarts'
+
 export default {
   name: 'ProgressCharts',
   mounted() {
@@ -56,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-.charts{
+.charts {
   width: 100%;
   height: 100%;
 }
