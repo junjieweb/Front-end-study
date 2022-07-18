@@ -29,7 +29,7 @@
           <div class="img-item">
             <p class="tab-pic">
               <a href="#">
-                <img src="./images/1.jpg" />
+                <img src="./images/1.jpg"/>
               </a>
             </p>
             <div class="tab-info">
@@ -42,7 +42,7 @@
           <div class="img-item">
             <p class="tab-pic">
               <a href="#">
-                <img src="./images/1.jpg" />
+                <img src="./images/1.jpg"/>
               </a>
             </p>
             <div class="tab-info">
@@ -55,7 +55,7 @@
           <div class="img-item">
             <p class="tab-pic">
               <a href="#">
-                <img src="./images/1.jpg" />
+                <img src="./images/1.jpg"/>
               </a>
             </p>
             <div class="tab-info">
@@ -68,7 +68,7 @@
           <div class="img-item">
             <p class="tab-pic">
               <a href="#">
-                <img src="./images/1.jpg" />
+                <img src="./images/1.jpg"/>
               </a>
             </p>
             <div class="tab-info">
@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style  lang="less" scoped>
+<style lang="less" scoped>
 .rank {
   width: 1200px;
   margin: 0 auto;

@@ -414,7 +414,7 @@ export default {
 }
 </script>
 
-<style  lang="less" scoped>
+<style lang="less" scoped>
 .type-nav {
   border-bottom: 2px solid #e1251b;
 

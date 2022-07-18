@@ -4,9 +4,6 @@
 购物车
 登录、注册
 
-
-
-
 1)交易业务
 前面课程当中可能自己已经注册了一个账号【18666666661】，今天在做支付的时候，统一使用
 账号:13700000000
@@ -18,20 +15,10 @@
 //商品清单接口
 /api/order/auth/trade
 
-
 1.2Vuex的action发请求，但是从今天开始，咱们要练习不用Vuex改如何开发？
 请求配置,类似$bus使用
 
-
-
-
-
 2)展示商品清单数据
-
-
-
-
-
 
 3)提交订单业务
 
@@ -43,7 +30,6 @@
 
 axios({url:'xxx',methods:'post',data:{a:1}})
 
-
 3.1微信支付、支付宝支付等等
 交易编码（服务器：字符串hash）
 收件人名字
@@ -52,18 +38,7 @@ axios({url:'xxx',methods:'post',data:{a:1}})
 买家留言信息
 支付产品
 
-
-
-
-
-
 4)获取支付信息进行展示
-
-
-
-
-
-
 
 5)element-ui官方UI组件库（插件）？
 
@@ -80,28 +55,22 @@ vant【Vue官方提供移动端UI组件库】
 
 第一步：项目中安装element-ui组件库 [2.15.6版本：Vue2]
 
-
 第二步：在入口文件引入elementUI组件库
 第一种：全部引入【不采用：因为项目中只是用到一个组件，没必要全都引入进来】
 第二种：按需引入【按照开发需求引入相应的组件，并非全部组件引入】
-
 
 第三步：按需引入，安装相应的插件
 cnpm install babel-plugin-component -D
 文档中说的.babelrc文件，即为babel.config.js文件
 修改完babel.config.js配置文件以后，项目重启
 
-
 第四部：按照需求引入相应的组件即可
 
 Vue.component();
 Vue.prototype.$xxx = xxx;
 
-
-
-
 6)支付业务【微信支付】
- this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', 'HTML 片段', {dangerouslyUseHTMLString: true});
+this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', 'HTML 片段', {dangerouslyUseHTMLString: true});
 6.1今晚稍微把elementUI的组件都稍微看看。
 6.2使用messageBox显示弹框
 6.3展示二维码----qrcode插件

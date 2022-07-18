@@ -4,22 +4,22 @@ import {reqAddressInfo, reqTradeInfo} from "@/api";
 
 const state = {
     tradeInfo: {},
-    address:[]
+    address: []
 }
 const mutations = {
     RECEIVE_TRADE_INFO(state, tradeInfo) {
         state.tradeInfo = tradeInfo
     },
-    GET_USER_ADDRESS(state,address){
+    GET_USER_ADDRESS(state, address) {
         state.address = address
     }
 }
 const actions = {
-    async getUserAddress({commit}){
-      const result = await reqAddressInfo()
-      if (result.code === 200 ){
-          commit('GET_USER_ADDRESS',result.data)
-      }
+    async getUserAddress({commit}) {
+        const result = await reqAddressInfo()
+        if (result.code === 200) {
+            commit('GET_USER_ADDRESS', result.data)
+        }
     },
 
     async getTradeInfo({commit}) {

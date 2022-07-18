@@ -147,14 +147,14 @@ export default {
         //获取用户信息
         let {phone, password, password2, code} = this
         // if (phone && code && password && password2 && password === password2) {
-          //发请求注册用户
-          try {
-            await this.$store.dispatch('userRegister', {phone, code, password})
-            alert('注册成功')
-            await this.$router.push('/login')
-          } catch (e) {
-            alert(e.message)
-          }
+        //发请求注册用户
+        try {
+          await this.$store.dispatch('userRegister', {phone, code, password})
+          alert('注册成功')
+          await this.$router.push('/login')
+        } catch (e) {
+          alert(e.message)
+        }
         // }
       }
 
