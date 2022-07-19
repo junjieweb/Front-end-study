@@ -1,10 +1,14 @@
 # 打包自定义工具库
+
 ## 1. 编码与配置
+
 ### 1). 入口JS
+
     export { apply } from './function/apply'
     export { default as axios } from './axios'
-		
+
 ### 2). webpack配置
+
     const path = require('path')
 
     module.exports = {
@@ -29,6 +33,7 @@
     }
 
 ### 3). package.json
+
     {
       "name": "atguigu-utils",
       "version": "1.1.7",
@@ -50,9 +55,11 @@
     }
 
 ### 4). 生成打包库文件
+
     npm run build
 
 ## 2. 发布到npm仓库
+
 		1). 前置
         npm配置的中央仓库不能是淘宝镜像
         发布前必须执行: npm config set registry https://registry.npmjs.org/
@@ -76,6 +83,7 @@
         注意: 必须在72小时内, 否则不能再删除
 
 ## 3. 下载并使用自定义工具包
+
     1). 下载工具包
 	      yarn add atguigu-utils
 	 

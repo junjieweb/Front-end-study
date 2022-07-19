@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>数组声明式方法</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组声明式方法</title>
 </head>
 <body>
-  <script src="../dist/atguigu-utils.js"></script>
-  <script>
-    /* 
+<script src="../dist/atguigu-utils.js"></script>
+<script>
+    /*
     自定义实现一组数组声明式方法
       1). map()
       2). reduce()
@@ -19,7 +19,7 @@
       6). every()
       7). some()
     */
-    /* 
+    /*
     需求:
     1. 产生一个每个元素都比原来大10的新数组
     2. 得到所有奇数的和
@@ -34,18 +34,18 @@
 
     console.log(aUtils.map(arr, (item, index) => item + 10))
     console.log(aUtils.reduce(arr, (preTotal, item, index) => {
-      return preTotal + (item%2===1 ? item : 0)
+        return preTotal + (item % 2 === 1 ? item : 0)
     }, 0))
-    console.log(aUtils.filter(arr, (item, index) => item>8 && index%2===0))
-    console.log(aUtils.find(arr, (item, index) => item>8 && index%2===0))
-    console.log(aUtils.findIndex(arr, (item, index) => item>8 && index%2===0))
-    console.log(aUtils.every(arr, (item, index) => index%2===1 || item%2===1))
-    console.log(aUtils.some(arr, (item, index) => index%2===1 || item%2===1))
+    console.log(aUtils.filter(arr, (item, index) => item > 8 && index % 2 === 0))
+    console.log(aUtils.find(arr, (item, index) => item > 8 && index % 2 === 0))
+    console.log(aUtils.findIndex(arr, (item, index) => item > 8 && index % 2 === 0))
+    console.log(aUtils.every(arr, (item, index) => index % 2 === 1 || item % 2 === 1))
+    console.log(aUtils.some(arr, (item, index) => index % 2 === 1 || item % 2 === 1))
     aUtils.test()
-  </script>
+</script>
 
-  <script>
-    
-  </script>
+<script>
+
+</script>
 </body>
 </html>
