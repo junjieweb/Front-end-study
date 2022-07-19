@@ -9,12 +9,12 @@ router.get('/', function (req, res, next) {
 router.get('/news', function (req, res, next) {
     res.set('Access-Control-Allow-Origin', '*');
     var id = req.query.id;
-    console.log('/news id='+id);
+    console.log('/news id=' + id);
     var news = {
         id: id,
         title: 'news title1...',
         content: 'news content1...',
-        commentsUrl: '/comments?newsId='+id
+        commentsUrl: '/comments?newsId=' + id
     };
     res.json(news);
 });
@@ -28,12 +28,12 @@ router.get('/comments', function (req, res, next) {
         {
             id: 1,
             content: 'comment content1111...',
-            newsId : newsId
+            newsId: newsId
         },
         {
             id: 2,
             content: 'comment content2222...',
-            newsId : newsId
+            newsId: newsId
         }];
     res.json(comments);
 });

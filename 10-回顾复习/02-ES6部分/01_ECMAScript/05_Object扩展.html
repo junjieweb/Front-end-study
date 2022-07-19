@@ -2,14 +2,14 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
     // var person = {
     //   name: '卡卡西',
     //   age: 20
@@ -34,8 +34,6 @@
     // console.log(person.gender)
 
 
-
-
     // 克隆数据,修改第二个对象的数据,第一个对象的数据也要被修改
 
     // var obj = {
@@ -53,26 +51,26 @@
 
 
     var obj = {
-      name: '小明',
-      age: 30
+        name: '小明',
+        age: 30
     }
     var obj2 = {}
     // key--->"name" 和"age"
     for (var key in obj) {
-      // 函数的自调用
-      (function (key) {
-        Object.defineProperties(obj2, {
-          [key]: {
-            get: function () {
-              return obj[key]   // ----当前这个属性值 obj["name"] 或者是obj["age"]
-            },
-            set: function (msg) {
-              console.log(msg)
-              obj[key] = msg
-            }
-          }
-        })
-      })(key)
+        // 函数的自调用
+        (function (key) {
+            Object.defineProperties(obj2, {
+                [key]: {
+                    get: function () {
+                        return obj[key]   // ----当前这个属性值 obj["name"] 或者是obj["age"]
+                    },
+                    set: function (msg) {
+                        console.log(msg)
+                        obj[key] = msg
+                    }
+                }
+            })
+        })(key)
     }
     console.log(obj2)
     obj.name = '大明'
@@ -82,9 +80,9 @@
     console.log(obj.name)
 
 
-    var obj3={}
-    var obj4=obj3
-  </script>
+    var obj3 = {}
+    var obj4 = obj3
+</script>
 </body>
 
 </html>

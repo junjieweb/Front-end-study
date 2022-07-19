@@ -2,52 +2,52 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>玉树临风美少年，揽镜自顾夜不眠 </title>
-  <script type="text/javascript">
-    /*
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>玉树临风美少年，揽镜自顾夜不眠 </title>
+    <script type="text/javascript">
+        /*
 
-     ## Promise对象:代表了未来某个将要发生的事件(通常是一个异步操作)
-      1. 理解:有了Promise对象,可以将异步操作以同步的流程表达出来,避免层层嵌套的回调函数(回调地狱)
-        - 回调地狱:回调嵌套或者函数相互调用(很乱的调用)
-        - ES6的Promise是一个构造函数,用来生成Promise的实例对象
-      2. 使用Promise基本步骤(2步)
-        - 创建Promise对象
-        - let promise = new Promise((resolve,reject)=>{
-          // 初始化promise状态为pending,执行异步操作
-          if(异步操作成功){
-            resolve(value); // 修改promise的状态为fullfilled
-          }else{
-            reject(errMsg); // 修改promise的状态为rejected
-          }
-        })
-        - 调用promise的then()
-        - promise.then(function(){
-            result=>console.log(result),
-            errorMsg=>alert(errorMsg)
-        })
-      3. promise对象的三个状态
-        - pending: 初始化状态
-        - fullfilled: 成功状态
-        - rejected: 失败状态
-      4. 应用:
-        - 使用promise实现超时状态
-        - 使用promise封装ajax请求
-        let request = new XMLHttpRequest();
-        request.onreadystatechange=function(){}
-        request.respnseType='json';
-        request.open('GET',url)
-        request.send()
+         ## Promise对象:代表了未来某个将要发生的事件(通常是一个异步操作)
+          1. 理解:有了Promise对象,可以将异步操作以同步的流程表达出来,避免层层嵌套的回调函数(回调地狱)
+            - 回调地狱:回调嵌套或者函数相互调用(很乱的调用)
+            - ES6的Promise是一个构造函数,用来生成Promise的实例对象
+          2. 使用Promise基本步骤(2步)
+            - 创建Promise对象
+            - let promise = new Promise((resolve,reject)=>{
+              // 初始化promise状态为pending,执行异步操作
+              if(异步操作成功){
+                resolve(value); // 修改promise的状态为fullfilled
+              }else{
+                reject(errMsg); // 修改promise的状态为rejected
+              }
+            })
+            - 调用promise的then()
+            - promise.then(function(){
+                result=>console.log(result),
+                errorMsg=>alert(errorMsg)
+            })
+          3. promise对象的三个状态
+            - pending: 初始化状态
+            - fullfilled: 成功状态
+            - rejected: 失败状态
+          4. 应用:
+            - 使用promise实现超时状态
+            - 使用promise封装ajax请求
+            let request = new XMLHttpRequest();
+            request.onreadystatechange=function(){}
+            request.respnseType='json';
+            request.open('GET',url)
+            request.send()
 
 
-    */
-  </script>
+        */
+    </script>
 </head>
 
 <body>
-  <script type="text/javascript">
+<script type="text/javascript">
     // 1.
     // 同步执行:先111,后222
     // 创建Promise的实例对象
@@ -57,33 +57,33 @@
     // })
     // console.log('222')
 
-      // 2.
-      let promise = new Promise((resolve,reject)=>{
+    // 2.
+    let promise = new Promise((resolve, reject) => {
         console.log('111')
         // 执行异步操作,通常是发送ajax请求,开启定时器
-        setTimeout(function(){
-          console.log('333')
-          // 根据异步任务的返回结果来修改promise的状态
-          // 如果异步执行成功,调用resolve函数
-          resolve('哈哈'); // 修改promise的状态,修改为成功状态
-          // 异步任务执行失败了
-          // reject() // 修改promise的状态,修改为失败的状态
-        },2000)
-      });
+        setTimeout(function () {
+            console.log('333')
+            // 根据异步任务的返回结果来修改promise的状态
+            // 如果异步执行成功,调用resolve函数
+            resolve('哈哈'); // 修改promise的状态,修改为成功状态
+            // 异步任务执行失败了
+            // reject() // 修改promise的状态,修改为失败的状态
+        }, 2000)
+    });
 
-      console.log('222')
-      // 如果没有修改状态数据,就不会进入到then中的任何一个
-      promise.then((data)=>{
+    console.log('222')
+    // 如果没有修改状态数据,就不会进入到then中的任何一个
+    promise.then((data) => {
         // 成功的回调
         console.log('成功了')
         console.log(data)
-      },(error)=>{
+    }, (error) => {
         // 失败的回调
         console.log('失败了')
         console.log(error)
-      })
+    })
 
-  </script>
+</script>
 </body>
 
 </html>
