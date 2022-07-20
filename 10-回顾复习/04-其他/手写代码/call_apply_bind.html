@@ -1,100 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  
-  <script>
-    /* 
+
+<script>
+    /*
     自定义call函数
     */
     function myCall(fn, obj, ...args) {
-      // this(...args)
-      console.log('call()')
+        // this(...args)
+        console.log('call()')
 
-      // 处理obj为undefined或null
-      if (obj===undefined || obj===null) {
-        // obj = window
-        return fn(...args)
-      }
+        // 处理obj为undefined或null
+        if (obj === undefined || obj === null) {
+            // obj = window
+            return fn(...args)
+        }
 
-      // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
-      obj.tempFn = fn
-      // 通过obj调用新添加的方法
-      const result = obj.tempFn(...args)
-      // 删除添加的方法
-      delete obj.tempFn
-      // 返回函数执行的结果
-      return result
+        // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
+        obj.tempFn = fn
+        // 通过obj调用新添加的方法
+        const result = obj.tempFn(...args)
+        // 删除添加的方法
+        delete obj.tempFn
+        // 返回函数执行的结果
+        return result
     }
 
 
     Function.prototype.call = function (obj, ...args) {
-      // this(...args)
-      console.log('call()')
+        // this(...args)
+        console.log('call()')
 
-      // 处理obj为undefined或null
-      if (obj===undefined || obj===null) {
-        // obj = window
-        return this(...args)
-      }
+        // 处理obj为undefined或null
+        if (obj === undefined || obj === null) {
+            // obj = window
+            return this(...args)
+        }
 
-      // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
-      obj.tempFn = this
-      // 通过obj调用新添加的方法
-      const result = obj.tempFn(...args)
-      // 删除添加的方法
-      delete obj.tempFn
-      // 返回函数执行的结果
-      return result
+        // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
+        obj.tempFn = this
+        // 通过obj调用新添加的方法
+        const result = obj.tempFn(...args)
+        // 删除添加的方法
+        delete obj.tempFn
+        // 返回函数执行的结果
+        return result
     }
 
     Function.prototype.apply = function (obj, args) {
-      // this(...args)
-      console.log('apply()')
+        // this(...args)
+        console.log('apply()')
 
-      // return this.call(obj, ...args)
+        // return this.call(obj, ...args)
 
-      // 处理obj为undefined或null
-      if (obj===undefined || obj===null) {
-        // obj = window
-        return this(...args)
-      }
+        // 处理obj为undefined或null
+        if (obj === undefined || obj === null) {
+            // obj = window
+            return this(...args)
+        }
 
-      // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
-      obj.tempFn = this
-      // 通过obj调用新添加的方法
-      const result = obj.tempFn(...args)
-      // 删除添加的方法
-      delete obj.tempFn
-      // 返回函数执行的结果
-      return result
+        // 给obj添加一个属性/方法, 属性名: tempFn, 值是this
+        obj.tempFn = this
+        // 通过obj调用新添加的方法
+        const result = obj.tempFn(...args)
+        // 删除添加的方法
+        delete obj.tempFn
+        // 返回函数执行的结果
+        return result
     }
 
 
     Function.prototype.bind = function (obj, ...args) {
-      return (...args2) => {
-        this.call(obj, ...args, ...args2)
-      }
+        return (...args2) => {
+            this.call(obj, ...args, ...args2)
+        }
     }
 
 
-
-
-
-   
     var m = 1
 
     function fn(a, b) {
-      console.log(a, b, this.m, this)
-      return a + b
+        console.log(a, b, this.m, this)
+        return a + b
     }
 
     const obj = {
-      m: 2
+        m: 2
     }
 
 
@@ -110,8 +106,6 @@
     fn.bind(obj, 5, 6, 7)(3, 4)
 
 
-
-
-  </script>
+</script>
 </body>
 </html>
