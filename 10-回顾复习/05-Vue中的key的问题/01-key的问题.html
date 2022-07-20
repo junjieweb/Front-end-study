@@ -2,64 +2,64 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>每天都被自己帅醒!</title>
-  <link rel="stylesheet" href="">
-  <script type="text/javascript" src="../js/vue.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>每天都被自己帅醒!</title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="../js/vue.js"></script>
 </head>
 
 <body>
 
-  <div id="app">
+<div id="app">
     <div>
-      <button @click="add">add first</button>
-      &nbsp;
-      <button @click="remove">remove first</button>
-      &nbsp;
-      <button @click="sort">sort</button>
+        <button @click="add">add first</button>
+        &nbsp;
+        <button @click="remove">remove first</button>
+        &nbsp;
+        <button @click="sort">sort</button>
     </div>
 
     <h2>使用id作为key</h2>
     <ul>
-      <li v-for="p in persons" :key="p.id">
-        {{p.id}}--{{p.name}}--{{p.age}}--<input />
-      </li>
+        <li v-for="p in persons" :key="p.id">
+            {{p.id}}--{{p.name}}--{{p.age}}--<input/>
+        </li>
     </ul>
 
     <h2>使用index作为key</h2>
     <ul>
-      <li v-for="(p, index) in persons" :key="index">
-        {{p.id}}--{{p.name}}--{{p.age}}--<input />
-      </li>
+        <li v-for="(p, index) in persons" :key="index">
+            {{p.id}}--{{p.name}}--{{p.age}}--<input/>
+        </li>
     </ul>
-  </div>
+</div>
 
 
-  <script type="text/javascript">
+<script type="text/javascript">
     new Vue({
-      el: '#app',
-      data: {
-        persons: [
-          { id: 1, name: 'Tom', age: 13 },
-          { id: 2, name: 'Jack', age: 12 }
-        ]
-      },
-
-      methods: {
-        add() {
-          this.persons.unshift({ id: this.persons.length + 1, name: 'Bob', age: 14 })
+        el: '#app',
+        data: {
+            persons: [
+                {id: 1, name: 'Tom', age: 13},
+                {id: 2, name: 'Jack', age: 12}
+            ]
         },
 
-        remove() {
-          this.persons.shift()
-        },
+        methods: {
+            add() {
+                this.persons.unshift({id: this.persons.length + 1, name: 'Bob', age: 14})
+            },
 
-        sort() {
-          this.persons.sort((p1, p2) => p1.age - p2.age)
+            remove() {
+                this.persons.shift()
+            },
+
+            sort() {
+                this.persons.sort((p1, p2) => p1.age - p2.age)
+            }
         }
-      }
     })
 
     /*
@@ -81,7 +81,7 @@
     3. 解决:
        使用item数据的标识数据作为key, 比如id属性值
     */
-  </script> 
+</script>
 </body>
 
 </html>
