@@ -110,6 +110,7 @@
             return str.toString().length
         }
     }
+
     console.log(getLength(100))
     console.log(getLength('hello'))
 
