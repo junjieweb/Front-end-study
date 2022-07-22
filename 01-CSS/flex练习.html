@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #eee;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex1 {
+            flex: 1;
+        }
+
+        .baiSe {
+            background: #ffffff;
+        }
+
+        .colum {
+            flex-direction: column;
+        }
+
+        .mg8 {
+            margin: 8px;
+        }
+
+        .mgr8 {
+            margin-right: 8px;
+        }
+
+        .mgt8 {
+            margin-top: 8px;
+        }
+
+        .yinYing {
+            box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0 1px 1px 0, rgb(0 0 0 / 12%) 0 1px 3px 0;
+        }
+
+        .dh {
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+            font-size: 14px;
+            color: #111;
+        }
+    </style>
+</head>
+<body class="flex">
+<!-- 侧边栏 -->
+<div style="width: 200px;z-index: 2" class="baiSe yinYing">
+    <!-- 头像栏 -->
+    <div style="padding: 10px;align-items: center;justify-content: center;border-bottom: 1px solid #999" class="flex">
+        <img style="width: 40px;" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg"
+             alt="">
+        <div style="margin-left: 10px">Junjie</div>
+    </div>
+    <!-- 导航栏 -->
+    <div class="flex1">
+        <div class="dh">导航</div>
+        <div class="dh">导航</div>
+        <div class="dh">导航</div>
+        <div class="dh">导航</div>
+        <div class="dh">导航</div>
+    </div>
+</div>
+<!-- 主区域 -->
+<div class="flex1 colum flex">
+    <!-- 头部 -->
+    <div style="height: 60px;z-index: 2" class="baiSe yinYing"></div>
+    <!-- 内容区 -->
+    <div style="overflow: auto" class="flex1 flex">
+        <!-- 左区 -->
+        <div style="flex: 3" class="flex colum mg8">
+            <!-- 数据区 -->
+            <div class="flex">
+                <!-- 数据块 -->
+                <div style="height: 100px;" class="flex1 baiSe mgr8 yinYing"></div>
+                <div style="height: 100px;" class="flex1 baiSe mgr8 yinYing"></div>
+                <div style="height: 100px;" class="flex1 baiSe mgr8 yinYing"></div>
+                <div style="height: 100px;" class="flex1 baiSe mgr8 yinYing"></div>
+            </div>
+            <!-- 列表区 -->
+            <div class="flex colum mgr8">
+                <!-- 列表项 -->
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+                <div style="height: 150px;" class="baiSe mgt8 yinYing"></div>
+            </div>
+        </div>
+        <!-- 右区 -->
+        <div style="flex: 1" class="flex colum mgr8 mgt8">
+            <!-- 提示区 -->
+            <div style="height: 150px;" class="baiSe yinYing"></div>
+            <!-- 消息区 -->
+            <div style="height: 300px;" class="baiSe mgt8 yinYing"></div>
+        </div>
+    </div>
+</div>
+<script>
+    let dianZanShu = 0
+
+    function dianzan(jia, jian) {
+        if (jia) {
+            dianZanShu += 1
+        } else {
+            dianZanShu -= 1
+        }
+    }
+</script>
+</body>
+</html>
