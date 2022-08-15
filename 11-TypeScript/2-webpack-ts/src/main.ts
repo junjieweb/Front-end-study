@@ -5,4 +5,4 @@
 // import './5.泛型'
 import './6.声明文件演示'
 
-document.write('<h1>Hello TypeScript</h1>')
+document.write('<h1>Hello TypeScript</h1>');
