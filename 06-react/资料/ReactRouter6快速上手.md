@@ -216,46 +216,45 @@
 
 2. 示例代码：
 
-   ```jsx
-   //路由表配置：src/routes/index.js
-   import About from '../pages/About'
-   import Home from '../pages/Home'
-   import {Navigate} from 'react-router-dom'
-   
-   export default [
-   	{
-   		path:'/about',
-   		element:<About/>
-   	},
-   	{
-   		path:'/home',
-   		element:<Home/>
-   	},
-   	{
-   		path:'/',
-   		element:<Navigate to="/about"/>
-   	}
-   ]
-   
-   //App.jsx
-   import React from 'react'
-   import {NavLink,useRoutes} from 'react-router-dom'
-   import routes from './routes'
-   
-   export default function App() {
-   	//根据路由表生成对应的路由规则
-   	const element = useRoutes(routes)
-   	return (
-   		<div>
-   			......
-         {/* 注册路由 */}
-         {element}
-   		  ......
-   		</div>
-   	)
-   }
-   
-   ```
+```jsx
+//路由表配置：src/routes/index.js
+import About from '../pages/About'
+import Home from '../pages/Home'
+import {Navigate} from 'react-router-dom'
+
+export default [
+    {
+        path: '/about',
+        element: <About/>
+    },
+    {
+        path: '/home',
+        element: <Home/>
+    },
+    {
+        path: '/',
+        element: <Navigate to="/about"/>
+    }
+]
+
+//App.jsx
+import React from 'react'
+import {NavLink, useRoutes} from 'react-router-dom'
+import routes from './routes'
+
+export default function App() {
+//根据路由表生成对应的路由规则
+    const element = useRoutes(routes)
+    return (
+        <div>
+            ......
+            {/* 注册路由 */}
+            {element}
+            ......
+        </div>
+    )
+}
+```
 
 ### 2. useNavigate()
 
@@ -266,7 +265,7 @@
    ```jsx
    import React from 'react'
    import {useNavigate} from 'react-router-dom'
-   
+  
    export default function Demo() {
      const navigate = useNavigate()
      const handle = () => {
@@ -340,7 +339,6 @@
    		</ul>
    	)
    }
-   
    ```
 
 ### 5. useLocation()
@@ -374,10 +372,6 @@
    		</ul>
    	)
    }
-   
-     
-   
-   
    ```
 
 ### 6. useMatch()
@@ -416,7 +410,7 @@
 
 ### 7. useInRouterContext()
 
-​ 作用：如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 true，否则返回 false。
+作用：如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 true，否则返回 false。
 
 ### 8. useNavigationType()
 
