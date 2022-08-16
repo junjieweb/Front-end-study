@@ -292,24 +292,24 @@ export default function App() {
 
 2. 示例代码：
 
-   ```jsx
-   import React from 'react';
-   import { Routes, Route, useParams } from 'react-router-dom';
-   import User from './pages/User.jsx'
-   
-   function ProfilePage() {
-     // 获取URL中携带过来的params参数
-     let { id } = useParams();
-   }
-   
-   function App() {
-     return (
-       <Routes>
-         <Route path="users/:id" element={<User />}/>
-       </Routes>
-     );
-   }
-   ```
+```jsx
+import React from 'react';
+import {Routes, Route, useParams} from 'react-router-dom';
+import User from './pages/User.jsx'
+
+function ProfilePage() {
+// 获取URL中携带过来的params参数
+    let {id} = useParams();
+}
+
+function App() {
+    return (
+        <Routes>
+            <Route path="users/:id" element={<User/>}/>
+        </Routes>
+    );
+}
+```
 
 ### 4. useSearchParams()
 
@@ -433,5 +433,5 @@ export default function App() {
 
 ### 10.useResolvedPath()
 
-1. 作用：给定一个 URL值，解析其中的：path、search、hash值。
+作用：给定一个 URL值，解析其中的：path、search、hash值。
 
