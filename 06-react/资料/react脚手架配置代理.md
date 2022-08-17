@@ -18,12 +18,8 @@
 
 ## 方法二
 
-1. 第一步：创建代理配置文件
-
-   ```
-   在src下创建配置文件：src/setupProxy.js
-   ```
-
+1. 第一步：创建代理配置文件：在src下创建配置文件：`src/setupProxy.js`
+   
 2. 编写setupProxy.js配置具体代理规则：
 
    ```js
