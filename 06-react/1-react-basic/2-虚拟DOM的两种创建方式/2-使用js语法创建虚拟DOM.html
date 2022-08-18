@@ -20,10 +20,10 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/javascript">
 
-    //1.创建虚拟DOM，
+    // 1.创建虚拟DOM，
     const VDOM = React.createElement('h1', {id: 'title'}, React.createElement('span', {}, 'Hello React'));
 
-    //2.渲染虚拟DOM到页面
+    // 2.渲染虚拟DOM到页面
     ReactDOM.render(VDOM, document.getElementById('test'));
 
 </script>
