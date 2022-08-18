@@ -25,25 +25,25 @@
 <script type="text/babel">
 
     /*
-        jsx的语法规则
-            1.创建虚拟DOM时，不要用引号
-            2.标签中想混入js表达式，需要用{}包裹
-            3.根标签必须只有一个
-            4.标签必须闭合
-            5.样式的类名，不要用class，必须用className
-            6.内联样式要用style={{}}形式去写
-            7.标签可以随意的编写：
-                （1）若标签首字母是【小写】的，则react会尝试将当前的jsx标签对应成一个html标签
-                    若对应成了，直接渲染展示
-                    若无法对应，直接报错
-                （2）若标签首字母是【大写】的，则react会查找Haha组件对应的位置
-                    若找到了，直接渲染
-                    若未找到，报错（Haha is not defined）
+    jsx的语法规则
+        1.创建虚拟DOM时，不要用引号
+        2.标签中想混入js表达式，需要用{}包裹
+        3.根标签必须只有一个
+        4.标签必须闭合
+        5.样式的类名，不要用class，必须用className
+        6.内联样式要用style={{}}形式去写
+        7.标签可以随意的编写：
+            （1）若标签首字母是【小写】的，则react会尝试将当前的jsx标签对应成一个html标签
+                若对应成了，直接渲染展示
+                若无法对应，直接报错
+            （2）若标签首字母是【大写】的，则react会查找Haha组件对应的位置
+                若找到了，直接渲染
+                若未找到，报错（Haha is not defined）
     */
     const myID = 'AtGuiGu';
     const myData = 'Hello,React';
 
-    //1.创建虚拟DOM，
+    // 1.创建虚拟DOM
     const VDOM = (
         <div>
             <h2 id={myID.toLowerCase()} className="demo1">
@@ -54,7 +54,7 @@
         </div>
     );
 
-    //2.渲染虚拟DOM到页面
+    // 2.渲染虚拟DOM到页面
     ReactDOM.render(VDOM, document.getElementById('test'));
 
 </script>
