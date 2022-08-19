@@ -25,7 +25,7 @@
             2.React调用MyComponent并获取MyComponent返回的虚拟DOM，随后转为真实DOM，然后渲染到页面
     */
 
-    //1.定义组件（函数式组件）
+    // 1.定义组件（函数式组件）
     function MyComponent() {
         console.log(this);//此处的this是undefined，因为经过babel编译后，开启了严格模式
         return <h2>我是用函数定义的组件（适用于【简单组件】的定义）</h2>
@@ -36,7 +36,7 @@
         return <h2>我是用函数定义的组件（适用于【简单组件】的定义）</h2>
     }
 
-    //2.渲染组件到页面
+    // 2.渲染组件到页面
     ReactDOM.render(<MyComponent/>, document.getElementById('test'));
     ReactDOM.render(<MyComponent2/>, document.getElementById('test2'));
 
