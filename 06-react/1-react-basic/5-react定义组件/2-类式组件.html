@@ -25,7 +25,7 @@
             3.通过m调用到了MyComponent原型上的render方法，并获取到了返回的虚拟DOM，随后转为真实DOM，放在页面
     */
 
-    //1.定义组件
+    // 1.定义组件
     class MyComponent extends React.Component {
         //render是放在哪里？--MyComponent的原型对象上，是给MyComponent的实例对象用的
         render() {
@@ -34,7 +34,7 @@
         }
     }
 
-    //2.渲染组件到页面
+    // 2.渲染组件到页面
     ReactDOM.render(<MyComponent/>, document.getElementById('test'));
 
 </script>
