@@ -18,12 +18,12 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //1.定义组件---类式组件
+    // 1.定义组件---类式组件
     class Weather extends React.Component {
 
         state = {isHot: true, wind: '微风'}
 
-        //事件的回调都需要写成赋值语句+箭头函数的形式
+        // 事件的回调都需要写成赋值语句+箭头函数的形式
         changeWeather = () => {
             console.log('changeWeather');
             const {isHot} = this.state;
@@ -39,7 +39,7 @@
         }
     }
 
-    //2.渲染组件
+    // 2.渲染组件
     ReactDOM.render(<Weather/>, document.getElementById('test'));
 
 
