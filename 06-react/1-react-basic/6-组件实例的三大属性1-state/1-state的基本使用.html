@@ -18,9 +18,9 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //1.定义组件---类式组件
+    // 1.定义组件---类式组件
     class Weather extends React.Component {
-        //构造器调用几次？----看你组件用几次
+        // 构造器调用几次？----看你组件用几次
         constructor(props) {
             console.log('constructor');
             super(props);
@@ -28,7 +28,7 @@
             this.changeWeather = this.changeWeather.bind(this);//解决this指向问题
         }
 
-        //changeWeather调用几次？----看你点几次
+        // changeWeather调用几次？----看你点几次
         changeWeather() {
             console.log('changeWeather');
             //若构造器中的this不做处理，此处的this是undefined，因为changeWeather不是通过实例调用的，而是作为点击的回调去使用，且类中的方法自动开启了严格模式
@@ -37,13 +37,13 @@
             //严重注意：状态（state）中的值是不能直接修改的，下面这行就是直接修改的
             // this.state.isHot = true;
 
-            //1.获取原来的state中的isHot值
+            // 1.获取原来的state中的isHot值
             const {isHot} = this.state;
-            //更新状态
+            // 更新状态
             this.setState({isHot: !isHot});//此处更新状态是一个合并的动作，不是替换
         }
 
-        //render调用几次？---1+n次（n是更新状态的次数）
+        // render调用几次？---1+n次（n是更新状态的次数）
         render() {
             console.log(this);
             return <h1
