@@ -19,7 +19,7 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //定义组件（类式组件）
+    // 定义组件（类式组件）
     class Person extends React.Component {
 
         render() {
@@ -35,14 +35,14 @@
         }
     }
 
-    //渲染组件到页面
+    // 渲染组件到页面
     ReactDOM.render(<Person name="tom" sex="nv" age="19"/>, document.getElementById('test'));
     const p = {
         name: 'jerry',
         sex: 'nan',
         age: 18
     }
-    //下面的...p，并不是原生js里的{...p}，babel+react环境就可以让展开运算符展开一个对象，但是仅仅用于传递标签属性
+    // 下面的...p，并不是原生js里的{...p}，babel+react环境就可以让展开运算符展开一个对象，但是仅仅用于传递标签属性
     ReactDOM.render(<Person {...p}/>, document.getElementById('test2'));
 
 
