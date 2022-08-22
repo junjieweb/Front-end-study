@@ -18,19 +18,19 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //定义组件
+    // 定义组件
     class Demo extends React.Component {
 
         showData = () => {
-            //获取用户输入，input1是真实DOM节点
+            // 获取用户输入，input1是真实DOM节点
             const {input1} = this.refs
-            //提示数据
+            // 提示数据
             alert(input1.value);
         }
         showData2 = () => {
-            //获取用户输入，input1是真实DOM节点
+            // 获取用户输入，input1是真实DOM节点
             const {input2} = this.refs
-            //提示数据
+            // 提示数据
             alert(input2.value);
         }
 
