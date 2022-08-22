@@ -18,11 +18,11 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //定义组件
+    // 定义组件
     class Demo extends React.Component {
 
-        //使用createRef，可以创建一个存储节点的容器，此容器是专人专用的
-        //createRef是放在组件实例身上的
+        // 使用createRef，可以创建一个存储节点的容器，此容器是专人专用的
+        // createRef是放在组件实例身上的
         container1 = React.createRef();
         container2 = React.createRef();
 
@@ -47,7 +47,7 @@
         }
     }
 
-    //渲染组件
+    // 渲染组件
     ReactDOM.render(<Demo/>, document.getElementById('test'));
 
 
