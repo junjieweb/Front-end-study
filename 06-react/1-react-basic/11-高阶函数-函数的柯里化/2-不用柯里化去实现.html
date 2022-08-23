@@ -18,21 +18,21 @@
 <!-- 下面一定要将javascript改为babel，含义是：让babel翻译script标签中的代码。 -->
 <script type="text/babel">
 
-    //定义组件
+    // 定义组件
     class Login extends React.Component {
         state = {
             username: '',
             password: ''
         }
 
-        //点击登录的回调
+        // 点击登录的回调
         handleSubmit = (event) => {
             event.preventDefault();
             const {username, password} = this.state
             console.log(username, password);
         }
 
-        //存储表单数据到状态
+        // 存储表单数据到状态
         saveFormData = (type, value) => {
             this.setState({[type]: value})
         }
