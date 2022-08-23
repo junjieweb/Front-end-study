@@ -26,21 +26,21 @@
 
         函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
     */
-    //定义组件
+    // 定义组件
     class Login extends React.Component {
         state = {
             username: '',
             password: ''
         }
 
-        //点击登录的回调
+        // 点击登录的回调
         handleSubmit = (event) => {
             event.preventDefault();
             const {username, password} = this.state
             console.log(username, password);
         }
 
-        //存储表单数据到状态
+        // 存储表单数据到状态
         saveFormData = (type) => {
             return (event) => {
                 this.setState({[type]: event.target.value});
@@ -59,7 +59,6 @@
     }
 
     ReactDOM.render(<Login/>, document.getElementById('test'));
-
 
 </script>
 </body>
