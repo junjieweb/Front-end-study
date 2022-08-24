@@ -36,66 +36,66 @@
     */
 
     class Sum extends React.Component {
-        //构造器---调一次
+        // 构造器---调一次
         constructor() {
             console.log('---constructor---')
             super();
             this.state = {count: 0}
         }
 
-        //加1的回调
+        // 加1的回调
         add = () => {
             const {count} = this.state
             this.setState({count: count + 1})
         }
 
-        //卸载的回调
+        // 卸载的回调
         death = () => {
             ReactDOM.unmountComponentAtNode(document.getElementById('test'))
         }
 
-        //强制更新的回调
+        // 强制更新的回调
         force = () => {
             this.forceUpdate()
         }
 
-        //组件将要挂载---调1次
+        // 组件将要挂载---调1次
         componentWillMount() {
             console.log('---componentWillMount---')
         }
 
-        //组件挂载完毕---调1次
+        // 组件挂载完毕---调1次
         componentDidMount() {
             console.log('---componentDidMount---')
         }
 
-        //组件即将卸载---调1次
+        // 组件即将卸载---调1次
         componentWillUnmount() {
             console.log('---componentWillUnmount---')
         }
 
-        //组件更新的“阀门”
+        // 组件更新的“阀门”
         shouldComponentUpdate() {
             console.log('---shouldComponentUpdate---')
             return true
         }
 
-        //组件即将更新---调用n次，n是更新的次数
+        // 组件即将更新---调用n次，n是更新的次数
         componentWillUpdate() {
             console.log('---componentWillUpdate---')
         }
 
-        //组件更新完毕---调用n次，n是更新的次数
+        // 组件更新完毕---调用n次，n是更新的次数
         componentDidUpdate() {
             console.log('---componentDidUpdate---')
         }
 
-        //组件即将接收新的props
+        // 组件即将接收新的props
         componentWillReceiveProps() {
             console.log('---componentWillReceiveProps---')
         }
 
-        //组件初次渲染+更新---调1+n次
+        // 组件初次渲染+更新---调1+n次
         render() {
             console.log('---render---')
             return (
