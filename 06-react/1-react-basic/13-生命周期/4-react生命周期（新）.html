@@ -36,25 +36,25 @@
     */
 
     class Sum extends React.Component {
-        //构造器---调一次
+        // 构造器---调一次
         constructor() {
             console.log('---constructor---')
             super();
             this.state = {count: 0}
         }
 
-        //加1的回调
+        // 加1的回调
         add = () => {
             const {count} = this.state
             this.setState({count: count + 1})
         }
 
-        //卸载的回调
+        // 卸载的回调
         death = () => {
             ReactDOM.unmountComponentAtNode(document.getElementById('test'))
         }
 
-        //强制更新的回调
+        // 强制更新的回调
         force = () => {
             this.forceUpdate()
         }
@@ -109,7 +109,7 @@
             console.log('---componentWillReceiveProps---')
         }*/
 
-        //组件初次渲染+更新---调1+n次
+        // 组件初次渲染+更新---调1+n次
         render() {
             console.log('---render---')
             return (
@@ -123,7 +123,7 @@
         }
     }
 
-    //渲染组件
+    // 渲染组件
     ReactDOM.render(<Sum age={10}/>, document.getElementById('test'))
 
 
