@@ -6,7 +6,7 @@ import './App.css'
 
 class App extends Component {
 
-    //初始化状态
+    // 初始化状态
     state = {
         todos: [
             {id: '001', name: '吃饭', done: false},
@@ -16,21 +16,21 @@ class App extends Component {
         ]
     }
 
-    //状态在哪里，操作状态的方法就在哪里
+    // 状态在哪里，操作状态的方法就在哪里
     addTodo = (todoObj) => {
-        //获取原来的todos
+        // 获取原来的todos
         const {todos} = this.state
-        //更新状态
+        // 更新状态
         this.setState({todos: [todoObj, ...todos]})
 
-        //不推荐下面的写法，因为如下写法通过非setState形式修改了state的值
-        //因为如下写法，会导致某些情况下，状态不更新
+        // 不推荐下面的写法，因为如下写法通过非setState形式修改了state的值
+        // 因为如下写法，会导致某些情况下，状态不更新
         /*let {todos} = this.state
         todos.unshift(todoObj)
         this.setState({todos})*/
     }
 
-    //勾选or取消勾选一个todo的回调
+    // 勾选or取消勾选一个todo的回调
     checkTodo = (id, done) => {
         const {todos} = this.state
         const newTodos = todos.map((t) => {
@@ -43,7 +43,7 @@ class App extends Component {
         this.setState({todos: newTodos})
     }
 
-    //删除一个todo的回调
+    // 删除一个todo的回调
     deleteTodo = (id) => {
         const {todos} = this.state
         const newTodos = todos.filter((t) => {
@@ -52,7 +52,7 @@ class App extends Component {
         this.setState({todos: newTodos})
     }
 
-    //全选or取消全选
+    // 全选or取消全选
     checkAll = (done) => {
         const {todos} = this.state
         const newTodos = todos.map((t) => {
