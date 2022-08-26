@@ -5,13 +5,13 @@ import List from "./components/List";
 class App extends Component {
 
     state = {
-        users: [],//用户信息
-        isLoading: false,//用于标识是否处于加载中
-        isFirst: true,//标识是否初次展示
-        errorMsg: ''//错误信息
+        users: [], // 用户信息
+        isLoading: false, // 用于标识是否处于加载中
+        isFirst: true, // 标识是否初次展示
+        errorMsg: '' // 错误信息
     }
 
-    //更新App的状态
+    // 更新App的状态
     updateAppState = (stateObj) => {
         this.setState(stateObj)
     }
