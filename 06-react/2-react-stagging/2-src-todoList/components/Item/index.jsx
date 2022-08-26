@@ -4,10 +4,10 @@ import './index.css'
 class Item extends Component {
 
     state = {
-        mouseIn: false//标识鼠标是否在当前todo项中
+        mouseIn: false // 标识鼠标是否在当前todo项中
     }
 
-    //勾选or取消勾选一个todo的回调
+    // 勾选or取消勾选一个todo的回调
     handleCheck = (id) => {
         return ({target}) => {
             // 调用App传递过来的checkTodo
@@ -15,7 +15,7 @@ class Item extends Component {
         }
     }
 
-    //鼠标移入移出的回调
+    // 鼠标移入移出的回调
     handleMouse = (mouseIn) => {
         return () => {
             this.setState({mouseIn})
