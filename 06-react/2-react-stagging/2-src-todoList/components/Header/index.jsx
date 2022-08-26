@@ -4,18 +4,18 @@ import './index.css'
 
 class Header extends Component {
 
-    //按下键盘的回调
+    // 按下键盘的回调
     handleKeyUp = (event) => {
         const {keyCode, target} = event
-        //如果按下的不是回车，逻辑停止
+        // 如果按下的不是回车，逻辑停止
         if (keyCode !== 13) return
-        //获取用户的输入，解构赋值的同时重命名
+        // 获取用户的输入，解构赋值的同时重命名
         const {value: name} = target
-        //构建一个todoObj
+        // 构建一个todoObj
         const todoObj = {id: nanoid(), name, done: false}
-        //调用父组件传递过来的addTodo
+        // 调用父组件传递过来的addTodo
         this.props.addTodo(todoObj)
-        //清空用户输入
+        // 清空用户输入
         target.value = ''
     }
 
