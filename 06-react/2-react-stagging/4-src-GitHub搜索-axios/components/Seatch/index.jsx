@@ -5,17 +5,17 @@ class Search extends Component {
 
     search = () => {
         const {keyWord} = this
-        //请求之前要：将isLoading变为true，将isFirst变为false
+        // 请求之前要：将isLoading变为true，将isFirst变为false
         this.props.updateAppState({isLoading: true, isFirst: false})
         axios.get(`http://localhost:3000/search/users2?q=${keyWord.value}`).then(
             response => {
                 console.log('成功了', response.data)
-                //请求成功了要：存储用户信息，将isLoading变为false
+                // 请求成功了要：存储用户信息，将isLoading变为false
                 this.props.updateAppState({isLoading: false, users: response.data.items})
             },
             error => {
                 console.log('失败了', error)
-                //请求失败了要：存储错误信息，将isLoading变为false
+                // 请求失败了要：存储错误信息，将isLoading变为false
                 this.props.updateAppState({isLoading: false, errorMsg: error.message})
             }
         )
