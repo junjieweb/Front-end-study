@@ -8,7 +8,7 @@ class Search extends Component {
         const {keyWord} = this
         PubSub.publish('update_list_state', {isLoading: true, isFirst: false})
 
-        //使用axios发送请求
+        // 使用axios发送请求
         /*axios.get(`http://localhost:3000/search/users2?q=${keyWord.value}`).then(
             response => {
                 console.log('成功了', response.data)
@@ -20,7 +20,7 @@ class Search extends Component {
             }
         )*/
 
-        //使用fetch发送请求
+        // 使用fetch发送请求
         /*fetch(`http://localhost:3000/search/users2?q=${keyWord.value}`)
             .then(
                 response => {
@@ -39,7 +39,7 @@ class Search extends Component {
                 }
             )*/
 
-        //fetch配合async与await使用
+        // fetch配合async与await使用
         /*try {
             const response = await fetch(`http://localhost:3000/search/users2?q=${keyWord.value}`)
             const result = await response.json()
@@ -48,7 +48,7 @@ class Search extends Component {
             console.log('失败了', error);
         }*/
 
-        //axios配合async与await使用
+        // axios配合async与await使用
         try {
             const result = await axios.get(`http://localhost:3000/search/users2?q=${keyWord.value}`)
             console.log(result.data);
