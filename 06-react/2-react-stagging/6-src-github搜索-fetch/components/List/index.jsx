@@ -5,21 +5,21 @@ import './index.css'
 class List extends Component {
 
     state = {
-        users: [],//用户信息
-        isLoading: false,//用于标识是否处于加载中
-        isFirst: true,//标识是否初次展示
-        errorMsg: ''//错误信息
+        users: [], // 用户信息
+        isLoading: false, // 用于标识是否处于加载中
+        isFirst: true, // 标识是否初次展示
+        errorMsg: '' // 错误信息
     }
 
     componentDidMount() {
-        //订阅消息
+        // 订阅消息
         this.token = PubSub.subscribe('update_list_state', (msg, stateObj) => {
             this.setState(stateObj)
         })
     }
 
     componentWillUnmount() {
-        //取消订阅
+        // 取消订阅
         PubSub.unsubscribe(this.token)
     }
 
