@@ -7,7 +7,7 @@ const mockData = [
 ]
 
 function Detail() {
-    //获取传递过来的params参数
+    // 获取传递过来的params参数
     let params = useParams();
     const result = mockData.find(detailObj => detailObj.id === params.id)
 
