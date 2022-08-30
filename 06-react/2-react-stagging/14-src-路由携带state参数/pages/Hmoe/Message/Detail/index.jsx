@@ -7,7 +7,7 @@ const mockData = [
 ]
 
 function Detail() {
-    //获取传递过来的params参数
+    // 获取传递过来的params参数
     // const {id, title} = useParams();
     // const result = mockData.find(detailObj => detailObj.id === id)
 
@@ -17,7 +17,7 @@ function Detail() {
     // const title = search.getAll('title')[0]
     // const result = mockData.find(detailObj => detailObj.id === id)
 
-    //获取传递过来的state参数
+    // 获取传递过来的state参数
     const {state} = useLocation()
     const {id, title} = state
     const result = mockData.find(detailObj => detailObj.id === id)
