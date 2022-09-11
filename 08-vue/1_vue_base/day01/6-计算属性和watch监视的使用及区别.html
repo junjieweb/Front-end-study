@@ -39,21 +39,21 @@
                 firstName: 'zhao',
                 lastName: 'LiYang',
 
-                fullName2: '',//监视的时候必须有这个属性，属性值是什么不确定，后面根据监视去给它赋值
+                fullName2: '', // 监视的时候必须有这个属性，属性值是什么不确定，后面根据监视去给它赋值
                 fullName4: ''
             }
         },
         methods: {
             getFullName() {
-                //在vue中所有的函数内部的this都指向vm，因为这些方法或者函数都会被vm代理
+                // 在vue中所有的函数内部的this都指向vm，因为这些方法或者函数都会被vm代理
                 console.log('方法被调用了')
                 return this.firstName + '-' + this.lastName
             }
         },
 
-        //当我需要一个数据，但是这个数据我又没有，并且这个数据由目前我有的数据计算而来的。那就要用计算属性
+        // 当我需要一个数据，但是这个数据我又没有，并且这个数据由目前我有的数据计算而来的。那就要用计算属性
         computed: {
-            //计算属性的完整写法
+            // 计算属性的完整写法
             fullName: {
                 get() {
                     return this.firstName + '-' + this.lastName
@@ -65,7 +65,7 @@
                     this.lastName = arr[1]
                 }
             },
-            //如果计算属性当中只有get方法，那么可以简写为如下写法
+            // 如果计算属性当中只有get方法，那么可以简写为如下写法
             /*fullName() {
                 console.log('computed被调用了')
                 return this.firstName + '-' + this.lastName
@@ -116,13 +116,13 @@
         this.fullName2 = this.firstName + '-' + newVal
     })
 
-    //computed是计算属性：一般是没有这个值但是想要用这个值，那么根据已有的去做计算
-    //watch   是监视属性：一般监视属性，监视的属性以及后期要更改的属性都必须有，
-    //通常能用computed的场合都可以使用watch去解决,但是能用watch解决的computed不一定能解决
-    //computed函数当中只能使用同步，而watch当中可以是同步也可以是异步
-
-    //我们去比较computed和watch的时候起始比较的是计算属性的get方法
-    //计算属性的set，其实仅仅是对计算的属性添加了监视（当计算属性的值修改之后，会调用set）
+    // computed是计算属性：一般是没有这个值但是想要用这个值，那么根据已有的去做计算
+    // watch   是监视属性：一般监视属性，监视的属性以及后期要更改的属性都必须有，
+    // 通常能用computed的场合都可以使用watch去解决,但是能用watch解决的computed不一定能解决
+    // computed函数当中只能使用同步，而watch当中可以是同步也可以是异步
+    //
+    // 我们去比较computed和watch的时候起始比较的是计算属性的get方法
+    // 计算属性的set，其实仅仅是对计算的属性添加了监视（当计算属性的值修改之后，会调用set）
 
 </script>
 </body>
