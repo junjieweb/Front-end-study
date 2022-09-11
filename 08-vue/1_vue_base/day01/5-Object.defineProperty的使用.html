@@ -7,8 +7,8 @@
 <body>
 
 <script>
-    //Object.defineProperty
-    //这个方法在为对象添加或者修改  属性为响应式属性
+    // Object.defineProperty
+    // 这个方法在为对象添加或者修改  属性为响应式属性
 
     let obj = {
         firstName: 'zhang',
@@ -26,11 +26,11 @@
 
     Object.defineProperty(obj, 'fullName', {
         get() {
-            //当访问对象的fullName属性时
+            // 当访问对象的fullName属性时
             return this.firstName + '-' + this.lastName
         },
         set(v) {
-            //当设置对象的fullName属性时
+            // 当设置对象的fullName属性时
             let arr = v.split('-')
             this.firstName = arr[0]
             this.lastName = arr[1]
@@ -41,7 +41,7 @@
     console.log(obj)
 
 
-    //模拟数据代理
+    // 模拟数据代理
     let vm = {}
     let data = {msg: 'zhaoLiYang'}
 
