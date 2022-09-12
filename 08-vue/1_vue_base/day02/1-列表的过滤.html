@@ -32,7 +32,7 @@
         },
         computed: {
             newPersons() {
-                //从vm身上获取keyword和persons
+                // 从vm身上获取keyword和persons
                 let {keyword, persons} = this
 
                 /*
@@ -45,13 +45,13 @@
                     返回值：返回的是新的数组
                 */
 
-                //根据获取的两个数据计算新的数据
-                //普通函数
+                // 根据获取的两个数据计算新的数据
+                // 普通函数
                 /*return persons.filter(function (item, index) {
                     return item.name.indexOf(keyword) !== -1
                 })*/
 
-                //箭头函数
+                // 箭头函数
                 return persons.filter(item => item.name.indexOf(keyword) !== -1)
             }
         }
