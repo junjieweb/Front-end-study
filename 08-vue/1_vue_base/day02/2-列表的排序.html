@@ -36,8 +36,8 @@
                     {id: 3, name: 'jock', age: 12},
                     {id: 4, name: 'jim', age: 35}
                 ],
-                //排序首先要设计这个数据，标志用户点击的到底是什么排序类型
-                sortType: 0 //0 表示原样，1 标识升序，2 表示降序
+                // 排序首先要设计这个数据，标志用户点击的到底是什么排序类型
+                sortType: 0 // 0 表示原样，1 标识升序，2 表示降序
             }
         },
         methods: {
@@ -50,7 +50,7 @@
             newPersons() {
                 let {keyword, persons, sortType} = this
                 let arr = persons.filter(item => item.name.indexOf(keyword) !== -1)
-                //在过滤的基础上排序完成再返回
+                // 在过滤的基础上排序完成再返回
                 if (sortType !== 0) {
                     arr.sort((a, b) => sortType === 1 ? a.age - b.age : b.age - a.age)
                 }
