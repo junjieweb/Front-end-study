@@ -6,10 +6,12 @@
     <title>自定义指令</title>
 </head>
 <body>
+
 <div id="app">
     <p v-text="msg"></p>
     <p v-upper="msg"></p>
 </div>
+
 <script>
     /*
         自定义指令分为定义全局指令和局部指令
@@ -20,7 +22,7 @@
                 参数1：使用这个指令的那个节点
                 参数2：这个指令使用的表达式的值以及表达式的集合
     */
-    //全局指令
+    // 全局指令
     /*Vue.directive('upper', function (node, b) {
         console.log(node, b)
         node.textContent = b.value.toUpperCase()
@@ -40,5 +42,6 @@
         }
     })
 </script>
+
 </body>
 </html>
