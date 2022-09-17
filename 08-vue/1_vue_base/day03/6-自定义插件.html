@@ -7,13 +7,14 @@
     <title>自定义插件</title>
 </head>
 <body>
+
 <div id="app">
     <p v-upper="msg"></p>
 </div>
 <script>
     Vue.config.productionTip = false
 
-    //声明使用插件，本质是在自动调用插件当中的install方法
+    // 声明使用插件，本质是在自动调用插件当中的install方法
     Vue.use(MyPlugin)
 
     Vue.myGlobalMethod()
@@ -29,5 +30,6 @@
 
     vm.$myMethod()
 </script>
+
 </body>
 </html>
