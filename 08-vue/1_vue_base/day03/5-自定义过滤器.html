@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <script src="./js/vue.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.js"></script>
-    <title>5-自定义过滤器.html</title>
+    <title>5-自定义过滤器</title>
 </head>
 <body>
+
 <div id="app">
     <p>{{timeNow}}</p>
     <p>{{timeNow | timeFormat}}</p>
     <p>{{timeNow | timeFormat('YYYY-MM-DD')}}</p>
     <p>{{timeNow | timeFormat('hh:mm:ss')}}</p>
 </div>
+
 <script>
     Vue.config.productionTip = false
 
-    //全局过滤器
+    // 全局过滤器
     // Vue.filter('timeFormat', function (value, format = 'YYYY-MM-DD hh:mm:ss') {
     //     return moment(value).format(format)
     // })
@@ -27,7 +29,7 @@
         data: {
             timeNow: Date.now()
         },
-        //局部过滤器
+        // 局部过滤器
         filters: {
             timeFormat(value, format = 'YYYY-MM-DD hh:mm:ss') {
                 return moment(value).format(format)
@@ -36,5 +38,6 @@
     })
 
 </script>
+
 </body>
 </html>
