@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//拿到了一个定义组件的配置对象
+// 拿到了一个定义组件的配置对象
 import MyButton from "./components/MyButton.vue";
 
 export default {
