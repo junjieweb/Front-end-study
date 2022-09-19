@@ -20,7 +20,7 @@ import Item from "./Item";
 export default {
   name: "List",
   components: {Item},
-  props: ['comments', 'deleteComment']//声明接收属性
+  props: ['comments', 'deleteComment'] // 声明接收属性
 }
 </script>
 
