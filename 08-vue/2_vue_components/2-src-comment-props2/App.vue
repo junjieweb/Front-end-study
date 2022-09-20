@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       comments: [
-        {id: 1, content: 'vue挺好', username: '洛丽塔'},
+        {id: 1, content: 'vue很好', username: '洛丽塔'},
         {id: 2, content: 'vue真棒', username: '达芬奇'},
         {id: 3, content: 'vue厉害', username: '牛顿'},
       ]
