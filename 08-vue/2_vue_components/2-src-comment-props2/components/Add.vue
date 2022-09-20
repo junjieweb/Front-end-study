@@ -40,7 +40,7 @@ export default {
         }
         this.addComment(obj)
       } else {
-        alert('请输入合法的内容')
+        alert('请输入合法的内容！')
       }
       this.username = ''
       this.content = ''
