@@ -21,7 +21,7 @@
 export default {
   name: "Item",
   props: {
-    //props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
+    // props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
     todo: Object,
     index: {
       type: Number,
@@ -46,7 +46,7 @@ export default {
       }
     }
   }
-  //data中不能出现this
+  // data中不能出现this
   /*computed: {
     isCheck: {
       get() {
