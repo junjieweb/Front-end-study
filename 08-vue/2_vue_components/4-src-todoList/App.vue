@@ -38,7 +38,7 @@ export default {
   },
   watch: {
     todos: {
-      //代表深度监视
+      // 代表深度监视
       /*
         一般监视和深度监视
         一般监视，监视的是数组的数据，但是数组内部对象的数据监视不到
@@ -76,25 +76,25 @@ export default {
     }
   },
   methods: {
-    //添加一个新的
+    // 添加一个新的
     addTodo(todo) {
       this.todos.unshift(todo)
     },
-    //更新一个
+    // 更新一个
     updateOne(index) {
       this.todos[index].isOver = !this.todos[index].isOver
     },
-    //删除一个
+    // 删除一个
     deleteOne(index) {
       this.todos.splice(index, 1)
     },
-    //更新全选or全部选
+    // 更新全选or全部选
     updateAll(val) {
       this.todos.forEach(item => item.isOver = val)
     },
-    //删除所有
+    // 删除所有
     deleteAll() {
-      //把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
+      // 把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
       this.todos = this.todos.filter(item => !item.isOver)
     }
   }
