@@ -23,7 +23,7 @@ import PubSub from 'pubsub-js'
 export default {
   name: "Item",
   props: {
-    //props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
+    // props的第二种写法，写对象，可以对传递过来的属性值类型进行限定
     todo: Object,
     index: {
       type: Number,
@@ -40,23 +40,23 @@ export default {
   },
   methods: {
     updateO() {
-      //props
+      // props
       // this.updateOne(this.index)
 
-      //消息的发布
+      // 消息的发布
       PubSub.publish('heihei', this.index)
     },
     deleteO() {
       if (confirm('确认删除吗？')) {
-        //props
+        // props
         // this.deleteOne(this.index)
 
-        //全局事件总线
+        // 全局事件总线
         this.$bus.$emit('deleteOne', this.index)
       }
     }
   }
-  //data中不能出现this
+  // data中不能出现this
   /*computed: {
     isCheck: {
       get() {
