@@ -30,10 +30,10 @@ export default {
     Footer
   },
   mounted() {
-    //在App中找到总线，给总线绑定一个事件 'deleteOne'
+    // 在App中找到总线，给总线绑定一个事件 'deleteOne'
     this.$bus.$on('deleteOne', this.deleteOne)
 
-    //消息订阅处理updateOne
+    // 消息订阅处理updateOne
     PubSub.subscribe('heihei', this.updateOne)
   },
   data() {
@@ -50,26 +50,26 @@ export default {
     }
   },
   methods: {
-    //添加一个新的
+    // 添加一个新的
     addTodo(todo) {
       this.todos.unshift(todo)
     },
-    //更新一个
-    //msg是消息订阅和发布，传递过来的消息名，即使不用也要占位
+    // 更新一个
+    // msg是消息订阅和发布，传递过来的消息名，即使不用也要占位
     updateOne(msg, index) {
       this.todos[index].isOver = !this.todos[index].isOver
     },
-    //删除一个
+    // 删除一个
     deleteOne(index) {
       this.todos.splice(index, 1)
     },
-    //更新全选or全部选
+    // 更新全选or全部选
     updateAll(val) {
       this.todos.forEach(item => item.isOver = val)
     },
-    //删除所有
+    // 删除所有
     deleteAll() {
-      //把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
+      // 把没打勾的过滤出来组成新数组，把原数组修改为这个新数组
       this.todos = this.todos.filter(item => !item.isOver)
     }
   }
