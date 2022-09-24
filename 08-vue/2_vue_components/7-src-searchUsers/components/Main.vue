@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     searchAjax(q) {
-      //修改页面显示的状态数据，为了让页面显示正在搜索
+      // 修改页面显示的状态数据，为了让页面显示正在搜索
       this.isFirst = false
       this.isLoading = true
       axios({
