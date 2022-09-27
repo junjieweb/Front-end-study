@@ -20,8 +20,8 @@ export default {
     }
   },*/
 
-  //如果是映射方法，无论是actions还是mutations的方法都映射到methods里面
-  //如果是映射属性数据，无论是state的数据还是getters中的方法，都映射到computed里面
+  // 如果是映射方法，无论是actions还是mutations的方法都映射到methods里面
+  // 如果是映射属性数据，无论是state的数据还是getters中的方法，都映射到computed里面
   computed: {
     ...mapState(['count'])
     // count(){
@@ -32,8 +32,8 @@ export default {
   // methods:mapActions(['increment','decrement','incrementIfOdd','incrementAsync'])
 
   methods: {
-    //这个函数允许传递一个数组，当回调函数名字和actions中方法名字一样的时候
-    //这个函数调用之后返回的是一个对象，对象如下：
+    // 这个函数允许传递一个数组，当回调函数名字和actions中方法名字一样的时候
+    // 这个函数调用之后返回的是一个对象，对象如下：
     /*{
       increment() {
         // this.count++
@@ -57,9 +57,9 @@ export default {
         this.$store.dispatch('incrementAsync')
       }
     }*/
-    //名字一样可以纸样传递数组
+    // 名字一样可以纸样传递数组
     ...mapActions(['increment', 'decrement', 'incrementIfOdd', 'incrementAsync'])
-    //名字不一样的必须使用对象
+    // 名字不一样的必须使用对象
     /*...mapActions(["decrement", "incrementIfOdd", "incrementAsync"]),
 
     ...mapActions({
@@ -68,7 +68,7 @@ export default {
       },
     }),*/
 
-    //最原始的写法
+    // 最原始的写法
     /*increment() {
       // this.count++
       //dispatch 和 emit 都是触发分发的意思，分发触发actions中对于的方法
