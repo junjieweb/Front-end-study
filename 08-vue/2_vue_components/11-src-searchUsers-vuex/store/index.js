@@ -25,11 +25,11 @@ const mutations = {
     }
 }
 const actions = {
-    //如果actions中的方法，第一个参数一定是context，就算不用也要占位
-    //第二个参数才是dispatch的时候传递过来的参数
+    // 如果actions中的方法，第一个参数一定是context，就算不用也要占位
+    // 第二个参数才是dispatch的时候传递过来的参数
     async searchAjax({commit}, q) {
         try {
-            //修改页面显示的状态数据，为了让页面显示正在搜索
+            // 修改页面显示的状态数据，为了让页面显示正在搜索
             // this.isFirst = false
             // this.isLoading = true
             commit('REQUESTING')
