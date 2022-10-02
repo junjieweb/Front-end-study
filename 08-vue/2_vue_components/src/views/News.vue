@@ -35,13 +35,13 @@ export default {
   },
   methods: {
     toNewsDetail(news) {
-      //跳转路由切换组件，有历史记录，返回的时候可以返回到之前去过的地方
+      // 跳转路由切换组件，有历史记录，返回的时候可以返回到之前去过的地方
       // this.$router.push()
       // this.$router.push('/home/news/newsdetail/' + news.id + '?content=' + news.content)
       // this.$router.push(`/home/news/newsdetail/${news.id}?content=${news.content}`)
       // this.$router.push({name: 'newsdetail', params: {newsid: news.id}, query: {content: news.content}})
 
-      //跳转路由切换组件，没有有历史记录，返回的时候不可以返回到之前去过的地方
+      // 跳转路由切换组件，没有有历史记录，返回的时候不可以返回到之前去过的地方
       // this.$router.replace()
       this.$router.replace({name: 'newsdetail', params: {newsid: news.id}, query: {content: news.content}})
     }
