@@ -11,8 +11,8 @@ module.exports = {
                     pathRewrite  4000/api/users/info   和真正的地方多了个/api 需要把/api剁掉
                 */
                 target: 'http://localhost:4000',
-                pathRewrite: {"^/api": ""}, //4000/users/info
-                changeOrigin: true //不管改变哪个跨域的条件都会转发
+                pathRewrite: {"^/api": ""}, // 4000/users/info
+                changeOrigin: true // 不管改变哪个跨域的条件都会转发
             }
         }
     }
