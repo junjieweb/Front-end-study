@@ -8,6 +8,7 @@ export const myMixin = {
         console.log('你好啊！')
     },
 }
+
 export const myMixin2 = {
     data() {
         return {
