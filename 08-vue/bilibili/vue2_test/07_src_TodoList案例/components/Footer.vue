@@ -17,33 +17,33 @@ export default {
   name: "Footer",
   props: ["todos", "checkAllTodo", "clearAllTodo"],
   computed: {
-    //总数
+    // 总数
     total() {
       return this.todos.length;
     },
-    //已完成数
+    // 已完成数
     doneTotal() {
-      //此处使用reduce方法做条件统计
+      // 此处使用reduce方法做条件统计
       return this.todos.reduce((pre, current) => {
         return pre + (current.done ? 1 : 0);
       }, 0);
-      //简写
+      // 简写
       // return  this.todos.reduce((pre, current) => pre + (current.done ? 1 : 0), 0);
     },
-    //控制全选框
+    // 控制全选框
     isAll: {
-      //全选框是否勾选
+      // 全选框是否勾选
       get() {
         return this.doneTotal === this.total && this.total > 0;
       },
-      //isAll被修改时set被调用
+      // isAll被修改时set被调用
       set(value) {
         this.checkAllTodo(value);
       },
     },
   },
   methods: {
-    //清空所有已完成
+    // 清空所有已完成
     clearAll() {
       this.clearAllTodo();
     },
