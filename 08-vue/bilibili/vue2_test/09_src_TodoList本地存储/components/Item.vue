@@ -23,15 +23,15 @@ export default {
   name: "Item",
   props: ["todo", "checkTodo", "deleteTodo"],
   methods: {
-    //勾选or取消勾选
+    // 勾选or取消勾选
     handleCheck(id) {
-      //通知App组件将对应的todo对象的done值取反
+      // 通知App组件将对应的todo对象的done值取反
       this.checkTodo(id);
     },
-    //删除
+    // 删除
     handleDelete(id) {
       if (confirm("确定删除吗？")) {
-        //通知App组件将对应的todo对象删除
+        // 通知App组件将对应的todo对象删除
         this.deleteTodo(id);
       }
     },
