@@ -28,7 +28,7 @@ export default {
       this.number++;
     },
     sendStudentName() {
-      //触发Student组件实例身上的hello事件
+      // 触发Student组件实例身上的hello事件
       this.$emit("hello", this.name, 1, 3, 54);
       // this.$emit("demo");
       // this.$emit("click");
@@ -39,7 +39,7 @@ export default {
       // this.$off(); //解绑所有自定义事件
     },
     death() {
-      this.$destroy(); //销毁了当前Student组件的实例，销毁后所有Student实例的自定义事件全都不奏效。
+      this.$destroy(); // 销毁了当前Student组件的实例，销毁后所有Student实例的自定义事件全都不奏效。
     },
   },
 };
