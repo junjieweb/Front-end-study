@@ -43,9 +43,9 @@ export default {
     },
   },
   mounted() {
-    //绑定自定义事件
+    // 绑定自定义事件
     this.$refs.student.$on("hello", this.getStudentName);
-    //绑定自定义事件（只触发一次）
+    // 绑定自定义事件（只触发一次）
     // this.$refs.student.$once("hello", this.getStudentName);
   },
 };
