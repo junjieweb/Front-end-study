@@ -39,32 +39,32 @@ export default {
   name: "Item",
   props: ["todo"],
   methods: {
-    //勾选or取消勾选
+    // 勾选or取消勾选
     handleCheck(id) {
-      //通知App组件将对应的todo对象的done值取反
+      // 通知App组件将对应的todo对象的done值取反
       this.$bus.$emit("checkTodo", id);
     },
-    //删除
+    // 删除
     handleDelete(id) {
       if (confirm("确定删除吗？")) {
-        //通知App组件将对应的todo对象删除
+        // 通知App组件将对应的todo对象删除
         // this.$bus.$emit("deleteTodo", id);
         pubsub.publish("deleteTodo", id);
       }
     },
-    //编辑
+    // 编辑
     handleEdit(todo) {
       if (todo.hasOwnProperty("isEdit")) {
         todo.isEdit = true;
       } else {
         this.$set(todo, "isEdit", true);
       }
-      //$nextTick()中的回调，会在DOM节点更新完毕再执行
+      // $nextTick()中的回调，会在DOM节点更新完毕再执行
       this.$nextTick(function () {
         this.$refs.inputTitle.focus();
       });
     },
-    //失去焦点回调（真正执行修改逻辑）
+    // 失去焦点回调（真正执行修改逻辑）
     handleBlur(todo, e) {
       todo.isEdit = false;
       if (!e.target.value.trim()) return alert("输入不能为空！");
