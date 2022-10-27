@@ -33,11 +33,11 @@ export default {
     };
   },
   methods: {
-    //添加一个todo
+    // 添加一个todo
     addTodo(todo) {
       this.todos.unshift(todo);
     },
-    //勾选or取消勾选一个todo
+    // 勾选or取消勾选一个todo
     checkTodo(id) {
       this.todos.forEach((todo) => {
         if (todo.id === id) {
@@ -45,21 +45,21 @@ export default {
         }
       });
     },
-    //删除一个todo
+    // 删除一个todo
     deleteTodo(_, id) {
       this.todos = this.todos.filter((todo) => todo.id !== id);
     },
-    //全选or取消全选
+    // 全选or取消全选
     checkAllTodo(done) {
       this.todos.forEach((todo) => {
         todo.done = done;
       });
     },
-    //清除所有已经完成的todo
+    // 清除所有已经完成的todo
     clearAllTodo() {
       this.todos = this.todos.filter((todo) => !todo.done);
     },
-    //更新一个todo
+    // 更新一个todo
     updateTodo(id, title) {
       this.todos.forEach((todo) => {
         if (todo.id === id) {
