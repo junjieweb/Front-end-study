@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     searchUsers() {
-      //请求前更新List数据
+      // 请求前更新List数据
       this.$bus.$emit("updateListData", {
         isLoading: true,
         isFirst: false,
@@ -35,7 +35,7 @@ export default {
           .then(
               (response) => {
                 console.log("请求成功了", response.data.items);
-                //请求成功后更新List数据
+                // 请求成功后更新List数据
                 this.$bus.$emit("updateListData", {
                   isLoading: false,
                   errMsg: "",
@@ -43,7 +43,7 @@ export default {
                 });
               },
               (error) => {
-                //请求失败后更新List数据
+                // 请求失败后更新List数据
                 this.$bus.$emit("updateListData", {
                   isLoading: false,
                   errMsg: error.message,
