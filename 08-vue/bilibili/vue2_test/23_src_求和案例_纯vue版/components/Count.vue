@@ -19,8 +19,8 @@ export default {
 
   data() {
     return {
-      n: 1, //用户选择的数字
-      sum: 0, //当前的和
+      n: 1, // 用户选择的数字
+      sum: 0, // 当前的和
     };
   },
   methods: {
