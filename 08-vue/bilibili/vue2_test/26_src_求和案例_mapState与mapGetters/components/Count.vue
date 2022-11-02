@@ -23,11 +23,11 @@ export default {
 
   data() {
     return {
-      n: 1, //用户选择的数字
+      n: 1, // 用户选择的数字
     };
   },
   computed: {
-    //靠程序员自己亲自去写计算属性
+    // 靠程序员自己亲自去写计算属性
     /* sum() {
       return this.$store.state.sum;
     },
@@ -38,7 +38,7 @@ export default {
       return this.$store.state.subject;
     }, */
 
-    //借助mapState生成计算属性，从state中读取数据。（对象写法）
+    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
     // ...mapState({ sum: "sum", school: "school", subject: "subject" }),
     //借助mapState生成计算属性，从state中读取数据。（数组写法）
     ...mapState(["sum", "school", "subject"]),
@@ -47,9 +47,9 @@ export default {
     /* bigSum() {
       return this.$store.getters.bigSum;
     }, */
-    //借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
+    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
     // ...mapGetters({bigSum:'bigSum'}),
-    //借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
+    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
     ...mapGetters(["bigSum"]),
   },
   methods: {
