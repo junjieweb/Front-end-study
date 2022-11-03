@@ -23,20 +23,20 @@ export default {
 
   data() {
     return {
-      n: 1, //用户选择的数字
+      n: 1, // 用户选择的数字
     };
   },
   computed: {
-    //借助mapState生成计算属性，从state中读取数据。（对象写法）
+    // 借助mapState生成计算属性，从state中读取数据。（对象写法）
     // ...mapState({ sum: "sum", school: "school", subject: "subject" }),
-    //借助mapState生成计算属性，从state中读取数据。（数组写法）
+    // 借助mapState生成计算属性，从state中读取数据。（数组写法）
     ...mapState(["sum", "school", "subject"]),
 
     /* ============================================================ */
 
-    //借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
+    // 借助mapGetters生成计算属性，从getters中读取数据。（对象写法）
     // ...mapGetters({bigSum:'bigSum'}),
-    //借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
+    // 借助mapGetters生成计算属性，从getters中读取数据。（数组写法）
     ...mapGetters(["bigSum"]),
   },
   methods: {
@@ -47,9 +47,9 @@ export default {
       this.$store.commit("DECREMENT", this.n);
     }, */
 
-    //借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(对象写法)
+    // 借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(对象写法)
     ...mapMutations({increment: "INCREMENT", decrement: "DECREMENT"}),
-    //借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(数组写法)
+    // 借助mapMutations生成对应的方法，方法中会调用commit去联系mutations(数组写法)
     // ...mapMutations(["INCREMENT", "DECREMENT"]),
 
     /* =============================================================== */
@@ -60,9 +60,9 @@ export default {
       this.$store.dispatch("incrementWait", this.n);
     }, */
 
-    //借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(对象写法)
+    // 借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(对象写法)
     // ...mapActions({incrementOdd:'incrementOdd',incrementWait:'incrementWait'}),
-    //借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(数组写法)
+    // 借助mapActions生成对应的方法，方法中会调用dispatch去联系actions(数组写法)
     ...mapActions(["incrementOdd", "incrementWait"]),
   },
 };
