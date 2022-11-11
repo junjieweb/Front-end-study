@@ -1,4 +1,4 @@
-//人员管理相关的配置
+// 人员管理相关的配置
 import axios from "axios"
 import {nanoid} from "nanoid"
 
