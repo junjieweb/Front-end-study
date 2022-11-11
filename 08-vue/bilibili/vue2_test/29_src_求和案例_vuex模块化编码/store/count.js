@@ -1,4 +1,4 @@
-//求和相关的配置
+// 求和相关的配置
 export default {
     namespaced: true,
     actions: {
@@ -22,7 +22,7 @@ export default {
         },
     },
     state: {
-        sum: 0, //当前的和
+        sum: 0, // 当前的和
         school: 'bilibili',
         subject: '前端',
     },
